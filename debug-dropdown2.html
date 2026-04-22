@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Dropdown Test - Minimal</title>
+<link rel="stylesheet" href="/styles.css">
+<style>
+body { padding-top:100px; }
+.test-info { position:fixed; top:10px; left:10px; z-index:9999; background:#fff; padding:12px; border:2px solid red; font:12px monospace; max-width:400px;}
+</style>
+</head>
+<body>
+<div class="test-info" id="info">Loading...</div>
+
+<nav class="navbar" id="navbar">
+  <div class="container"><div class="nav-inner">
+    <ul class="nav-menu" id="navMenu">
+      <li class="nav-item">
+        <a href="#" class="nav-link">Products ▾</a>
+        <div class="dropdown">
+          <a href="#cat1">Category One</a>
+          <a href="#cat2">Category Two</a>
+          <a href="#cat3">Category Three</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link active">News ▾</a>
+        <div class="dropdown">
+          <a href="#industry-knowledge">Industry Knowledge</a>
+          <a href="#material-guide">Material Guide</a>
+          <a href="#printing-technology">Printing Technology</a>
+        </div>
+      </li>
+      <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
+    </ul>
+  </div></div>
+</nav>
+
+<h2 style="padding:40px;">Hover over "Products" and "News" in the navbar above to test dropdowns.</h2>
+<p>If dropdowns appear and are clickable, the issue is page-specific (JS conflict).</p>
+<p>If dropdowns do NOT appear or aren't clickable, it's a global CSS/structure issue.</p>
+
+<script>
+const info = document.getElementById('info');
+function updateInfo() {
+  const nb = document.querySelector('.navbar');
+  const nbs = nb ? getComputedStyle(nb) : null;
+  const dds = document.querySelectorAll('.dropdown');
+  let html = '<b>Navbar:</b><br>';
+  if (nbs) {
+    html += `overflow=${nbs.overflow} pos=${nbs.position} zIndex=${nbs.zIndex}<br>`;
+  }
+  html += `<b>Dropdowns:</b> ${dds.length}<br>`;
+  dds.forEach((d, i) => {
+    const s = getComputedStyle(d);
+    const r = d.getBoundingClientRect();
+    html += `#${i}: z=${s.zIndex} op=${s.opacity} vis=${s.visibility} rect=[${r.top.toFixed(0)},${r.left.toFixed(0)},${r.width.toFixed(0)}x${r.height.toFixed(0)}]<br>`;
+  });
+  
+  // Check nav-inner
+  const ni = document.querySelector('.nav-inner');
+  const nis = ni ? getComputedStyle(ni) : null;
+  if (nis) html += `<b>nav-inner:</b> overflow=${nis.overflow}<br>`;
+  
+  // Check for overlapping elements
+  document.querySelectorAll('*').forEach(el => {
+    const s = getComputedStyle(el);
+    const r = el.getBoundingClientRect();
+    if ((s.position === 'fixed' || s.position === 'sticky') && r.top >= -5 && r.top <= 120 && r.width > 100 && !el.closest('.navbar')) {
+      html += `<span style='color:red'>⚠️ OVERLAP: </span>${el.tagName}.${el.className?.toString()?.substring(0,30)} pos=${s.position} t=${r.top.toFixed(0)}<br>`;
+    }
+  });
+  
+  info.innerHTML = html;
+}
+
+updateInfo();
+// Re-check on mouse movement
+document.addEventListener('mousemove', updateInfo);
+</script>
+</body></html>

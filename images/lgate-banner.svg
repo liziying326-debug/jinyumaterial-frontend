@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <rect width="400" height="300" fill="#F5F3FF" rx="16"/>
+  
+  <!-- L-gate / entrance banner frame -->
+  <!-- two vertical poles -->
+  <rect x="90" y="50" width="12" height="220" rx="6" fill="#7C3AED"/>
+  <rect x="298" y="50" width="12" height="220" rx="6" fill="#7C3AED"/>
+  <!-- top horizontal bar -->
+  <rect x="90" y="50" width="220" height="14" rx="7" fill="#6D28D9"/>
+  <!-- banner on top section -->
+  <rect x="102" y="64" width="196" height="100" rx="3" fill="#EDE9FE"/>
+  <rect x="112" y="74" width="176" height="20" rx="3" fill="#8B5CF6" opacity="0.5"/>
+  <rect x="112" y="104" width="130" height="8" rx="2" fill="#C4B5FD"/>
+  <rect x="112" y="120" width="150" height="8" rx="2" fill="#C4B5FD"/>
+  <!-- bottom feet/base -->
+  <rect x="70" y="265" width="55" height="12" rx="6" fill="#7C3AED"/>
+  <rect x="275" y="265" width="55" height="12" rx="6" fill="#7C3AED"/>
+
+</svg>

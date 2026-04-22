@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <rect width="400" height="300" fill="#0C4A6E" rx="16"/>
+  
+  <!-- light box glow -->
+  <rect x="80" y="70" width="240" height="160" rx="10" fill="#0369A1"/>
+  <!-- inner glow -->
+  <rect x="90" y="80" width="220" height="140" rx="8" fill="#0EA5E9" opacity="0.6"/>
+  <ellipse cx="200" cy="150" rx="80" ry="55" fill="#7DD3FC" opacity="0.5"/>
+  <!-- film strip holes top/bottom -->
+  <circle cx="115" cy="82" r="7" fill="#0C4A6E"/>
+  <circle cx="145" cy="82" r="7" fill="#0C4A6E"/>
+  <circle cx="255" cy="82" r="7" fill="#0C4A6E"/>
+  <circle cx="285" cy="82" r="7" fill="#0C4A6E"/>
+  <circle cx="115" cy="218" r="7" fill="#0C4A6E"/>
+  <circle cx="145" cy="218" r="7" fill="#0C4A6E"/>
+  <circle cx="255" cy="218" r="7" fill="#0C4A6E"/>
+  <circle cx="285" cy="218" r="7" fill="#0C4A6E"/>
+  <!-- light rays -->
+  <line x1="200" y1="150" x2="140" y2="90" stroke="white" stroke-width="1.5" opacity="0.3"/>
+  <line x1="200" y1="150" x2="260" y2="90" stroke="white" stroke-width="1.5" opacity="0.3"/>
+  <line x1="200" y1="150" x2="200" y2="85" stroke="white" stroke-width="1.5" opacity="0.3"/>
+
+</svg>

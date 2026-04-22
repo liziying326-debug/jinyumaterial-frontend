@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <rect width="400" height="300" fill="#EFF6FF" rx="16"/>
+  
+  <!-- feather / water-base flagpole -->
+  <!-- water base -->
+  <rect x="150" y="230" width="100" height="30" rx="8" fill="#BAE6FD"/>
+  <rect x="160" y="235" width="80" height="20" rx="6" fill="#93C5FD"/>
+  <!-- pole -->
+  <rect x="195" y="60" width="10" height="175" rx="5" fill="#64748B"/>
+  <!-- feather flag shape -->
+  <path d="M205 65 C260 65 280 100 270 145 C260 185 225 200 205 200" fill="#3B82F6" stroke="#2563EB" stroke-width="2"/>
+  <path d="M205 65 C205 65 205 200 205 200" fill="none" stroke="#1D4ED8" stroke-width="2"/>
+  <!-- spike bottom of pole -->
+  <polygon points="190,258 210,258 200,275" fill="#475569"/>
+
+</svg>

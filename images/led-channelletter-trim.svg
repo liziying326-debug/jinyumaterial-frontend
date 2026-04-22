@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <rect width="400" height="300" fill="#1E1B4B" rx="16"/>
+  
+  <!-- channel letter "A" with LED trim -->
+  <!-- letter A shape -->
+  <polygon points="200,50 270,220 245,220 220,155 180,155 155,220 130,220" fill="none" stroke="#4F46E5" stroke-width="6"/>
+  <line x1="185" y1="155" x2="215" y2="155" stroke="#4F46E5" stroke-width="6"/>
+  <!-- LED dots around outline -->
+  <circle cx="200" cy="52" r="4" fill="#FDE68A"/>
+  <circle cx="218" cy="95" r="4" fill="#FDE68A"/>
+  <circle cx="235" cy="138" r="4" fill="#FDE68A"/>
+  <circle cx="248" cy="178" r="4" fill="#FDE68A"/>
+  <circle cx="262" cy="218" r="4" fill="#FDE68A"/>
+  <circle cx="182" cy="95" r="4" fill="#FDE68A"/>
+  <circle cx="165" cy="138" r="4" fill="#FDE68A"/>
+  <circle cx="152" cy="178" r="4" fill="#FDE68A"/>
+  <circle cx="138" cy="218" r="4" fill="#FDE68A"/>
+  <!-- glow effect -->
+  <polygon points="200,50 270,220 245,220 220,155 180,155 155,220 130,220" fill="#6366F1" opacity="0.1"/>
+
+</svg>

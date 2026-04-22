@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case Detail – Jin Yu Advertising Materials</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <script src="/i18n.js?v=14"></script>
+  <style>
+    /* Page Banner */
+    .page-banner {
+      background: linear-gradient(135deg, #1e3a8a 0%, #1a4a7a 100%);
+      padding: 48px 0 40px;
+      margin-bottom: 0;
+    }
+
+    /* Case Detail Layout */
+    .case-detail {
+      padding: 48px 0 80px;
+    }
+    .case-detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 48px;
+      align-items: start;
+    }
+    @media (max-width: 1024px) {
+      .case-detail-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Main Content */
+    .case-detail-main {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+      overflow: hidden;
+    }
+
+    /* Media Gallery */
+    .case-media-main {
+      position: relative;
+      background: #1e293b;
+      border-radius: 16px 16px 0 0;
+      overflow: hidden;
+    }
+    .case-media-main .case-media-wrap {
+      /* 有视频时固定高度，无视频时自适应16:9 */
+      height: 280px;
+      position: relative;
+      cursor: pointer;
+    }
+    .case-media-main img,
+    .case-media-main video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .case-media-main .play-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,0.3);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .case-media-main .case-media-wrap:hover .play-overlay { opacity: 1; }
+    .case-play-btn {
+      width: 80px;
+      height: 80px;
+      background: rgba(37, 99, 235, 0.9);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s;
+    }
+    .case-media-main .case-media-wrap:hover .case-play-btn { transform: scale(1.1); }
+    .case-play-btn svg { width: 36px; height: 36px; fill: white; margin-left: 6px; }
+
+    /* Thumbnail Strip */
+    .case-media-thumbs {
+      display: flex;
+      gap: 8px;
+      padding: 12px;
+      background: #0f172a;
+      overflow-x: auto;
+    }
+    .case-thumb {
+      width: 80px;
+      height: 45px;
+      border-radius: 6px;
+      overflow: hidden;
+      cursor: pointer;
+      opacity: 0.6;
+      transition: opacity 0.2s, transform 0.2s;
+      flex-shrink: 0;
+      border: 2px solid transparent;
+    }
+    .case-thumb.active { opacity: 1; border-color: #3b82f6; }
+    .case-thumb:hover { opacity: 0.9; transform: scale(1.05); }
+    .case-thumb img { width: 100%; height: 100%; object-fit: cover; }
+    .case-thumb.video-thumb {
+      position: relative;
+    }
+    .case-thumb.video-thumb::after {
+      content: '▶';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 12px;
+      color: white;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    }
+
+    /* Case Content */
+    .case-content {
+      padding: 32px;
+    }
+    .case-title {
+      font-family: Montserrat, sans-serif;
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 16px;
+      line-height: 1.3;
+    }
+    .case-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+    .case-meta-chip {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 12px;
+      color: var(--gray-600);
+      background: var(--gray-100);
+      padding: 6px 12px;
+      border-radius: 20px;
+    }
+    .case-meta-chip strong { color: var(--primary); font-weight: 600; }
+
+    /* Markdown Content */
+    .case-description {
+      font-size: 15px;
+      color: var(--gray-700);
+      line-height: 1.8;
+      margin-bottom: 32px;
+    }
+    .case-description h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--primary);
+      margin: 24px 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #e2e8f0;
+    }
+    .case-description h2:first-child { margin-top: 0; }
+    .case-description p { margin-bottom: 16px; }
+    .case-description ul, .case-description ol {
+      margin: 16px 0;
+      padding-left: 24px;
+    }
+    .case-description li { margin-bottom: 8px; }
+    .case-description strong { color: var(--primary); font-weight: 600; }
+
+    /* Materials Section */
+    .case-materials-section {
+      background: #f8fafc;
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+    .case-materials-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--gray-500);
+      text-transform: uppercase;
+      letter-spacing: .8px;
+      margin-bottom: 12px;
+    }
+    .case-materials-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .case-mat-tag {
+      font-size: 13px;
+      background: #eff6ff;
+      color: #1d4ed8;
+      border: 1px solid #bfdbfe;
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-weight: 500;
+    }
+
+    /* Outcomes Section */
+    .case-outcomes {
+      background: linear-gradient(135deg, var(--primary) 0%, #1a4a7a 100%);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+    .case-outcomes-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.6);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+    .case-outcome-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14px;
+      color: rgba(255,255,255,0.95);
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
+    .case-outcome-item:last-child { margin-bottom: 0; }
+    .case-outcome-item::before {
+      content: '✓';
+      color: #60a5fa;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* Sidebar */
+    .case-detail-sidebar {
+      position: sticky;
+      top: 100px;
+    }
+
+    /* Related Cases */
+    .related-cases {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+      padding: 24px;
+    }
+    .related-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid #e2e8f0;
+    }
+    .related-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .related-item {
+      display: flex;
+      gap: 12px;
+      padding: 12px;
+      border-radius: 10px;
+      transition: background 0.2s;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+    }
+    .related-item:hover { background: #f1f5f9; }
+    .related-thumb {
+      width: 80px;
+      height: 60px;
+      border-radius: 8px;
+      overflow: hidden;
+      flex-shrink: 0;
+      background: #e2e8f0;
+    }
+    .related-thumb img { width: 100%; height: 100%; object-fit: cover; }
+    .related-info {
+      flex: 1;
+      min-width: 0;
+    }
+    .related-item-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 4px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .related-item-region {
+      font-size: 12px;
+      color: var(--gray-500);
+    }
+
+    /* Contact Card */
+    .contact-card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+      padding: 24px;
+      margin-top: 24px;
+    }
+    .contact-card h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 16px;
+    }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--gray-700);
+      margin-bottom: 12px;
+    }
+    .contact-item:last-child { margin-bottom: 0; }
+    .contact-icon {
+      width: 36px;
+      height: 36px;
+      background: #eff6ff;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+    }
+
+    /* Back Button */
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--gray-600);
+      font-size: 14px;
+      margin-bottom: 24px;
+      transition: color 0.2s;
+      text-decoration: none;
+    }
+    .back-btn:hover { color: var(--primary); }
+
+    /* Loading */
+    .loading-spinner {
+      width: 40px;
+      height: 40px;
+      border: 3px solid #e2e8f0;
+      border-top-color: var(--primary);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 80px auto;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* Lightbox */
+    .lightbox-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.92);
+      z-index: 10000;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 20px;
+    }
+    .lightbox-overlay.show { display: flex; }
+    .lightbox-content {
+      max-width: 90%;
+      max-height: 85vh;
+      position: relative;
+    }
+    .lightbox-content img,
+    .lightbox-content video {
+      max-width: 100%;
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: -50px;
+      right: 0;
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.15);
+      border: none;
+      border-radius: 50%;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+    .lightbox-close:hover { background: rgba(255,255,255,0.3); }
+    .lightbox-controls {
+      position: absolute;
+      bottom: -50px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 12px;
+    }
+    .lightbox-btn {
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.15);
+      border: none;
+      border-radius: 50%;
+      color: white;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+    .lightbox-btn:hover { background: rgba(255,255,255,0.3); }
+    .lightbox-caption {
+      color: rgba(255,255,255,0.8);
+      font-size: 14px;
+      margin-top: 16px;
+      text-align: center;
+    }
+  </style>
+  <script src="/api.js"></script>
+</head>
+<body id="top">
+
+<nav class="navbar" id="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <div class="logo-icon">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 28V12L20 8L32 12V28L20 32L8 28Z" stroke="#E8751A" stroke-width="2.5" fill="none"/>
+            <path d="M8 12L20 16L32 12" stroke="#E8751A" stroke-width="2.5"/>
+            <path d="M20 16V32" stroke="#E8751A" stroke-width="2.5"/>
+            <circle cx="20" cy="24" r="3" fill="#E8751A"/>
+            <text x="20" y="23" text-anchor="middle" fill="white" font-size="10" font-weight="800" font-family="Montserrat">JY</text>
+          </svg>
+        </div>
+        <div class="logo-text">
+          <div class="logo-name">Jin Yu</div>
+          <div class="logo-sub">Advertising Material</div>
+        </div>
+      </a>
+      <ul class="nav-menu" id="navMenu">
+        <li class="nav-item"><a href="/" class="nav-link" data-i18n="nav.home">Home</a></li>
+        <li class="nav-item">
+          <a href="/products" class="nav-link" data-i18n="nav.products">Products <svg viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+          <div class="dropdown" id="nav-product-dropdown"></div>
+        </li>
+        <li class="nav-item">
+          <a href="/applications" class="nav-link" data-i18n="nav.applications">Applications <svg viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+          <div class="dropdown">
+            <a href="/applications#sign-board" data-i18n="nav.applications_sub.signBoard">Sign Board</a>
+            <a href="/applications#light-box" data-i18n="nav.applications_sub.lightBox">Light Box</a>
+            <a href="/applications#digital-printing" data-i18n="nav.applications_sub.digitalPrinting">Digital Printing</a>
+            <a href="/applications#outdoor-advertising" data-i18n="nav.applications_sub.outdoorAdvertising">Outdoor Advertising</a>
+            <a href="/applications#exhibition-display" data-i18n="nav.applications_sub.exhibitionDisplay">Exhibition Display</a>
+          </div>
+        </li>
+        <li class="nav-item"><a href="/case-studies" class="nav-link active" data-i18n="nav.caseStudies">Cases / Videos</a></li>
+        <li class="nav-item">
+          <a href="/news" class="nav-link" data-i18n="nav.news">News <svg viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+          <div class="dropdown">
+            <a href="/news#industry-knowledge" data-i18n="nav.blog_sub.industryKnowledge">Industry Knowledge</a>
+            <a href="/news#material-guide" data-i18n="nav.blog_sub.materialGuide">Material Guide</a>
+            <a href="/news#printing-technology" data-i18n="nav.blog_sub.printingTechnology">Printing Technology</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a href="/about" class="nav-link" data-i18n="nav.aboutUs">About Us <svg viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+          <div class="dropdown">
+            <a href="/about#company-profile" data-i18n="nav.about_sub.companyProfile">Company Profile</a>
+            <a href="/about#factory" data-i18n="nav.about_sub.factory">Factory</a>
+            <a href="/about#production-capacity" data-i18n="nav.about_sub.productionCapacity">Production Capacity</a>
+            <a href="/about#certificates" data-i18n="nav.about_sub.certificates">Certificates</a>
+          </div>
+        </li>
+        <li class="nav-item"><a href="/contact" class="nav-link" data-i18n="nav.contactUs">Contact Us</a></li>
+      </ul>
+      <div class="nav-right">
+        <!-- Social Icons (动态加载) -->
+        <div class="nav-social" id="nav-social-icons"></div><div class="nav-divider"></div>
+        <div class="nav-lang" id="language-switcher">
+          <div class="lang-display">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+            <span class="lang-code">EN</span>
+          </div>
+        </div>
+        <div class="nav-divider"></div>
+        <a href="/contact" class="btn btn-primary btn-sm nav-cta" data-i18n="nav.getQuote">Get a Quote</a>
+      </div>
+      <div class="nav-hamburger" id="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</nav>
+
+<div class="page-banner">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="/" data-i18n="nav.home">Home</a>
+      <span class="sep">›</span>
+      <a href="/case-studies" data-i18n="nav.caseStudies">Cases / Videos</a>
+      <span class="sep">›</span>
+      <span class="current" id="breadcrumbTitle">Loading...</span>
+    </div>
+    <h1 id="pageTitle" data-i18n="case_detail.pageTitle">Case Detail</h1>
+  </div>
+</div>
+
+<div class="case-detail">
+  <div class="container">
+    <a href="/case-studies" class="back-btn" data-i18n="case_detail.backBtn">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Back to Cases
+    </a>
+
+    <div id="loadingContainer">
+      <div class="loading-spinner"></div>
+    </div>
+
+    <div class="case-detail-grid" id="caseDetailContent" style="display:none;">
+      <!-- Main Content -->
+      <div class="case-detail-main">
+        <!-- Media Gallery -->
+        <div class="case-media-main" id="caseMediaMain">
+          <div class="case-media-wrap" id="caseMediaWrap">
+            <img id="mainMediaImg" src="" alt="">
+            <div class="play-overlay" id="playOverlay" style="display:none;">
+              <div class="case-play-btn">
+                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="case-media-thumbs" id="mediaThumbs"></div>
+        </div>
+
+        <!-- Case Content -->
+        <div class="case-content">
+          <h1 class="case-title" id="caseTitle"></h1>
+          <div class="case-meta" id="caseMeta"></div>
+          <div class="case-description" id="caseDescription"></div>
+
+          <!-- Materials -->
+          <div class="case-materials-section" id="materialsSection" style="display:none;">
+            <div class="case-materials-title" data-i18n="case_detail.materials">Materials Used</div>
+            <div class="case-materials-list" id="materialsList"></div>
+          </div>
+
+          <!-- Outcomes -->
+          <div class="case-outcomes" id="outcomesSection" style="display:none;">
+            <div class="case-outcomes-label" data-i18n="case_detail.outcomes">Project Outcomes</div>
+            <div id="outcomesList"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <div class="case-detail-sidebar">
+        <!-- Related Cases -->
+        <div class="related-cases">
+          <div class="related-title" data-i18n="case_detail.relatedCases">Related Cases</div>
+          <div class="related-list" id="relatedList"></div>
+        </div>
+
+        <!-- Contact Card -->
+        <div class="contact-card">
+          <h3 data-i18n="case_detail.contactTitle">Get a Quote for Your Project</h3>
+          <div class="contact-item">
+            <div class="contact-icon">📧</div>
+            <div>
+              <div style="font-size:12px;color:var(--gray-500);" data-i18n="case_detail.email">Email</div>
+              <a href="mailto:vivian@materials-ad.com">vivian@materials-ad.com</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">💬</div>
+            <div>
+              <div style="font-size:12px;color:var(--gray-500);">WhatsApp</div>
+              <a href="https://wa.me/8613808828019" target="_blank">+86 138 0882 8019</a>
+            </div>
+          </div>
+          <a href="/contact" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:16px;" data-i18n="case_detail.contactBtn">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Lightbox -->
+<div class="lightbox-overlay" id="lightboxOverlay" onclick="if(event.target===this)closeLightbox()">
+  <div class="lightbox-content" id="lightboxContent">
+    <button class="lightbox-close" onclick="closeLightbox()" title="Close (Esc)">×</button>
+  </div>
+  <div class="lightbox-controls">
+    <button class="lightbox-btn" onclick="prevLightbox()" title="Previous (←)">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="white"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+    </button>
+    <button class="lightbox-btn" onclick="nextLightbox()" title="Next (→)">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="white"><path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/></svg>
+    </button>
+  </div>
+  <div class="lightbox-caption" id="lightboxCaption"></div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo-name" data-i18n="footer.companyName">Foshan Jin Yu Advertising Material Co., Ltd</div>
+        <div class="footer-logo-sub" data-i18n="footer.companySub">Professional Advertising Materials Manufacturer Since 2009</div>
+        <p data-i18n="footer.companyDesc">Integrated design, R&D, production and sales of advertising materials. ISO 9001 certified. Exporting to Europe, Americas, Southeast Asia, Middle East and beyond.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px;">
+          <span class="cert-badge" data-i18n="footer.isoBadge">🏅 ISO 9001</span>
+          <span class="cert-badge" data-i18n="footer.exportBadge">🌍 Global Export</span>
+        </div>
+        <div id="footer-social-icons" style="display:flex;gap:12px;margin-top:16px;align-items:center;"></div>
+        <div style="margin-top:20px;">
+          <div class="footer-contact-item"><span class="fi">📍</span><span data-i18n="footer.address">D3168, U+Zhigu Industrial Park, LiShui Town, Nanhai District, Foshan City, Guangdong Province, China</span></div>
+          <div class="footer-contact-item"><span class="fi">📞</span><span><a href="tel:+8613570441363" style="color:rgba(255,255,255,0.7)">+86-13570441363</a></span></div>
+          <div class="footer-contact-item"><span class="fi">💬</span><span><a href="https://wa.me/8613808828019" target="_blank" style="color:rgba(255,255,255,0.7)" data-i18n="footer.whatsapp">WhatsApp: +86 138 0882 8019</a></span></div>
+          <div class="footer-contact-item"><span class="fi">✉️</span><span><a href="mailto:vivian@materials-ad.com" style="color:rgba(255,255,255,0.7)">vivian@materials-ad.com</a></span></div>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer.productsTitle">Products</h4>
+        <a href="/products#self-adhesive-vinyl" data-i18n="footer.prod.sav">Self Adhesive Vinyl</a>
+        <a href="/products#flex-banner" data-i18n="footer.prod.flexBanner">PVC Flex Banner</a>
+        <a href="/products#one-way-vision" data-i18n="footer.prod.oneWay">One Way Vision</a>
+        <a href="/products#cutting-vinyl" data-i18n="footer.prod.cutting">Cutting Vinyl</a>
+        <a href="/products#pvc-foam-board" data-i18n="footer.prod.pvcFoam">PVC Foam Board</a>
+        <a href="/products#acrylic-sheet" data-i18n="footer.prod.acrylic">Acrylic Sheet</a>
+        <a href="/products#aluminum-composite-panel" data-i18n="footer.prod.acp">Aluminum Composite Panel</a>
+        <a href="/products#reflective-sheet" data-i18n="footer.prod.reflective">Reflective Sheet</a>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer.applicationsTitle">Applications</h4>
+        <a href="/applications#sign-board" data-i18n="footer.app.signBoard">Sign Board</a>
+        <a href="/applications#light-box" data-i18n="footer.app.lightBox">Light Box</a>
+        <a href="/applications#digital-printing" data-i18n="footer.app.digital">Digital Printing</a>
+        <a href="/applications#outdoor-advertising" data-i18n="footer.app.outdoor">Outdoor Advertising</a>
+        <a href="/applications#exhibition-display" data-i18n="footer.app.exhibition">Exhibition Display</a>
+        <h4 style="margin-top:20px;" data-i18n="footer.companyTitle">Company</h4>
+        <a href="/about#company-profile" data-i18n="footer.company.profile">Company Profile</a>
+        <a href="/about#factory" data-i18n="footer.company.factory">Factory</a>
+        <a href="/about#certificates" data-i18n="footer.company.certificates">Certificates</a>
+        <a href="/case-studies" data-i18n="footer.company.cases">Case Studies</a>
+        <a href="/news" data-i18n="footer.company.news">News</a>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer.quickContactTitle">Quick Contact</h4>
+        <p style="font-size:13px;color:rgba(255,255,255,0.55);margin-bottom:16px;" data-i18n="footer.quickContactDesc">Get pricing and product details within 24 hours.</p>
+        <a href="/contact" class="btn btn-primary" style="width:100%;justify-content:center;margin-bottom:12px;color:#ffffff;" data-i18n="footer.getQuote">Get a Quote</a>
+        <a href="https://wa.me/8613808828019" target="_blank" class="btn btn-outline" style="width:100%;justify-content:center;color:#ffffff;" data-i18n="footer.whatsappNow">💬 WhatsApp Now</a>
+        <div style="margin-top:20px;padding:16px;background:rgba(255,255,255,0.05);border-radius:var(--radius);border:1px solid rgba(255,255,255,0.08);">
+          <div style="font-size:11px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;" data-i18n="footer.businessHours">Business Hours</div>
+          <div style="font-size:13px;color:rgba(255,255,255,0.75);" data-i18n="footer.weekday">Mon – Fri: 09:00 – 18:00 (GMT+8)</div>
+          <div style="font-size:13px;color:rgba(255,255,255,0.75);" data-i18n="footer.saturday">Sat: 09:00 – 13:00</div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p data-i18n="footer.copyright">© 2024 Foshan Jin Yu Advertising Material Co., Ltd. All Rights Reserved.</p>
+      <p data-i18n="footer.certified">ISO 9001 Certified · Foshan, Guangdong, China</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function() {
+  var _currentCase = null;
+  var _allCases = [];
+  var _lightboxItems = [];
+  var _lightboxIdx = 0;
+  // 翻译缓存
+  var _transCache = {};
+
+  function getLang() {
+    try { return localStorage.getItem('jinyu_lang') || 'en'; } catch(e) { return 'en'; }
+  }
+
+  function getCaseId() {
+    // 支持 clean URL: /case-studies/:slug
+    var pathParts = window.location.pathname.replace(/^\/|\/$/g, '').split('/');
+    if (pathParts.length >= 2 && pathParts[0] === 'case-studies' && pathParts[1]) {
+      return pathParts[1];
+    }
+    // 兜底: ?id=xxx
+    var params = new URLSearchParams(window.location.search);
+    return params.get('id') || null;
+  }
+
+  function escHtml(s) {
+    return String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  // Translate markdown-like content to HTML
+  function mdToHtml(text) {
+    if (!text) return '';
+    text = text.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+    text = text.replace(/^## (.+)$/gm, '<h2>$1</h2>');
+    text = text.replace(/^# (.+)$/gm, '<h2>$1</h2>');
+    text = text.replace(/^- (.+)$/gm, '<li>$1</li>');
+    text = text.replace(/(<li>.*<\/li>\n?)+/g, '<ul>$&</ul>');
+    text = text.split('\n\n').map(function(p) {
+      if (p.match(/^<(h2|ul|ol)/)) return p;
+      return '<p>' + p.replace(/\n/g, '<br>') + '</p>';
+    }).join('');
+    return text;
+  }
+
+  function normalizeCase(c) {
+    if (c.title_zh || c.title_en || c.description_zh) return c;
+    var out = Object.assign({}, c);
+    var langMap = { en: '_en', zh: '_zh', vi: '_vi', ph: '_tl', tl: '_tl', fil: '_tl' };
+    if (c.langData && typeof c.langData === 'object') {
+      Object.keys(langMap).forEach(function(lang) {
+        var ld = c.langData[lang];
+        if (!ld) return;
+        var suffix = langMap[lang];
+        if (ld.title) out['title' + suffix] = ld.title;
+        if (ld.content) out['description' + suffix] = ld.content;
+        if (ld.slug && !out.slug) out.slug = ld.slug;
+        if (ld.alt && !out.alt) out.alt = ld.alt;
+      });
+      // 菲律宾语各后缀互通补充
+      var phSuffixes = ['_ph', '_fil', '_tl'];
+      phSuffixes.forEach(function(suf) {
+        if (!out['title' + suf] && out.title_tl) out['title' + suf] = out.title_tl;
+        if (!out['description' + suf] && out.description_tl) out['description' + suf] = out.description_tl;
+      });
+      if (!out.title) out.title = (c.langData.en && c.langData.en.title) || (c.langData.zh && c.langData.zh.title) || '';
+      if (!out.description) out.description = (c.langData.en && c.langData.en.content) || (c.langData.zh && c.langData.zh.content) || c.desc || '';
+    }
+    return out;
+  }
+
+  // 简单词汇静态翻译词典（region/category 这类字段不走 API，直接查表）
+  var STATIC_DICT = {
+    'zh': {
+      'Vietnam': '越南', 'Philippines': '菲律宾', 'China': '中国', 'Thailand': '泰国',
+      'Malaysia': '马来西亚', 'Indonesia': '印度尼西亚', 'Singapore': '新加坡',
+      'Retail': '零售', 'Restaurant': '餐饮', 'Outdoor': '户外', 'Outdoor Billboards (户外围挡)': '户外围挡广告',
+      'Signage': '标识标牌', 'Interior': '室内', 'Exhibition': '展览',
+      'Commercial': '商业', 'Advertising': '广告'
+    },
+    'vi': {
+      'Vietnam': 'Việt Nam', 'Philippines': 'Philippines', 'China': 'Trung Quốc',
+      'Thailand': 'Thái Lan', 'Malaysia': 'Malaysia', 'Indonesia': 'Indonesia',
+      'Retail': 'Bán lẻ', 'Restaurant': 'Nhà hàng', 'Outdoor': 'Ngoài trời',
+      'Outdoor Billboards (户外围挡)': 'Biển quảng cáo ngoài trời',
+      'Signage': 'Biển hiệu', 'Interior': 'Nội thất', 'Exhibition': 'Triển lãm',
+      'Commercial': 'Thương mại', 'Advertising': 'Quảng cáo'
+    },
+    'tl': {
+      'Vietnam': 'Vietnam', 'Philippines': 'Pilipinas', 'China': 'Tsina',
+      'Thailand': 'Thailand', 'Malaysia': 'Malaysia', 'Indonesia': 'Indonesia',
+      'Retail': 'Tingi', 'Restaurant': 'Restawran', 'Outdoor': 'Labas ng Bahay',
+      'Outdoor Billboards (户外围挡)': 'Outdoor Billboard',
+      'Signage': 'Karatula', 'Interior': 'Panloob', 'Exhibition': 'Eksibisyon',
+      'Commercial': 'Komersyal', 'Advertising': 'Advertising'
+    }
+  };
+
+  // 用静态词典翻译简单词汇，找不到则返回原文
+  function staticTranslate(text, lang) {
+    if (!text || lang === 'en') return text;
+    var dict = STATIC_DICT[lang] || STATIC_DICT['tl']; // ph/fil fallback to tl
+    return dict[text] || text;
+  }
+
+  function getField(item, baseKey, lang) {
+    // 菲律宾语兼容多个后缀，但 _tl/_fil/_ph 字段只信任足够长的内容
+    // （normalizeCase 把 langData.ph.content 映射到 description_tl，通常只有片段）
+    if (lang === 'tl' || lang === 'ph' || lang === 'fil') {
+      var suffixes = ['_tl', '_fil', '_ph', '_en'];
+      for (var i = 0; i < suffixes.length; i++) {
+        var val = item[baseKey + suffixes[i]];
+        if (val && String(val).trim()) {
+          // 非英文后缀（_tl/_fil/_ph）且内容极短（<50字符）→ 不可信，跳过交给 pickLang 缓存
+          if (i < 3 && String(val).trim().length < 50) continue;
+          return String(val).trim();
+        }
+      }
+      return null;
+    }
+    // vi/zh 语言：_vi/_zh 字段已清空（只有片段），全部走 pickLang 缓存翻译
+    if (lang === 'vi' || lang === 'zh') {
+      var val = item[baseKey + '_' + lang];
+      if (!val || !String(val).trim()) return null; // 字段为空 → pickLang
+      return String(val).trim();
+    }
+    // en 语言：直接读英文字段
+    if (lang === 'en') {
+      var val = item[baseKey + '_en'] || item[baseKey];
+      if (val && String(val).trim()) return String(val).trim();
+      return null;
+    }
+  }
+
+  // 带缓存的翻译
+  async function translateText(text, lang, fromLang) {
+    if (!text || !text.trim()) return text;
+    var from = fromLang || 'en';
+    if (lang === from) return text;
+    // 非英文目标语言：优先用 autoTranslate（含内存缓存 + translations.json持久化 + API兜底）
+    // autoTranslate 有三层缓存，同一文本翻译过一次后不会再调 API
+    if (window.autoTranslate && window.autoTranslate.translate) {
+      try {
+        var result = await window.autoTranslate.translate(text, from, lang);
+        if (result && result !== text) return result;
+      } catch(e) {}
+    }
+    // fallback：页面内存缓存
+    var ck = text.trim() + '|' + from + '>' + lang;
+    if (_transCache[ck] !== undefined) return _transCache[ck];
+    return text;
+  }
+
+  // 智能获取字段：先查本地翻译字段（JSON多语言后缀），再用 autoTranslate（带持久化缓存）兜底
+  async function getFieldAuto(item, baseKey, lang) {
+    // tl/vi/zh 语言：跳过 getField 的 _en 回退，强制走 pickLang → translations.json 缓存
+    // tl（菲律宾语）、vi（越南语）、zh（中文）的 description 翻译完整存在缓存里，必须走缓存才能拿到章节标题
+    if (lang === 'tl' || lang === 'vi' || lang === 'zh') {
+      if (window.pickLang) {
+        try {
+          var r = await window.pickLang(item, baseKey, lang);
+          if (r && r.trim()) return r;
+        } catch(e) {}
+      }
+      return '';
+    }
+    // 1. 优先从 JSON 字段直接读取（getField 处理所有语言后缀）
+    var direct = getField(item, baseKey, lang);
+    if (direct && direct.trim()) return direct;
+    // 2. 尝试用 autoTranslate.pickLang（带 i18n 缓存层：字段→缓存→API翻译→回写缓存）
+    if (window.autoTranslate && window.autoTranslate.pickLang) {
+      try {
+        var r2 = await window.autoTranslate.pickLang(item, baseKey, lang);
+        if (r2 && r2.trim()) return r2;
+      } catch(e2) {}
+    }
+    // 3. 最后兜底：直接用 translateText（也走 autoTranslate）
+    var enText = item[baseKey + '_en'];
+    var zhText = item[baseKey + '_zh'];
+    var rawText = item[baseKey];
+    if (enText && enText.trim()) return await translateText(enText.trim(), lang, 'en');
+    if (zhText && zhText.trim()) return await translateText(zhText.trim(), lang, 'zh');
+    if (rawText && rawText.trim()) return await translateText(rawText.trim(), lang, 'en');
+    return '';
+  }
+
+  async function renderCase(caseData, allCases, lang) {
+    // 确保数据经过 normalizeCase 处理（用于翻译字段映射）
+    var normalizedData = normalizeCase(caseData);
+    _currentCase = normalizedData;
+    _allCases = allCases;
+
+    var title = await getFieldAuto(normalizedData, 'title', lang);
+    var desc = await getFieldAuto(normalizedData, 'description', lang);
+
+    var imgSrc = caseData.cover_image || (Array.isArray(caseData.images) && caseData.images[0]) || '';
+    var videoSrc = caseData.video || caseData.video_url || '';
+
+    // Update title and breadcrumb
+    document.getElementById('caseTitle').textContent = title;
+    document.getElementById('breadcrumbTitle').textContent = title;
+    document.title = title + ' – Jin Yu Advertising Materials';
+
+    // Meta info
+    var region = caseData.region || caseData.location || '';
+    var category = caseData.category || caseData.industry || '';
+    var date = caseData.date || '';
+    // 翻译 meta 信息（region/category 用静态词典，不走 API）
+    var regionTxt = getField(normalizedData, 'region', lang) || getField(normalizedData, 'location', lang);
+    if (!regionTxt) regionTxt = staticTranslate(region, lang);
+    var categoryTxt = getField(normalizedData, 'industry', lang) || getField(normalizedData, 'category', lang);
+    if (!categoryTxt) categoryTxt = staticTranslate(category, lang);
+    var metaHtml = '';
+    if (regionTxt) metaHtml += '<span class="case-meta-chip">📍 <strong>' + escHtml(regionTxt) + '</strong></span>';
+    if (categoryTxt) metaHtml += '<span class="case-meta-chip">🏭 <strong>' + escHtml(categoryTxt) + '</strong></span>';
+    if (date) metaHtml += '<span class="case-meta-chip">📅 <strong>' + escHtml(date) + '</strong></span>';
+    document.getElementById('caseMeta').innerHTML = metaHtml;
+
+    // Main media：视频改为缩略图+大播放按钮，点击放大播放
+    var mainImg = document.getElementById('mainMediaImg');
+    var videoPoster = caseData.video_poster || imgSrc || '';
+    if (videoSrc) {
+      mainImg.style.display = 'none';
+      document.getElementById('caseMediaWrap').innerHTML =
+        '<div class="case-media-wrap" onclick="openLightbox(\'' + escHtml(videoSrc) + '\', \'video\')" style="cursor:pointer;">'
+        + '<img src="' + escHtml(videoPoster) + '" alt="Video thumbnail" style="width:100%;height:100%;object-fit:cover;">'
+        + '<div style="position:absolute;top:0;left:0;width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.35);pointer-events:none;">'
+        + '<div class="case-play-btn" style="position:relative;transform:none;top:auto;left:auto;"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>'
+        + '</div>'
+        + '<div style="position:absolute;bottom:12px;right:12px;background:rgba(220,38,38,0.9);color:#fff;font-size:11px;font-weight:700;padding:4px 10px;border-radius:4px;">▶ VIDEO</div>'
+        + '</div>';
+      _lightboxItems = [{ src: videoSrc, type: 'video' }];
+      if (imgSrc) _lightboxItems.unshift({ src: imgSrc, type: 'image' });
+    } else if (imgSrc) {
+      mainImg.src = imgSrc;
+      mainImg.style.display = 'block';
+      mainImg.onclick = function() { openLightbox(imgSrc, 'image'); };
+      _lightboxItems = [{ src: imgSrc, type: 'image' }];
+    }
+
+    // Thumbnails
+    var thumbsHtml = '';
+    var mediaIdx = 0;
+    if (imgSrc) {
+      thumbsHtml += '<div class="case-thumb' + (!videoSrc ? ' active' : '') + '" onclick="switchMedia(\'' + escHtml(imgSrc) + '\', \'image\', ' + mediaIdx + ')"><img src="' + escHtml(imgSrc) + '" alt=""></div>';
+      mediaIdx++;
+    }
+    if (videoSrc) {
+      var videoPoster = caseData.video_poster || imgSrc || '';
+      thumbsHtml += '<div class="case-thumb video-thumb active" onclick="switchMedia(\'' + escHtml(videoSrc) + '\', \'video\', ' + mediaIdx + ')"><img src="' + escHtml(videoPoster) + '" alt="Video thumbnail"></div>';
+    }
+    document.getElementById('mediaThumbs').innerHTML = thumbsHtml;
+
+    // Description
+    document.getElementById('caseDescription').innerHTML = mdToHtml(desc);
+
+    // Materials（带翻译）
+    var matsSection = document.getElementById('materialsSection');
+    var matsList = document.getElementById('materialsList');
+    if (caseData.products_used) {
+      var mats = caseData.products_used.split(',').map(function(s){ return s.trim(); }).filter(Boolean);
+      if (mats.length) {
+        matsSection.style.display = 'block';
+        // 翻译每个材料名称（判断源语言：中文字符则 zh→lang，否则 en→lang）
+        var translatedMats = await Promise.all(mats.map(function(m) {
+          var isZh = /[\u4e00-\u9fa5]/.test(m);
+          return translateText(m, lang, isZh ? 'zh' : 'en');
+        }));
+        matsList.innerHTML = translatedMats.map(function(m) {
+          return '<span class="case-mat-tag">' + escHtml(m) + '</span>';
+        }).join('');
+      } else {
+        matsSection.style.display = 'none';
+      }
+    } else {
+      matsSection.style.display = 'none';
+    }
+
+    // Outcomes（带翻译）
+    var outcomesSection = document.getElementById('outcomesSection');
+    var outcomesList = document.getElementById('outcomesList');
+    if (caseData.results) {
+      var results = caseData.results.split('\n').map(function(s){ return s.replace(/^[-•✓]\s*/, '').trim(); }).filter(Boolean);
+      if (results.length) {
+        outcomesSection.style.display = 'block';
+        // 翻译每条成果（判断源语言）
+        var isZhR = /[\u4e00-\u9fa5]/.test(results[0] || '');
+        var translatedResults = await Promise.all(results.map(function(r) {
+          return translateText(r, lang, isZhR ? 'zh' : 'en');
+        }));
+        outcomesList.innerHTML = translatedResults.map(function(r) {
+          return '<div class="case-outcome-item">' + escHtml(r) + '</div>';
+        }).join('');
+      } else {
+        outcomesSection.style.display = 'none';
+      }
+    } else {
+      outcomesSection.style.display = 'none';
+    }
+
+    // Related cases（带翻译）
+    var related = allCases.filter(function(c) { return c.id !== normalizedData.id; }).slice(0, 3);
+    var relatedHtmlParts = [];
+    for (var ri = 0; ri < related.length; ri++) {
+      var rcRaw = related[ri];
+      var rc = normalizeCase(rcRaw);
+      var rTitle = await getFieldAuto(rc, 'title', lang);
+      var rImg = rc.cover_image || (Array.isArray(rc.images) && rc.images[0]) || '';
+      var rRegionRaw = rc.region || rc.location || '';
+      var rRegion = staticTranslate(rRegionRaw, lang);
+      var rSlug = rc.slug || rc.id;
+      relatedHtmlParts.push('<a href="/case-studies/' + rSlug + '" class="related-item">'
+        + '<div class="related-thumb"><img src="' + escHtml(rImg) + '" alt="" onerror="this.parentElement.style.background=\'#e2e8f0\'"></div>'
+        + '<div class="related-info">'
+        + '<div class="related-item-title">' + escHtml(rTitle) + '</div>'
+        + '<div class="related-item-region">' + escHtml(rRegion) + '</div>'
+        + '</div></a>');
+    }
+    document.getElementById('relatedList').innerHTML = relatedHtmlParts.join('') || '<p style="color:var(--gray-500);font-size:14px;">No related cases found.</p>';
+
+    // 翻译完成后重新应用 data-i18n 翻译（修复 i18n 先跑 renderCase 后跑的顺序问题）
+    if (window.i18n && i18n.applyTranslations) {
+      i18n.applyTranslations();
+    }
+
+    // Show content
+    document.getElementById('loadingContainer').style.display = 'none';
+    document.getElementById('caseDetailContent').style.display = 'grid';
+  }
+
+  function switchMedia(src, type, idx) {
+    var mediaWrap = document.getElementById('caseMediaWrap');
+    _lightboxIdx = idx;
+
+    // Update active thumb
+    document.querySelectorAll('.case-thumb').forEach(function(t, i) {
+      t.classList.toggle('active', i === idx);
+    });
+
+    if (type === 'video') {
+      mediaWrap.innerHTML = '<video id="mainVideo" src="' + escHtml(src) + '" controls autoplay style="width:100%;height:100%;object-fit:cover;background:#1e293b;"></video>';
+    } else {
+      mediaWrap.innerHTML = '<img id="mainMediaImg" src="' + escHtml(src) + '" alt="" style="width:100%;height:100%;object-fit:cover;cursor:pointer;" onclick="openLightbox(\'' + escHtml(src) + '\', \'image\')">';
+    }
+  }
+
+  function openLightbox(src, type) {
+    var overlay = document.getElementById('lightboxOverlay');
+    var content = document.getElementById('lightboxContent');
+    var caption = document.getElementById('lightboxCaption');
+
+    if (type === 'video') {
+      content.innerHTML = '<video id="lightboxVideo" src="' + src + '" controls autoplay style="max-width:90%;max-height:85vh;border-radius:8px;"></video><button class="lightbox-close" onclick="closeLightbox()" title="Close (Esc)">×</button>';
+      caption.textContent = 'Video Playback';
+    } else {
+      content.innerHTML = '<img id="lightboxImg" src="' + src + '" alt="" style="max-width:90%;max-height:85vh;border-radius:8px;"><button class="lightbox-close" onclick="closeLightbox()" title="Close (Esc)">×</button>';
+      caption.textContent = '';
+    }
+
+    overlay.classList.add('show');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    var overlay = document.getElementById('lightboxOverlay');
+    if (overlay) {
+      overlay.classList.remove('show');
+      document.body.style.overflow = '';
+      var video = document.getElementById('lightboxVideo');
+      if (video) video.pause();
+    }
+  }
+
+  function prevLightbox() {
+    if (_lightboxItems.length < 2) return;
+    _lightboxIdx = (_lightboxIdx - 1 + _lightboxItems.length) % _lightboxItems.length;
+    var item = _lightboxItems[_lightboxIdx];
+    if (item.type === 'video') {
+      document.getElementById('lightboxContent').innerHTML = '<video id="lightboxVideo" src="' + item.src + '" controls autoplay style="max-width:90%;max-height:85vh;border-radius:8px;"></video><button class="lightbox-close" onclick="closeLightbox()">×</button>';
+    } else {
+      var img = document.getElementById('lightboxImg');
+      if (img) img.src = item.src;
+    }
+  }
+
+  function nextLightbox() {
+    if (_lightboxItems.length < 2) return;
+    _lightboxIdx = (_lightboxIdx + 1) % _lightboxItems.length;
+    var item = _lightboxItems[_lightboxIdx];
+    if (item.type === 'video') {
+      document.getElementById('lightboxContent').innerHTML = '<video id="lightboxVideo" src="' + item.src + '" controls autoplay style="max-width:90%;max-height:85vh;border-radius:8px;"></video><button class="lightbox-close" onclick="closeLightbox()">×</button>';
+    } else {
+      var img = document.getElementById('lightboxImg');
+      if (img) img.src = item.src;
+    }
+  }
+
+  // Expose functions globally
+  window.switchMedia = switchMedia;
+  window.openLightbox = openLightbox;
+  window.closeLightbox = closeLightbox;
+  window.prevLightbox = prevLightbox;
+  window.nextLightbox = nextLightbox;
+
+  document.addEventListener('keydown', function(e) {
+    if (!document.getElementById('lightboxOverlay')?.classList.contains('show')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') prevLightbox();
+    if (e.key === 'ArrowRight') nextLightbox();
+  });
+
+  // ============================================================
+  // 语言切换拦截器：i18n 加载后立即安装
+  // 处理两种情况：i18n 已初始化 / 还未初始化
+  // ============================================================
+  function getCurrentLang() {
+    // 优先使用 i18n 的当前语言（如果已初始化）
+    if (window.i18n && window.i18n.currentLang) {
+      return window.i18n.currentLang;
+    }
+    // 否则从 localStorage 读取
+    try { return localStorage.getItem('jinyu_lang') || 'en'; } catch(e) { return 'en'; }
+  }
+
+  function installLangInterceptor() {
+    if (!window.i18n || !window.i18n.changeLanguage) return false;
+    if (window._caseDetailInterceptorInstalled) return true;
+    window._caseDetailInterceptorInstalled = true;
+
+    var original = window.i18n.changeLanguage.bind(window.i18n);
+    window.i18n.changeLanguage = async function(lang) {
+      await original(lang);
+      // i18n 翻译完成后，重新渲染案例内容
+      if (window._currentCase) {
+        window._caseDetailLang = lang;
+        var allCases = window._allCases || [];
+        if (allCases.length > 0) {
+          renderCase(window._currentCase, allCases, lang);
+        }
+      }
+    };
+    return true;
+  }
+
+  // 等待 i18n 加载后安装拦截器
+  function tryInstallInterceptor() {
+    if (window.i18n && window.i18n.changeLanguage) {
+      installLangInterceptor();
+    }
+  }
+
+  // 立即尝试（i18n 可能已加载）
+  tryInstallInterceptor();
+
+  // 监听 langChange 事件，确保拦截器被安装
+  document.addEventListener('langChange', function() {
+    tryInstallInterceptor();
+  });
+
+  // 保存到全局变量供拦截器使用
+  window._currentCase = null;
+  window._allCases = [];
+  window._caseDetailLang = getCurrentLang();
+
+  // ============================================================
+  // 数据加载和页面初始化
+  // ============================================================
+  document.addEventListener('DOMContentLoaded', async function() {
+    var caseId = getCaseId();
+    if (!caseId) {
+      document.getElementById('loadingContainer').innerHTML = '<p style="text-align:center;color:var(--gray-500);padding:40px;">Invalid case ID. <a href="/case-studies">Back to Cases</a></p>';
+      return;
+    }
+
+    try {
+      var resp = await fetch('/api/case-studies');
+      var json = await resp.json();
+      var raw = json.success ? json.data : [];
+      var allCases = raw.map(normalizeCase);
+      var currentCase = allCases.find(function(c) { return String(c.id) === String(caseId) || c.slug === caseId; });
+
+      if (!currentCase) {
+        document.getElementById('loadingContainer').innerHTML = '<p style="text-align:center;color:var(--gray-500);padding:40px;">Case not found. <a href="/case-studies">Back to Cases</a></p>';
+        return;
+      }
+
+      // 保存到全局变量
+      window._currentCase = currentCase;
+      window._allCases = allCases;
+
+      // 确保拦截器已安装
+      tryInstallInterceptor();
+
+      // 等 i18n 翻译数据加载完成（i18n.js 已将 _i18nReady 暴露为 window._i18nReady）
+      // 否则 window.i18n.translations['tl'] 还是空的，readI18nCache 永远返回空
+      if (window._i18nReady) {
+        await window._i18nReady;
+      }
+
+      // 使用 i18n 的当前语言渲染（不是 localStorage）
+      var lang = getCurrentLang();
+      window._caseDetailLang = lang;
+
+      await renderCase(currentCase, allCases, lang);
+    } catch(e) {
+      console.error('[case-detail] Failed to load:', e);
+      document.getElementById('loadingContainer').innerHTML = '<p style="text-align:center;color:var(--gray-500);padding:40px;">Failed to load case. <a href="/case-studies">Back to Cases</a></p>';
+    }
+  });
+})();
+</script>
+
+<script>
+window.addEventListener('scroll', () => {
+  const nb = document.getElementById('navbar');
+  if (window.scrollY > 60) nb.classList.add('scrolled'); else nb.classList.remove('scrolled');
+});
+function toggleMenu() { document.getElementById('navMenu').classList.toggle('open'); }
+initSEO({ pageTitle: 'Case Detail' });
+
+// Social Icons (动态加载)
+if (typeof loadSocialIcons === 'function') {
+  loadSocialIcons('#nav-social-icons', { maxCount: 3 });
+  loadSocialIcons('#footer-social-icons', { brandColor: true });
+}
+</script>
+
+</body>
+</html>

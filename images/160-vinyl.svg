@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <rect width="400" height="300" fill="#EFF6FF" rx="16"/>
+  
+  <!-- wide vinyl roll (wider) -->
+  <ellipse cx="200" cy="170" rx="110" ry="32" fill="#93C5FD"/>
+  <rect x="90" y="105" width="220" height="65" fill="#2563EB"/>
+  <ellipse cx="200" cy="105" rx="110" ry="32" fill="#BFDBFE"/>
+  <ellipse cx="200" cy="105" rx="60" ry="18" fill="#93C5FD"/>
+  <ellipse cx="200" cy="105" rx="22" ry="8" fill="#1D4ED8"/>
+  <!-- "160" label -->
+  <rect x="150" y="125" width="100" height="28" rx="6" fill="#1D4ED8" opacity="0.7"/>
+  <text x="200" y="145" font-family="Arial" font-size="18" font-weight="bold" fill="white" text-anchor="middle">160g</text>
+
+</svg>

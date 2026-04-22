@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <rect width="400" height="300" fill="#F1F5F9" rx="16"/>
+  
+  <!-- ACP panel layers side view -->
+  <!-- top aluminum skin -->
+  <rect x="75" y="75" width="250" height="18" rx="3" fill="#94A3B8"/>
+  <!-- core (PE) -->
+  <rect x="75" y="93" width="250" height="90" fill="#F8FAFC"/>
+  <!-- bottom aluminum skin -->
+  <rect x="75" y="183" width="250" height="18" rx="3" fill="#94A3B8"/>
+  <!-- metallic sheen top -->
+  <rect x="75" y="75" width="250" height="18" rx="3" fill="none" stroke="#64748B" stroke-width="1"/>
+  <line x1="90" y1="75" x2="90" y2="93" stroke="white" stroke-width="2" opacity="0.5"/>
+  <line x1="130" y1="75" x2="130" y2="93" stroke="white" stroke-width="2" opacity="0.5"/>
+  <!-- aluminum brushed lines -->
+  <line x1="75" y1="79" x2="325" y2="79" stroke="white" stroke-width="1" opacity="0.4"/>
+  <line x1="75" y1="83" x2="325" y2="83" stroke="white" stroke-width="1" opacity="0.4"/>
+  <line x1="75" y1="87" x2="325" y2="87" stroke="white" stroke-width="1" opacity="0.4"/>
+  <line x1="75" y1="186" x2="325" y2="186" stroke="white" stroke-width="1" opacity="0.4"/>
+  <line x1="75" y1="190" x2="325" y2="190" stroke="white" stroke-width="1" opacity="0.4"/>
+  <line x1="75" y1="194" x2="325" y2="194" stroke="white" stroke-width="1" opacity="0.4"/>
+  <!-- core label -->
+  <text x="200" y="145" font-family="Arial" font-size="13" fill="#94A3B8" text-anchor="middle" opacity="0.8">PE CORE</text>
+
+</svg>

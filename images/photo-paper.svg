@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <rect width="400" height="300" fill="#FFF8F0" rx="16"/>
+  
+  <!-- photo print stack -->
+  <rect x="120" y="180" width="200" height="6" rx="3" fill="#E2E8F0"/>
+  <rect x="115" y="172" width="200" height="12" rx="3" fill="#CBD5E1"/>
+  <rect x="110" y="90" width="200" height="85" rx="6" fill="white" stroke="#E2E8F0" stroke-width="2"/>
+  <!-- photo landscape scene -->
+  <rect x="110" y="90" width="200" height="85" rx="6" fill="#BAE6FD"/>
+  <polygon points="110,175 160,130 200,155 240,115 310,175" fill="#86EFAC"/>
+  <circle cx="260" cy="115" r="18" fill="#FDE68A"/>
+  <!-- white border frame -->
+  <rect x="110" y="90" width="200" height="85" rx="6" fill="none" stroke="#F1F5F9" stroke-width="8"/>
+
+</svg>

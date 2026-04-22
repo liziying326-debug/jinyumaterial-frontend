@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <rect width="400" height="300" fill="#FFF7ED" rx="16"/>
+  
+  <!-- vinyl roll with cut pieces -->
+  <ellipse cx="200" cy="180" rx="75" ry="22" fill="#FED7AA"/>
+  <rect x="125" y="120" width="150" height="60" fill="#F97316"/>
+  <ellipse cx="200" cy="120" rx="75" ry="22" fill="#FFEDD5"/>
+  <ellipse cx="200" cy="120" rx="38" ry="12" fill="#FED7AA"/>
+  <ellipse cx="200" cy="120" rx="15" ry="5" fill="#EA580C"/>
+  <!-- scissors icon -->
+  <circle cx="100" cy="90" r="14" fill="none" stroke="#9A3412" stroke-width="3"/>
+  <circle cx="120" cy="110" r="14" fill="none" stroke="#9A3412" stroke-width="3"/>
+  <line x1="110" y1="80" x2="170" y2="140" stroke="#9A3412" stroke-width="3"/>
+  <line x1="110" y1="120" x2="170" y2="150" stroke="#9A3412" stroke-width="3"/>
+
+</svg>

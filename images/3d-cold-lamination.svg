@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <rect width="400" height="300" fill="#FDF4FF" rx="16"/>
+  
+  <!-- 3D textured surface layers -->
+  <!-- bottom layer -->
+  <rect x="80" y="160" width="240" height="60" rx="8" fill="#E9D5FF"/>
+  <!-- middle layer offset -->
+  <rect x="90" y="140" width="240" height="60" rx="8" fill="#C4B5FD"/>
+  <!-- top layer offset more -->
+  <rect x="100" y="120" width="240" height="60" rx="8" fill="#A78BFA"/>
+  <!-- 3D bump texture on top -->
+  <circle cx="150" cy="145" r="12" fill="#8B5CF6" opacity="0.6"/>
+  <circle cx="190" cy="138" r="10" fill="#8B5CF6" opacity="0.6"/>
+  <circle cx="230" cy="148" r="13" fill="#8B5CF6" opacity="0.6"/>
+  <circle cx="270" cy="140" r="11" fill="#8B5CF6" opacity="0.6"/>
+  <!-- edge highlight -->
+  <rect x="100" y="120" width="240" height="60" rx="8" fill="none" stroke="#7C3AED" stroke-width="2"/>
+
+</svg>

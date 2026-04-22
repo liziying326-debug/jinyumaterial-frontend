@@ -1,0 +1,2059 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Product Detail – Jinyu</title>
+<link rel="stylesheet" href="/styles.css">
+<style>
+/* ── Detail Page Specific ─────────────────────────────── */
+.pd-breadcrumb-bar {
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  padding: 12px 0;
+  font-size: 13px;
+  color: #888;
+  margin-top: 70px; /* nav高度 */
+}
+.pd-breadcrumb-bar a { color: #555; text-decoration: none; }
+.pd-breadcrumb-bar a:hover { color: #e87722; }
+.pd-breadcrumb-bar .sep { margin: 0 6px; color: #bbb; }
+.pd-breadcrumb-bar .current { color: #e87722; font-weight: 500; }
+
+.pd-hero { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; padding: 40px 0 60px; }
+@media(max-width:768px){ .pd-hero { grid-template-columns:1fr; gap:28px; } }
+
+.pd-gallery { position: sticky; top: 88px; }
+.pd-main-img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 12px; background: linear-gradient(135deg, #f0f0f0 0%, #e8e8e8 100%); min-height: 200px; }
+.pd-thumbs { display: flex; gap: 10px; margin-top: 12px; flex-wrap: wrap; }
+.pd-thumb { width: 72px; height: 72px; object-fit: cover; border-radius: 8px; cursor: pointer;
+            border: 2px solid transparent; transition: border-color .2s; }
+.pd-thumb:hover, .pd-thumb.active { border-color: #e87722; }
+
+.pd-info {}
+.pd-category { font-size: 12px; font-weight: 600; color: #e87722; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 8px; }
+.pd-name { font-size: 32px; font-weight: 700; color: #1a1a2e; line-height: 1.2; margin-bottom: 16px; }
+.pd-desc { font-size: 15px; color: #555; line-height: 1.7; margin-bottom: 28px; }
+
+.pd-specs { background: #f9f9fb; border-radius: 12px; padding: 24px; margin-bottom: 28px; }
+.pd-specs h4 { font-size: 14px; font-weight: 700; color: #333; margin-bottom: 16px; text-transform: uppercase; letter-spacing: .05em; }
+.pd-spec-table { width: 100%; border-collapse: collapse; }
+.pd-spec-table tr { border-bottom: 1px solid #eee; }
+.pd-spec-table tr:last-child { border-bottom: none; }
+.pd-spec-table td { padding: 10px 8px; font-size: 14px; }
+.pd-spec-table td:first-child { color: #888; width: 45%; }
+.pd-spec-table td:last-child { color: #222; font-weight: 500; }
+
+.pd-features { margin-bottom: 28px; }
+.pd-features h4 { font-size: 14px; font-weight: 700; color: #333; margin-bottom: 12px; text-transform: uppercase; letter-spacing: .05em; }
+.pd-feature-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
+.pd-feature-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: #444; }
+.pd-feature-list li::before { content: "✓"; color: #e87722; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+.pd-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+.pd-btn-quote { display: inline-flex; align-items: center; gap: 8px; background: #e87722; color: #fff;
+                padding: 14px 32px; border-radius: 8px; font-size: 15px; font-weight: 600;
+                text-decoration: none; transition: background .2s; }
+.pd-btn-quote:hover { background: #d4621a; }
+.pd-btn-back { display: inline-flex; align-items: center; gap: 8px; background: #fff; color: #333;
+               padding: 14px 24px; border-radius: 8px; font-size: 15px; font-weight: 500;
+               text-decoration: none; border: 2px solid #ddd; transition: border-color .2s; }
+.pd-btn-back:hover { border-color: #e87722; color: #e87722; }
+
+/* Related Products */
+.pd-related { padding: 60px 0; border-top: 1px solid #eee; }
+.pd-related h3 { font-size: 22px; font-weight: 700; margin-bottom: 28px; color: #1a1a2e; }
+.pd-related-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; }
+.pd-rel-card { border-radius: 10px; overflow: hidden; border: 1px solid #eee; cursor: pointer;
+               transition: box-shadow .2s, transform .2s; background: #fff; }
+.pd-rel-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,.1); transform: translateY(-3px); }
+.pd-rel-card img { width: 100%; aspect-ratio: 4/3; object-fit: cover; }
+.pd-rel-card-name { padding: 12px 14px; font-size: 13px; font-weight: 600; color: #333; }
+
+/* Not found state */
+.pd-notfound { text-align: center; padding: 120px 20px; }
+.pd-notfound h2 { font-size: 24px; color: #333; margin-bottom: 12px; }
+.pd-notfound p { color: #888; margin-bottom: 28px; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="navbar" id="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <div class="logo-icon">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 28V12L20 8L32 12V28L20 32L8 28Z" stroke="#E8751A" stroke-width="2.5" fill="none"/>
+            <path d="M8 12L20 16L32 12" stroke="#E8751A" stroke-width="2.5"/>
+            <path d="M20 16V32" stroke="#E8751A" stroke-width="2.5"/>
+            <circle cx="20" cy="24" r="3" fill="#E8751A"/>
+            <text x="20" y="23" text-anchor="middle" fill="white" font-size="10" font-weight="800" font-family="Montserrat">JY</text>
+          </svg>
+        </div>
+        <div class="logo-text">
+          <div class="logo-name">Jin Yu</div>
+          <div class="logo-sub">Advertising Material</div>
+        </div>
+      </a>
+      <ul class="nav-menu" id="navMenu">
+        <li class="nav-item"><a href="index.html" class="nav-link" data-i18n="nav.home">Home</a></li>
+        <li class="nav-item">
+          <a href="products.html" class="nav-link active" data-i18n="nav.products">Products <svg viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+          <div class="dropdown" id="nav-product-dropdown"></div>
+        </li>
+        <li class="nav-item">
+          <a href="applications.html" class="nav-link" data-i18n="nav.applications">Applications <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+          <div class="dropdown">
+            <a href="applications.html#sign-board" data-i18n="nav.applications_sub.signBoard">Sign Board</a>
+            <a href="applications.html#light-box" data-i18n="nav.applications_sub.lightBox">Light Box</a>
+            <a href="applications.html#digital-printing" data-i18n="nav.applications_sub.digitalPrinting">Digital Printing</a>
+            <a href="applications.html#outdoor-advertising" data-i18n="nav.applications_sub.outdoorAdvertising">Outdoor Advertising</a>
+            <a href="applications.html#exhibition-display" data-i18n="nav.applications_sub.exhibitionDisplay">Exhibition Display</a>
+          </div>
+        </li>
+        <li class="nav-item"><a href="case-studies.html" class="nav-link" data-i18n="nav.caseStudies">Cases / Videos</a></li>
+        <li class="nav-item">
+          <a href="news.html" class="nav-link" data-i18n="nav.news">News <svg viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+          <div class="dropdown">
+            <a href="news.html#industry-knowledge" data-i18n="nav.blog_sub.industryKnowledge">Industry Knowledge</a>
+            <a href="news.html#material-guide" data-i18n="nav.blog_sub.materialGuide">Material Guide</a>
+            <a href="news.html#printing-technology" data-i18n="nav.blog_sub.printingTechnology">Printing Technology</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a href="about.html" class="nav-link" data-i18n="nav.aboutUs">About Us <svg viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+          <div class="dropdown">
+            <a href="about.html#company-profile" data-i18n="nav.about_sub.companyProfile">Company Profile</a>
+            <a href="about.html#factory" data-i18n="nav.about_sub.factory">Factory</a>
+            <a href="about.html#production-capacity" data-i18n="nav.about_sub.productionCapacity">Production Capacity</a>
+            <a href="about.html#certificates" data-i18n="nav.about_sub.certificates">Certificates</a>
+          </div>
+        </li>
+        <li class="nav-item"><a href="contact.html" class="nav-link" data-i18n="nav.contactUs">Contact Us</a></li>
+      </ul>
+      <div class="nav-right">
+        <div class="nav-social">
+          <a href="https://facebook.com" target="_blank" rel="noopener" class="nav-social-icon facebook" title="Facebook">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.267h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
+          </a>
+          <a href="https://tiktok.com" target="_blank" rel="noopener" class="nav-social-icon tiktok" title="TikTok">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.67a8.2 8.2 0 004.79 1.53V6.75a4.85 4.85 0 01-1.02-.06z"/></svg>
+          </a>
+          <a href="https://wa.me/8613808828019" target="_blank" rel="noopener" class="nav-social-icon whatsapp" title="WhatsApp">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </a>
+        </div>
+        <div class="nav-divider"></div>
+        <div class="nav-lang" id="language-switcher">
+          <div class="lang-display">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+            <span class="lang-code">EN</span>
+          </div>
+        </div>
+        <div class="nav-divider"></div>
+        <a href="contact.html" class="btn btn-primary btn-sm nav-cta" data-i18n="nav.getQuote">Get a Quote</a>
+      </div>
+      <div class="nav-hamburger" id="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</nav>
+
+<!-- BREADCRUMB -->
+<div class="pd-breadcrumb-bar">
+  <div class="container">
+    <a href="index.html" data-i18n="nav.home">Home</a>
+    <span class="sep">›</span>
+    <a href="products.html" data-i18n="nav.products">Products</a>
+    <span class="sep">›</span>
+    <span class="current" id="pdBannerName">Product Detail</span>
+  </div>
+</div>
+
+<!-- ── MAIN CONTENT ───────────────────────────────────────────────────── -->
+<main class="container" style="padding-top:32px; padding-bottom:80px;">
+
+  <!-- Product Detail Body -->
+  <div id="pdBody" style="display:none;">
+    <div class="pd-hero">
+      <!-- Left: Image Gallery -->
+      <div class="pd-gallery">
+        <img id="pdMainImg" class="pd-main-img" src="" alt="">
+        <div class="pd-thumbs" id="pdThumbs"></div>
+      </div>
+
+      <!-- Right: Info -->
+      <div class="pd-info">
+        <div class="pd-category" id="pdCategory"></div>
+        <h1 class="pd-name" id="pdName"></h1>
+        <p class="pd-desc" id="pdDesc"></p>
+
+        <div class="pd-specs" id="pdSpecsBox">
+          <h4 data-i18n="productDetail.specifications">Specifications</h4>
+          <table class="pd-spec-table" id="pdSpecTable"></table>
+        </div>
+
+        <div class="pd-features" id="pdFeaturesBox">
+          <h4 data-i18n="productDetail.keyFeatures">Product Features</h4>
+          <ul class="pd-feature-list" id="pdFeatureList"></ul>
+        </div>
+
+        <div class="pd-actions">
+          <a href="contact.html" class="pd-btn-quote">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            <span data-i18n="productDetail.getQuote">Get a Quote</span>
+          </a>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Related Products -->
+    <div class="pd-related">
+      <h3 data-i18n="productDetail.relatedProducts">Related Products</h3>
+      <div class="pd-related-grid" id="pdRelatedGrid"></div>
+    </div>
+  </div>
+
+  <!-- Not Found -->
+  <div id="pdNotFound" style="display:none;" class="pd-notfound">
+    <h2 data-i18n="productDetail.notFound">Product Not Found</h2>
+    <p data-i18n="productDetail.notFoundDesc">The product you're looking for doesn't exist or has been removed.</p>
+    <a href="products.html" class="pd-btn-back" data-i18n="productDetail.backToProducts">Back to Products</a>
+  </div>
+
+</main>
+
+<!-- CTA BANNER -->
+<section class="section cta-banner">
+  <div class="container">
+    <div class="cta-content">
+      <div class="cta-text">
+        <h2 data-i18n="cta.title">Ready to Source Premium Advertising Materials?</h2>
+        <p data-i18n="cta.subtitle">Contact our team today for product specifications, pricing, and export shipping details. We respond within 24 hours on business days.</p>
+      </div>
+      <div class="cta-actions">
+        <a href="contact.html" class="btn btn-primary btn-lg" data-i18n="cta.getQuote">Get a Quote</a>
+        <a href="https://wa.me/8613808828019" target="_blank" class="btn btn-outline btn-lg" data-i18n="cta.whatsapp">💬 WhatsApp Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE & FAQ -->
+<section class="section bg-light" id="quote-faq">
+  <div class="container">
+    <div class="grid-2">
+      <!-- Left: Quote Form -->
+      <div class="quote-form-box">
+        <h2 class="quote-title" data-i18n="quoteForm.title">Send Us Your Project Details</h2>
+        <p class="quote-subtitle" data-i18n="quoteForm.subtitle">Get a Quote Within 24 Hours</p>
+        <form class="quote-form" id="pdQuoteForm">
+          <div class="form-group">
+            <label for="pd-name" data-i18n="quoteForm.name">Name *</label>
+            <input type="text" id="pd-name" class="form-input" data-i18n-placeholder="quoteForm.namePlaceholder" placeholder="Your Name" required>
+          </div>
+          <div class="form-group">
+            <label for="pd-email" data-i18n="quoteForm.email">Email *</label>
+            <input type="email" id="pd-email" class="form-input" data-i18n-placeholder="quoteForm.emailPlaceholder" placeholder="your@email.com" required>
+          </div>
+          <div class="form-group">
+            <label for="pd-phone" data-i18n="quoteForm.phone">Phone *</label>
+            <input type="tel" id="pd-phone" class="form-input" data-i18n-placeholder="quoteForm.phonePlaceholder" placeholder="+86 xxx xxxx xxxx">
+          </div>
+          <div class="form-group">
+            <label for="pd-message" data-i18n="quoteForm.message">Message *</label>
+            <textarea id="pd-message" class="form-textarea" rows="4" placeholder="Tell us about your project..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg" style="width:100%;justify-content:center;" data-i18n="quoteForm.submit">Submit</button>
+        </form>
+      </div>
+
+      <!-- Right: FAQ -->
+      <div class="faq-box">
+        <div class="faq-header">
+          <span class="faq-icon">❓</span>
+          <h2 class="faq-title" data-i18n="faq.title">We're Here to Answer All Your Questions</h2>
+        </div>
+        <div class="faq-tabs">
+          <button class="faq-tab active" data-tab="products" data-i18n="faq.tab_products">Products</button>
+          <button class="faq-tab" data-tab="ordering" data-i18n="faq.tab_ordering">Ordering & Payment</button>
+          <button class="faq-tab" data-tab="shipping" data-i18n="faq.tab_shipping">Shipping & Delivery</button>
+          <button class="faq-tab" data-tab="quality" data-i18n="faq.tab_quality">Quality & Certification</button>
+        </div>
+        <div class="faq-content show" id="products-faq-pd">
+          <div class="faq-item expanded">
+            <div class="faq-question"><span data-i18n="faq.q1_1">What are your main products?</span><svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg></div>
+            <div class="faq-answer show" data-i18n="faq.a1_1">We specialize in Self Adhesive Vinyl, PVC Flex Banner, Cutting Plotter Film, Acrylic Sheet, PVC Foam Board, and Display Equipment.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question"><span data-i18n="faq.q1_2">Do you offer custom sizes and specifications?</span><svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg></div>
+            <div class="faq-answer" data-i18n="faq.a1_2">Yes, we offer custom sizes, thickness, and specifications. Please provide your detailed requirements.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question"><span data-i18n="faq.q1_3">What is your minimum order quantity (MOQ)?</span><svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg></div>
+            <div class="faq-answer" data-i18n="faq.a1_3">Our MOQ varies by product type. Generally it's 100 pieces for standard products.</div>
+          </div>
+        </div>
+        <div class="faq-content" id="ordering-faq-pd">
+          <div class="faq-item"><div class="faq-question"><span data-i18n="faq.q2_1">What payment methods do you accept?</span><svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg></div><div class="faq-answer" data-i18n="faq.a2_1">We accept T/T, PayPal, and Western Union. New customers may require a 30% deposit.</div></div>
+          <div class="faq-item"><div class="faq-question"><span data-i18n="faq.q2_2">How long does it take to process my order?</span><svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg></div><div class="faq-answer" data-i18n="faq.a2_2">Standard products ship within 3-7 days. Custom orders may take 10-15 days.</div></div>
+          <div class="faq-item"><div class="faq-question"><span data-i18n="faq.q2_3">Can I request samples before placing a bulk order?</span><svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg></div><div class="faq-answer" data-i18n="faq.a2_3">Yes, we offer free samples for standard products. Customers only need to cover shipping cost.</div></div>
+        </div>
+        <div class="faq-content" id="shipping-faq-pd">
+          <div class="faq-item"><div class="faq-question"><span data-i18n="faq.q3_1">Do you ship internationally?</span><svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg></div><div class="faq-answer" data-i18n="faq.a3_1">Yes, we ship to over 50 countries worldwide via DHL, FedEx, UPS, and sea freight.</div></div>
+          <div class="faq-item"><div class="faq-question"><span data-i18n="faq.q3_2">What are the shipping costs?</span><svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg></div><div class="faq-answer" data-i18n="faq.a3_2">Costs depend on destination, weight, and method. We will quote exact shipping cost on order.</div></div>
+          <div class="faq-item"><div class="faq-question"><span data-i18n="faq.q3_3">How long does delivery take?</span><svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg></div><div class="faq-answer" data-i18n="faq.a3_3">Express shipping takes 5-7 business days. Sea freight takes 25-35 days.</div></div>
+        </div>
+        <div class="faq-content" id="quality-faq-pd">
+          <div class="faq-item"><div class="faq-question"><span data-i18n="faq.q4_1">Are your products certified?</span><svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg></div><div class="faq-answer" data-i18n="faq.a4_1">Yes, ISO 9001:2015 certified. Products meet international standards.</div></div>
+          <div class="faq-item"><div class="faq-question"><span data-i18n="faq.q4_2">Do you offer quality guarantees?</span><svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg></div><div class="faq-answer" data-i18n="faq.a4_2">Yes! 100% quality guarantee. Defective products will be replaced or refunded.</div></div>
+          <div class="faq-item"><div class="faq-question"><span data-i18n="faq.q4_3">Can you provide test reports or samples?</span><svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg></div><div class="faq-answer" data-i18n="faq.a4_3">Yes, test reports, certificates, and samples available upon request.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER (same as other pages) ──────────────────────────────────── -->
+<script>
+// ── Product Detail 页 FAQ + 询盘表单 ──────────────────────────────────────
+(function() {
+  // FAQ Tab 切换
+  const tabMap = { products: 'products-faq-pd', ordering: 'ordering-faq-pd', shipping: 'shipping-faq-pd', quality: 'quality-faq-pd' };
+  const faqSection = document.getElementById('quote-faq');
+  if (!faqSection) return;
+  const tabs = faqSection.querySelectorAll('.faq-tab');
+  tabs.forEach(btn => {
+    btn.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      btn.classList.add('active');
+      const key = btn.dataset.tab;
+      Object.values(tabMap).forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.classList.remove('show');
+      });
+      const target = document.getElementById(tabMap[key]);
+      if (target) target.classList.add('show');
+    });
+  });
+
+  // FAQ accordion
+  faqSection.querySelectorAll('.faq-question').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.closest('.faq-item');
+      const ans  = item.querySelector('.faq-answer');
+      const isOpen = item.classList.contains('expanded');
+      const block = q.closest('.faq-content');
+      block.querySelectorAll('.faq-item').forEach(i => {
+        i.classList.remove('expanded');
+        i.querySelector('.faq-answer').classList.remove('show');
+      });
+      if (!isOpen) { item.classList.add('expanded'); ans.classList.add('show'); }
+    });
+  });
+
+  // 询盘表单提交
+  const qForm = document.getElementById('pdQuoteForm');
+  if (qForm) {
+    qForm.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const name    = document.getElementById('pd-name').value.trim();
+      const email   = document.getElementById('pd-email').value.trim();
+      const phone   = document.getElementById('pd-phone').value.trim();
+      const message = document.getElementById('pd-message').value.trim();
+      if (!name || !email || !message) { alert('Please fill in all required fields (*)'); return; }
+      const btn = this.querySelector('button[type="submit"]');
+      const origText = btn ? btn.innerHTML : '';
+      if (btn) { btn.disabled = true; btn.innerHTML = '⏳ Sending...'; }
+      try {
+        const res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, email, phone, message, source: 'product-detail-' + (productSlug || id || 'unknown') })
+        });
+        const data = await res.json();
+        if (data.success) { showSuccessModal(); this.reset(); }
+        else { alert('Submit failed: ' + (data.message || 'Unknown error')); }
+      } catch(err) {
+        showSuccessModal();
+        this.reset();
+      } finally {
+        if (btn) { btn.disabled = false; btn.innerHTML = origText; }
+      }
+    });
+  }
+})();
+</script>
+
+<!-- SUCCESS MODAL -->
+<div class="success-modal-overlay" id="successModal" onclick="closeSuccessModal(event)">
+  <div class="success-modal">
+    <div class="success-modal-icon">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polyline points="20 6 9 17 4 12"></polyline></svg>
+    </div>
+    <h3 data-i18n="successModal.title">Inquiry Received!</h3>
+    <p data-i18n="successModal.message">Thanks for Your Inquiry, We will Get back to You within 8 Working Hours!</p>
+    <button class="success-close-btn" onclick="closeSuccessModal()" data-i18n="successModal.close">Got It</button>
+  </div>
+</div>
+<script>
+function showSuccessModal() {
+  var o = document.getElementById('successModal');
+  if (o) { o.classList.add('show'); document.body.style.overflow='hidden'; }
+}
+function closeSuccessModal(e) {
+  if (e && e.target !== document.getElementById('successModal') && !e.target.classList.contains('success-close-btn')) return;
+  var o = document.getElementById('successModal');
+  if (o) { o.classList.remove('show'); document.body.style.overflow=''; }
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key==='Escape') closeSuccessModal({target:document.getElementById('successModal')});
+});
+</script>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo-name" data-i18n="footer.brand">Foshan Jin Yu Advertising Material Co., Ltd</div>
+        <div class="footer-logo-sub" data-i18n="footer.brandSub">Professional Advertising Materials Manufacturer Since 2009</div>
+        <p data-i18n="footer.brandDesc">Integrated design, R&D, production and sales of advertising materials. ISO 9001 certified. Exporting to Europe, Americas, Southeast Asia, Middle East and beyond.</p>
+        <div style="display:flex;gap:12px;margin-top:16px;align-items:center;">
+          <a href="https://www.facebook.com/jinyu2021" target="_blank" rel="noopener noreferrer" class="social-icon-link" style="display:flex;align-items:center;justify-content:center;width:40px;height:40px;background:rgba(255,255,255,0.1);border-radius:50%;transition:all 0.3s ease;color:rgba(255,255,255,0.8);text-decoration:none;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="https://www.tiktok.com/@jinyu2021" target="_blank" rel="noopener noreferrer" class="social-icon-link" style="display:flex;align-items:center;justify-content:center;width:40px;height:40px;background:rgba(255,255,255,0.1);border-radius:50%;transition:all 0.3s ease;color:rgba(255,255,255,0.8);text-decoration:none;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/company/jinyu2021" target="_blank" rel="noopener noreferrer" class="social-icon-link" style="display:flex;align-items:center;justify-content:center;width:40px;height:40px;background:rgba(255,255,255,0.1);border-radius:50%;transition:all 0.3s ease;color:rgba(255,255,255,0.8);text-decoration:none;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="https://www.youtube.com/@jinyu2021" target="_blank" rel="noopener noreferrer" class="social-icon-link" style="display:flex;align-items:center;justify-content:center;width:40px;height:40px;background:rgba(255,255,255,0.1);border-radius:50%;transition:all 0.3s ease;color:rgba(255,255,255,0.8);text-decoration:none;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+        </div>
+        <div style="margin-top:20px;">
+          <div class="footer-contact-item"><span class="fi">📍</span><span><span data-i18n="footer.address">D3168, U+Zhigu Industrial Park, LiShui Town, Nanhai District, Foshan City, Guangdong, China</span></span></div>
+          <div class="footer-contact-item"><span class="fi">📞</span><span><a href="tel:+8613570441363" style="color:rgba(255,255,255,0.7)">+86-13570441363</a></span></div>
+          <div class="footer-contact-item"><span class="fi">💬</span><span><a href="https://wa.me/8613808828019" target="_blank" style="color:rgba(255,255,255,0.7)">WhatsApp: +86 138 0882 8019</a></span></div>
+          <div class="footer-contact-item"><span class="fi">✉️</span><span><a href="mailto:vivian@materials-ad.com" style="color:rgba(255,255,255,0.7)">vivian@materials-ad.com</a></span></div>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer.products">Products</h4>
+        <a href="products.html#self-adhesive-vinyl" data-i18n="footer.links.selfAdhesiveVinyl">Self Adhesive Vinyl</a>
+        <a href="products.html#flex-banner" data-i18n="footer.links.pvcFlexBanner">PVC Flex Banner</a>
+        <a href="products.html#one-way-vision" data-i18n="footer.links.oneWayVision">One Way Vision</a>
+        <a href="products.html#cutting-vinyl" data-i18n="footer.links.cuttingVinyl">Cutting Vinyl</a>
+        <a href="products.html#pvc-foam-board" data-i18n="footer.links.pvcFoamBoard">PVC Foam Board</a>
+        <a href="products.html#acrylic-sheet" data-i18n="footer.links.acrylicSheet">Acrylic Sheet</a>
+        <a href="products.html#aluminum-composite-panel" data-i18n="footer.links.aluminumPanel">Aluminum Composite Panel</a>
+        <a href="products.html#reflective-sheet" data-i18n="footer.links.reflectiveSheet">Reflective Sheet</a>
+        <a href="products.html#display-stand" data-i18n="footer.links.displayStands">Display Stands</a>
+        <a href="products.html#advertising-media" data-i18n="footer.links.advertisingMedia">Advertising Media</a>
+        <a href="products.html#advertising-panel" data-i18n="footer.links.advertisingPanel">Advertising Panel</a>
+        <a href="products.html#accessory" data-i18n="footer.links.accessory">Accessory</a>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer.navigation">Navigation</h4>
+        <a href="index.html" data-i18n="nav.home">Home</a>
+        <a href="applications.html" data-i18n="nav.applications">Applications</a>
+        <a href="case-studies.html" data-i18n="nav.caseStudies">Case Studies</a>
+        <a href="news.html" data-i18n="nav.news">News</a>
+        <a href="about.html" data-i18n="nav.aboutUs">About Us</a>
+        <a href="contact.html" data-i18n="nav.contactUs">Contact Us</a>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer.quickContact">Quick Contact</h4>
+        <p style="font-size:13px;color:rgba(255,255,255,0.55);margin-bottom:16px;" data-i18n="footer.quickContactDesc">Get pricing and product details within 24 hours.</p>
+        <a href="contact.html" class="btn btn-primary" style="width:100%;justify-content:center;margin-bottom:12px;color:#ffffff;" data-i18n="footer.getQuote">Get a Quote</a>
+        <a href="https://wa.me/8613808828019" target="_blank" class="btn btn-outline" style="width:100%;justify-content:center;color:#ffffff;" data-i18n="footer.whatsappNow">💬 WhatsApp Now</a>
+        <div style="margin-top:20px;padding:16px;background:rgba(255,255,255,0.05);border-radius:var(--radius);border:1px solid rgba(255,255,255,0.08);">
+          <div style="font-size:11px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;" data-i18n="footer.businessHours">Business Hours</div>
+          <div style="font-size:13px;color:rgba(255,255,255,0.75);" data-i18n="footer.weekday">Mon – Fri: 09:00 – 18:00 (GMT+8)</div>
+          <div style="font-size:13px;color:rgba(255,255,255,0.75);" data-i18n="footer.saturday">Sat: 09:00 – 13:00</div>
+        </div>
+      </div>
+    <div class="footer-bottom">
+      <p data-i18n="footer.copyright">© 2024 Foshan Jin Yu Advertising Material Co., Ltd. All Rights Reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="/i18n.js?v=13"></script>
+<script src="/api.js"></script>
+<script>
+// ── Product Database (from JINYU Material Catalog) ─────────────────────────
+const PRODUCTS = {
+  "self-adhesive-vinyl": {
+    name: "Self Adhesive Vinyl",
+    category: "Advertising Media",
+    desc: "Premium self-adhesive vinyl film designed for indoor and outdoor advertising applications. Features excellent printability with eco-solvent and solvent inks, smooth surface finish, and reliable adhesion. Available in glossy and matte surfaces.",
+    img: "images/self-adhesive-vinyl.svg",
+    thumbs: [
+      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&q=75",
+      "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=300&q=75",
+      "https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?w=300&q=75"
+    ],
+    specs: [
+      ["Item Name", "SAV120 / SAV140"],
+      ["Release Paper", "120g / 140g ± 5g"],
+      ["Film Thickness", "80 / 100 micron ± 5 micron"],
+      ["Surface", "Glossy / Matte"],
+      ["Adhesive", "Removable, 26μm ± 2μm"],
+      ["Size", "1.07 / 1.27 / 1.37 / 1.52m × 50m"],
+      ["Ink Compatibility", "Eco Solvent / Solvent"],
+      ["Package", "Export Carton"]
+    ],
+    features: [
+      "High color reproduction with eco-solvent and solvent inks",
+      "Smooth removable adhesive for easy application and repositioning",
+      "Available in glossy and matte surface finishes",
+      "Suitable for vehicle wraps, window graphics, and signage",
+      "Excellent outdoor durability and UV resistance",
+      "Consistent film thickness for professional print results"
+    ],
+    related: ["transparent-vinyl", "160-vinyl", "black-glue-vinyl", "cutting-vinyl"]
+  },
+  "transparent-vinyl": {
+    name: "Transparent Self Adhesive Vinyl",
+    category: "Advertising Media",
+    desc: "Crystal-clear transparent self-adhesive vinyl for window graphics, showcases, and see-through applications. Delivers vibrant color printing while maintaining transparency for creative display effects.",
+    img: "images/transparent-vinyl.svg",
+    thumbs: [
+      "https://images.unsplash.com/photo-1545601445-4d6a0a0565f0?w=300&q=75",
+    ],
+    specs: [
+      ["Item Name", "SAV Transparent"],
+      ["Release Paper", "140g"],
+      ["Film Thickness", "80 / 100 micron ± 5 micron"],
+      ["Surface", "Glossy"],
+      ["Adhesive", "Permanent / Removable"],
+      ["Size", "1.07 / 1.27 / 1.37 / 1.52m × 50m"],
+      ["Ink Compatibility", "Eco Solvent / Solvent"],
+      ["Package", "Export Carton"]
+    ],
+    features: [
+      "Crystal-clear transparency for window displays",
+      "Vibrant color printing without background interference",
+      "Suitable for glass surfaces and showcases",
+      "Easy application and bubble-free installation",
+      "UV resistant for long-lasting color fidelity"
+    ],
+    related: ["self-adhesive-vinyl", "window-film", "one-way-vision", "cutting-vinyl"]
+  },
+  "160-vinyl": {
+    name: "160 Self Adhesive Vinyl",
+    category: "Advertising Media",
+    desc: "Premium 160g release paper self-adhesive vinyl offering superior stiffness and handling. Available in standard glossy/matte and super glossy finish for high-end display applications.",
+    img: "images/160-vinyl.svg",
+    thumbs: [],
+    specs: [
+      ["Item Name", "SAV 160 / SAV 160 Super Glossy"],
+      ["Release Paper", "160g ± 10g"],
+      ["Film Thickness", "100 micron ± 5 micron"],
+      ["Surface", "Glossy / Matte / Super Glossy"],
+      ["Adhesive", "Removable, 26μm ± 2μm"],
+      ["Size", "1.07 / 1.27 / 1.37 / 1.52m × 50m"],
+      ["Ink Compatibility", "Eco Solvent / Solvent"],
+      ["Package", "Export Carton"]
+    ],
+    features: [
+      "160g release paper for superior stiffness and handling",
+      "Super Glossy option for premium mirror-like finish",
+      "Consistent adhesive coating for reliable bonding",
+      "Excellent dimensional stability during printing",
+      "Ideal for high-end retail and luxury brand displays"
+    ],
+    related: ["self-adhesive-vinyl", "transparent-vinyl", "polymeric-vinyl-140", "cold-lamination-film"]
+  },
+  "black-glue-vinyl": {
+    name: "Black Glue Self Adhesive Vinyl",
+    category: "Advertising Media",
+    desc: "Opaque black adhesive backing vinyl that completely blocks light penetration. Perfect for applications requiring total opacity, such as window blocking, backlit signage covers, and re-branding applications.",
+    img: "images/black-glue-vinyl.svg",
+    thumbs: [],
+    specs: [
+      ["Item Name", "SAV-Black"],
+      ["Release Paper", "120 / 140 / 160g"],
+      ["Film Thickness", "80 / 100 micron ± 5 micron"],
+      ["Surface", "Glossy / Matte"],
+      ["Adhesive", "Removable, 26μm ± 2μm (Black)"],
+      ["Size", "1.07 / 1.27 / 1.37 / 1.52m × 50m"],
+      ["Ink Compatibility", "Eco Solvent / Solvent"],
+      ["Package", "Export Carton"]
+    ],
+    features: [
+      "100% opaque black adhesive completely blocks light",
+      "Ideal for window blackout and privacy applications",
+      "Prevents show-through in double-sided signage",
+      "Available in glossy and matte surface finishes",
+      "Strong adhesion to glass and smooth surfaces"
+    ],
+    related: ["self-adhesive-vinyl", "one-way-vision", "window-film", "transparent-vinyl"]
+  },
+  "photo-paper": {
+    name: "Photo Paper",
+    category: "Advertising Media",
+    desc: "High-quality photo paper for vibrant indoor prints, posters, and photographic reproductions. Features a resin-coated surface for exceptional color gamut and sharp image resolution.",
+    img: "images/photo-paper.svg",
+    thumbs: [],
+    specs: [
+      ["Surface", "Glossy / Matte / Satin"],
+      ["Ink Compatibility", "Eco Solvent / Dye / Pigment"],
+      ["Width", "0.61 / 0.914 / 1.07 / 1.27m"],
+      ["Roll Length", "30m / 50m"],
+      ["Package", "Export Carton"]
+    ],
+    features: [
+      "Resin-coated surface for exceptional color reproduction",
+      "Sharp detail rendering for photographic quality prints",
+      "Quick-drying ink absorption layer",
+      "Available in glossy, matte, and satin finishes",
+      "Compatible with dye, pigment, and eco-solvent inks"
+    ],
+    related: ["pet-film", "backlit-film", "eco-pp-banner", "self-adhesive-vinyl"]
+  },
+  "pet-film": {
+    name: "PET Film",
+    category: "Advertising Media",
+    desc: "Polyester (PET) film offering excellent dimensional stability and high tensile strength. Ideal for labels, overlaminates, and high-resolution printing applications requiring superior durability.",
+    img: "images/pet-film.svg",
+    thumbs: [],
+    specs: [
+      ["Material", "Polyester (PET)"],
+      ["Surface", "Glossy / Matte"],
+      ["Thickness", "50 / 75 / 100 micron"],
+      ["Ink Compatibility", "Eco Solvent / UV / Solvent"],
+      ["Width", "1.07 / 1.27 / 1.37 / 1.52m"],
+      ["Package", "Export Carton"]
+    ],
+    features: [
+      "Superior dimensional stability compared to vinyl films",
+      "High tensile strength for demanding applications",
+      "Excellent chemical and moisture resistance",
+      "Available in clear, white, and metallic finishes",
+      "Compatible with UV, eco-solvent, and solvent inks"
+    ],
+    related: ["self-adhesive-vinyl", "photo-paper", "cold-lamination-film", "3d-cold-lamination"]
+  },
+  "backlit-film": {
+    name: "Backlit Film For Light Box",
+    category: "Advertising Media",
+    desc: "Specially formulated backlit film designed for illuminated light box displays. Features excellent light transmission, vivid color reproduction, and anti-static properties for stunning backlit visual effects.",
+    img: "images/backlit-film.svg",
+    thumbs: [],
+    specs: [
+      ["Surface", "Matte (anti-glare)"],
+      ["Light Transmission", "≥ 48%"],
+      ["Thickness", "175 / 200 micron"],
+      ["Ink Compatibility", "Eco Solvent / Solvent / UV"],
+      ["Width", "1.07 / 1.27 / 1.37 / 1.52m × 30m"],
+      ["Package", "Export Carton"]
+    ],
+    features: [
+      "High light transmission for brilliant illuminated displays",
+      "Anti-glare matte surface eliminates hot spots",
+      "Anti-static coating prevents dust attraction",
+      "Excellent color saturation and white point balance",
+      "Compatible with all major wide-format inkjet systems"
+    ],
+    related: ["crystal-light-box", "aluminum-light-box", "pet-film", "eco-pp-banner"]
+  },
+  "eco-pp-banner": {
+    name: "ECO PP Banner",
+    category: "Advertising Media",
+    desc: "Environmentally friendly polypropylene banner material made from recycled content. Offers excellent printability, tear resistance, and is fully recyclable. A sustainable choice for trade shows and events.",
+    img: "images/eco-pp-banner.svg",
+    thumbs: [],
+    specs: [
+      ["Material", "Recycled Polypropylene"],
+      ["Weight", "120 / 150 / 200 gsm"],
+      ["Surface", "Glossy / Matte"],
+      ["Ink Compatibility", "Eco Solvent / UV"],
+      ["Width", "0.914 / 1.07 / 1.27 / 1.52m × 50m"],
+      ["Package", "Export Carton"]
+    ],
+    features: [
+      "Made from recycled polypropylene for sustainability",
+      "Fully recyclable after use",
+      "Tear-resistant and waterproof",
+      "Excellent color gamut with eco-solvent inks",
+      "Lightweight for easy shipping and installation",
+      "Suitable for indoor and outdoor short-term use"
+    ],
+    related: ["pvc-flex-banner", "self-adhesive-vinyl", "photo-paper", "pet-film"]
+  },
+  "one-way-vision": {
+    name: "One Way Vision",
+    category: "Advertising Media",
+    desc: "Perforated window vinyl that allows one-way visibility. Print graphics on the outside while maintaining clear visibility from inside. Ideal for vehicle windows, retail store windows, and glass partitions.",
+    img: "images/one-way-vision.svg",
+    thumbs: [],
+    specs: [
+      ["Perforation", "50/50 (50% open / 50% printed)"],
+      ["Thickness", "140 micron"],
+      ["Adhesive", "Permanent"],
+      ["Ink Compatibility", "Eco Solvent / Solvent"],
+      ["Width", "1.07 / 1.27 / 1.37 / 1.52m × 50m"],
+      ["Package", "Export Carton"]
+    ],
+    features: [
+      "50/50 perforation ratio for optimal visibility balance",
+      "Vibrant external graphics while maintaining inside view",
+      "Suitable for vehicle windows and glass facades",
+      "UV resistant for long-lasting outdoor performance",
+      "Easy to apply and remove without residue",
+      "Ideal for advertising, privacy, and branding"
+    ],
+    related: ["transparent-vinyl", "window-film", "black-glue-vinyl", "self-adhesive-vinyl"]
+  },
+  "cutting-vinyl": {
+    name: "Cutting Vinyl",
+    category: "Advertising Media",
+    desc: "Precision-engineered vinyl film for plotter cutting applications. Features consistent thickness, easy weeding, and excellent adhesion to flat and curved surfaces. Available in 60+ standard and specialty colors.",
+    img: "images/cutting-vinyl.svg",
+    thumbs: [],
+    specs: [
+      ["Film Thickness", "80 micron"],
+      ["Adhesive", "Permanent / Removable"],
+      ["Surface", "Glossy / Matte"],
+      ["Color Range", "60+ standard colors + metallics"],
+      ["Width", "0.5 / 0.61 / 0.914 / 1.07 / 1.26m × 50m"],
+      ["Package", "Export Carton"]
+    ],
+    features: [
+      "Precise cutting performance with low-force plotters",
+      "Easy weeding with minimal tearing",
+      "Strong adhesion to glass, metal, and rigid substrates",
+      "Available in 60+ colors including metallics and fluorescents",
+      "Suitable for lettering, logos, and decorative applications",
+      "3–7 year outdoor durability"
+    ],
+    related: ["self-adhesive-vinyl", "transparent-vinyl", "polymeric-vinyl-140", "cold-lamination-film"]
+  },
+  "pvc-flex-banner": {
+    name: "PVC Flex Banner",
+    category: "Advertising Media",
+    desc: "Industry-standard PVC flex banner for outdoor advertising, building wraps, and large-format displays. Features high tensile strength, UV resistance, and excellent printability for vivid outdoor graphics.",
+    img: "images/pvc-flex-banner.svg",
+    thumbs: [],
+    specs: [
+      ["Weight", "440 / 510 / 550 gsm"],
+      ["Tensile Strength", "≥ 350 N/5cm (warp/weft)"],
+      ["Surface", "Glossy / Matte / Frontlit / Backlit"],
+      ["Ink Compatibility", "Eco Solvent / Solvent / UV"],
+      ["Width", "2.0 / 2.5 / 3.0 / 3.2 / 5.0m × 50m"],
+      ["Package", "Export Carton"]
+    ],
+    features: [
+      "High tensile strength for large outdoor installations",
+      "Excellent UV and weather resistance",
+      "Available in frontlit and backlit versions",
+      "Non-curl edges for professional finishing",
+      "Welding-compatible for hemming and grommeting",
+      "Suitable for billboards, building wraps, and banners"
+    ],
+    related: ["eco-pp-banner", "self-adhesive-vinyl", "backlit-film", "cold-lamination-film"]
+  },
+  "polymeric-vinyl-140": {
+    name: "140 Polymeric Self-Adhesive Vinyl",
+    category: "Advertising Media",
+    desc: "Premium polymeric vinyl with 140g release paper offering superior dimensional stability and conformability. Ideal for vehicle wraps, curved surfaces, and long-term outdoor applications.",
+    img: "images/polymeric-vinyl-140.svg",
+    thumbs: [],
+    specs: [
+      ["Type", "Polymeric PVC"],
+      ["Release Paper", "140g"],
+      ["Film Thickness", "100 micron"],
+      ["Adhesive", "Grey / White, Removable"],
+      ["Size", "1.07 / 1.27 / 1.37 / 1.52m × 50m"],
+      ["Outdoor Durability", "5–7 years"],
+      ["Ink Compatibility", "Eco Solvent / Solvent"],
+      ["Package", "Export Carton"]
+    ],
+    features: [
+      "Polymeric formulation for superior dimensional stability",
+      "Excellent conformability on curved and riveted surfaces",
+      "5–7 year outdoor durability",
+      "Suitable for vehicle wraps and fleet graphics",
+      "Air-release channel adhesive for bubble-free application",
+      "Available in grey and white adhesive versions"
+    ],
+    related: ["cold-lamination-140", "self-adhesive-vinyl", "cutting-vinyl", "cold-lamination-film"]
+  },
+  "cold-lamination-140": {
+    name: "140 Polymeric Cold Lamination Film",
+    category: "Advertising Media",
+    desc: "Protective polymeric cold lamination film designed to extend the life of printed graphics. Provides scratch, UV, and weather protection while enhancing color vibrancy and contrast.",
+    img: "images/cold-lamination-140.svg",
+    thumbs: [],
+    specs: [
+      ["Type", "Polymeric PVC Overlaminate"],
+      ["Release Paper", "140g"],
+      ["Film Thickness", "80 / 100 micron"],
+      ["Surface", "Glossy / Matte / Anti-scratch"],
+      ["Adhesive", "Optically Clear, Permanent"],
+      ["Width", "1.07 / 1.27 / 1.37 / 1.52m × 50m"],
+      ["Package", "Export Carton"]
+    ],
+    features: [
+      "Superior UV protection extends print life 2–3×",
+      "Scratch and abrasion resistant surface",
+      "Optically clear adhesive preserves color accuracy",
+      "Available in glossy, matte, and anti-scratch finishes",
+      "Compatible with all wide-format inkjet prints",
+      "Chemical and solvent resistant"
+    ],
+    related: ["cold-lamination-film", "3d-cold-lamination", "polymeric-vinyl-140", "pet-film"]
+  },
+  "cold-lamination-film": {
+    name: "Cold Lamination Film",
+    category: "Advertising Media",
+    desc: "Versatile cold lamination film for protecting and enhancing printed media. Available in multiple finishes and thicknesses to suit a wide range of indoor and outdoor applications.",
+    img: "images/cold-lamination-film.svg",
+    thumbs: [],
+    specs: [
+      ["Film Thickness", "75 / 100 / 125 micron"],
+      ["Surface", "Glossy / Matte / Satin / Soft Touch"],
+      ["Adhesive", "Pressure Sensitive, Permanent"],
+      ["Width", "0.61 / 0.914 / 1.07 / 1.27 / 1.37 / 1.52m"],
+      ["Roll Length", "50m"],
+      ["Package", "Export Carton"]
+    ],
+    features: [
+      "Multiple surface finishes for different effects",
+      "Soft touch matte option for premium feel",
+      "Crystal clear adhesive for color accuracy",
+      "Easy to apply with laminator or by hand",
+      "Suitable for photos, posters, menus, and display graphics",
+      "Water and tear resistant"
+    ],
+    related: ["cold-lamination-140", "3d-cold-lamination", "pet-film", "self-adhesive-vinyl"]
+  },
+  "3d-cold-lamination": {
+    name: "3D Cold Lamination Film",
+    category: "Advertising Media",
+    desc: "Innovative 3D textured cold lamination film that adds tactile dimension to printed graphics. Available in brushed metal, carbon fiber, leather, and other premium textures for luxury display applications.",
+    img: "images/3d-cold-lamination.svg",
+    thumbs: [],
+    specs: [
+      ["Texture Options", "Brushed Metal / Carbon Fiber / Leather / Fabric / Sand"],
+      ["Film Thickness", "125 / 150 micron"],
+      ["Adhesive", "Pressure Sensitive, Permanent"],
+      ["Width", "0.61 / 1.07 / 1.27m × 50m"],
+      ["Package", "Export Carton"]
+    ],
+    features: [
+      "Tactile 3D texture adds premium feel to prints",
+      "Available in 10+ texture patterns",
+      "Carbon fiber, brushed metal, and leather textures",
+      "Enhances perceived value of packaging and displays",
+      "Water and scratch resistant",
+      "Ideal for luxury branding and high-end retail"
+    ],
+    related: ["cold-lamination-film", "cold-lamination-140", "pet-film", "photo-paper"]
+  },
+  "window-film": {
+    name: "Window Film",
+    category: "Advertising Media",
+    desc: "Decorative and functional window films for privacy, sun control, and branding. Available in frosted, color tint, solar control, and printed varieties for residential, commercial, and automotive applications.",
+    img: "images/window-film.svg",
+    thumbs: [],
+    specs: [
+      ["Types", "Frosted / Color / Solar Control / Decorative"],
+      ["Thickness", "50 / 75 / 100 micron"],
+      ["Adhesive", "Static Cling / Pressure Sensitive"],
+      ["Width", "0.61 / 0.914 / 1.07 / 1.27 / 1.52m × 30m"],
+      ["Package", "Export Carton"]
+    ],
+    features: [
+      "Frosted film for privacy without blocking light",
+      "Solar control film reduces heat and UV by up to 99%",
+      "Easy static cling option—no adhesive required",
+      "Repositionable and removable without residue",
+      "Custom printing available for branded applications",
+      "Suitable for glass doors, partitions, and storefronts"
+    ],
+    related: ["one-way-vision", "transparent-vinyl", "black-glue-vinyl", "cutting-vinyl"]
+  },
+  "reflective-materials": {
+    name: "Reflective Materials",
+    category: "Advertising Media",
+    desc: "High-visibility retroreflective materials for safety signage, road markings, and night-visible advertising. Complies with international traffic safety standards with outstanding retroreflectivity.",
+    img: "images/reflective-materials.svg",
+    thumbs: [],
+    specs: [
+      ["Type", "Engineer Grade / High Intensity / Diamond Grade"],
+      ["Reflectivity", "70–1000 cd/lx/m²"],
+      ["Color Options", "White / Yellow / Red / Green / Blue / Orange"],
+      ["Film Thickness", "180 / 250 micron"],
+      ["Width", "0.61 / 0.914 / 1.07 / 1.22m × 45.7m"],
+      ["Standard", "ASTM D4956 / EN ISO 3864"]
+    ],
+    features: [
+      "Outstanding night-time visibility for safety applications",
+      "Pressure-sensitive acrylic adhesive for permanent bonding",
+      "Weather resistant for 7–10 years outdoors",
+      "Available in engineer, high-intensity, and diamond grades",
+      "Complies with ASTM D4956 international standards",
+      "Printable surface for custom signage"
+    ],
+    related: ["cutting-vinyl", "self-adhesive-vinyl", "window-film", "polymeric-vinyl-140"]
+  },
+  "canvas-flag-fabric": {
+    name: "Canvas / Flag Fabric",
+    category: "Advertising Media",
+    desc: "Versatile textile media for banners, flags, and canvas prints. Features excellent ink absorption, vibrant color output, and available in various fabric weights for indoor and outdoor applications.",
+    img: "images/canvas-flag-fabric.svg",
+    thumbs: [],
+    specs: [
+      ["Material", "Polyester / Knitted Polyester"],
+      ["Weight", "100 / 110 / 115 gsm"],
+      ["Surface", "Matte (both sides printable)"],
+      ["Ink Compatibility", "Dye Sublimation / Pigment"],
+      ["Width", "1.07 / 1.27 / 1.52 / 2.0m × 100m"],
+      ["Package", "Export Carton"]
+    ],
+    features: [
+      "Lightweight and portable for events and trade shows",
+      "Vibrant dye sublimation printing",
+      "Both sides printable for double-sided displays",
+      "Tear-resistant knitted construction",
+      "Machine washable for reuse",
+      "Available in various weights for different applications"
+    ],
+    related: ["eco-pp-banner", "pvc-flex-banner", "x-banner", "roll-up-stand"]
+  },
+  "pvc-foam-board": {
+    name: "PVC Foam Board",
+    category: "Advertising Panel",
+    desc: "Lightweight and rigid PVC foam board for indoor signage, display mounting, and retail point-of-purchase displays. Features a smooth printable surface, easy fabrication, and excellent impact resistance.",
+    img: "images/pvc-foam-board.svg",
+    thumbs: [],
+    specs: [
+      ["Thickness", "3 / 5 / 8 / 10 / 15 / 20 mm"],
+      ["Density", "0.45–0.6 g/cm³"],
+      ["Surface", "Smooth / Matte white"],
+      ["Size", "1220 × 2440mm / 1560 × 3050mm"],
+      ["Color", "White / Black / Custom"],
+      ["Package", "Export Carton"]
+    ],
+    features: [
+      "Ultra-lightweight for easy handling and installation",
+      "Rigid and flat for professional display mounting",
+      "Smooth surface for direct UV printing",
+      "Easy to cut with standard tools",
+      "Moisture and humidity resistant",
+      "Available in white, black, and custom colors"
+    ],
+    related: ["acrylic-sheet", "polystyrene-sheet", "pp-hollow-sheet", "aluminum-composite-panel"]
+  },
+  "acrylic-sheet": {
+    name: "Acrylic Sheet",
+    category: "Advertising Panel",
+    desc: "Crystal-clear cast acrylic sheet offering optical clarity comparable to glass at half the weight. Ideal for illuminated signs, display cases, retail fixtures, and premium advertising applications.",
+    img: "images/acrylic-sheet.svg",
+    thumbs: [],
+    specs: [
+      ["Type", "Cast / Extruded"],
+      ["Thickness", "2 / 3 / 4 / 5 / 6 / 8 / 10 mm"],
+      ["Light Transmission", "≥ 92% (clear)"],
+      ["Size", "1220 × 2440mm / 1830 × 2440mm"],
+      ["Color", "Clear / White / Opal / Colors"],
+      ["Package", "Export Carton"]
+    ],
+    features: [
+      "Optical-grade clarity with 92% light transmission",
+      "Half the weight of glass with superior impact resistance",
+      "Available in cast and extruded grades",
+      "Easy to machine, bond, and form",
+      "Available in clear, white, opal, and 100+ colors",
+      "UV resistant for long-term color stability"
+    ],
+    related: ["pvc-foam-board", "crystal-light-box", "aluminum-light-box", "aluminum-composite-panel"]
+  },
+  "polystyrene-sheet": {
+    name: "Polystyrene Sheet",
+    category: "Advertising Panel",
+    desc: "Economical polystyrene (PS) sheet for short-term indoor advertising, retail signs, and point-of-purchase displays. Lightweight, easy to print on, and suitable for laser and UV printing.",
+    img: "images/polystyrene-sheet.svg",
+    thumbs: [],
+    specs: [
+      ["Material", "Polystyrene (PS)"],
+      ["Thickness", "1 / 2 / 3 / 5 mm"],
+      ["Surface", "Glossy / Matte"],
+      ["Size", "1220 × 2440mm"],
+      ["Color", "White / Transparent"],
+      ["Package", "Export Carton"]
+    ],
+    features: [
+      "Cost-effective solution for short-term displays",
+      "Lightweight for easy shipping and installation",
+      "Smooth surface compatible with UV inkjet printing",
+      "Easy to laser cut for custom shapes",
+      "Suitable for indoor retail and POP displays",
+      "Available in glossy and matte finishes"
+    ],
+    related: ["pvc-foam-board", "pp-hollow-sheet", "acrylic-sheet", "abs-pvc-kt-board"]
+  },
+  "pp-hollow-sheet": {
+    name: "PP Hollow Sheet",
+    category: "Advertising Panel",
+    desc: "Corrugated polypropylene hollow sheet combining light weight with structural rigidity. Water-resistant and reusable for outdoor real estate signs, election signs, and temporary displays.",
+    img: "images/pp-hollow-sheet.svg",
+    thumbs: [],
+    specs: [
+      ["Material", "Polypropylene (PP) Corrugated"],
+      ["Thickness", "2 / 3 / 4 / 5 mm"],
+      ["Size", "1220 × 2440mm"],
+      ["Color", "White / Black / Custom"],
+      ["Weight", "400–700 gsm"],
+      ["Package", "Export Carton"]
+    ],
+    features: [
+      "Hollow corrugated construction for rigidity with light weight",
+      "Fully waterproof and weather resistant",
+      "Reusable and recyclable",
+      "Easy to insert H-stakes for yard signs",
+      "Printable via screen, UV inkjet, and digital printing",
+      "Suitable for outdoor temporary signage"
+    ],
+    related: ["pvc-foam-board", "polystyrene-sheet", "abs-pvc-kt-board", "aluminum-composite-panel"]
+  },
+  "aluminum-composite-panel": {
+    name: "Aluminum Composite Panel",
+    category: "Advertising Panel",
+    desc: "Durable aluminum composite panel (ACP) featuring two aluminum sheets bonded to a polyethylene core. Widely used for building cladding, outdoor signage, and long-term advertising panels.",
+    img: "images/aluminum-composite-panel.svg",
+    thumbs: [],
+    specs: [
+      ["Structure", "Aluminum + PE Core + Aluminum"],
+      ["Total Thickness", "3 / 4 / 6 mm"],
+      ["Aluminum Thickness", "0.1–0.5 mm per side"],
+      ["Size", "1220 × 2440mm / 1500 × 3000mm"],
+      ["Surface", "PVDF / Polyester Coated"],
+      ["Colors", "Standard colors + custom RAL"]
+    ],
+    features: [
+      "Exceptional flatness and rigidity",
+      "Lightweight—typically 4–6 kg/m²",
+      "PVDF coating for long-term weathering resistance",
+      "Available in 100+ standard and custom colors",
+      "Easy to rout, cut, fold, and install",
+      "Suitable for outdoor signs, fascias, and cladding"
+    ],
+    related: ["pvc-foam-board", "acrylic-sheet", "pp-hollow-sheet", "abs-pvc-kt-board"]
+  },
+  "abs-pvc-kt-board": {
+    name: "ABS / PVC KT Board",
+    category: "Advertising Panel",
+    desc: "Versatile foam-core board with ABS or PVC facing for lightweight rigid display applications. Features a strong core with smooth printable surfaces, ideal for point-of-purchase displays and trade show panels.",
+    img: "images/abs-pvc-kt-board.svg",
+    thumbs: [],
+    specs: [
+      ["Core Material", "PS Foam"],
+      ["Facing", "ABS / PVC"],
+      ["Thickness", "3 / 5 / 8 / 10 mm"],
+      ["Size", "1220 × 2440mm"],
+      ["Color", "White / Black"],
+      ["Package", "Export Carton"]
+    ],
+    features: [
+      "Smooth ABS/PVC facing for high-quality UV printing",
+      "Lightweight foam core for easy handling",
+      "Better flatness than standard foam board",
+      "Easy to cut, score, and mount",
+      "Available in white and black",
+      "Ideal for retail displays and trade show panels"
+    ],
+    related: ["pvc-foam-board", "pp-hollow-sheet", "polystyrene-sheet", "acrylic-sheet"]
+  },
+  "x-banner": {
+    name: "X Banner Stand",
+    category: "Display Stand",
+    desc: "Portable and lightweight X-shaped banner stand for quick setup at events, trade shows, and retail environments. Accommodates standard sized banners and features a compact carrying bag.",
+    img: "images/x-banner.svg",
+    thumbs: [],
+    specs: [
+      ["Banner Size", "60×160cm / 80×180cm / 80×200cm"],
+      ["Material", "Aluminum alloy frame"],
+      ["Weight", "0.7–1.2 kg"],
+      ["Setup Time", "< 2 minutes"],
+      ["Package", "With carry bag"]
+    ],
+    features: [
+      "Ultra-lightweight aluminum frame",
+      "Sets up in under 2 minutes—no tools required",
+      "Includes carry bag for easy transportation",
+      "Tension design keeps banner taut and flat",
+      "Suitable for indoor events and trade shows",
+      "Banner replacement is quick and easy"
+    ],
+    related: ["roll-up-stand", "pop-up-banner", "tripod-pop-easel", "canvas-flag-fabric"]
+  },
+  "roll-up-stand": {
+    name: "Roll-Up Stand",
+    category: "Display Stand",
+    desc: "Premium retractable roll-up banner stand for professional trade show and retail displays. Features smooth retraction mechanism, stable base, and high-quality aluminum construction.",
+    img: "images/roll-up-stand.svg",
+    thumbs: [],
+    specs: [
+      ["Banner Size", "80×200cm / 85×200cm / 100×200cm"],
+      ["Material", "Aluminum alloy"],
+      ["Base", "Heavy-duty weighted base"],
+      ["Weight", "2.5–4 kg"],
+      ["Package", "With carry bag + shoulder strap"]
+    ],
+    features: [
+      "Smooth retractable mechanism for quick setup",
+      "Heavy-duty weighted base for stability",
+      "Adjustable height pole",
+      "Includes premium carry bag with shoulder strap",
+      "Compatible with most wide-format banner prints",
+      "Available in standard, deluxe, and premium grades"
+    ],
+    related: ["x-banner", "pop-up-banner", "tripod-pop-easel", "poster-stand"]
+  },
+  "pop-up-banner": {
+    name: "Pop-Up Banner Stand",
+    category: "Display Stand",
+    desc: "Versatile pop-up display system for large-format trade show backdrops. Features quick assembly magnetic system with high-quality graphics frame for impressive 3×3, 4×3, and custom size displays.",
+    img: "images/pop-up-banner.svg",
+    thumbs: [],
+    specs: [
+      ["Common Sizes", "3×3 / 4×3 / 6×3 panels"],
+      ["Frame Material", "Aluminum tubing with magnetic joints"],
+      ["Surface", "Fabric or PVC graphic"],
+      ["Setup Time", "5–10 minutes"],
+      ["Package", "With wheeled carry case"]
+    ],
+    features: [
+      "Magnetic panel joints for fast assembly",
+      "Large-format backdrop for maximum visual impact",
+      "Lightweight aluminum frame—portable for travel",
+      "Includes wheeled carry case",
+      "Graphics can be updated without replacing frame",
+      "Available in multiple sizes and configurations"
+    ],
+    related: ["roll-up-stand", "x-banner", "aluminum-reception", "poster-stand"]
+  },
+  "aluminum-reception": {
+    name: "Aluminum Reception Counter",
+    category: "Display Stand",
+    desc: "Professional aluminum reception counter for trade shows, events, and retail environments. Features modular design, quick assembly, and large graphic surface for brand promotion.",
+    img: "images/aluminum-reception.svg",
+    thumbs: [],
+    specs: [
+      ["Size", "100×100×80cm / 120×40×80cm"],
+      ["Material", "Aluminum extrusion + graphics"],
+      ["Weight", "6–10 kg"],
+      ["Setup Time", "< 10 minutes"],
+      ["Package", "With carry bag"]
+    ],
+    features: [
+      "Modular aluminum extrusion construction",
+      "Large graphic panel surface for branding",
+      "Folds flat for compact transportation",
+      "Includes carry bag",
+      "Internal storage shelf available",
+      "Professional appearance for trade shows and events"
+    ],
+    related: ["pop-up-banner", "roll-up-stand", "pp-promotion-table", "x-banner"]
+  },
+  "pp-promotion-table": {
+    name: "PP Promotion Table",
+    category: "Display Stand",
+    desc: "Portable polypropylene promotion table for retail promotions, sampling events, and trade shows. Lightweight, foldable design with printed graphic sleeve for eye-catching brand promotion.",
+    img: "images/pp-promotion-table.svg",
+    thumbs: [],
+    specs: [
+      ["Material", "PP plastic frame + printed sleeve"],
+      ["Size", "60×30×90cm / 80×40×90cm"],
+      ["Weight", "2–3.5 kg"],
+      ["Package", "With carry bag"]
+    ],
+    features: [
+      "Lightweight PP construction—easy to carry",
+      "Printed graphic sleeve for full branding",
+      "Quick assembly without tools",
+      "Includes carry bag for portability",
+      "Suitable for retail promotions and sampling events",
+      "Available in multiple sizes"
+    ],
+    related: ["aluminum-reception", "roll-up-stand", "x-banner", "tripod-pop-easel"]
+  },
+  "tripod-pop-easel": {
+    name: "Tripod Pop Easel",
+    category: "Display Stand",
+    desc: "Versatile tripod easel for displaying posters, prints, and artwork at events and retail locations. Adjustable height, stable tripod base, and compact folding design for easy transportation.",
+    img: "images/tripod-pop-easel.svg",
+    thumbs: [],
+    specs: [
+      ["Material", "Aluminum alloy"],
+      ["Height Range", "60–160cm adjustable"],
+      ["Max Load", "5 kg"],
+      ["Folded Size", "60×10×10cm"],
+      ["Package", "With carry bag"]
+    ],
+    features: [
+      "Adjustable height from 60–160cm",
+      "Stable tripod base for indoor use",
+      "Lightweight aluminum construction",
+      "Folds compact for easy transportation",
+      "Universal A1/A0 poster holder",
+      "Suitable for art exhibitions and trade shows"
+    ],
+    related: ["poster-stand", "roll-up-stand", "x-banner", "pp-promotion-table"]
+  },
+  "outdoor-flagpole": {
+    name: "Outdoor Flagpole",
+    category: "Display Stand",
+    desc: "Durable aluminum outdoor flagpole for displaying feather flags, blade flags, and custom banner flags at retail locations, auto dealerships, sports venues, and outdoor events.",
+    img: "images/outdoor-flagpole.svg",
+    thumbs: [],
+    specs: [
+      ["Types", "Feather / Blade / Teardrop"],
+      ["Height", "3m / 4m / 5m / 6m"],
+      ["Material", "Fiberglass / Aluminum"],
+      ["Base Options", "Ground stake / Cross base / Water bag base"],
+      ["Package", "With carry bag"]
+    ],
+    features: [
+      "Available in feather, blade, and teardrop styles",
+      "Fiberglass pole withstands wind loads",
+      "Multiple base options for different surfaces",
+      "Easy single-person assembly",
+      "Double-sided dye sublimation printing",
+      "Suitable for outdoor events and retail locations"
+    ],
+    related: ["water-injection-flagpole", "canvas-flag-fabric", "lgate-banner", "x-banner"]
+  },
+  "folding-shelf": {
+    name: "Folding Shelf",
+    category: "Display Stand",
+    desc: "Versatile folding display shelf for retail product presentations. Features adjustable shelves, lightweight aluminum construction, and quick fold-flat design for easy transportation and storage.",
+    img: "images/folding-shelf.svg",
+    thumbs: [],
+    specs: [
+      ["Material", "Aluminum alloy"],
+      ["Shelves", "3–5 adjustable shelves"],
+      ["Size", "100×35×160cm"],
+      ["Max Load per Shelf", "10 kg"],
+      ["Package", "Flat pack"]
+    ],
+    features: [
+      "Quick fold-flat for easy transportation",
+      "Adjustable shelf heights",
+      "Lightweight aluminum construction",
+      "Anti-slip shelf surface",
+      "Suitable for retail product displays",
+      "Available in 3 and 5 shelf configurations"
+    ],
+    related: ["luxury-folding-shelf", "pp-promotion-table", "aluminum-reception", "poster-stand"]
+  },
+  "poster-stand": {
+    name: "Poster Stand",
+    category: "Display Stand",
+    desc: "Elegant adjustable poster stand for displaying A4 to A0 sized posters in retail, hospitality, and corporate environments. Available in aluminum and stainless steel finishes.",
+    img: "images/poster-stand.svg",
+    thumbs: [],
+    specs: [
+      ["Frame Sizes", "A4 / A3 / A2 / A1 / A0"],
+      ["Pole Material", "Aluminum / Stainless Steel"],
+      ["Height", "Adjustable 150–180cm"],
+      ["Base", "Weighted round base"],
+      ["Finish", "Silver / Black / Gold"]
+    ],
+    features: [
+      "Snap-open aluminum poster frame",
+      "Quick poster change without tools",
+      "Weighted base for stability",
+      "Available in A4 to A0 sizes",
+      "Anti-glare film protects and enhances prints",
+      "Available in silver, black, and gold finishes"
+    ],
+    related: ["tripod-pop-easel", "roll-up-stand", "x-banner", "message-display"]
+  },
+  "crystal-light-box": {
+    name: "Crystal Light Box",
+    category: "Display Stand",
+    desc: "Ultra-slim LED crystal light box for premium backlit advertising displays. Edge-lit LED technology provides uniform illumination across the graphic surface for stunning visual presentations.",
+    img: "images/crystal-light-box.svg",
+    thumbs: [],
+    specs: [
+      ["Thickness", "11mm ultra-slim"],
+      ["Sizes", "A4 / A3 / A2 / A1 / A0 / Custom"],
+      ["Light Source", "Edge-lit LED (white)"],
+      ["Power", "5–25W depending on size"],
+      ["Voltage", "AC100–240V"],
+      ["Light Guide", "LGP acrylic panel"]
+    ],
+    features: [
+      "Ultra-slim 11mm profile for modern aesthetics",
+      "Uniform LED illumination across entire surface",
+      "Tool-free snap-open aluminum frame",
+      "Energy efficient—uses 50% less power than traditional",
+      "Available in wall-mounted and freestanding versions",
+      "Compatible with backlit film and fabric graphics"
+    ],
+    related: ["aluminum-light-box", "backlit-film", "acrylic-sheet", "led-lightbox"]
+  },
+  "aluminum-light-box": {
+    name: "Aluminum Light Box",
+    category: "Display Stand",
+    desc: "Professional aluminum framed light box for retail and advertising illuminated displays. Available in single-sided, double-sided, and scrolling versions with durable construction for permanent installations.",
+    img: "images/aluminum-light-box.svg",
+    thumbs: [],
+    specs: [
+      ["Frame Material", "Aluminum extrusion"],
+      ["Depth", "50 / 80 / 100mm"],
+      ["Sizes", "Custom up to 5×10m"],
+      ["Light Source", "T8 fluorescent / LED tube"],
+      ["Voltage", "AC220V"],
+      ["Mounting", "Wall / Ceiling / Freestanding"]
+    ],
+    features: [
+      "Durable aluminum frame for permanent installations",
+      "Available in single and double-sided versions",
+      "Supports large format custom sizes",
+      "Scrolling version for dynamic advertising",
+      "Weather-resistant option for outdoor use",
+      "Compatible with all backlit graphic materials"
+    ],
+    related: ["crystal-light-box", "backlit-film", "led-lightbox", "led-channelletter-trim"]
+  },
+  "water-injection-flagpole": {
+    name: "Water Injection Flagpole",
+    category: "Display Stand",
+    desc: "Stable water-fillable base flagpole system ideal for indoor and outdoor event branding. Fill the base with water or sand for secure placement without drilling or permanent fixtures.",
+    img: "images/water-injection-flagpole.svg",
+    thumbs: [],
+    specs: [
+      ["Base", "Water/sand injection base"],
+      ["Pole Height", "2.5m / 3m / 3.5m"],
+      ["Material", "Fiberglass / Aluminum"],
+      ["Base Capacity", "20–35 liters"],
+      ["Flag Types", "Feather / Teardrop / Blade"]
+    ],
+    features: [
+      "Fill with water or sand for stability without drilling",
+      "No permanent installation required",
+      "Suitable for indoor and outdoor events",
+      "Quick assembly without tools",
+      "Portable when base is empty",
+      "Compatible with feather, teardrop, and blade flags"
+    ],
+    related: ["outdoor-flagpole", "canvas-flag-fabric", "lgate-banner", "x-banner"]
+  },
+  "lgate-banner": {
+    name: "L-Gate Banner",
+    category: "Display Stand",
+    desc: "L-shaped gate banner stand for eye-catching entrance and corridor displays. Features large graphic area, stable weighted base, and optional double-sided configuration for maximum visibility.",
+    img: "images/lgate-banner.svg",
+    thumbs: [],
+    specs: [
+      ["Banner Size", "60×160cm / 80×200cm"],
+      ["Frame", "Aluminum alloy"],
+      ["Base", "Weighted cross base"],
+      ["Configuration", "Single / Double sided"],
+      ["Package", "With carry bag"]
+    ],
+    features: [
+      "L-shaped frame creates distinctive gate appearance",
+      "Large graphic surface for maximum impact",
+      "Weighted cross base for stability",
+      "Available in single and double-sided versions",
+      "Easy banner replacement",
+      "Includes carry bag for portability"
+    ],
+    related: ["x-banner", "roll-up-stand", "outdoor-flagpole", "canvas-flag-fabric"]
+  },
+  "luxury-folding-shelf": {
+    name: "Luxury Folding Shelf",
+    category: "Display Stand",
+    desc: "Premium high-gloss folding shelf for luxury retail merchandise display. Features polished aluminum construction, elegant finishes, and adjustable shelf configuration for upscale product presentations.",
+    img: "images/luxury-folding-shelf.svg",
+    thumbs: [],
+    specs: [
+      ["Material", "High-grade aluminum alloy"],
+      ["Finish", "Polished / Brushed / Black anodized"],
+      ["Shelves", "3–6 adjustable shelves"],
+      ["Size", "80×35×180cm"],
+      ["Max Load", "15 kg per shelf"]
+    ],
+    features: [
+      "Premium polished aluminum construction",
+      "Multiple luxury finishes available",
+      "Adjustable shelf positions",
+      "Anti-slip shelf surface",
+      "Suitable for high-end retail environments",
+      "Optional tempered glass shelves"
+    ],
+    related: ["folding-shelf", "aluminum-reception", "poster-stand", "pp-promotion-table"]
+  },
+  "message-display": {
+    name: "Message Display Stand",
+    category: "Display Stand",
+    desc: "Multi-panel message display stand for presenting product information, menus, directories, and notices. Available in floor-standing and counter-top versions with snap-open frames.",
+    img: "images/message-display.svg",
+    thumbs: [],
+    specs: [
+      ["Panel Sizes", "A4 / A3 / Letter"],
+      ["Panels", "2 / 4 / 6 / 8 panels"],
+      ["Material", "Aluminum frame"],
+      ["Type", "Floor standing / Counter top"],
+      ["Finish", "Silver / Black"]
+    ],
+    features: [
+      "Multiple panel configurations",
+      "Snap-open frames for quick content changes",
+      "Double-sided panel viewing",
+      "Floor-standing and counter-top options",
+      "Available in silver and black finishes",
+      "Non-glare film included"
+    ],
+    related: ["poster-stand", "tripod-pop-easel", "folding-shelf", "roll-up-stand"]
+  },
+  "grommet-machine": {
+    name: "Grommet Machine",
+    category: "Accessory",
+    desc: "Professional manual grommet punch machine for installing eyelets and grommets on banners, tarps, leather, and fabric. Suitable for #4 (14mm) standard advertising grommets.",
+    img: "images/grommet-machine.svg",
+    thumbs: [],
+    specs: [
+      ["Type", "Manual / Table-top"],
+      ["Grommet Size", "#3 (12mm) / #4 (14mm) / #5 (17mm)"],
+      ["Material", "Steel"],
+      ["Stroke", "50mm"],
+      ["Weight", "3–6 kg"]
+    ],
+    features: [
+      "Heavy-duty steel construction",
+      "Interchangeable dies for multiple grommet sizes",
+      "Suitable for banners, tarps, and leather",
+      "Consistent grommet setting with each stroke",
+      "Manual operation—no power required",
+      "Available in desktop and floor-standing versions"
+    ],
+    related: ["squeegee", "knife", "hot-wind-gun", "advertising-glue"]
+  },
+  "led-channelletter-trim": {
+    name: "LED Channel Letter Trim",
+    category: "Accessory",
+    desc: "Aluminum LED channel letter profiles and trim caps for fabricating illuminated 3D channel letters. Used in creating professional backlit and front-lit signage letters for retail storefronts.",
+    img: "images/led-channelletter-trim.svg",
+    thumbs: [],
+    specs: [
+      ["Material", "Aluminum"],
+      ["Depths", "50 / 75 / 100mm"],
+      ["Trim Cap Width", "12.5mm / 20mm"],
+      ["Colors", "Silver / Black / White / Gold"],
+      ["Length", "3m / 6m per piece"]
+    ],
+    features: [
+      "Precise aluminum extrusion for clean channel letters",
+      "Available in multiple depths for different letter sizes",
+      "Compatible with all LED module types",
+      "Easy to cut and form curved letters",
+      "Color-matched trim caps for professional finish",
+      "Durable powder-coated finish"
+    ],
+    related: ["led-module", "led-lightbox", "aluminum-light-box", "acrylic-sheet"]
+  },
+  "led-module": {
+    name: "LED Module",
+    category: "Accessory",
+    desc: "High-performance LED modules for channel letters, light boxes, and illuminated signage. Available in SMD, COB, chip, and injection-molded configurations for different brightness requirements.",
+    img: "images/led-module.svg",
+    thumbs: [],
+    specs: [
+      ["Types", "SMD 5050 / 5054 / 5730 | Chip | COB | Injection"],
+      ["Power", "0.72W – 2W per module"],
+      ["Voltage", "DC 12V"],
+      ["Chip Quantity", "2–4 lights per module"],
+      ["Colors", "White / Red / Blue / Green / Yellow / Warm White"],
+      ["IP Rating", "IP65 (waterproof available)"]
+    ],
+    features: [
+      "Multiple chip configurations for different brightness levels",
+      "DC 12V safe low-voltage operation",
+      "IP65 waterproof option for outdoor applications",
+      "Long lifespan—50,000+ hours",
+      "Available in all standard and custom colors",
+      "Injection-molded housing for impact resistance"
+    ],
+    related: ["led-lightbox", "led-strip", "led-power-supply", "led-channelletter-trim"]
+  },
+  "led-lightbox": {
+    name: "LED Light Box Strip",
+    category: "Accessory",
+    desc: "Specialized LED strips designed for even illumination inside light boxes. Features edge-lit and diffuse-reflection configurations for uniform backlit display performance.",
+    img: "images/led-lightbox.svg",
+    thumbs: [],
+    specs: [
+      ["Item Name", "LS-Light Box"],
+      ["Types", "Edge-lit / Diffuse reflection"],
+      ["Light Qty/m", "1 / 12 / 24 lights"],
+      ["Voltage", "DC 12V / DC 220V"],
+      ["Power/m", "1W / 14W / 24W"],
+      ["Color", "White"]
+    ],
+    features: [
+      "Designed specifically for light box applications",
+      "Edge-lit and diffuse reflection configurations",
+      "Uniform illumination across entire panel",
+      "Energy efficient LED technology",
+      "Long service life for low maintenance",
+      "Compatible with all standard light box sizes"
+    ],
+    related: ["led-module", "led-strip", "crystal-light-box", "aluminum-light-box"]
+  },
+  "led-strip": {
+    name: "LED Flexible Strip",
+    category: "Accessory",
+    desc: "Flexible LED strip lights for accent lighting, backlighting, and decorative applications. Available in 12V and 220V versions with multiple chip densities for different brightness levels.",
+    img: "images/led-strip.svg",
+    thumbs: [],
+    specs: [
+      ["Item Name", "LED Flexible Strip – 220V"],
+      ["Chip Model", "5050 / 3528 / 5730"],
+      ["SMD Qty/m", "60 / 120 / 180 lights"],
+      ["Roll Length", "100m"],
+      ["Power/m", "14.4W"],
+      ["Type", "Waterproof"],
+      ["Voltage", "DC 220V"],
+      ["Colors", "Red / Blue / Green / Yellow / White / Warm White / RGB"]
+    ],
+    features: [
+      "Flexible design fits any curved or straight surface",
+      "High-density 60/120/180 LEDs per meter",
+      "Waterproof construction for wet environments",
+      "Available in 12V and 220V versions",
+      "Full spectrum of colors including RGB",
+      "Self-adhesive backing for easy installation"
+    ],
+    related: ["led-module", "led-power-supply", "led-lightbox", "crystal-light-box"]
+  },
+  "led-power-supply": {
+    name: "LED Power Supply",
+    category: "Accessory",
+    desc: "Reliable LED power supplies in multiple wattages and protection ratings. Available in non-waterproof, rainproof, and fully waterproof versions to suit indoor and outdoor LED installations.",
+    img: "images/led-power-supply.svg",
+    thumbs: [],
+    specs: [
+      ["Item Name", "LPS-1 / LPS-2 / LPS-3"],
+      ["Type", "Non-waterproof / Rainproof / Waterproof"],
+      ["Voltage", "DC 12V"],
+      ["Wattages", "30W / 40W / 60W / 80W / 100W / 120W / 150W / 200W / 250W / 300W"],
+      ["Input", "AC 85–265V"],
+      ["Protection", "Short circuit / Over-voltage / Over-temperature"]
+    ],
+    features: [
+      "Three protection levels for different environments",
+      "Wide wattage range 30W–300W",
+      "Universal AC input 85–265V",
+      "Short-circuit, over-voltage, and over-temperature protection",
+      "CE / RoHS certified",
+      "Compatible with all 12V LED products"
+    ],
+    related: ["led-module", "led-strip", "led-lightbox", "led-channelletter-trim"]
+  },
+  "cutting-mat": {
+    name: "Cutting Mat",
+    category: "Accessory",
+    desc: "Self-healing cutting mat for vinyl cutting, craft work, and general purpose cutting. Features a grid measurement guide, protective surface that heals after cuts, and non-slip backing.",
+    img: "images/cutting-mat.svg",
+    thumbs: [],
+    specs: [
+      ["Sizes", "A4 / A3 / A2 / A1 / 30×60cm / 45×90cm / 60×120cm"],
+      ["Material", "Self-healing PVC"],
+      ["Thickness", "3mm"],
+      ["Surface", "Grid printed (cm and inch)"],
+      ["Color", "Green / Blue / Black"]
+    ],
+    features: [
+      "Self-healing surface extends product life",
+      "Grid measurements in both cm and inches",
+      "Non-slip backing prevents movement",
+      "Protects table surfaces from cuts",
+      "Suitable for vinyl, paper, fabric, and film cutting",
+      "Available in multiple sizes"
+    ],
+    related: ["squeegee", "knife", "grommet-machine", "hot-wind-gun"]
+  },
+  "squeegee": {
+    name: "Squeegee",
+    category: "Accessory",
+    desc: "Professional vinyl application squeegees for smooth, bubble-free vinyl installation. Available in multiple hardness grades and profiles including flat, felt-edge, and triangle versions.",
+    img: "images/squeegee.svg",
+    thumbs: [],
+    specs: [
+      ["Types", "Macroporous / Small Scraper / Velvet Triangle / Stainless Steel"],
+      ["Sizes", "10cm / 12cm"],
+      ["Material", "PP / Felt / Stainless Steel"],
+      ["Hardness", "Soft / Medium / Hard"]
+    ],
+    features: [
+      "Multiple types for different vinyl application techniques",
+      "Velvet edge prevents scratching sensitive films",
+      "Stainless steel scraper for stubborn adhesive removal",
+      "Comfortable grip for extended use",
+      "Suitable for vinyl wrapping and laminating",
+      "Available in soft, medium, and hard grades"
+    ],
+    related: ["cutting-mat", "knife", "hot-wind-gun", "advertising-glue"]
+  },
+  "knife": {
+    name: "Multi-Functional Knife & Blade",
+    category: "Accessory",
+    desc: "Professional snap-off blade utility knives and replacement blades for vinyl cutting, trimming, and general sign-making applications. Available in 20mm and 45mm blade widths.",
+    img: "images/knife.svg",
+    thumbs: [],
+    specs: [
+      ["Blade Widths", "20mm / 45mm"],
+      ["Handle Length", "160mm"],
+      ["Blade Material", "High-carbon steel"],
+      ["Package", "400pcs / carton (40×10 boxes)"]
+    ],
+    features: [
+      "Snap-off blade design for constant sharp edge",
+      "High-carbon steel blades for clean cuts",
+      "Comfortable non-slip handle",
+      "Available in 20mm and 45mm widths",
+      "Suitable for vinyl, paper, film, and banner trimming",
+      "Replacement blades sold separately"
+    ],
+    related: ["cutting-mat", "squeegee", "grommet-machine", "hot-wind-gun"]
+  },
+  "advertising-glue": {
+    name: "Advertising Glue",
+    category: "Accessory",
+    desc: "Specialized adhesive products for advertising and signage applications including banner welding glue, PVC glue, and acrylic bonding adhesive. Professional-strength formulas for durable bonds.",
+    img: "images/advertising-glue.svg",
+    thumbs: [],
+    specs: [
+      ["Types", "Banner Welding Glue / PVC Glue / Acrylic Glue"],
+      ["Package", "250ml / 500ml / 1000ml bottles"],
+      ["Bond Strength", "High (>15 N/cm²)"],
+      ["Cure Time", "15–30 minutes (full cure 24h)"]
+    ],
+    features: [
+      "Banner welding glue for PVC flex banner repairs",
+      "PVC glue for bonding PVC foam board and sheets",
+      "Acrylic adhesive for transparent bonding of acrylic",
+      "Fast initial tack for quick production",
+      "Waterproof and weather-resistant bonds",
+      "Professional-strength formula"
+    ],
+    related: ["double-sided-adhesive", "squeegee", "hot-wind-gun", "pvc-flex-banner"]
+  },
+  "double-sided-adhesive": {
+    name: "Double-Sided Adhesive Sponge Sticker",
+    category: "Accessory",
+    desc: "Heavy-duty double-sided foam adhesive tape for mounting signs, displays, and advertising materials to walls and surfaces. High-tack adhesive with foam core provides gap-filling capability.",
+    img: "images/double-sided-adhesive.svg",
+    thumbs: [],
+    specs: [
+      ["Type", "Double-sided foam tape"],
+      ["Thickness", "1mm / 2mm / 3mm foam"],
+      ["Width", "12mm / 18mm / 24mm / 30mm / 48mm"],
+      ["Roll Length", "5m / 10m / 25m"],
+      ["Package", "400pcs/carton (40×10 boxes)"]
+    ],
+    features: [
+      "High-tack adhesive on both sides",
+      "Foam core fills surface irregularities",
+      "No drilling required for sign mounting",
+      "Clean removal without surface damage (low-tack option)",
+      "Temperature resistant -20°C to +80°C",
+      "Suitable for indoor and outdoor applications"
+    ],
+    related: ["advertising-glue", "nylon-cable-tie", "squeegee", "knife"]
+  },
+  "nylon-cable-tie": {
+    name: "Nylon Cable Tie",
+    category: "Accessory",
+    desc: "Standard nylon cable ties for securing banners, signs, and cables. UV stabilized for outdoor use. Available in standard and heavy-duty sizes.",
+    img: "images/nylon-cable-tie.svg",
+    thumbs: [],
+    specs: [
+      ["Material", "Nylon 66"],
+      ["Sizes", "100mm / 150mm / 200mm / 300mm"],
+      ["Color", "White / Black"],
+      ["Tensile Strength", "18–54 kg"],
+      ["Package", "400pcs/carton (40×10 boxes)"]
+    ],
+    features: [
+      "UV stabilized nylon 66 for outdoor durability",
+      "Self-locking one-piece design",
+      "Available in white and black",
+      "Multiple sizes for different applications",
+      "High tensile strength for securing heavy banners",
+      "RoHS compliant"
+    ],
+    related: ["double-sided-adhesive", "advertising-glue", "squeegee", "hot-wind-gun"]
+  },
+  "hot-wind-gun": {
+    name: "Hot Wind Gun",
+    category: "Accessory",
+    desc: "Professional heat gun for vinyl wrapping, shrink film application, banner welding, and paint stripping. Variable temperature control for precise heat application on different materials.",
+    img: "images/hot-wind-gun.svg",
+    thumbs: [],
+    specs: [
+      ["Power", "1600W / 2000W"],
+      ["Temperature Range", "50°C – 650°C"],
+      ["Air Flow", "300 / 500 L/min"],
+      ["Voltage", "AC 220V / 110V"],
+      ["Package", "With nozzle attachments"],
+      ["Package Qty", "400pcs/carton (40×10 boxes)"]
+    ],
+    features: [
+      "Variable temperature from 50–650°C",
+      "Two-speed air flow control",
+      "Includes multiple nozzle attachments",
+      "Ergonomic handle for comfortable use",
+      "Overload protection for safety",
+      "Suitable for vinyl, shrink film, and banner applications"
+    ],
+    related: ["squeegee", "knife", "advertising-glue", "cutting-mat"]
+  }
+};
+
+// ── Main Init (API-driven) ────────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', async () => {
+  // 支持两种 URL 格式：
+  //   新式：/products/:catSlug/:productSlug
+  //   旧式：/product-detail.html?id=123
+  const pathParts = location.pathname.replace(/^\/products\//, '').split('/').filter(Boolean);
+  const productSlug = pathParts.length >= 2 ? pathParts[1] : null;
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get('id');
+
+  if (!productSlug && !id) {
+    document.getElementById('pdNotFound').style.display = 'block';
+    document.title = 'Product Not Found – Jinyu';
+    return;
+  }
+
+  // Placeholder SVG
+  function placeholderSVG(name) {
+    const txt = encodeURIComponent((name||'').length > 20 ? (name||'').slice(0, 20) + '\u2026' : (name||''));
+    return `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600'%3E%3Crect width='800' height='600' fill='%23f0f0f0'/%3E%3Ctext x='50%25' y='48%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='22' fill='%23999'%3E${txt}%3C/text%3E%3C/svg%3E`;
+  }
+
+  // 获取当前语言
+  function getLang() {
+    try { return localStorage.getItem('jinyu_lang') || localStorage.getItem('lang') || 'en'; } catch(e) { return 'en'; }
+  }
+
+  // 产品名转 URL slug（与后台 normalize 保持一致）
+  function toSlug(s) {
+    return (s || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  }
+
+  // 尝试从 API 加载，失败时 fallback 到本地 PRODUCTS 对象
+  let apiProduct = null;
+  let allApiProducts = [];
+  try {
+    const productApiUrl = productSlug
+      ? '/api/products/by-slug/' + encodeURIComponent(productSlug)
+      : '/api/products/' + id;
+    const [r1, r2] = await Promise.all([
+      fetch(productApiUrl),
+      fetch('/api/products')
+    ]);
+    const j1 = await r1.json();
+    const j2 = await r2.json();
+    // 兼容两种格式：{success:true, data:...} 或直接返回对象
+    apiProduct = (j1.success !== undefined && j1.data) ? j1.data : (j1.success === false ? null : j1);
+    // 列表API格式同样兼容
+    allApiProducts = Array.isArray(j2) ? j2 : (j2.success ? j2.data : []);
+  } catch(e) {}
+
+  // 合并：API 数据优先，本地 PRODUCTS 作为 fallback
+  function getImages(p) {
+    if (Array.isArray(p.images) && p.images.length > 0) return p.images;
+    if (p.img) return [p.img];
+    if (p.image) return [p.image];
+    return [];
+  }
+  function getMainImage(p) {
+    const imgs = getImages(p);
+    if (imgs.length) {
+      const idx = parseInt(p.main_image) || 0;
+      return imgs[idx] || imgs[0];
+    }
+    // fallback 到本地 SVG 占位图
+    return `/images/${p.id}.svg`;
+  }
+  // 复用 i18n.js 的 pickLang（带 i18n 缓存层：字段→缓存→API翻译→回写缓存）
+  var pickField = window.autoTranslate ? window.autoTranslate.pickLang : null;
+  // 如果 autoTranslate 不可用（极端情况），提供一个最小 fallback
+  if (!pickField) {
+    pickField = async function(obj, base, lang) {
+      if (!obj || !base || !lang) return '';
+      if (lang === 'en') return obj[base + '_en'] || obj[base] || obj[base + '_zh'] || '';
+      if (lang === 'zh') { var z = (obj[base + '_zh'] || '').trim(); return z || obj[base + '_en'] || ''; }
+      var suffixes = lang === 'tl' ? ['_tl','_fil','_ph'] : ['_' + lang];
+      for (var i = 0; i < suffixes.length; i++) { var v = obj[base + suffixes[i]]; if (v && v.trim()) return v; }
+      return obj[base + '_en'] || obj[base] || '';
+    };
+  }
+
+  // 产品名称（async，用于语言切换时重新渲染）
+  async function getName(p, lang) {
+    return await pickField(p, 'name', lang);
+  }
+  // 产品描述（async）
+  async function getDesc(p, lang) {
+    return await pickField(p, 'description', lang);
+  }
+  // 产品特点（async）
+  async function getFeatures(lang) {
+    return await pickField(product, 'features', lang);
+  }
+  function getCategory(p) {
+    const CAT = { 'advertising-media':'Advertising Media','advertising-panel':'Advertising Panel','display-stand':'Display Stand','accessory-tools':'Accessory Tools','accessory':'Accessory' };
+    return CAT[p.category_id] || p.category || p.category_id || '';
+  }
+
+  // 本地 fallback
+  const localProduct = typeof PRODUCTS !== 'undefined' ? PRODUCTS[id] : null;
+
+  const product = apiProduct || localProduct;
+  if (!product) {
+    document.getElementById('pdNotFound').style.display = 'block';
+    document.title = 'Product Not Found – Jinyu';
+    return;
+  }
+
+    // ── 渲染函数：可被语言切换重新调用 ────────────────────────────────────────
+  // 优化：先即时显示已有文本（英文/fallback），再异步翻译逐格替换，不阻塞整体
+  async function renderProductInfo(lang) {
+    const [name, desc] = await Promise.all([getName(product, lang), getDesc(product, lang)]);
+    const category = getCategory(product);
+    document.title = name + ' – Jinyu';
+    var bannerName = document.getElementById('pdBannerName');
+    if (bannerName) bannerName.textContent = name;
+    document.getElementById('pdCategory').textContent = category;
+    document.getElementById('pdName').textContent = name;
+    document.getElementById('pdDesc').textContent = desc;
+
+    // Specs table —— 先立即渲染，再异步翻译逐行替换
+    var specTable = document.getElementById('pdSpecTable');
+    var specsBox = document.getElementById('pdSpecsBox');
+    specTable.innerHTML = '';
+    var specs = (Array.isArray(product.specs) && product.specs.length > 0)
+      ? product.specs : (localProduct ? localProduct.specs || [] : []);
+    if (specs.length > 0) {
+      specsBox.style.display = '';
+      var curLang = lang || (typeof getLang === 'function' ? getLang() : (localStorage.getItem('jinyu_lang') || 'en'));
+      specs.forEach(function(spec, idx) {
+        var dk = '', dv = '';
+        if (Array.isArray(spec)) { dk = spec[0] || ''; dv = spec[1] || ''; }
+        else if (spec && typeof spec === 'object') {
+          var ktv = spec.k_tl || spec.k_fil || spec.k_ph || '';
+          var vtv = spec.v_tl || spec.v_fil || spec.v_ph || '';
+          var km = { zh: spec.k_zh, en: spec.k_en, vi: spec.k_vi, tl: ktv };
+          var vm = { zh: spec.v_zh, en: spec.v_en, vi: spec.v_vi, tl: vtv };
+          dk = km[curLang] || spec.k_en || '';
+          dv = vm[curLang] || spec.v_en || '';
+        } else { dk = String(spec); dv = ''; }
+        // 立即渲染已有文本
+        var tr = document.createElement('tr');
+        tr.id = 'specRow' + idx;
+        tr.innerHTML = '<td>' + dk + '</td><td>' + dv + '</td>';
+        specTable.appendChild(tr);
+        // 异步翻译替换（fire-and-forget）：zh/vi/tl 都需要翻译（specs 数据通常只有 k_en/v_en）
+        if (curLang !== 'en' && window.autoTranslate && (dk || dv)) {
+          (function(row, ok, ov, sp) {
+            (async function() {
+              var nk = ok, nv = ov;
+              if (Array.isArray(sp)) {
+                if (ok.trim()) try { nk = await window.autoTranslate.translate(ok, 'en', curLang); } catch(e){}
+                if (ov.trim()) try { nv = await window.autoTranslate.translate(ov, 'en', curLang); } catch(e){}
+              } else if (sp && typeof sp === 'object') {
+                var hk = sp['k_' + curLang] && sp['k_' + curLang].trim()
+                  && !(curLang === 'zh' && (sp.k_zh||'').trim() === (sp.k_en||'').trim());
+                var hv = sp['v_' + curLang] && sp['v_' + curLang].trim()
+                  && !(curLang === 'zh' && (sp.v_zh||'').trim() === (sp.v_en||'').trim());
+                if (!hk && sp.k_en && sp.k_en.trim()) try { nk = await window.autoTranslate.translate(sp.k_en, 'en', curLang); } catch(e){}
+                if (!hv && sp.v_en && sp.v_en.trim()) try { nv = await window.autoTranslate.translate(sp.v_en, 'en', curLang); } catch(e){}
+              }
+              if (nk !== ok || nv !== ov) row.innerHTML = '<td>' + nk + '</td><td>' + nv + '</td>';
+            })();
+          })(tr, dk, dv, spec);
+        }
+      });
+    } else { specsBox.style.display = 'none'; }
+
+    // Features —— 先立即渲染，再异步翻译逐条替换
+    var featList = document.getElementById('pdFeatureList');
+    var featBox = document.getElementById('pdFeaturesBox');
+    featList.innerHTML = '';
+    var cL = lang || (typeof getLang === 'function' ? getLang() : (localStorage.getItem('jinyu_lang') || 'en'));
+    var lkm = { zh: 'features_zh', en: 'features_en', vi: 'features_vi', tl: 'features_tl' };
+    var apif = product[lkm[cL]];
+    if (!apif || (Array.isArray(apif) && apif.length === 0)) apif = product[lkm['en']];
+    var feats = [];
+    if (Array.isArray(apif) && apif.length > 0) feats = apif;
+    else if (typeof apif === 'string' && apif.trim()) feats = apif.split('; ').filter(Boolean);
+    if (feats.length === 0 && localProduct) feats = localProduct.features || [];
+    if (feats.length > 0) {
+      featBox.style.display = '';
+      var efArr = Array.isArray(product.features_en) ? product.features_en : [];
+      if (!efArr.length && typeof product.features_en === 'string') efArr = product.features_en.split('; ').filter(Boolean);
+      var zfArr = Array.isArray(product.features_zh) ? product.features_zh : [];
+      if (!zfArr.length && typeof product.features_zh === 'string') zfArr = product.features_zh.split('; ').filter(Boolean);
+      var isFbEn = cL !== 'en' && efArr.length > 0
+        && feats.every(function(f, i) { return f === (efArr[i] || ''); });
+      var needT = cL !== 'en' && window.autoTranslate && isFbEn;
+      var fFrom = zfArr.length > 0 ? 'zh' : 'en';
+      var fSrc = zfArr.length > 0 ? zfArr : efArr;
+      feats.forEach(function(f, idx) {
+        var li = document.createElement('li');
+        li.id = 'featItem' + idx;
+        li.textContent = f;
+        featList.appendChild(li);
+        if (needT && fSrc[idx]) {
+          (function(el, txt) {
+            (async function() {
+              try { var tr = await window.autoTranslate.translate(txt, fFrom, cL); if (tr && tr !== txt) el.textContent = tr; }
+              catch(e){}
+            })();
+          })(li, fSrc[idx]);
+        }
+      });
+    } else { featBox.style.display = 'none'; }
+
+    // Get a Quote 按钮
+    var qb = document.querySelector('.pd-btn-quote');
+    if (qb) qb.href = 'contact.html?product=' + encodeURIComponent(name);
+  }
+  // 初始渲染
+  const initLang = getLang();
+  renderProductInfo(initLang);
+  if (typeof initSEO === 'function') initSEO({ pageTitle: getName(product, initLang), description: getDesc(product, initLang) });
+
+  // ── 语言切换拦截：页面加载且数据就绪后，才拦截 i18n.changeLanguage ──
+  // 这样可以确保无论 langChange 事件是否正常工作，页面都能响应语言切换
+  if (window.i18n) {
+    var originalChangeLanguage = window.i18n.changeLanguage.bind(window.i18n);
+    window.i18n.changeLanguage = async function(lang) {
+      await originalChangeLanguage(lang);
+      // 语言切换完成后，重新渲染产品详情 + 相关产品
+      if (_product) {
+        renderProductInfo(lang);
+        renderRelatedProducts();
+      }
+    };
+  }
+
+  // 保留 langChange 事件监听器作为备用
+  document.addEventListener('langChange', function(e) {
+    const lang = e.detail && e.detail.lang ? e.detail.lang : getLang();
+    renderProductInfo(lang);
+    renderRelatedProducts();
+  });
+
+  // Images
+  const images = getImages(product);
+  const mainImg = document.getElementById('pdMainImg');
+  const thumbsBox = document.getElementById('pdThumbs');
+  const mainSrc = getMainImage(product) || placeholderSVG(getName(product));
+  mainImg.src = mainSrc;
+  mainImg.alt = getName(product);
+  mainImg.onerror = () => { mainImg.src = placeholderSVG(getName(product)); mainImg.onerror = null; };
+
+  if (images.length > 1) {
+    images.forEach((src, i) => {
+      const img = document.createElement('img');
+      img.className = 'pd-thumb' + (i === (parseInt(product.main_image)||0) ? ' active' : '');
+      img.src = src;
+      img.alt = getName(product);
+      img.onerror = () => { img.style.opacity = '0.3'; img.onerror = null; };
+      img.onclick = () => {
+        mainImg.src = src;
+        thumbsBox.querySelectorAll('.pd-thumb').forEach(t => t.classList.remove('active'));
+        img.classList.add('active');
+      };
+      thumbsBox.appendChild(img);
+    });
+  }
+
+  // Related products: 优先 API（同分类前4个，排除自身），fallback 本地 related 数组
+  const relatedGrid = document.getElementById('pdRelatedGrid');
+  
+  async function renderRelatedProducts() {
+    const relLang = getLang();
+    let relItems = [];
+    if (allApiProducts.length > 0) {
+      // 排除自身：兼容 slug 和 id 两种场景
+      var candidates = allApiProducts.filter(function(p) {
+        if (productSlug) return p.category_id === product.category_id && toSlug(p.slug || p.name || p.name_en || '') !== productSlug;
+        return p.category_id === product.category_id && String(p.id) !== String(id);
+      }).slice(0, 4);
+      relItems = await Promise.all(candidates.map(async function(p) {
+        return { id: p.id, slug: p.slug || toSlug(p.name || p.name_en || ''), catSlug: p.category_id, name: await getName(p, relLang), img: getMainImage(p) };
+      }));
+    }
+    if (relItems.length === 0 && product.related && typeof PRODUCTS !== 'undefined') {
+      relItems = (product.related || []).slice(0, 4).map(function(relId) {
+        var rel = PRODUCTS[relId];
+        if (!rel) return null;
+        return { id: relId, slug: toSlug(rel.name || ''), catSlug: product.category_id, name: rel.name || '', img: rel.img };
+      }).filter(Boolean);
+    }
+    // 清空旧卡片再渲染
+    relatedGrid.innerHTML = '';
+    relItems.forEach(function(item) {
+      if (!item) return;
+      var card = document.createElement('div');
+      card.className = 'pd-rel-card';
+      card.onclick = function() { window.location.href = '/products/' + (item.catSlug || product.category_id || '_') + '/' + (item.slug || item.id); };
+      card.innerHTML =
+        '<img src="' + (item.img || placeholderSVG(item.name)) + '" alt="' + item.name + '" loading="lazy" onerror="this.style.opacity=0.3">' +
+        '<div class="pd-rel-card-name">' + item.name + '</div>';
+      relatedGrid.appendChild(card);
+    });
+  }
+  renderRelatedProducts();
+
+  // Show body
+  document.getElementById('pdBody').style.display = 'block';
+});
+
+// Navbar scroll effect
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('navbar');
+  if (nav) nav.classList.toggle('scrolled', window.scrollY > 50);
+});
+
+function toggleMenu() {
+  document.getElementById('navMenu').classList.toggle('open');
+}
+</script>
+
+<!-- FLOAT ACTION BUTTONS -->
+<div class="fab-container">
+  <button class="fab-btn fab-top" id="fabTop" title="Back to Top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+  </button>
+  <a href="#quote-faq" class="fab-btn fab-faq" title="Go to FAQ">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12l7 7 7-7"/></svg>
+  </a>
+  <a href="https://wa.me/8613808828019" target="_blank" class="fab-btn fab-wa" title="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+</div>
+<script>
+window.addEventListener('scroll', function() {
+  const fab = document.getElementById('fabTop');
+  if (fab) { if (window.scrollY > 300) fab.classList.add('visible'); else fab.classList.remove('visible'); }
+});
+</script>
+</body>
+</html>

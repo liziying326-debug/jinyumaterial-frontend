@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <rect width="400" height="300" fill="#F5F3FF" rx="16"/>
+  
+  <!-- pop-up display frame (curved) -->
+  <!-- back arched frame -->
+  <path d="M80 240 C80 120 140 60 200 55 C260 60 320 120 320 240" fill="none" stroke="#8B5CF6" stroke-width="5"/>
+  <!-- horizontal bars -->
+  <line x1="110" y1="140" x2="290" y2="140" stroke="#8B5CF6" stroke-width="3"/>
+  <line x1="95" y1="180" x2="305" y2="180" stroke="#8B5CF6" stroke-width="3"/>
+  <line x1="85" y1="220" x2="315" y2="220" stroke="#8B5CF6" stroke-width="3"/>
+  <!-- base feet -->
+  <rect x="70" y="238" width="40" height="12" rx="6" fill="#7C3AED"/>
+  <rect x="290" y="238" width="40" height="12" rx="6" fill="#7C3AED"/>
+  <!-- graphic panels -->
+  <path d="M115 145 C110 120 145 75 200 72 C255 75 290 120 285 145 Z" fill="#DDD6FE"/>
+
+</svg>

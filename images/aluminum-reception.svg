@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <rect width="400" height="300" fill="#F1F5F9" rx="16"/>
+  
+  <!-- reception counter -->
+  <!-- top surface -->
+  <rect x="70" y="140" width="260" height="15" rx="4" fill="#CBD5E1"/>
+  <!-- front panel -->
+  <rect x="80" y="155" width="240" height="90" rx="6" fill="#94A3B8"/>
+  <!-- aluminum texture lines -->
+  <line x1="80" y1="165" x2="320" y2="165" stroke="#B0BAC8" stroke-width="1"/>
+  <line x1="80" y1="180" x2="320" y2="180" stroke="#B0BAC8" stroke-width="1"/>
+  <line x1="80" y1="195" x2="320" y2="195" stroke="#B0BAC8" stroke-width="1"/>
+  <line x1="80" y1="210" x2="320" y2="210" stroke="#B0BAC8" stroke-width="1"/>
+  <!-- logo area -->
+  <rect x="150" y="162" width="100" height="45" rx="4" fill="#64748B" opacity="0.5"/>
+  <!-- side panels perspective -->
+  <polygon points="70,140 80,155 80,245 60,230 60,125" fill="#64748B"/>
+  <polygon points="330,140 320,155 320,245 340,230 340,125" fill="#64748B"/>
+
+</svg>

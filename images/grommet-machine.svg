@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <rect width="400" height="300" fill="#1E293B" rx="16"/>
+  
+  <!-- grommet punch machine -->
+  <!-- body -->
+  <rect x="140" y="100" width="120" height="140" rx="8" fill="#334155"/>
+  <!-- handle -->
+  <rect x="180" y="60" width="40" height="60" rx="6" fill="#475569"/>
+  <circle cx="200" cy="58" r="16" fill="#64748B" stroke="#94A3B8" stroke-width="3"/>
+  <!-- punch die -->
+  <rect x="165" y="200" width="70" height="20" rx="4" fill="#94A3B8"/>
+  <rect x="175" y="220" width="50" height="25" rx="4" fill="#CBD5E1"/>
+  <!-- grommet output -->
+  <circle cx="200" cy="240" r="10" fill="#F59E0B" stroke="#D97706" stroke-width="2"/>
+  <circle cx="200" cy="240" r="5" fill="none" stroke="#B45309" stroke-width="2"/>
+
+</svg>

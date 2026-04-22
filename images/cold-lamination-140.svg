@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <rect width="400" height="300" fill="#F0F9FF" rx="16"/>
+  
+  <!-- lamination rollers -->
+  <rect x="70" y="90" width="260" height="60" rx="30" fill="#BAE6FD"/>
+  <circle cx="115" cy="120" r="30" fill="#7DD3FC" stroke="#0284C7" stroke-width="3"/>
+  <circle cx="115" cy="120" r="12" fill="#0369A1"/>
+  <circle cx="285" cy="120" r="30" fill="#7DD3FC" stroke="#0284C7" stroke-width="3"/>
+  <circle cx="285" cy="120" r="12" fill="#0369A1"/>
+  <!-- film going through -->
+  <rect x="115" y="108" width="170" height="24" fill="#E0F2FE"/>
+  <rect x="115" y="108" width="170" height="24" fill="none" stroke="#38BDF8" stroke-width="1"/>
+  <!-- film tail -->
+  <rect x="70" y="180" width="260" height="12" rx="4" fill="#E0F2FE" stroke="#38BDF8" stroke-width="1"/>
+
+</svg>

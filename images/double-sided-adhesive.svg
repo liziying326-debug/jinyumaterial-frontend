@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <rect width="400" height="300" fill="#FEF3C7" rx="16"/>
+  
+  <!-- double-sided tape roll -->
+  <ellipse cx="200" cy="170" rx="80" ry="25" fill="#FDE68A"/>
+  <rect x="120" y="110" width="160" height="60" fill="#F59E0B"/>
+  <ellipse cx="200" cy="110" rx="80" ry="25" fill="#FEF3C7"/>
+  <ellipse cx="200" cy="110" rx="40" ry="12" fill="#FDE68A"/>
+  <ellipse cx="200" cy="110" rx="16" ry="5" fill="#D97706"/>
+  <!-- red paper liner -->
+  <path d="M120 125 Q160 130 200 120 Q240 110 280 125" fill="none" stroke="#EF4444" stroke-width="3" stroke-dasharray="6,3"/>
+  <!-- unrolling section -->
+  <rect x="280" y="108" width="50" height="10" rx="3" fill="#FEF3C7"/>
+  <rect x="280" y="118" width="50" height="4" rx="2" fill="#EF4444" opacity="0.5"/>
+
+</svg>

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <rect width="400" height="300" fill="#F0FDF4" rx="16"/>
+  
+  <!-- cable tie bundle -->
+  <!-- several cable ties fanned out -->
+  <rect x="130" y="110" width="8" height="100" rx="4" fill="#4ADE80" transform="rotate(-20 130 110)"/>
+  <rect x="155" y="100" width="8" height="110" rx="4" fill="#22C55E" transform="rotate(-10 155 100)"/>
+  <rect x="180" y="95" width="8" height="115" rx="4" fill="#16A34A"/>
+  <rect x="205" y="100" width="8" height="110" rx="4" fill="#22C55E" transform="rotate(10 205 100)"/>
+  <rect x="228" y="110" width="8" height="100" rx="4" fill="#4ADE80" transform="rotate(20 228 110)"/>
+  <!-- head locks -->
+  <rect x="120" y="105" width="18" height="14" rx="4" fill="#15803D" transform="rotate(-20 130 110)"/>
+  <rect x="148" y="95" width="18" height="14" rx="4" fill="#15803D" transform="rotate(-10 155 100)"/>
+  <rect x="176" y="90" width="18" height="14" rx="4" fill="#15803D"/>
+  <rect x="200" y="95" width="18" height="14" rx="4" fill="#15803D" transform="rotate(10 205 100)"/>
+  <rect x="222" y="105" width="18" height="14" rx="4" fill="#15803D" transform="rotate(20 228 110)"/>
+
+</svg>

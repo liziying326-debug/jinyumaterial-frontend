@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"><title>Dropdown Debug</title>
+<style>
+body { font:14px/1.6 system-ui; margin:20px; color:#333; }
+.pass { color:green; } .fail { color:red; } .warn { color:#e8751a; }
+pre { background:#f5f5f5; padding:12px; border-radius:8px; overflow:auto; }
+.badge { display:inline-block;padding:2px 10px;border-radius:4px;color:white;font-size:12px; font-weight:bold;}
+</style>
+</head>
+<body>
+<h2>🔍 Navigation Dropdown Diagnostic</h2>
+<p>Opening <b>/news</b> on localhost:3017 ...</p>
+<div id="results"></div>
+
+<iframe id="frame" src="http://localhost:3017/news" style="width:100%;height:700px;border:2px solid #ddd;border-radius:8px;"></iframe>
+
+<script>
+const results = document.getElementById('results');
+const frame = document.getElementById('frame');
+
+function log(msg, cls) {
+  const div = document.createElement('div');
+  div.className = cls || '';
+  div.innerHTML = msg;
+  results.appendChild(div);
+}
+
+function check(cls, pass, label) {
+  log(`<span class="badge ${pass ? 'pass' : 'fail'}">${pass ? 'PASS' : 'FAIL'}</span> ${label}`);
+}
+
+frame.addEventListener('load', () => {
+  try {
+    const doc = frame.contentDocument;
+    const body = doc.body;
+    
+    log('<h3>CSS & DOM Analysis</h3>');
+    
+    // 1. navbar overflow
+    const nb = doc.querySelector('.navbar');
+    if (nb) {
+      const cs = getComputedStyle(nb);
+      check(cs.overflow === 'visible', cs.overflow === 'visible', 
+        `navbar overflow: <b>${cs.overflow}</b> (should be visible)`);
+      check(!cs.position || cs.position !== 'static', true,
+        `navbar position: <b>${cs.position}</b>, z-index: <b>${cs.zIndex}</b>`);
+    } else {
+      log('<span class="badge fail">FAIL</span> .navbar NOT FOUND', 'fail');
+    }
+
+    // 2. nav-inner overflow
+    const ni = doc.querySelector('.nav-inner');
+    if (ni) {
+      const cs = getComputedStyle(ni);
+      log(`<span class="badge ${cs.overflow==='visible'?'pass':'warn'}">${cs.overflow==='visible'?'OK':'WARN'}</span> 
+        .nav-inner overflow: <b>${cs.overflow}</b>`);
+    }
+
+    // 3. dropdown elements
+    const dropdowns = doc.querySelectorAll('.nav-item .dropdown');
+    log(`<h3>📋 Found ${dropdowns.length} navigation dropdown(s)</h3>`);
+    dropdowns.forEach((d, i) => {
+      const cs = getComputedStyle(d);
+      const parent = d.parentElement;
+      const parentCs = getComputedStyle(parent);
+      log(`--- Dropdown #${i} (${parent.querySelector('.nav-link')?.textContent?.trim()}) ---`);
+      log(`  position:<b>${cs.position}</b> z-index:<b>${cs.zIndex}</b> opacity:<b>${cs.opacity}</b> visibility:<b>${cs.visibility}</b>`);
+      log(`  parent(.nav-item) position:<b>${parentCs.position}</b> overflow:<b>${parentCs.overflow}</b>`);
+      
+      // Check rect
+      const r = d.getBoundingClientRect();
+      log(`  rect: top=${r.top.toFixed(0)} left=${r.left.toFixed(0)} w=${r.width.toFixed(0)} h=${r.height.toFixed(0)}`);
+
+      // Count links
+      const links = d.querySelectorAll('a');
+      log(`  links inside: ${links.length}`);
+      links.forEach(l => log(`    → ${l.textContent.trim()}`));
+    });
+
+    // 4. lang-dropdown
+    const ld = doc.querySelector('.lang-dropdown');
+    if (ld) {
+      const cs = getComputedStyle(ld);
+      log(`<h3>🌐 Language Dropdown</h3>`);
+      log(`  z-index:<b>${cs.zIndex}</b> position:<b>${cs.position}</b> opacity:<b>${cs.opacity}</b>`);
+    }
+
+    // 5. Check for overlapping fixed/sticky elements
+    log('<h3>⚠️ Potential Overlapping Elements</h3>');
+    const allFixed = doc.querySelectorAll('*');
+    let overlapCount = 0;
+    allFixed.forEach(el => {
+      const cs = getComputedStyle(el);
+      if ((cs.position === 'fixed' || cs.position === 'sticky')) {
+        const r = el.getBoundingClientRect();
+        // Only care about elements near the navbar area (top 150px)
+        if (r.top >= -10 && r.top <= 150 && r.width > 50) {
+          const tag = el.tagName.toLowerCase();
+          const clsName = el.className?.toString()?.substring(0, 40) || '';
+          if (!clsName.includes('navbar') && !clsName.includes('lang-') && !clsName.includes('nav-menu')) {
+            overlapCount++;
+            log(`<span class="badge warn">CHECK</span> 
+              &lt;<b>${tag}.${clsName}</b>&gt; pos=<b>${cs.position}</b> top=<b>${r.top.toFixed(0)}</b> 
+              z-index=<b>${cs.zIndex}</b> w=${r.width.toFixed(0)} h=${r.height.toFixed(0)} pointer-events=<b>${cs.pointerEvents}</b>`);
+          }
+        }
+      }
+    });
+    if (overlapCount === 0) log('<span class="badge pass">PASS</span> No overlapping fixed/sticky elements found in navbar area');
+
+    // 6. page-banner / sticky bar
+    log('<h3>📌 Page Structure Near Top</h3>');
+    const pb = doc.querySelector('.page-banner');
+    if (pb) {
+      const cs = getComputedstyle(pb);
+    }
+    const stickyBar = document.evaluate("//div[contains(@style,'sticky')]", doc, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+    if (stickyBar) {
+      const cs = getComputedStyle(stickyBar);
+      log(`  Inline sticky div: position=<b>${cs.position}</b> top=<b>${cs.top}</b> z-index=<b>${cs.zIndex}</b>`);
+    }
+
+    // 7. Test: can we programmatically trigger hover?
+    log('<h3>🧪 Simulated Hover Test</h3>');
+    const firstNavItem = doc.querySelector('.nav-item:hover');
+    if (firstNavItem) {
+      log('<span class="badge pass">HOVER ACTIVE</span> A nav-item is currently hovered');
+    } else {
+      log('<span class="badge warn">INFO</span> No nav-item currently hover (expected in diagnostic)');
+    }
+
+    log('<hr><p><b>✅ Diagnostic complete.</b> Check the iframe above to manually test hovering over Products/News nav items.</p>');
+
+  } catch(e) {
+    log('<span class="badge fail">ERROR:</span> ' + e.message, 'fail');
+  }
+});
+</script>
+</body></html>

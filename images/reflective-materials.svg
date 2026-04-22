@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <rect width="400" height="300" fill="#FFFBEB" rx="16"/>
+  
+  <!-- reflective diamond pattern -->
+  <rect x="70" y="60" width="260" height="180" rx="8" fill="#FCD34D"/>
+  <!-- diamond grid -->
+  <polygon points="200,80 230,110 200,140 170,110" fill="#FEF3C7" stroke="#F59E0B" stroke-width="1"/>
+  <polygon points="240,80 270,110 240,140 210,110" fill="#FEF3C7" stroke="#F59E0B" stroke-width="1"/>
+  <polygon points="160,80 190,110 160,140 130,110" fill="#FEF3C7" stroke="#F59E0B" stroke-width="1"/>
+  <polygon points="200,140 230,170 200,200 170,170" fill="#FEF3C7" stroke="#F59E0B" stroke-width="1"/>
+  <polygon points="240,140 270,170 240,200 210,170" fill="#FEF3C7" stroke="#F59E0B" stroke-width="1"/>
+  <polygon points="160,140 190,170 160,200 130,170" fill="#FEF3C7" stroke="#F59E0B" stroke-width="1"/>
+  <!-- sparkle -->
+  <circle cx="200" cy="110" r="5" fill="white" opacity="0.9"/>
+  <circle cx="240" cy="110" r="4" fill="white" opacity="0.9"/>
+  <circle cx="160" cy="110" r="4" fill="white" opacity="0.9"/>
+
+</svg>

@@ -1,0 +1,907 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Products – PVC Foam Board, Acrylic Sheet, Vinyl, Flex Banner | Jin Yu Advertising Material</title>
+  <meta name="description" content="Full range of advertising materials: PVC foam board, acrylic sheet, aluminum composite panel, self adhesive vinyl, flex banner, reflective sheeting, display stands and accessories. Factory direct from Foshan, China." />
+  <meta name="keywords" content="PVC foam board supplier, acrylic sheet manufacturer, self adhesive vinyl, flex banner, reflective sheet, aluminum composite panel, PP hollow sheet, one way vision, cutting vinyl" />
+  <link rel="canonical" href="https://www.jinyu2021.com/products.html" />
+  <link rel="stylesheet" href="/styles.css" />
+  <script src="/i18n.js?v=13"></script>
+  <script src="/api.js"></script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="navbar" id="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <div class="logo-icon">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 28V12L20 8L32 12V28L20 32L8 28Z" stroke="#E8751A" stroke-width="2.5" fill="none"/>
+            <path d="M8 12L20 16L32 12" stroke="#E8751A" stroke-width="2.5"/>
+            <path d="M20 16V32" stroke="#E8751A" stroke-width="2.5"/>
+            <circle cx="20" cy="24" r="3" fill="#E8751A"/>
+            <text x="20" y="23" text-anchor="middle" fill="white" font-size="10" font-weight="800" font-family="Montserrat">JY</text>
+          </svg>
+        </div>
+        <div class="logo-text">
+          <div class="logo-name">Jin Yu</div>
+          <div class="logo-sub">Advertising Material</div>
+        </div>
+      </a>
+      <ul class="nav-menu" id="navMenu">
+        <li class="nav-item"><a href="index.html" class="nav-link" data-i18n="nav.home">Home</a></li>
+        <li class="nav-item">
+          <a href="products.html" class="nav-link active" data-i18n="nav.products">Products <svg viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+          <div class="dropdown" id="nav-product-dropdown" data-self-page="true"></div>
+        </li>
+        <li class="nav-item">
+          <a href="applications.html" class="nav-link" data-i18n="nav.applications">Applications <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+          <div class="dropdown">
+            <a href="applications.html#sign-board" data-i18n="nav.applications_sub.signBoard">Sign Board</a>
+            <a href="applications.html#light-box" data-i18n="nav.applications_sub.lightBox">Light Box</a>
+            <a href="applications.html#digital-printing" data-i18n="nav.applications_sub.digitalPrinting">Digital Printing</a>
+            <a href="applications.html#outdoor-advertising" data-i18n="nav.applications_sub.outdoorAdvertising">Outdoor Advertising</a>
+            <a href="applications.html#exhibition-display" data-i18n="nav.applications_sub.exhibitionDisplay">Exhibition Display</a>
+          </div>
+        </li>
+        <li class="nav-item"><a href="case-studies.html" class="nav-link" data-i18n="nav.caseStudies">Cases / Videos</a></li>
+        <li class="nav-item">
+          <a href="news.html" class="nav-link" data-i18n="nav.news">News <svg viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+          <div class="dropdown">
+            <a href="news.html#industry-knowledge" data-i18n="nav.blog_sub.industryKnowledge">Industry Knowledge</a>
+            <a href="news.html#material-guide" data-i18n="nav.blog_sub.materialGuide">Material Guide</a>
+            <a href="news.html#printing-technology" data-i18n="nav.blog_sub.printingTechnology">Printing Technology</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a href="about.html" class="nav-link" data-i18n="nav.aboutUs">About Us <svg viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+          <div class="dropdown">
+            <a href="about.html#company-profile" data-i18n="nav.about_sub.companyProfile">Company Profile</a>
+            <a href="about.html#factory" data-i18n="nav.about_sub.factory">Factory</a>
+            <a href="about.html#production-capacity" data-i18n="nav.about_sub.productionCapacity">Production Capacity</a>
+            <a href="about.html#certificates" data-i18n="nav.about_sub.certificates">Certificates</a>
+          </div>
+        </li>
+        <li class="nav-item"><a href="contact.html" class="nav-link" data-i18n="nav.contactUs">Contact Us</a></li>
+      </ul>
+      <!-- Nav Right: Social + Lang + CTA -->
+      <div class="nav-right">
+        <div class="nav-social">
+          <a href="https://facebook.com" target="_blank" rel="noopener" class="nav-social-icon facebook" title="Facebook">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.267h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
+          </a>
+          <a href="https://tiktok.com" target="_blank" rel="noopener" class="nav-social-icon tiktok" title="TikTok">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.67a8.2 8.2 0 004.79 1.53V6.75a4.85 4.85 0 01-1.02-.06z"/></svg>
+          </a>
+          <a href="https://wa.me/8613808828019" target="_blank" rel="noopener" class="nav-social-icon whatsapp" title="WhatsApp">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </a>
+        </div>
+        <div class="nav-divider"></div>
+        <div class="nav-lang" id="language-switcher">
+          <div class="lang-display">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+            <span class="lang-code">EN</span>
+          </div>
+        </div>
+        <div class="nav-divider"></div>
+        <a href="contact.html" class="btn btn-primary btn-sm nav-cta" data-i18n="nav.getQuote">Get a Quote</a>
+      </div>
+      <div class="nav-hamburger" id="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</nav>
+
+
+<!-- PAGE BANNER -->
+<div class="page-banner">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="index.html" data-i18n="nav.home">Home</a>
+      <span class="sep">›</span>
+      <span class="current" data-i18n="nav.products">Products</span>
+    </div>
+    <h1 data-i18n="products_page.pageTitle">Our Products</h1>
+    <p data-i18n="products_page.pageSubtitle">Factory-direct advertising materials. Custom specs, competitive pricing, global shipping.</p>
+  </div>
+</div>
+
+<!-- Tab锚点 -->
+<div id="tabAnchor" style="position:relative; top:0;"></div>
+
+<!-- CATEGORY TABS BAR (API-driven) -->
+<div class="pcat-tabs-bar" id="pcatTabsBar">
+  <div class="container">
+    <div class="pcat-tabs" id="pcatTabsList">
+      <!-- 由 JS 从 /api/categories 动态渲染 -->
+    </div>
+  </div>
+</div>
+
+<!-- CONTENT PANELS (API dynamic) -->
+<div class="pcat-content">
+  <div id="pcatContent">
+    <!-- Loading state -->
+    <div id="pcatLoading" style="text-align:center;padding:80px 20px;color:#94a3b8;">
+      <div style="font-size:2rem;margin-bottom:12px;">&#8987;</div>
+      <p>Loading products...</p>
+    </div>
+  </div>
+</div><!-- /pcat-content -->
+<!-- CTA BANNER -->
+<section class="section cta-banner">
+  <div class="container">
+    <div class="cta-content">
+      <div class="cta-text">
+        <h2 data-i18n="cta.title">Ready to Source Premium Advertising Materials?</h2>
+        <p data-i18n="cta.subtitle">Contact our team today for product specifications, pricing, and export shipping details. We respond within 24 hours on business days.</p>
+      </div>
+      <div class="cta-actions">
+        <a href="contact.html" class="btn btn-primary btn-lg" data-i18n="cta.getQuote">Get a Quote</a>
+        <a href="https://wa.me/8613808828019" target="_blank" class="btn btn-outline btn-lg" data-i18n="cta.whatsapp">💬 WhatsApp Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== QUOTE & FAQ ========== -->
+<section class="section bg-light" id="quote-faq">
+  <div class="container">
+    <div class="grid-2">
+      <!-- Left: Quote Form -->
+      <div class="quote-form-box">
+        <h2 class="quote-title" data-i18n="quoteForm.title">Send Us Your Project Details</h2>
+        <p class="quote-subtitle" data-i18n="quoteForm.subtitle">Get a Quote Within 24 Hours</p>
+        <form class="quote-form">
+          <div class="form-group">
+            <label for="quote-name" data-i18n="quoteForm.name">Name *</label>
+            <input type="text" id="quote-name" class="form-input" data-i18n-placeholder="quoteForm.namePlaceholder" placeholder="Your Name" required>
+          </div>
+          <div class="form-group">
+            <label for="quote-email" data-i18n="quoteForm.email">Email *</label>
+            <input type="email" id="quote-email" class="form-input" data-i18n-placeholder="quoteForm.emailPlaceholder" placeholder="your@email.com" required>
+          </div>
+          <div class="form-group">
+            <label for="quote-phone" data-i18n="quoteForm.phone">Phone *</label>
+            <input type="tel" id="quote-phone" class="form-input" data-i18n-placeholder="quoteForm.phonePlaceholder" placeholder="+86 xxx xxxx xxxx" required>
+          </div>
+          <div class="form-group">
+            <label for="quote-message" data-i18n="quoteForm.message">Message *</label>
+            <textarea id="quote-message" class="form-textarea" data-i18n-placeholder="quoteForm.messagePlaceholder" placeholder="Tell us about your project..." rows="4" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg" style="width: 100%; justify-content: center;" data-i18n="quoteForm.submit">Submit</button>
+        </form>
+      </div>
+
+      <!-- Right: FAQ -->
+      <div class="faq-box">
+        <div class="faq-header">
+          <span class="faq-icon">❓</span>
+          <h2 class="faq-title" data-i18n="faq.title">We're Here to Answer All Your Questions</h2>
+        </div>
+        <div class="faq-tabs">
+          <button class="faq-tab active" data-tab="products" data-i18n="faq.tab_products">Products</button>
+          <button class="faq-tab" data-tab="ordering" data-i18n="faq.tab_ordering">Ordering & Payment</button>
+          <button class="faq-tab" data-tab="shipping" data-i18n="faq.tab_shipping">Shipping & Delivery</button>
+          <button class="faq-tab" data-tab="quality" data-i18n="faq.tab_quality">Quality & Certification</button>
+        </div>
+        <div class="faq-content show" id="products-faq-p">
+          <div class="faq-item expanded">
+            <div class="faq-question">
+              <span data-i18n="faq.q1_1">What are your main products?</span>
+              
+              <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 9l-7 7-7-7"/>
+              </svg>
+            </div>
+            <div class="faq-answer show" data-i18n="faq.a1_1">
+              We specialize in Self Adhesive Vinyl, PVC Flex Banner, Cutting Plotter Film, Acrylic Sheet, PVC Foam Board, and Display Equipment. We also offer custom specifications according to your requirements.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <span data-i18n="faq.q1_2">Do you offer custom sizes and specifications?</span>
+              
+              <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 9l-7 7-7-7"/>
+              </svg>
+            </div>
+            <div class="faq-answer" data-i18n="faq.a1_2">
+              Yes, we offer custom sizes, thickness, and specifications. Please provide your detailed requirements, and our team will provide a solution tailored to your needs.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <span data-i18n="faq.q1_3">What is your minimum order quantity (MOQ)?</span>
+              
+              <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 9l-7 7-7-7"/>
+              </svg>
+            </div>
+            <div class="faq-answer" data-i18n="faq.a1_3">
+              Our MOQ varies by product type. Generally, it's 100 pieces for standard products. For custom orders, please contact us directly for specific requirements.
+            </div>
+          </div>
+        </div>
+        <div class="faq-content" id="ordering-faq-p">
+          <div class="faq-item">
+            <div class="faq-question">
+              <span data-i18n="faq.q2_1">What payment methods do you accept?</span>
+              
+              <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 9l-7 7-7-7"/>
+              </svg>
+            </div>
+            <div class="faq-answer" data-i18n="faq.a2_1">
+              We accept T/T (Wire Transfer), PayPal, and Western Union. For new customers, we may require a 30% deposit with the balance paid before shipment.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <span data-i18n="faq.q2_2">How long does it take to process my order?</span>
+              
+              <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 9l-7 7-7-7"/>
+              </svg>
+            </div>
+            <div class="faq-answer" data-i18n="faq.a2_2">
+              Production time varies by product. Standard products ship within 3-7 days. Custom orders may take 10-15 days. We'll provide an estimated delivery date upon order confirmation.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <span data-i18n="faq.q2_3">Can I request samples before placing a bulk order?</span>
+              
+              <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 9l-7 7-7-7"/>
+              </svg>
+            </div>
+            <div class="faq-answer" data-i18n="faq.a2_3">
+              Yes, we offer free samples for standard products. Customers only need to cover the shipping cost. For custom samples, please contact us for pricing.
+            </div>
+          </div>
+        </div>
+        <div class="faq-content" id="shipping-faq-p">
+          <div class="faq-item">
+            <div class="faq-question">
+              <span data-i18n="faq.q3_1">Do you ship internationally?</span>
+              
+              <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 9l-7 7-7-7"/>
+              </svg>
+            </div>
+            <div class="faq-answer" data-i18n="faq.a3_1">
+              Yes, we ship to over 50 countries worldwide. We work with major shipping carriers like DHL, FedEx, UPS, and sea freight for larger orders.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <span data-i18n="faq.q3_2">What are the shipping costs?</span>
+              
+              <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 9l-7 7-7-7"/>
+              </svg>
+            </div>
+            <div class="faq-answer" data-i18n="faq.a3_2">
+              Shipping costs depend on destination, weight, and shipping method. We provide competitive rates and will quote you the exact shipping cost when you place your order.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <span data-i18n="faq.q3_3">How long does delivery take?</span>
+              
+              <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 9l-7 7-7-7"/>
+              </svg>
+            </div>
+            <div class="faq-answer" data-i18n="faq.a3_3">
+              Express shipping (DHL/FedEx/UPS) takes 5-7 business days. Sea freight takes 25-35 days depending on the destination country and port.
+            </div>
+          </div>
+        </div>
+        <div class="faq-content" id="quality-faq-p">
+          <div class="faq-item">
+            <div class="faq-question">
+              <span data-i18n="faq.q4_1">Are your products certified?</span>
+              
+              <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 9l-7 7-7-7"/>
+              </svg>
+            </div>
+            <div class="faq-answer" data-i18n="faq.a4_1">
+              Yes, we are ISO 9001:2015 certified. Our products meet international quality standards and are exported to Europe, Americas, Southeast Asia, and Middle East markets.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <span data-i18n="faq.q4_2">Do you offer quality guarantees?</span>
+              
+              <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 9l-7 7-7-7"/>
+              </svg>
+            </div>
+            <div class="faq-answer" data-i18n="faq.a4_2">
+              Absolutely! We offer a 100% quality guarantee. If you receive defective products, we will replace them free of charge or provide a full refund.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <span data-i18n="faq.q4_3">Can you provide test reports or samples?</span>
+              
+              <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 9l-7 7-7-7"/>
+              </svg>
+            </div>
+            <div class="faq-answer" data-i18n="faq.a4_3">
+              Yes, we can provide test reports, certificates, and samples upon request. Our quality control team conducts thorough inspections before shipment.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo-name" data-i18n="footer.brand">Foshan Jin Yu Advertising Material Co., Ltd</div>
+        <div class="footer-logo-sub" data-i18n="footer.brandSub">Professional Advertising Materials Manufacturer Since 2009</div>
+        <p data-i18n="footer.brandDesc">Integrated design, R&D, production and sales of advertising materials. ISO 9001 certified. Exporting to Europe, Americas, Southeast Asia, Middle East and beyond.</p>
+        <div style="display:flex;gap:12px;margin-top:16px;align-items:center;">
+          <a href="https://www.facebook.com/jinyu2021" target="_blank" rel="noopener noreferrer" class="social-icon-link" style="display:flex;align-items:center;justify-content:center;width:40px;height:40px;background:rgba(255,255,255,0.1);border-radius:50%;transition:all 0.3s ease;color:rgba(255,255,255,0.8);text-decoration:none;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="https://www.tiktok.com/@jinyu2021" target="_blank" rel="noopener noreferrer" class="social-icon-link" style="display:flex;align-items:center;justify-content:center;width:40px;height:40px;background:rgba(255,255,255,0.1);border-radius:50%;transition:all 0.3s ease;color:rgba(255,255,255,0.8);text-decoration:none;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/company/jinyu2021" target="_blank" rel="noopener noreferrer" class="social-icon-link" style="display:flex;align-items:center;justify-content:center;width:40px;height:40px;background:rgba(255,255,255,0.1);border-radius:50%;transition:all 0.3s ease;color:rgba(255,255,255,0.8);text-decoration:none;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="https://www.youtube.com/@jinyu2021" target="_blank" rel="noopener noreferrer" class="social-icon-link" style="display:flex;align-items:center;justify-content:center;width:40px;height:40px;background:rgba(255,255,255,0.1);border-radius:50%;transition:all 0.3s ease;color:rgba(255,255,255,0.8);text-decoration:none;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+        </div>
+        <div style="margin-top:20px;">
+          <div class="footer-contact-item"><span class="fi">📍</span><span><span data-i18n="footer.address">D3168, U+Zhigu Industrial Park, LiShui Town, Nanhai District, Foshan City, Guangdong, China</span></span></div>
+          <div class="footer-contact-item"><span class="fi">📞</span><span><a href="tel:+8613570441363" style="color:rgba(255,255,255,0.7)">+86-13570441363</a></span></div>
+          <div class="footer-contact-item"><span class="fi">💬</span><span><a href="https://wa.me/8613808828019" target="_blank" style="color:rgba(255,255,255,0.7)">WhatsApp: +86 138 0882 8019</a></span></div>
+          <div class="footer-contact-item"><span class="fi">✉️</span><span><a href="mailto:vivian@materials-ad.com" style="color:rgba(255,255,255,0.7)">vivian@materials-ad.com</a></span></div>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer.products">Products</h4>
+        <a href="#self-adhesive-vinyl" data-i18n="footer.links.selfAdhesiveVinyl">Self Adhesive Vinyl</a>
+        <a href="#flex-banner" data-i18n="footer.links.pvcFlexBanner">PVC Flex Banner</a>
+        <a href="#one-way-vision" data-i18n="footer.links.oneWayVision">One Way Vision</a>
+        <a href="#cutting-vinyl" data-i18n="footer.links.cuttingVinyl">Cutting Vinyl</a>
+        <a href="#pvc-foam-board" data-i18n="footer.links.pvcFoamBoard">PVC Foam Board</a>
+        <a href="#acrylic-sheet" data-i18n="footer.links.acrylicSheet">Acrylic Sheet</a>
+        <a href="#aluminum-composite-panel" data-i18n="footer.links.aluminumPanel">Aluminum Composite Panel</a>
+        <a href="#reflective-sheet" data-i18n="footer.links.reflectiveSheet">Reflective Sheet</a>
+        <a href="#display-stand" data-i18n="footer.links.displayStands">Display Stands</a>
+        <a href="/products/advertising-media" data-i18n="footer.links.advertisingMedia">Advertising Media</a>
+        <a href="/products/advertising-panel" data-i18n="footer.links.advertisingPanel">Advertising Panel</a>
+        <a href="/products/display-stand" data-i18n="footer.links.displayStand">Display Stand</a>
+        <a href="/products/accessory" data-i18n="footer.links.accessory">Accessory</a>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer.navigation">Navigation</h4>
+        <a href="index.html" data-i18n="footer.links.home">Home</a>
+        <a href="applications.html" data-i18n="nav.applications">Applications</a>
+        <a href="case-studies.html" data-i18n="footer.links.caseStudies">Case Studies</a>
+        <a href="news.html" data-i18n="footer.links.news">News</a>
+        <a href="about.html" data-i18n="footer.links.aboutUs">About Us</a>
+        <a href="contact.html" data-i18n="footer.links.contactUs">Contact Us</a>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer.quickContact">Quick Contact</h4>
+        <p style="font-size:13px;color:rgba(255,255,255,0.55);margin-bottom:16px;" data-i18n="footer.quickContactDesc">Get pricing and product details within 24 hours.</p>
+        <a href="contact.html" class="btn btn-primary" style="width:100%;justify-content:center;margin-bottom:12px;color:#ffffff;" data-i18n="footer.getQuote">Get a Quote</a>
+        <a href="https://wa.me/8613808828019" target="_blank" class="btn btn-outline" style="width:100%;justify-content:center;color:#ffffff;" data-i18n="footer.whatsappNow">💬 WhatsApp Now</a>
+        <div style="margin-top:20px;padding:16px;background:rgba(255,255,255,0.05);border-radius:var(--radius);border:1px solid rgba(255,255,255,0.08);">
+          <div style="font-size:11px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;" data-i18n="footer.businessHours">Business Hours</div>
+          <div style="font-size:13px;color:rgba(255,255,255,0.75);" data-i18n="footer.weekday">Mon – Fri: 09:00 – 18:00 (GMT+8)</div>
+          <div style="font-size:13px;color:rgba(255,255,255,0.75);" data-i18n="footer.saturday">Sat: 09:00 – 13:00</div>
+        </div>
+      </div>
+    <div class="footer-bottom">
+      <p data-i18n="footer.copyright">© 2024 Foshan Jin Yu Advertising Material Co., Ltd. All Rights Reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll', () => {
+  const nb = document.getElementById('navbar');
+  if (window.scrollY > 60) nb.classList.add('scrolled');
+  else nb.classList.remove('scrolled');
+  // Sticky tab bar shadow
+  const tb = document.getElementById('pcatTabsBar');
+  if (tb) tb.classList.toggle('scrolled', window.scrollY > 120);
+});
+
+function toggleMenu() {
+  document.getElementById('navMenu').classList.toggle('open');
+}
+
+// ── Language helpers ──────────────────────────────────────────────────────
+function applyBilingualAttr(lang) {
+  document.querySelectorAll('[data-i18n-en]').forEach(el => {
+    if (lang === 'zh') el.textContent = el.dataset.i18nZh || el.dataset.i18nEn;
+    else if (lang === 'vi') el.textContent = el.dataset.i18nVi || el.dataset.i18nEn;
+    else if (lang === 'tl') el.textContent = el.dataset.i18nTl || el.dataset.i18nEn;
+    else el.textContent = el.dataset.i18nEn;
+  });
+}
+document.addEventListener('langChange', (e) => {
+  const lang = e.detail?.lang || (window.i18n && i18n.currentLang) || 'en';
+  applyBilingualAttr(lang);
+  if (window.i18n) i18n.applyTranslations();
+});
+
+// ── Category Tab Switching ────────────────────────────────────────────────
+function switchCat(cat) {
+  document.querySelectorAll('.pcat-tab').forEach(t => {
+    t.classList.toggle('active', t.dataset.cat === cat);
+  });
+  document.querySelectorAll('.pcat-panel').forEach(p => {
+    p.style.display = p.id === 'panel-' + cat ? '' : 'none';
+  });
+  // 切换后滚动到 Tab 栏顶部
+  const anchor = document.getElementById('tabAnchor');
+  if (anchor) {
+    const navH = document.getElementById('navbar') ? document.getElementById('navbar').offsetHeight : 70;
+    window.scrollTo({ top: anchor.offsetTop - navH, behavior: 'smooth' });
+  }
+}
+
+// ── FAQ Tab Switching (Products Page) ────────────────────────────────────
+(function initFaqP() {
+  const tabMap = { products: 'products-faq-p', ordering: 'ordering-faq-p', shipping: 'shipping-faq-p', quality: 'quality-faq-p' };
+  const faqSection = document.getElementById('quote-faq');
+  if (!faqSection) return;
+  const tabs = faqSection.querySelectorAll('.faq-tab');
+  tabs.forEach(btn => {
+    btn.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      btn.classList.add('active');
+      const key = btn.dataset.tab;
+      Object.values(tabMap).forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.classList.remove('show');
+      });
+      const target = document.getElementById(tabMap[key]);
+      if (target) target.classList.add('show');
+    });
+  });
+
+  // FAQ accordion
+  faqSection.querySelectorAll('.faq-question').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.closest('.faq-item');
+      const ans = item.querySelector('.faq-answer');
+      const isOpen = item.classList.contains('expanded');
+      // Close all in same content block
+      const block = q.closest('.faq-content');
+      block.querySelectorAll('.faq-item').forEach(i => {
+        i.classList.remove('expanded');
+        i.querySelector('.faq-answer').classList.remove('show');
+      });
+      if (!isOpen) {
+        item.classList.add('expanded');
+        ans.classList.add('show');
+      }
+    });
+  });
+
+  // Quote Form Submission - 真实提交到后台
+  const qForm = document.querySelector('.quote-form');
+  if (qForm) {
+    qForm.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const name = document.getElementById('quote-name').value.trim();
+      const email = document.getElementById('quote-email').value.trim();
+      const phone = document.getElementById('quote-phone').value.trim();
+      const message = document.getElementById('quote-message').value.trim();
+      if (!name || !email || !message) {
+        alert('Please fill in all required fields (*)');
+        return;
+      }
+      const btn = this.querySelector('button[type="submit"]');
+      const origText = btn ? btn.innerHTML : '';
+      if (btn) { btn.disabled = true; btn.innerHTML = '⏳ Sending...'; }
+      try {
+        const res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, email, phone, message, source: 'products-quote-form' }),
+        });
+        const data = await res.json();
+        if (data.success) {
+          showSuccessModal();
+          this.reset();
+        } else {
+          alert('Submit failed: ' + (data.message || 'Unknown error'));
+        }
+      } catch (err) {
+        showSuccessModal();
+        this.reset();
+      } finally {
+        if (btn) { btn.disabled = false; btn.innerHTML = origText; }
+      }
+    });
+  }
+})();
+</script>
+
+<!-- FLOAT ACTION BUTTONS -->
+<div class="fab-container">
+  <button class="fab-btn fab-top" id="fabTop" title="Back to Top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+  </button>
+  <a href="#quote-faq" class="fab-btn fab-faq" title="Go to FAQ">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12l7 7 7-7"/></svg>
+  </a>
+  <a href="https://wa.me/8613808828019" target="_blank" class="fab-btn fab-wa" title="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+</div>
+<script>
+window.addEventListener('scroll', function() {
+  const fab = document.getElementById('fabTop');
+  if (fab) { if (window.scrollY > 300) fab.classList.add('visible'); else fab.classList.remove('visible'); }
+});
+</script>
+
+<!-- ===== SUCCESS MODAL ===== -->
+<div class="success-modal-overlay" id="successModal" onclick="closeSuccessModal(event)">
+  <div class="success-modal">
+    <div class="success-modal-icon">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <polyline points="20 6 9 17 4 12"></polyline>
+      </svg>
+    </div>
+    <h3 data-i18n="successModal.title">Inquiry Received!</h3>
+    <p data-i18n="successModal.message">Thanks for Your Inquiry, We will Get back to You within 8 Working Hours!</p>
+    <button class="success-close-btn" onclick="closeSuccessModal()" data-i18n="successModal.close">Got It</button>
+  </div>
+</div>
+
+
+<script>
+// ── Success Modal ──────────────────────────────────────────────────────────────
+function showSuccessModal() {
+  var overlay = document.getElementById('successModal');
+  if (overlay) {
+    overlay.classList.add('show');
+    document.body.style.overflow = 'hidden';
+  }
+}
+function closeSuccessModal(e) {
+  if (e && e.target !== document.getElementById('successModal') && !e.target.classList.contains('success-close-btn')) return;
+  var overlay = document.getElementById('successModal');
+  if (overlay) {
+    overlay.classList.remove('show');
+    document.body.style.overflow = '';
+  }
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeSuccessModal({target: document.getElementById('successModal')});
+});
+</script>
+
+
+<script>
+// ═══════════════════════════════════════════════════════════
+//  Products Page – API-driven rendering (categories + products)
+// ═══════════════════════════════════════════════════════════
+(function() {
+  // 分类图标（按 slug 匹配，匹配不到用默认图标）
+  const CAT_ICONS = {
+    'advertising-media':  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>',
+    'advertising-panel':  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>',
+    'display-stand':      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h18v13H3z"/><path d="M12 16v5M8 21h8"/></svg>',
+    'accessory':          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3-3a1 1 0 000-1.4l-1.6-1.6a1 1 0 00-1.4 0l-3 3z"/><path d="M5 19L3 21M9.4 13.6L5 19"/><circle cx="10" cy="13" r="3"/></svg>',
+    'accessory-tools':    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3-3a1 1 0 000-1.4l-1.6-1.6a1 1 0 00-1.4 0l-3 3z"/><path d="M5 19L3 21M9.4 13.6L5 19"/><circle cx="10" cy="13" r="3"/></svg>',
+    '_default':           '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg>'
+  };
+
+  let allProducts  = [];
+  let allCategories = [];
+  let currentCat   = '';
+
+  function getLang() {
+    try { return localStorage.getItem('jinyu_lang') || localStorage.getItem('lang') || 'en'; } catch(e) { return 'en'; }
+  }
+
+  // 从数据对象按当前语言取字段（同步 fallback）
+  // 注意：对 zh 语言，如果 _zh 字段为空但有 _en 内容，返回空字符串让 pickLang 触发翻译
+  function pickLangSync(d, key, lang) {
+    if (!d) return '';
+    lang = lang || getLang();
+    var val;
+    if (lang === 'zh') {
+      val = (d[key + '_zh'] || '').trim();
+      if (!val && (d[key + '_en'] || '').trim()) return ''; // 有英文但无中文，让 pickLang 翻译
+      return val || (d[key] || '');
+    }
+    if (lang === 'vi') {
+      val = (d[key + '_vi'] || '').trim();
+      if (!val && (d[key + '_en'] || '').trim()) return '';
+      return val || (d[key + '_en'] || '') || (d[key] || '');
+    }
+    if (lang === 'tl') {
+      val = (d[key + '_tl'] || '').trim();
+      if (!val && (d[key + '_en'] || '').trim()) return '';
+      return val || (d[key + '_en'] || '') || (d[key] || '');
+    }
+    return (d[key + '_en'] || '') || (d[key] || '');
+  }
+
+  // 异步版：字段为空时调 autoTranslate
+  async function pickLang(d, key, lang) {
+    lang = lang || getLang();
+    var v = pickLangSync(d, key, lang);
+    if (v) return v;
+    if (window.autoTranslate) {
+      return await window.autoTranslate.pickLang(d, key, lang);
+    }
+    return '';
+  }
+
+  // 获取产品主图
+  function getProductImage(p) {
+    if (Array.isArray(p.images) && p.images.length > 0) {
+      const idx = parseInt(p.main_image) || 0;
+      return p.images[idx] || p.images[0];
+    }
+    return p.image || '';
+  }
+
+  // 产品名/slug 转 URL slug
+  function toSlug(s) {
+    return (s || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  }
+
+  // 生成产品详情页新式 URL：/products/:catSlug/:productSlug
+  function productUrl(p) {
+    const catSlug = p.category_id || '_';
+    const pSlug   = p.slug ? toSlug(p.slug) : toSlug(p.name_en || p.name || '');
+    return pSlug ? '/products/' + catSlug + '/' + pSlug : '/product-detail.html?id=' + p.id;
+  }
+
+  // 渲染单个产品卡片（异步，支持自动翻译）
+  async function renderCard(p, lang) {
+    const name = await pickLang(p, 'name', lang).catch(() => p.name_en || p.name || p.id || '');
+    const btn  = (window.i18n ? window.i18n.t('products.viewDetail') : 'View Details');
+    const img  = getProductImage(p);
+    const pUrl = productUrl(p);
+    const imgHtml = img
+      ? `<img src="${img}" alt="${name}" loading="lazy" onerror="this.style.opacity=0.3">`
+      : `<div style="width:100%;height:100%;background:linear-gradient(135deg,#f0f0f0,#e8e8e8);display:flex;align-items:center;justify-content:center;color:#aaa;font-size:12px;">No Image</div>`;
+    return `
+<div class="product-card-new" id="${p.id}" onclick="location.href='${pUrl}'">
+  <div class="pcn-img">
+    ${imgHtml}
+    <div class="pcn-overlay">
+      <a href="${pUrl}" class="pcn-btn pcn-detail-btn" onclick="event.stopPropagation()">${btn}</a>
+    </div>
+  </div>
+  <div class="pcn-body">
+    <h3 class="pcn-name">${name}</h3>
+  </div>
+</div>`;
+  }
+
+  // 渲染分类面板（异步）
+  async function renderPanel(cat, products, lang) {
+    const slug = cat.slug || cat.id;
+    const catLabel = (await pickLang(cat, 'name', lang).catch(() => '')) || cat.name_en || slug;
+    const catDesc  = (await pickLang(cat, 'description', lang).catch(() => '')) || cat.description_en || '';
+    const catProducts = products.filter(p => p.category_id === slug);
+    const cardResults = await Promise.all(catProducts.map(p => renderCard(p, lang).catch(e => { console.warn('renderCard error', p.id, e); return ''; })));
+    const cards = cardResults.join('');
+    const isActive = (slug === currentCat);
+    return `
+<div class="pcat-panel" id="panel-${slug}" ${isActive ? '' : 'style="display:none"'}>
+  <div class="container" style="padding-top:48px;">
+    <div class="pcat-section-header">
+      <h2>${catLabel}</h2>
+      <p>${catDesc}</p>
+    </div>
+    <div class="pcat-grid">${cards || '<p style="color:#aaa;padding:24px 0;">No products in this category.</p>'}</div>
+  </div>
+</div>`;
+  }
+
+  // 渲染分类 Tab 栏（异步）
+  async function renderTabs(categories, products, lang) {
+    const tabsList = document.getElementById('pcatTabsList');
+    if (!tabsList) return;
+    const tabHtmls = await Promise.all(categories.map(async cat => {
+      const slug     = cat.slug || cat.id;
+      const icon     = CAT_ICONS[slug] || CAT_ICONS['_default'];
+      const label    = await pickLang(cat, 'name', lang) || cat.name_en || slug;
+      const count    = products.filter(p => p.category_id === slug).length;
+      const isActive = slug === currentCat;
+      return `<button class="pcat-tab${isActive?' active':''}" data-cat="${slug}" onclick="switchCat('${slug}')">
+  <span class="pcat-icon">${icon}</span>
+  <span class="pcat-label">${label}</span>
+  <span class="pcat-count" data-cat-count>${count}</span>
+</button>`;
+    }));
+    tabsList.innerHTML = tabHtmls.join('');
+  }
+
+  // 更新 Tab 上的数量徽章
+  function updateCounts(products) {
+    document.querySelectorAll('.pcat-tab').forEach(btn => {
+      const cat   = btn.getAttribute('data-cat');
+      const count = products.filter(p => p.category_id === cat).length;
+      const badge = btn.querySelector('[data-cat-count]');
+      if (badge) badge.textContent = count;
+    });
+  }
+
+  // 主渲染
+  async function renderAll(products, categories) {
+    const lang = getLang();
+    const container = document.getElementById('pcatContent');
+    if (!container) return;
+    try {
+      // ── Step 1：同步生成 Tabs（用 fallback 文字，不等翻译）─────────
+      const tabsList = document.getElementById('pcatTabsList');
+      if (tabsList) {
+        tabsList.innerHTML = categories.map(cat => {
+          const slug  = cat.slug || cat.id;
+          const icon  = CAT_ICONS[slug] || CAT_ICONS['_default'];
+          const label = pickLangSync(cat, 'name', lang) || cat.name_en || cat.name || slug;
+          const count = products.filter(p => p.category_id === slug).length;
+          const isActive = slug === currentCat;
+          return `<button class="pcat-tab${isActive?' active':''}" data-cat="${slug}" onclick="switchCat('${slug}')">
+  <span class="pcat-icon">${icon}</span>
+  <span class="pcat-label">${label}</span>
+  <span class="pcat-count" data-cat-count>${count}</span>
+</button>`;
+        }).join('');
+      }
+
+      // ── Step 2：同步生成所有产品面板（用 fallback 文字）──────────
+      const panelHtmls = categories.map(cat => {
+        const slug       = cat.slug || cat.id;
+        const catLabel   = pickLangSync(cat, 'name', lang) || cat.name_en || cat.name || slug;
+        const catDesc    = pickLangSync(cat, 'description', lang) || cat.description_en || '';
+        const catProducts = products.filter(p => p.category_id === slug);
+        const isActive   = slug === currentCat;
+
+        const cards = catProducts.map(p => {
+          const name  = pickLangSync(p, 'name', lang) || p.name_en || p.name || '';
+          const btn   = (window.i18n ? window.i18n.t('products.viewDetail') : 'View Details');
+          const img   = getProductImage(p);
+          const pUrl  = productUrl(p);
+          const imgHtml = img
+            ? `<img src="${img}" alt="${name}" loading="lazy" onerror="this.style.opacity=0.3">`
+            : `<div style="width:100%;height:100%;background:linear-gradient(135deg,#f0f0f0,#e8e8e8);display:flex;align-items:center;justify-content:center;color:#aaa;font-size:12px;">No Image</div>`;
+          return `<div class="product-card-new" id="${p.id}" onclick="location.href='${pUrl}'">
+  <div class="pcn-img">${imgHtml}<div class="pcn-overlay"><a href="${pUrl}" class="pcn-btn pcn-detail-btn" onclick="event.stopPropagation()">${btn}</a></div></div>
+  <div class="pcn-body"><h3 class="pcn-name">${name}</h3></div>
+</div>`;
+        }).join('');
+
+        return `<div class="pcat-panel" id="panel-${slug}" ${isActive ? '' : 'style="display:none"'}>
+  <div class="container" style="padding-top:48px;">
+    <div class="pcat-section-header"><h2>${catLabel}</h2><p>${catDesc}</p></div>
+    <div class="pcat-grid">${cards || '<p style="color:#aaa;padding:24px 0;">No products in this category.</p>'}</div>
+  </div>
+</div>`;
+      });
+      container.innerHTML = panelHtmls.join('');
+      if (window.applyI18n) window.applyI18n();
+
+      // ── Step 3：确保当前分类的 tab/panel 处于激活状态 ─────────────
+      if (currentCat) {
+        document.querySelectorAll('.pcat-tab').forEach(btn => {
+          btn.classList.toggle('active', btn.getAttribute('data-cat') === currentCat);
+        });
+        document.querySelectorAll('.pcat-panel').forEach(el => {
+          el.style.display = (el.id === 'panel-' + currentCat) ? '' : 'none';
+        });
+      }
+
+    } catch(e) {
+      console.error('renderAll error:', e);
+    }
+  }
+
+  // 加载所有数据
+  async function loadAll() {
+    try {
+      const [prodResp, catResp] = await Promise.all([
+        fetch('/api/products'),
+        fetch('/api/categories')
+      ]);
+      const prodJson = await prodResp.json();
+      const catJson  = await catResp.json();
+
+      // 兼容多种API格式: 数组 或 {success: true, data: [...]} 或 {value: [...], Count: N}
+      allProducts   = Array.isArray(prodJson) ? prodJson : (prodJson.success ? prodJson.data : (prodJson.value || []));
+      allCategories = Array.isArray(catJson) ? catJson : (catJson.success ? catJson.data : (catJson.value || []));
+
+      // 按 sort_order 排序
+      allCategories.sort((a, b) => (parseInt(a.sort_order)||0) - (parseInt(b.sort_order)||0));
+
+      // 确定初始分类
+      if (!currentCat && allCategories.length > 0) {
+        currentCat = allCategories[0].slug || allCategories[0].id;
+      }
+
+      renderAll(allProducts, allCategories);
+
+      // 隐藏 loading
+      const loading = document.getElementById('pcatLoading');
+      if (loading) loading.style.display = 'none';
+
+    } catch(e) {
+      const el = document.getElementById('pcatLoading');
+      if (el) el.innerHTML = '<p style="color:#f87171;">Failed to load products. Please refresh.</p>';
+    }
+  }
+
+  // 语言切换时重新渲染
+  window.addEventListener('storage', function(e) {
+    if (e.key === 'lang' && allProducts.length > 0) renderAll(allProducts, allCategories);
+  });
+
+  // ── 语言切换拦截：页面加载且数据就绪后，才拦截 i18n.changeLanguage ──
+  // 这样可以确保无论 langChange 事件是否正常工作，页面都能响应语言切换
+  if (window.i18n) {
+    var originalChangeLanguage = window.i18n.changeLanguage.bind(window.i18n);
+    window.i18n.changeLanguage = async function(lang) {
+      await originalChangeLanguage(lang);
+      // 语言切换完成后，重新渲染产品列表
+      if (allProducts.length > 0) renderAll(allProducts, allCategories);
+    };
+  }
+
+  document.addEventListener('langChange', function() {
+    if (allProducts.length > 0) renderAll(allProducts, allCategories);
+  });
+
+  // switchCat 全局暴露
+  window.switchCat = function(cat) {
+    currentCat = cat;
+    document.querySelectorAll('.pcat-panel').forEach(el => { el.style.display = 'none'; });
+    const target = document.getElementById('panel-' + cat);
+    if (target) target.style.display = '';
+    document.querySelectorAll('.pcat-tab').forEach(btn => {
+      btn.classList.toggle('active', btn.getAttribute('data-cat') === cat);
+    });
+    // 更新 URL（pushState，不跳页）
+    const newPath = '/products/' + cat;
+    if (location.pathname !== newPath) history.pushState({ cat }, '', newPath);
+    document.getElementById('tabAnchor')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
+  // 处理 URL 切换分类：支持 /products/:catSlug 和旧 hash
+  const pathParts = location.pathname.replace(/^\/products\/?/, '').split('/').filter(Boolean);
+  const hashSlug = location.hash.replace('#', '');
+  const initSlug = pathParts[0] || hashSlug || '';
+  if (initSlug) currentCat = initSlug;
+
+  // script 在 body 底部，DOM 已就绪，直接调用；兼容 DOMContentLoaded 已触发的情况
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', loadAll);
+  } else {
+    loadAll();
+  }
+})();
+initSEO({ pageTitle: 'Products' });
+</script>
+</body>
+</html>

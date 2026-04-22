@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <rect width="400" height="300" fill="#F0F9FF" rx="16"/>
+  
+  <!-- roll-up banner stand -->
+  <!-- base -->
+  <rect x="155" y="240" width="90" height="18" rx="9" fill="#475569"/>
+  <!-- pole -->
+  <rect x="196" y="65" width="8" height="175" fill="#64748B"/>
+  <!-- banner graphic -->
+  <rect x="110" y="65" width="180" height="175" rx="4" fill="#BAE6FD"/>
+  <!-- banner content lines -->
+  <rect x="125" y="85" width="150" height="15" rx="3" fill="#0284C7" opacity="0.6"/>
+  <rect x="125" y="112" width="120" height="8" rx="2" fill="#7DD3FC"/>
+  <rect x="125" y="130" width="140" height="8" rx="2" fill="#7DD3FC"/>
+  <rect x="125" y="148" width="110" height="8" rx="2" fill="#7DD3FC"/>
+  <!-- rolling bottom -->
+  <ellipse cx="200" cy="238" rx="90" ry="8" fill="#94A3B8"/>
+
+</svg>

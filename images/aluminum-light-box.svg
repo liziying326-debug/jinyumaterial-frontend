@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <rect width="400" height="300" fill="#1E293B" rx="16"/>
+  
+  <!-- aluminum frame light box -->
+  <!-- frame -->
+  <rect x="70" y="60" width="260" height="180" rx="4" fill="#334155"/>
+  <rect x="70" y="60" width="260" height="180" rx="4" fill="none" stroke="#94A3B8" stroke-width="8"/>
+  <!-- lit panel inside -->
+  <rect x="78" y="68" width="244" height="164" rx="2" fill="#FDE68A" opacity="0.9"/>
+  <rect x="78" y="68" width="244" height="164" rx="2" fill="#FEF3C7" opacity="0.5"/>
+  <!-- light glow center -->
+  <ellipse cx="200" cy="150" rx="90" ry="65" fill="white" opacity="0.3"/>
+  <!-- aluminum corner brackets -->
+  <rect x="70" y="60" width="20" height="20" fill="#475569"/>
+  <rect x="310" y="60" width="20" height="20" fill="#475569"/>
+  <rect x="70" y="220" width="20" height="20" fill="#475569"/>
+  <rect x="310" y="220" width="20" height="20" fill="#475569"/>
+
+</svg>

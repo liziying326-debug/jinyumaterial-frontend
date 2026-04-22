@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Dropdown Debug</title>
+  <style>
+    body { font-family: Arial; padding: 100px 20px; }
+    .test-result { margin: 8px 0; padding: 8px; border-radius: 4px; }
+    .pass { background: #d4edda; color: #155724; }
+    .fail { background: #f8d7da; color: #721c24; }
+    .warn { background: #fff3cd; color: #856404; }
+    h2 { margin-top: 30px; }
+  </style>
+</head>
+<body>
+  <h1>Dropdown / Click Debug Test</h1>
+  <p>Loading styles.css from localhost:3015 and checking for issues...</p>
+  <div id="results"></div>
+
+  <!-- Load the same CSS as the main site -->
+  <link rel="stylesheet" href="http://localhost:3015/styles.css" id="siteCss" onload="onCssLoaded()" onerror="onCssError()">
+
+  <!-- Recreate the nav structure -->
+  <nav class="navbar" id="navbar" style="position:relative;">
+    <div class="nav-inner" style="display:flex;">
+      <ul class="nav-menu" id="navMenu" style="display:flex; list-style:none; margin:0; padding:0;">
+        <li class="nav-item" style="position:relative;">
+          <a href="/products" class="nav-link" style="color:white; display:flex; align-items:center; gap:5px; padding:8px 16px;">
+            Products <svg width="12" height="12" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+          </a>
+          <div class="dropdown" id="testProductDropdown">
+            <a href="#cat1">Category A</a>
+            <a href="#cat2">Category B</a>
+            <a href="#cat3">Category C</a>
+          </div>
+        </li>
+        <li class="nav-item" style="position:relative;">
+          <a href="/news" class="nav-link active" style="color:white; display:flex; align-items:center; gap:5px; padding:8px 16px;">
+            News <svg width="12" height="12" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+          </a>
+          <div class="dropdown" id="testNewsDropdown">
+            <a href="#industry-knowledge">Industry Knowledge</a>
+            <a href="#material-guide">Material Guide</a>
+            <a href="#printing-technology">Printing Technology</a>
+          </div>
+        </li>
+      </ul>
+      <div class="nav-right" style="display:flex; align-items:center; gap:8px;">
+        <div class="nav-lang" id="language-switcher" style="position:relative; cursor:pointer; padding:6px 12px; border-radius:6px; background:rgba(255,255,255,0.1); color:white;">
+          <div class="lang-display" style="display:flex; align-items:center; gap:5px;">
+            <span class="lang-code">EN</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Test area for category tabs -->
+  <div style="margin-top:80px;">
+    <h2>Category Tab Test (like news.html)</h2>
+    <div style="background:white; border-bottom:1px solid #e5e7eb; position:sticky; top:72px;">
+      <div style="padding:12px 0; display:flex; gap:4px;">
+        <a href="#industry-knowledge" class="btn btn-sm btn-outline-dark" data-tab-btn id="tabIK">Industry Knowledge</a>
+        <a href="#material-guide" class="btn btn-sm btn-outline-dark" data-tab-btn id="tabMG">Material Guide</a>
+        <a href="#printing-technology" class="btn btn-sm btn-outline-dark" data-tab-btn id="tabPT">Printing Technology</a>
+      </div>
+    </div>
+    
+    <section id="industry-knowledge" style="padding:40px 0; background:#f9fafb;">
+      <h3>Industry Knowledge Section</h3>
+      <p>This is where Industry Knowledge content would appear.</p>
+    </section>
+    <section id="material-guide" style="padding:40px 0;">
+      <h3>Material Guide Section</h3>
+      <p>This is where Material Guide content would appear.</p>
+    </section>
+    <section id="printing-technology" style="padding:40px 0; background:#f9fafb;">
+      <h3>Printing Technology Section</h3>
+      <p>This is where Printing Technology content would appear.</p>
+    </section>
+  </div>
+
+<script>
+function log(msg, type) {
+  const div = document.createElement('div');
+  div.className = 'test-result ' + (type || 'pass');
+  div.textContent = msg;
+  document.getElementById('results').appendChild(div);
+}
+
+function onCssLoaded() {
+  log('✅ styles.css loaded successfully', 'pass');
+  runTests();
+}
+
+function onCssError() {
+  log('❌ FAILED to load styles.css from localhost:3015 - server may not be running!', 'fail');
+}
+
+function runTests() {
+  // Test 1: Check dropdown initial state
+  log('\n=== TEST 1: Dropdown Initial State ===');
+  const dd = document.querySelector('.dropdown');
+  if (!dd) { log('❌ .dropdown element NOT FOUND in DOM', 'fail'); return; }
+  
+  const cs = window.getComputedStyle(dd);
+  log('dropdown opacity: ' + cs.opacity + (cs.opacity === '0' ? ' (hidden ✓)' : ' ⚠️ VISIBLE!'));
+  log('dropdown visibility: ' + cs.visibility + (cs.visibility === 'hidden' ? ' (hidden ✓)' : ' ⚠️ VISIBLE!'));
+  log('dropdown pointerEvents: ' + cs.pointerEvents);
+  log('dropdown position: ' + cs.position);
+  log('dropdown zIndex: ' + cs.zIndex);
+
+  // Test 2: Check nav-link
+  log('\n=== TEST 2: Nav Link ===');
+  const nl = document.querySelector('.nav-link');
+  if (nl) {
+    const ncs = window.getComputedStyle(nl);
+    log('nav-link pointerEvents: ' + ncs.pointerEvents);
+    log('nav-link cursor: ' + ncs.cursor);
+    log('nav-link position: ' + ncs.position);
+    log('nav-link display: ' + ncs.display);
+  }
+
+  // Test 3: Check nav-item
+  log('\n=== TEST 3: Nav Item ===');
+  const ni = document.querySelector('.nav-item');
+  if (ni) {
+    const nics = window.getComputedStyle(ni);
+    log('nav-item pointerEvents: ' + nics.pointerEvents);
+    log('nav-item position: ' + nics.position);
+    log('nav-item overflow: ' + nics.overflow);
+    log('nav-item overflow-y: ' + nics.overflowY);
+  }
+
+  // Test 4: Check navbar
+  log('\n=== TEST 4: Navbar ===');
+  const nb = document.querySelector('.navbar');
+  if (nb) {
+    const nbcs = window.getComputedStyle(nb);
+    log('navbar pointerEvents: ' + nbcs.pointerEvents);
+    log('navbar overflow: ' + nbcs.overflow);
+    log('navbar zIndex: ' + nbcs.zIndex);
+    log('navbar position: ' + nbcs.position);
+  }
+
+  // Test 5: Check tab buttons
+  log('\n=== TEST 5: Category Tab Buttons ===');
+  document.querySelectorAll('[data-tab-btn]').forEach((btn, i) => {
+    const bcs = window.getComputedStyle(btn);
+    log('Tab ' + i + ' (' + btn.textContent.trim() + ') pointerEvents: ' + bcs.pointerEvents + ' cursor: ' + bcs.cursor + ' display: ' + bcs.display + ' position: ' + bcs.position);
+  });
+
+  // Test 6: Simulate click
+  log('\n=== TEST 6: Click Simulation ===');
+  let clickFired = false;
+  const testLink = document.getElementById('tabIK');
+  testLink.addEventListener('click', function(e) {
+    clickFired = true;
+    log('✅ Tab button click event FIRED! target=' + e.target.tagName + '.' + e.target.className, 'pass');
+  });
+  testLink.click();
+  if (!clickFired) {
+    log('❌ Tab button click event DID NOT FIRE after el.click()', 'fail');
+  }
+
+  // Test 7: Check for Unicode CSS conflicts
+  log('\n=== TEST 7: Duplicate/Unicode CSS Rules ===');
+  const sheets = document.styleSheets;
+  let langDropdownRules = [];
+  try {
+    for (let s = 0; s < sheets.length; s++) {
+      try {
+        const rules = sheets[s].cssRules || sheets[s].rules;
+        for (let r = 0; r < rules.length; r++) {
+          const text = rules[r].cssText || '';
+          if (text.includes('lang-dropdown') || text.includes('lang-option')) {
+            langDropdownRules.push(text.substring(0, 120));
+          }
+        }
+      } catch(e) {}
+    }
+  } catch(e) {}
+  
+  log('Found ' + langDropdownRules.length + ' rules matching lang-dropdown/lang-option:');
+  langDropdownRules.forEach(function(r, i) {
+    // Detect unicode spaces
+    const hasUnicodeSpaces = /\s*[^\x20-\x7E]{3,}\s*/.test(r);
+    log('  Rule ' + i + ': ' + (hasUnicodeSpaces ? '⚠️ HAS UNICODE SPACES!' : 'OK') + ' ' + r.substring(0, 100), hasUnicodeSpaces ? 'warn' : 'pass');
+  });
+
+  // Test 8: Check if there's an invisible overlay
+  log('\n=== TEST 8: Overlay Detection ===');
+  const allFixed = document.querySelectorAll('*');
+  let overlays = [];
+  allFixed.forEach(el => {
+    const es = window.getComputedStyle(el);
+    if ((es.position === 'fixed' || es.position === 'absolute') && 
+        es.zIndex > 900 && 
+        es.display !== 'none' && 
+        es.visibility !== 'hidden') {
+      const rect = el.getBoundingClientRect();
+      overlays.push({ tag: el.tagName, class: el.className, z: es.zIndex, pos: es.position, w: rect.width, h: rect.height });
+    }
+  });
+  log('High-z-index visible elements (z > 900):');
+  overlays.forEach(o => {
+    log('  ' + o.tag + '.' + o.class + ' z=' + o.z + ' ' + o.pos + ' size=' + o.w + 'x' + o.h);
+  });
+
+  log('\n=== DONE ===');
+}
+</script>
+</body>
+</html>

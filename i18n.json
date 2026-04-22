@@ -1,0 +1,705 @@
+﻿{
+  "en": {
+    "langName": "English",
+    "langCode": "EN",
+    "nav": {
+      "home": "Home",
+      "products": "Products",
+      "applications": "Applications",
+      "caseStudies": "Case Studies",
+      "blog": "Blog",
+      "aboutUs": "About Us",
+      "contactUs": "Contact Us",
+      "getQuote": "Get a Quote",
+      "products_sub": {
+        "pvcFoamBoard": "PVC Foam Board",
+        "acrylicSheet": "Acrylic Sheet",
+        "aluminumPanel": "Aluminum Composite Panel",
+        "ppHollowSheet": "PP Hollow Sheet",
+        "selfAdhesiveVinyl": "Self Adhesive Vinyl",
+        "flexBanner": "Flex Banner",
+        "reflectiveSheet": "Reflective Sheet"
+      },
+      "applications_sub": {
+        "signBoard": "Sign Board",
+        "lightBox": "Light Box",
+        "digitalPrinting": "Digital Printing",
+        "outdoorAdvertising": "Outdoor Advertising",
+        "exhibitionDisplay": "Exhibition Display"
+      },
+      "caseStudies_sub": {
+        "supermarket": "Supermarket Sign Project",
+        "mallLightbox": "Mall Light Box Project",
+        "outdoorBillboard": "Outdoor Billboard Project",
+        "shopSign": "Shop Sign Project"
+      },
+      "blog_sub": {
+        "industryKnowledge": "Industry Knowledge",
+        "materialGuide": "Material Guide",
+        "printingTechnology": "Printing Technology"
+      },
+      "about_sub": {
+        "companyProfile": "Company Profile",
+        "factory": "Factory",
+        "productionCapacity": "Production Capacity",
+        "certificates": "Certificates"
+      }
+    },
+    "hero": {
+      "badge": "ISO 9001 Certified Manufacturer · Est. 2009",
+      "title": "Your <span class=\"hero-accent\">#1</span> Advertising<br>Material<br>Factory in China",
+      "subtitle": "Foshan Jin Yu Advertising Material Co., Ltd – Professional manufacturer of PVC foam board, acrylic sheet, vinyl, flex banner, reflective sheet and advertising accessories. Trusted by buyers across Europe, Americas, Southeast Asia & Middle East.",
+      "exploreProducts": "Explore Products",
+      "getQuote": "Get a Quote",
+      "stats": {
+        "countries": "Countries & Regions",
+        "products": "Core Product Lines",
+        "clients": "Global Clients",
+        "certified": "Quality Certified"
+      }
+    },
+    "home": {
+      "productsTitle": "Our Products",
+      "productsSubtitle": "Comprehensive range of advertising materials for global markets",
+      "whyChooseTitle": "Why Choose Us",
+      "whyChooseSubtitle": "Trusted by 500+ clients in 50+ countries",
+      "features": {
+        "factory": {
+          "title": "Direct Factory Price",
+          "desc": "Competitive pricing without middlemen"
+        },
+        "quality": {
+          "title": "ISO 9001 Certified",
+          "desc": "Strict quality control system"
+        },
+        "export": {
+          "title": "Global Export",
+          "desc": "50+ countries worldwide"
+        },
+        "custom": {
+          "title": "Custom Solutions",
+          "desc": "OEM/ODM services available"
+        }
+      },
+      "applicationsTitle": "Applications",
+      "applicationsSubtitle": "Wide range of applications for advertising and display",
+      "ctaTitle": "Ready to Get Started?",
+      "ctaSubtitle": "Contact us today for competitive quotes and expert advice",
+      "ctaButton": "Contact Us Now"
+    },
+    "about": {
+      "title": "About Foshan Jin Yu",
+      "subtitle": "Professional advertising materials manufacturer integrating design, R&D, production and global sales since 2009.",
+      "profileTitle": "Company Profile",
+      "whoWeAre": "Who We Are",
+      "whoWeAreText": "Foshan Jin Yu Advertising Material Co., Ltd is a professional manufacturer of advertising materials established in 2009. We are located in the U+Zhigu Industrial Park, LiShui Town, Nanhai District, Foshan City, Guangdong Province �?one of China's most concentrated hubs for advertising material production.",
+      "whoWeAreText2": "Our business integrates design, research and development, production and sales of advertising materials including self adhesive vinyl, PVC flex banner, PVC foam board, acrylic sheet, aluminum composite panel, PP hollow sheet, reflective sheeting, display stands and sign-making accessories.",
+      "whoWeAreText3": "We export to Southeast Asia, Europe, the Americas, the Middle East and other global markets. Our products are known for durability, customizability, and competitive factory-direct pricing.",
+      "yearEstablished": "Year Established",
+      "exportCountries": "Export Countries",
+      "isoCertified": "ISO 9001 Certified",
+      "productLines": "Core Product Lines",
+      "timeline": {
+        "2009": "Company established in Foshan",
+        "2022": "First overseas cooperation at Canton Fair",
+        "2023_03": "R&D team established",
+        "2023_07": "Production lines expanded",
+        "2024": "ISO 9001 certification obtained"
+      },
+      "factoryTitle": "Factory",
+      "factoryText": "Our state-of-the-art manufacturing facility is equipped with advanced production lines and quality control equipment. We maintain strict quality standards throughout the manufacturing process.",
+      "capacityTitle": "Production Capacity",
+      "capacityText": "With expanded production lines and equipment, we can meet large-volume orders with consistent quality and competitive pricing.",
+      "certificatesTitle": "Certificates",
+      "certificatesText": "We are proud to hold ISO 9001:2015 certification, demonstrating our commitment to quality management and continuous improvement."
+    },
+    "products": {
+      "title": "Advertising Material Products",
+      "subtitle": "Comprehensive range of advertising substrates and display materials. Factory-direct pricing, custom specifications, global shipping.",
+      "categories": {
+        "selfAdhesiveVinyl": "Self Adhesive Vinyl",
+        "flexBanner": "PVC Flex Banner",
+        "oneWayVision": "One Way Vision",
+        "cuttingVinyl": "Cutting Vinyl",
+        "polymericVinyl": "Polymeric Vinyl & Cold Lamination",
+        "windowFilm": "Window Film & Reflective Sheet",
+        "pvcFoamBoard": "PVC Foam Board",
+        "acrylicSheet": "Acrylic Sheet",
+        "aluminumPanel": "Aluminum Composite Panel",
+        "ppHollowSheet": "PP Hollow Sheet",
+        "displayStand": "Display Stands",
+        "accessories": "Accessories"
+      }
+    },
+    "contact": {
+      "title": "Contact Us",
+      "subtitle": "Get in touch for product inquiries and quotations",
+      "address": "Address",
+      "phone": "Phone",
+      "email": "Email",
+      "website": "Website",
+      "whatsapp": "WhatsApp",
+      "form": {
+        "title": "Send Us a Message",
+        "name": "Your Name",
+        "email": "Email Address",
+        "company": "Company Name",
+        "product": "Product Interested",
+        "message": "Your Message",
+        "submit": "Send Message",
+        "success": "Message sent successfully! We will reply soon."
+      },
+      "faqTitle": "Frequently Asked Questions",
+      "faq": {
+        "q1": "What is your minimum order quantity?",
+        "a1": "Our MOQ varies by product. Please contact us for specific product inquiries.",
+        "q2": "Do you provide samples?",
+        "a2": "Yes, we can provide samples for quality evaluation. Shipping costs apply.",
+        "q3": "What are your payment terms?",
+        "a3": "We accept T/T, L/C, and Western Union. Specific terms depend on order volume.",
+        "q4": "How long is delivery time?",
+        "a4": "Delivery time is typically 15-25 days after order confirmation, depending on quantity and specifications."
+      }
+    },
+    "footer": {
+      "about": "Foshan Jin Yu Advertising Material Co., Ltd �?Professional manufacturer of PVC foam board, acrylic sheet, vinyl, flex banner, reflective sheet and advertising accessories.",
+      "quickLinks": "Quick Links",
+      "products": "Products",
+      "applications": "Applications",
+      "caseStudies": "Case Studies",
+      "blog": "Blog",
+      "aboutUs": "About Us",
+      "contactUs": "Contact Us",
+      "contactInfo": "Contact Info",
+      "copyright": "© 2024 Foshan Jin Yu Advertising Material Co., Ltd. All rights reserved."
+    }
+  },
+  "zh": {
+    "langName": "中文",
+    "langCode": "CN",
+    "nav": {
+      "home": "首页",
+      "products": "产品",
+      "applications": "应用场景",
+      "caseStudies": "案例研究",
+      "blog": "博客",
+      "aboutUs": "关于我们",
+      "contactUs": "联系我们",
+      "getQuote": "获取报价",
+      "products_sub": {
+        "pvcFoamBoard": "PVC发泡�?,
+        "acrylicSheet": "亚克力板",
+        "aluminumPanel": "铝塑�?,
+        "ppHollowSheet": "PP中空�?,
+        "selfAdhesiveVinyl": "自粘贴纸",
+        "flexBanner": "软布灯箱�?,
+        "reflectiveSheet": "反光�?
+      },
+      "applications_sub": {
+        "signBoard": "标识�?,
+        "lightBox": "灯箱",
+        "digitalPrinting": "数码印刷",
+        "outdoorAdvertising": "户外广告",
+        "exhibitionDisplay": "展览展示"
+      },
+      "caseStudies_sub": {
+        "supermarket": "超市标识项目",
+        "mallLightbox": "商场灯箱项目",
+        "outdoorBillboard": "户外广告牌项�?,
+        "shopSign": "店铺标识项目"
+      },
+      "blog_sub": {
+        "industryKnowledge": "行业知识",
+        "materialGuide": "材料指南",
+        "printingTechnology": "印刷技�?
+      },
+      "about_sub": {
+        "companyProfile": "公司简�?,
+        "factory": "工厂",
+        "productionCapacity": "产能",
+        "certificates": "资质认证"
+      }
+    },
+    "hero": {
+      "badge": "ISO 9001认证制造商 · 成立于2009年",
+      "title": "中国<span style=\"color: #E8751A; font-weight: bold;\">头部</span>广告材料工厂",
+      "subtitle": "佛山市金昱广告材料有限公司——专业生产PVC泡沫板、亚克力板、乙烯基板、柔性横幅、反光板及广告配件。深受欧洲、美洲、东南亚及中东买家的信赖。",
+      "exploreProducts": "浏览产品",
+      "requestQuote": "索取报价",
+      "stats": {
+        "countries": "出口国家",
+        "products": "产品系列",
+        "clients": "全球客户",
+        "certified": "ISO 9001认证"
+      }
+    },
+    "home": {
+      "productsTitle": "我们的产�?,
+      "productsSubtitle": "全系列广告材料，满足全球市场需�?,
+      "whyChooseTitle": "为什么选择我们",
+      "whyChooseSubtitle": "深受全球50多个国家500多家客户信赖",
+      "features": {
+        "factory": {
+          "title": "工厂直销价格",
+          "desc": "无中间商，价格更具竞争力"
+        },
+        "quality": {
+          "title": "ISO 9001认证",
+          "desc": "严格的质量控制系�?
+        },
+        "export": {
+          "title": "全球出口",
+          "desc": "业务覆盖50多个国家"
+        },
+        "custom": {
+          "title": "定制服务",
+          "desc": "提供OEM/ODM服务"
+        }
+      },
+      "applicationsTitle": "应用领域",
+      "applicationsSubtitle": "广泛应用于广告和展示领域",
+      "ctaTitle": "准备好开始了吗？",
+      "ctaSubtitle": "立即联系我们获取优惠报价和专家建�?,
+      "ctaButton": "立即联系我们"
+    },
+    "about": {
+      "title": "关于佛山金昱",
+      "subtitle": "专业广告材料制造商，自2009年起集设计、研发、生产、销售于一体�?,
+      "profileTitle": "公司简�?,
+      "whoWeAre": "我们是谁",
+      "whoWeAreText": "佛山金昱广告材料有限公司成立�?021年，是专业的广告材料制造商。公司位于佛山市南海区里水镇智谷产业园——中国广告材料生产最集中的地区之一�?,
+      "whoWeAreText2": "公司业务涵盖广告材料的设计、研发、生产和销售，产品包括自粘贴纸、PVC软布灯箱布、PVC发泡板、亚克力板、铝塑板、PP中空板、反光贴、展示架及标识制作配件等�?,
+      "whoWeAreText3": "产品远销东南亚、欧洲、美洲、中东等全球市场，以耐用性、可定制性和竞争力的工厂直销价格著称�?,
+      "yearEstablished": "成立年份",
+      "exportCountries": "出口国家",
+      "isoCertified": "ISO 9001认证",
+      "productLines": "核心产品�?,
+      "timeline": {
+        "2009": "公司在佛山成�?,
+        "2022": "广交会首次与海外客户合作",
+        "2023_03": "建立研发团队",
+        "2023_07": "扩大产线与设�?,
+        "2024": "获得ISO 9001认证"
+      },
+      "factoryTitle": "工厂",
+      "factoryText": "我们拥有先进的生产设施和严格的质量控制设备，在整个制造过程中保持高标准的质量要求�?,
+      "capacityTitle": "产能",
+      "capacityText": "通过扩大生产线和设备，我们能够以稳定的质量和竞争力的价格满足大批量订单�?,
+      "certificatesTitle": "资质认证",
+      "certificatesText": "我们自豪地持有ISO 9001:2015认证，展示了我们对质量管理和持续改进的承诺�?
+    },
+    "products": {
+      "title": "广告材料产品",
+      "subtitle": "全系列广告基材和展示材料。工厂直销价，定制规格，全球发货�?,
+      "categories": {
+        "selfAdhesiveVinyl": "自粘贴纸",
+        "flexBanner": "PVC软布灯箱�?,
+        "oneWayVision": "单透贴",
+        "cuttingVinyl": "刻字�?,
+        "polymericVinyl": "高分子贴纸及冷裱�?,
+        "windowFilm": "窗贴及反光贴",
+        "pvcFoamBoard": "PVC发泡�?,
+        "acrylicSheet": "亚克力板",
+        "aluminumPanel": "铝塑�?,
+        "ppHollowSheet": "PP中空�?,
+        "displayStand": "展示�?,
+        "accessories": "配件"
+      }
+    },
+    "contact": {
+      "title": "联系我们",
+      "subtitle": "联系我们获取产品咨询和报�?,
+      "address": "地址",
+      "phone": "电话",
+      "email": "邮箱",
+      "website": "官网",
+      "whatsapp": "WhatsApp",
+      "form": {
+        "title": "给我们留言",
+        "name": "您的姓名",
+        "email": "邮箱地址",
+        "company": "公司名称",
+        "product": "感兴趣的产品",
+        "message": "留言内容",
+        "submit": "发送消�?,
+        "success": "消息发送成功！我们将尽快回复您�?
+      },
+      "faqTitle": "常见问题",
+      "faq": {
+        "q1": "最小起订量是多少？",
+        "a1": "不同产品的MOQ不同，请联系我们获取具体产品信息�?,
+        "q2": "可以提供样品吗？",
+        "a2": "是的，我们可以提供样品进行质量评估，运费另计�?,
+        "q3": "付款方式是什么？",
+        "a3": "我们接受T/T、L/C和西联汇款，具体条款根据订单量而定�?,
+        "q4": "交货时间是多久？",
+        "a4": "交货时间通常为确认订单后15-25天，具体取决于数量和规格�?
+      }
+    },
+    "footer": {
+      "about": "佛山金昱广告材料有限公司——专业生产PVC发泡板、亚克力板、贴纸、灯箱布、反光贴及广告配件�?,
+      "quickLinks": "快速链�?,
+      "products": "产品",
+      "applications": "应用场景",
+      "caseStudies": "案例研究",
+      "blog": "博客",
+      "aboutUs": "关于我们",
+      "contactUs": "联系我们",
+      "contactInfo": "联系方式",
+      "copyright": "© 2024 佛山金昱广告材料有限公司 版权所有�?
+    }
+  },
+  "vi": {
+    "langName": "Tiếng Việt",
+    "langCode": "VN",
+    "nav": {
+      "home": "Trang ch�?,
+      "products": "Sản phẩm",
+      "applications": "Ứng dụng",
+      "caseStudies": "D�?án",
+      "blog": "Blog",
+      "aboutUs": "V�?chúng tôi",
+      "contactUs": "Liên h�?,
+      "getQuote": "Báo giá",
+      "products_sub": {
+        "pvcFoamBoard": "Tấm PVC Foam",
+        "acrylicSheet": "Tấm Acrylic",
+        "aluminumPanel": "Tấm Composite Nhôm",
+        "ppHollowSheet": "Tấm PP Hollow",
+        "selfAdhesiveVinyl": "Decal Dán",
+        "flexBanner": "Bạt Flex",
+        "reflectiveSheet": "Tấm Phản quang"
+      },
+      "applications_sub": {
+        "signBoard": "Biển hiệu",
+        "lightBox": "Hộp đèn",
+        "digitalPrinting": "In k�?thuật s�?,
+        "outdoorAdvertising": "Quảng cáo ngoài trời",
+        "exhibitionDisplay": "Trưng bày triển lãm"
+      },
+      "caseStudies_sub": {
+        "supermarket": "D�?án biển siêu th�?,
+        "mallLightbox": "D�?án hộp đèn trung tâm thương mại",
+        "outdoorBillboard": "D�?án biển quảng cáo ngoài trời",
+        "shopSign": "D�?án biển cửa hàng"
+      },
+      "blog_sub": {
+        "industryKnowledge": "Kiến thức ngành",
+        "materialGuide": "Hướng dẫn vật liệu",
+        "printingTechnology": "Công ngh�?in ấn"
+      },
+      "about_sub": {
+        "companyProfile": "H�?sơ công ty",
+        "factory": "Nhà máy",
+        "productionCapacity": "Công suất",
+        "certificates": "Chứng nhận"
+      }
+    },
+    "hero": {
+      "badge": "Nhà sản xuất ISO 9001 · Thành lập 2009",
+      "title": "Nhà Máy Vật Liệu Quảng Cáo <span style=\"color: #E8751A; font-weight: bold;\">Hàng Đầu</span> Trung Quốc",
+      "subtitle": "Công ty TNHH Vật liệu Quảng cáo Foshan Jin Yu – Nhà sản xuất chuyên nghiệp tấm PVC foam, tấm acrylic, decal, bạt flex, tấm phản quang và phụ kiện quảng cáo. Được khách hàng tại Châu Âu, Châu Mỹ, Đông Nam Á và Trung Đông tin tưởng.",
+      "exploreProducts": "Xem sản phẩm",
+      "requestQuote": "Yêu cầu báo giá",
+      "stats": {
+        "countries": "Quốc gia xuất khẩu",
+        "products": "Dòng sản phẩm",
+        "clients": "Khách hàng toàn cầu",
+        "certified": "Chứng nhận ISO 9001"
+      }
+    },
+    "home": {
+      "productsTitle": "Sản phẩm của chúng tôi",
+      "productsSubtitle": "Đa dạng vật liệu quảng cáo cho th�?trường toàn cầu",
+      "whyChooseTitle": "Tại sao chọn chúng tôi",
+      "whyChooseSubtitle": "Được hơn 500 khách hàng tại 50+ quốc gia tin tưởng",
+      "features": {
+        "factory": {
+          "title": "Giá nhà máy trực tiếp",
+          "desc": "Giá cạnh tranh không qua trung gian"
+        },
+        "quality": {
+          "title": "Chứng nhận ISO 9001",
+          "desc": "H�?thống kiểm soát chất lượng nghiêm ngặt"
+        },
+        "export": {
+          "title": "Xuất khẩu toàn cầu",
+          "desc": "Hơn 50 quốc gia trên th�?giới"
+        },
+        "custom": {
+          "title": "Giải pháp tùy chỉnh",
+          "desc": "Dịch v�?OEM/ODM có sẵn"
+        }
+      },
+      "applicationsTitle": "Ứng dụng",
+      "applicationsSubtitle": "Nhiều ứng dụng trong quảng cáo và trưng bày",
+      "ctaTitle": "Sẵn sàng bắt đầu?",
+      "ctaSubtitle": "Liên h�?ngay đ�?nhận báo giá cạnh tranh và tư vấn chuyên môn",
+      "ctaButton": "Liên h�?ngay"
+    },
+    "about": {
+      "title": "V�?Foshan Jin Yu",
+      "subtitle": "Nhà sản xuất vật liệu quảng cáo chuyên nghiệp, tích hợp thiết k�? R&D, sản xuất và bán hàng toàn cầu t�?năm 2009.",
+      "profileTitle": "H�?sơ công ty",
+      "whoWeAre": "Chúng tôi là ai",
+      "whoWeAreText": "Công ty TNHH Vật liệu Quảng cáo Foshan Jin Yu là nhà sản xuất vật liệu quảng cáo chuyên nghiệp được thành lập năm 2009. Chúng tôi tọa lạc tại Khu công nghiệp U+Zhigu, th�?trấn LiShui, quận Nanhai, thành ph�?Foshan, tỉnh Quảng Đông �?một trong những trung tâm sản xuất vật liệu quảng cáo tập trung nhất tại Trung Quốc.",
+      "whoWeAreText2": "Hoạt động kinh doanh của chúng tôi tích hợp thiết k�? nghiên cứu phát triển, sản xuất và kinh doanh vật liệu quảng cáo bao gồm decal dán, bạt flex PVC, tấm PVC foam, tấm acrylic, tấm composite nhôm, tấm PP hollow, tấm phản quang, giá trưng bày và ph�?kiện làm biển.",
+      "whoWeAreText3": "Chúng tôi xuất khẩu sang Đông Nam Á, Châu Âu, Châu M�? Trung Đông và các th�?trường toàn cầu khác. Sản phẩm của chúng tôi được biết đến với đ�?bền, kh�?năng tùy chỉnh và giá cạnh tranh trực tiếp t�?nhà máy.",
+      "yearEstablished": "Năm thành lập",
+      "exportCountries": "Quốc gia xuất khẩu",
+      "isoCertified": "Chứng nhận ISO 9001",
+      "productLines": "Dòng sản phẩm cốt lõi",
+      "timeline": {
+        "2009": "Công ty thành lập tại Foshan",
+        "2022": "Hợp tác quốc t�?đầu tiên tại Canton Fair",
+        "2023_03": "Thành lập đội ngũ R&D",
+        "2023_07": "M�?rộng dây chuyền sản xuất",
+        "2024": "Đạt chứng nhận ISO 9001"
+      },
+      "factoryTitle": "Nhà máy",
+      "factoryText": "Cơ s�?sản xuất hiện đại của chúng tôi được trang b�?các dây chuyền sản xuất tiên tiến và thiết b�?kiểm soát chất lượng. Chúng tôi duy trì tiêu chuẩn chất lượng nghiêm ngặt trong toàn b�?quá trình sản xuất.",
+      "capacityTitle": "Công suất",
+      "capacityText": "Với các dây chuyền sản xuất m�?rộng, chúng tôi có th�?đáp ứng đơn hàng s�?lượng lớn với chất lượng ổn định và giá cạnh tranh.",
+      "certificatesTitle": "Chứng nhận",
+      "certificatesText": "Chúng tôi t�?hào s�?hữu chứng nhận ISO 9001:2015, th�?hiện cam kết của chúng tôi v�?quản lý chất lượng và cải tiến liên tục."
+    },
+    "products": {
+      "title": "Sản phẩm Vật liệu Quảng cáo",
+      "subtitle": "Đa dạng vật liệu quảng cáo và trưng bày. Giá nhà máy, thông s�?tùy chỉnh, vận chuyển toàn cầu.",
+      "categories": {
+        "selfAdhesiveVinyl": "Decal Dán",
+        "flexBanner": "Bạt Flex PVC",
+        "oneWayVision": "Decal One Way Vision",
+        "cuttingVinyl": "Decal Cắt",
+        "polymericVinyl": "Decal Polymeric & Màng Lạnh",
+        "windowFilm": "Decal Cửa s�?& Tấm Phản quang",
+        "pvcFoamBoard": "Tấm PVC Foam",
+        "acrylicSheet": "Tấm Acrylic",
+        "aluminumPanel": "Tấm Composite Nhôm",
+        "ppHollowSheet": "Tấm PP Hollow",
+        "displayStand": "Giá Trưng bày",
+        "accessories": "Ph�?kiện"
+      }
+    },
+    "contact": {
+      "title": "Liên h�?,
+      "subtitle": "Liên h�?đ�?nhận tư vấn sản phẩm và báo giá",
+      "address": "Địa ch�?,
+      "phone": "Điện thoại",
+      "email": "Email",
+      "website": "Website",
+      "whatsapp": "WhatsApp",
+      "form": {
+        "title": "Gửi tin nhắn cho chúng tôi",
+        "name": "H�?và tên",
+        "email": "Địa ch�?email",
+        "company": "Tên công ty",
+        "product": "Sản quan tâm",
+        "message": "Nội dung tin nhắn",
+        "submit": "Gửi tin nhắn",
+        "success": "Gửi tin nhắn thành công! Chúng tôi s�?phản hồi sớm."
+      },
+      "faqTitle": "Câu hỏi thường gặp",
+      "faq": {
+        "q1": "S�?lượng đặt tối thiểu là bao nhiêu?",
+        "a1": "MOQ của chúng tôi khác nhau theo sản phẩm. Vui lòng liên h�?đ�?biết chi tiết.",
+        "q2": "Có cung cấp mẫu không?",
+        "a2": "Có, chúng tôi có th�?cung cấp mẫu đ�?đánh giá chất lượng. Phí vận chuyển áp dụng.",
+        "q3": "Điều khoản thanh toán của bạn là gì?",
+        "a3": "Chúng tôi chấp nhận T/T, L/C và Western Union. Điều khoản c�?th�?tùy thuộc vào khối lượng đơn hàng.",
+        "q4": "Thời gian giao hàng là bao lâu?",
+        "a4": "Thời gian giao hàng thường là 15-25 ngày sau khi xác nhận đơn hàng, tùy thuộc vào s�?lượng và thông s�?k�?thuật."
+      }
+    },
+    "footer": {
+      "about": "Công ty TNHH Vật liệu Quảng cáo Foshan Jin Yu �?Nhà sản xuất chuyên nghiệp tấm PVC foam, tấm acrylic, decal, bạt flex, tấm phản quang và ph�?kiện quảng cáo.",
+      "quickLinks": "Liên kết nhanh",
+      "products": "Sản phẩm",
+      "applications": "Ứng dụng",
+      "caseStudies": "D�?án",
+      "blog": "Blog",
+      "aboutUs": "V�?chúng tôi",
+      "contactUs": "Liên h�?,
+      "contactInfo": "Thông tin liên h�?,
+      "copyright": "© 2024 Công ty TNHH Vật liệu Quảng cáo Foshan Jin Yu. Mọi quyền được bảo lưu."
+    }
+  },
+  "tl": {
+    "langName": "Filipino",
+    "langCode": "PH",
+    "nav": {
+      "home": "Home",
+      "products": "Mga Produkto",
+      "applications": "Mga Application",
+      "caseStudies": "Mga Case Studies",
+      "blog": "Blog",
+      "aboutUs": "Tungkol sa Amin",
+      "contactUs": "Makipag-ugnayan",
+      "getQuote": "Kumuha ng Quote",
+      "products_sub": {
+        "pvcFoamBoard": "PVC Foam Board",
+        "acrylicSheet": "Acrylic Sheet",
+        "aluminumPanel": "Aluminum Composite Panel",
+        "ppHollowSheet": "PP Hollow Sheet",
+        "selfAdhesiveVinyl": "Self Adhesive Vinyl",
+        "flexBanner": "Flex Banner",
+        "reflectiveSheet": "Reflective Sheet"
+      },
+      "applications_sub": {
+        "signBoard": "Sign Board",
+        "lightBox": "Light Box",
+        "digitalPrinting": "Digital Printing",
+        "outdoorAdvertising": "Outdoor Advertising",
+        "exhibitionDisplay": "Exhibition Display"
+      },
+      "caseStudies_sub": {
+        "supermarket": "Supermarket Sign Project",
+        "mallLightbox": "Mall Light Box Project",
+        "outdoorBillboard": "Outdoor Billboard Project",
+        "shopSign": "Shop Sign Project"
+      },
+      "blog_sub": {
+        "industryKnowledge": "Industry Knowledge",
+        "materialGuide": "Material Guide",
+        "printingTechnology": "Printing Technology"
+      },
+      "about_sub": {
+        "companyProfile": "Company Profile",
+        "factory": "Factory",
+        "productionCapacity": "Production Capacity",
+        "certificates": "Certificates"
+      }
+    },
+    "hero": {
+      "badge": "ISO 9001 Certified Manufacturer · Est. 2009",
+      "title": "Your <span style=\"color: #E8751A; font-weight: bold;\">#1</span> Advertising Material Factory in China",
+      "subtitle": "Foshan Jin Yu Advertising Material Co., Ltd – Propesyonal na manufacturer ng PVC foam board, acrylic sheet, vinyl, flex banner, reflective sheet at mga accessories sa advertising. Pinagkakatiwalaan ng mga buyer sa Europe, Americas, Southeast Asia at Middle East.",
+      "exploreProducts": "Tingnan ang Mga Produkto",
+      "requestQuote": "Humingi ng Quote",
+      "stats": {
+        "countries": "Mga Bansa na Nag-eexport",
+        "products": "Mga Product Line",
+        "clients": "Mga Global na Kliyente",
+        "certified": "ISO 9001 Certified"
+      }
+    },
+    "home": {
+      "productsTitle": "Mga Produkto Namin",
+      "productsSubtitle": "Kumpletong hanay ng mga materyales sa advertising para sa global na merkado",
+      "whyChooseTitle": "Bakit Pumili sa Amin",
+      "whyChooseSubtitle": "Pinagkakatiwalaan ng 500+ kliyente sa 50+ bansa",
+      "features": {
+        "factory": {
+          "title": "Presyo ng Pabrika",
+          "desc": "Mga competitive na presyo walang middleman"
+        },
+        "quality": {
+          "title": "ISO 9001 Certified",
+          "desc": "Mahigpit na sistema ng quality control"
+        },
+        "export": {
+          "title": "Global na Export",
+          "desc": "50+ bansa sa buong mundo"
+        },
+        "custom": {
+          "title": "Custom Solutions",
+          "desc": "Available ang OEM/ODM services"
+        }
+      },
+      "applicationsTitle": "Mga Application",
+      "applicationsSubtitle": "Malawak na hanay ng mga application para sa advertising at display",
+      "ctaTitle": "Handa na bang Magsimula?",
+      "ctaSubtitle": "Makipag-ugnayan sa amin ngayon para sa competitive na quotes at expert na advice",
+      "ctaButton": "Makipag-ugnayan Ngayon"
+    },
+    "about": {
+      "title": "Tungkol sa Foshan Jin Yu",
+      "subtitle": "Propesyonal na manufacturer ng mga materyales sa advertising na nagbibigkis ng design, R&D, production at global sales simula 2009.",
+      "profileTitle": "Company Profile",
+      "whoWeAre": "Sino Kami",
+      "whoWeAreText": "Foshan Jin Yu Advertising Material Co., Ltd ay isang propesyonal na manufacturer ng mga materyales sa advertising na itinatag noong 2009. Matatagpuan kami sa U+Zhigu Industrial Park, LiShui Town, Nanhai District, Foshan City, Guangdong Province �?isa sa mga pinaka-concentrated na hub ng production ng advertising material sa China.",
+      "whoWeAreText2": "Ang aming negosyo ay nagbibigkis ng design, research and development, production at sales ng mga materyales sa advertising kabilang ang self adhesive vinyl, PVC flex banner, PVC foam board, acrylic sheet, aluminum composite panel, PP hollow sheet, reflective sheeting, display stands at mga accessories sa paggawa ng sign.",
+      "whoWeAreText3": "Nag-eexport kami sa Southeast Asia, Europe, Americas, Middle East at ibang global na merkado. Ang aming mga produkto ay kilala sa durability, customizability at competitive na factory-direct na presyo.",
+      "yearEstablished": "Taong Itinatag",
+      "exportCountries": "Mga Bansa na Nag-eexport",
+      "isoCertified": "ISO 9001 Certified",
+      "productLines": "Mga Core Product Lines",
+      "timeline": {
+        "2009": "Itinatag ang company sa Foshan",
+        "2022": "Unang overseas cooperation sa Canton Fair",
+        "2023_03": "Itinatag ang R&D team",
+        "2023_07": "Pinalawak ang production lines at equipment",
+        "2024": "Nakakuha ng ISO 9001 certification"
+      },
+      "factoryTitle": "Factory",
+      "factoryText": "Ang aming state-of-the-art na manufacturing facility ay equipped ng advanced production lines at quality control equipment. Mahigpit naming pinapanatili ang mga quality standards sa buong manufacturing process.",
+      "capacityTitle": "Production Capacity",
+      "capacityText": "Sa pamamagitan ng pinalawak na production lines at equipment, maaari kaming makapag-meet ng large-volume orders na may consistent quality at competitive na presyo.",
+      "certificatesTitle": "Mga Certificate",
+      "certificatesText": "Ipinagmamalaki naming mayroon kaming ISO 9001:2015 certification, na nagpapakita ng aming commitment sa quality management at continuous improvement."
+    },
+    "products": {
+      "title": "Mga Produkto sa Advertising Material",
+      "subtitle": "Kumpletong hanay ng mga substrate sa advertising at display materials. Factory-direct na pricing, custom specifications, global shipping.",
+      "categories": {
+        "selfAdhesiveVinyl": "Self Adhesive Vinyl",
+        "flexBanner": "PVC Flex Banner",
+        "oneWayVision": "One Way Vision",
+        "cuttingVinyl": "Cutting Vinyl",
+        "polymericVinyl": "Polymeric Vinyl at Cold Lamination",
+        "windowFilm": "Window Film at Reflective Sheet",
+        "pvcFoamBoard": "PVC Foam Board",
+        "acrylicSheet": "Acrylic Sheet",
+        "aluminumPanel": "Aluminum Composite Panel",
+        "ppHollowSheet": "PP Hollow Sheet",
+        "displayStand": "Display Stands",
+        "accessories": "Accessories"
+      }
+    },
+    "contact": {
+      "title": "Makipag-ugnayan sa Amin",
+      "subtitle": "Makipag-ugnayan para sa mga product inquiry at quotations",
+      "address": "Address",
+      "phone": "Phone",
+      "email": "Email",
+      "website": "Website",
+      "whatsapp": "WhatsApp",
+      "form": {
+        "title": "Magpadala ng Message",
+        "name": "Ang Iyong Pangalan",
+        "email": "Email Address",
+        "company": "Company Name",
+        "product": "Interesado na Produkto",
+        "message": "Iyong Message",
+        "submit": "Ipadala ang Message",
+        "success": "Matagumpay na ipinadala ang message! Magre-reply kami sa lalong madaling panahon."
+      },
+      "faqTitle": "Mga Karaniwang Tanong",
+      "faq": {
+        "q1": "Ano ang inyong minimum order quantity?",
+        "a1": "Ang aming MOQ ay nagbabago ayon sa produkto. Makipag-ugnayan sa amin para sa partikular na product inquiries.",
+        "q2": "Nagbibigay kayo ng samples?",
+        "a2": "Oo, maaari kaming magbigay ng samples para sa quality evaluation. May mga shipping costs na applied.",
+        "q3": "Ano ang inyong payment terms?",
+        "a3": "Tumatanggap kami ng T/T, L/C, at Western Union. Ang partikular na terms ay depende sa order volume.",
+        "q4": "Gaano katagal ang delivery time?",
+        "a4": "Ang delivery time ay karaniwang 15-25 days matapos ang order confirmation, depende sa quantity at specifications."
+      }
+    },
+    "footer": {
+      "about": "Foshan Jin Yu Advertising Material Co., Ltd �?Propesyonal na manufacturer ng PVC foam board, acrylic sheet, vinyl, flex banner, reflective sheet at mga advertising accessories.",
+      "quickLinks": "Mga Quick Links",
+      "products": "Mga Produkto",
+      "applications": "Mga Application",
+      "caseStudies": "Mga Case Studies",
+      "blog": "Blog",
+      "aboutUs": "Tungkol sa Amin",
+      "contactUs": "Makipag-ugnayan",
+      "contactInfo": "Contact Info",
+      "copyright": "© 2024 Foshan Jin Yu Advertising Material Co., Ltd. Lahat ng karapatan ay nakareserba."
+    }
+  }
+}
+
+
+

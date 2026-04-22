@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <rect width="400" height="300" fill="#EFF6FF" rx="16"/>
+  
+  <!-- vinyl roll -->
+  <ellipse cx="200" cy="165" rx="90" ry="30" fill="#93C5FD"/>
+  <rect x="110" y="100" width="180" height="65" fill="#3B82F6"/>
+  <ellipse cx="200" cy="100" rx="90" ry="30" fill="#BFDBFE"/>
+  <ellipse cx="200" cy="100" rx="50" ry="17" fill="#93C5FD"/>
+  <ellipse cx="200" cy="100" rx="20" ry="7" fill="#2563EB"/>
+  <!-- shine lines -->
+  <line x1="130" y1="110" x2="130" y2="155" stroke="#60A5FA" stroke-width="3" stroke-dasharray="4,4"/>
+  <line x1="160" y1="105" x2="160" y2="160" stroke="#60A5FA" stroke-width="3" stroke-dasharray="4,4"/>
+
+</svg>

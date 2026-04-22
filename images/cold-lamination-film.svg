@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <rect width="400" height="300" fill="#ECFDF5" rx="16"/>
+  
+  <!-- film roll for laminator -->
+  <ellipse cx="200" cy="175" rx="85" ry="26" fill="#A7F3D0"/>
+  <rect x="115" y="115" width="170" height="60" fill="#10B981"/>
+  <ellipse cx="200" cy="115" rx="85" ry="26" fill="#D1FAE5"/>
+  <ellipse cx="200" cy="115" rx="45" ry="14" fill="#A7F3D0"/>
+  <ellipse cx="200" cy="115" rx="17" ry="6" fill="#059669"/>
+  <!-- shiny surface lines -->
+  <line x1="130" y1="125" x2="130" y2="168" stroke="#6EE7B7" stroke-width="2" stroke-dasharray="5,3"/>
+  <line x1="160" y1="118" x2="160" y2="173" stroke="#6EE7B7" stroke-width="2" stroke-dasharray="5,3"/>
+  <line x1="240" y1="118" x2="240" y2="173" stroke="#6EE7B7" stroke-width="2" stroke-dasharray="5,3"/>
+
+</svg>

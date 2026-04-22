@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <rect width="400" height="300" fill="#FFFBEB" rx="16"/>
+  
+  <!-- tripod easel -->
+  <!-- poster board -->
+  <rect x="120" y="50" width="160" height="130" rx="4" fill="#FDE68A" stroke="#F59E0B" stroke-width="2"/>
+  <!-- tripod legs -->
+  <line x1="200" y1="180" x2="120" y2="260" stroke="#B45309" stroke-width="5"/>
+  <line x1="200" y1="180" x2="200" y2="265" stroke="#B45309" stroke-width="5"/>
+  <line x1="200" y1="180" x2="280" y2="260" stroke="#B45309" stroke-width="5"/>
+  <!-- cross bar -->
+  <line x1="145" y1="220" x2="255" y2="220" stroke="#D97706" stroke-width="3"/>
+  <!-- support bracket -->
+  <circle cx="200" cy="180" r="8" fill="#92400E"/>
+  <!-- feet -->
+  <circle cx="120" cy="262" r="6" fill="#92400E"/>
+  <circle cx="200" cy="267" r="6" fill="#92400E"/>
+  <circle cx="280" cy="262" r="6" fill="#92400E"/>
+
+</svg>

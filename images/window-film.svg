@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <rect width="400" height="300" fill="#F0F9FF" rx="16"/>
+  
+  <!-- window frame -->
+  <rect x="80" y="60" width="240" height="180" rx="8" fill="#E0F2FE" stroke="#0284C7" stroke-width="4"/>
+  <!-- window panes -->
+  <line x1="200" y1="60" x2="200" y2="240" stroke="#0284C7" stroke-width="4"/>
+  <line x1="80" y1="150" x2="320" y2="150" stroke="#0284C7" stroke-width="4"/>
+  <!-- film with privacy gradient on top-left pane -->
+  <rect x="84" y="64" width="112" height="82" rx="4" fill="#BAE6FD" opacity="0.85"/>
+  <!-- privacy hatching -->
+  <line x1="84" y1="80" x2="110" y2="64" stroke="#38BDF8" stroke-width="2" opacity="0.6"/>
+  <line x1="84" y1="100" x2="140" y2="64" stroke="#38BDF8" stroke-width="2" opacity="0.6"/>
+  <line x1="84" y1="120" x2="164" y2="64" stroke="#38BDF8" stroke-width="2" opacity="0.6"/>
+  <!-- peel corner -->
+  <polygon points="168,64 196,64 196,92" fill="#7DD3FC"/>
+
+</svg>

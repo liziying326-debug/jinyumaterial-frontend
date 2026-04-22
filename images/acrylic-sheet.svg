@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <rect width="400" height="300" fill="#F0F9FF" rx="16"/>
+  
+  <!-- clear acrylic stack - perspective -->
+  <rect x="130" y="180" width="200" height="10" rx="3" fill="#BAE6FD" opacity="0.6"/>
+  <rect x="120" y="168" width="200" height="14" rx="3" fill="#7DD3FC" opacity="0.7"/>
+  <rect x="110" y="80" width="200" height="90" rx="6" fill="#E0F2FE" opacity="0.9"/>
+  <rect x="110" y="80" width="200" height="90" rx="6" fill="none" stroke="#0EA5E9" stroke-width="3"/>
+  <!-- refraction lines -->
+  <line x1="140" y1="80" x2="120" y2="170" stroke="#38BDF8" stroke-width="1.5" opacity="0.5"/>
+  <line x1="200" y1="80" x2="180" y2="170" stroke="#38BDF8" stroke-width="1.5" opacity="0.5"/>
+  <line x1="260" y1="80" x2="240" y2="170" stroke="#38BDF8" stroke-width="1.5" opacity="0.5"/>
+  <!-- corner sparkle -->
+  <polygon points="298,80 310,80 310,92" fill="#BAE6FD"/>
+  <polygon points="298,80 310,92 298,92" fill="white"/>
+
+</svg>

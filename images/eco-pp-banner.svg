@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <rect width="400" height="300" fill="#F0FDF4" rx="16"/>
+  
+  <!-- banner flag shape -->
+  <polygon points="80,60 320,60 320,200 200,240 80,200" fill="#86EFAC"/>
+  <polygon points="80,60 320,60 320,200 200,240 80,200" fill="none" stroke="#16A34A" stroke-width="4"/>
+  <!-- eco leaf -->
+  <path d="M200 100 C200 100 240 120 240 160 C240 180 220 195 200 190 C180 195 160 180 160 160 C160 120 200 100 200 100Z" fill="#4ADE80"/>
+  <line x1="200" y1="190" x2="200" y2="130" stroke="#16A34A" stroke-width="3"/>
+  <!-- grommets -->
+  <circle cx="100" cy="70" r="8" fill="#15803D" stroke="white" stroke-width="2"/>
+  <circle cx="300" cy="70" r="8" fill="#15803D" stroke="white" stroke-width="2"/>
+
+</svg>

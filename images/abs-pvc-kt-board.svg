@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <rect width="400" height="300" fill="#FFF7ED" rx="16"/>
+  
+  <!-- KT board with graphic print -->
+  <rect x="85" y="65" width="230" height="170" rx="6" fill="white" stroke="#F97316" stroke-width="3"/>
+  <!-- printed artwork suggestion -->
+  <rect x="95" y="75" width="210" height="60" rx="4" fill="#FED7AA"/>
+  <rect x="95" y="145" width="210" height="80" rx="4" fill="#FFEDD5"/>
+  <!-- foam core edge -->
+  <rect x="85" y="65" width="8" height="170" fill="#FEF3C7"/>
+  <rect x="307" y="65" width="8" height="170" fill="#FEF3C7"/>
+  <!-- stands -->
+  <rect x="120" y="235" width="10" height="30" fill="#F97316" rx="3"/>
+  <rect x="270" y="235" width="10" height="30" fill="#F97316" rx="3"/>
+
+</svg>

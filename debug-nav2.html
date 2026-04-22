@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"><title>Nav Dropdown Live Debug</title>
+<style>body{font:14px/1.6 system-ui;padding:20px;background:#f5f5f5;}#log{background:#1e1e1e;color:#0f0;padding:16px;border-radius:8px;max-height:70vh;overflow:auto;font:12px Consolas,monospace;white-space:pre-wrap;}
+</style>
+</head>
+<body>
+<h2>Nav Dropdown - Live Debug (same origin)</h2>
+<button onclick="runChecks()">🔍 Run Checks</button>
+<div id="log">Click "Run Checks" to analyze...</div>
+<script>
+function log(msg) { document.getElementById('log').textContent += msg + '\n'; }
+
+function runChecks() {
+  document.getElementById('log').textContent = '';
+  log('=== NAV DROPDOWN DEBUG ===\n');
+  
+  // 1
+  const nb = document.querySelector('.navbar');
+  if (!nb) { log('FAIL: .navbar not found'); return; }
+  const nbs = getComputedStyle(nb);
+  log(`[navbar] overflow=${nbs.overflow} position=${nbs.position} zIndex=${nbs.zIndex}`);
+  
+  // 2
+  const ni = document.querySelector('.nav-inner');
+  const nis = getComputedStyle(ni);
+  log(`[nav-inner] overflow=${nis.overflow}`);
+  
+  // 3
+  const navItems = document.querySelectorAll('.nav-item');
+  log(`\n[nav-items] count=${navItems.length}`);
+  navItems.forEach((item, i) => {
+    const link = item.querySelector('.nav-link')?.textContent?.trim();
+    const dd = item.querySelector(':scope > .dropdown');
+    if (!dd) return;
+    const dds = getComputedStyle(dd);
+    const isRect = dd.getBoundingClientRect();
+    log(`\n--- Item #${i}: "${link}" ---`);
+    log(`  dropdown: pos=${dds.position} z=${dds.zIndex} op=${dds.opacity} vis=${dds.visibility} transform=${dds.transform}`);
+    log(`  dropdown rect: top=${isRect.top.toFixed(1)} left=${isRect.left.toFixed(1)} w=${isRect.width.toFixed(1)} h=${isRect.height.toFixed(1)}`);
+    
+    const itemS = getComputedStyle(item);
+    log(`  nav-item: pos=${itemS.position} overflow=${itemS.overflow}`);
+    
+    // Check all links inside
+    const links = dd.querySelectorAll('a');
+    log(`  links inside: ${links.length}`);
+    links.forEach(l => log(`    → ${l.textContent.trim()}`));
+  });
+  
+  // 4 Check page-banner overlap
+  const pb = document.querySelector('.page-banner');
+  if (pb) {
+    const pbr = pb.getBoundingClientRect();
+    log(`\n[page-banner] top=${pbr.top} height=${pbr.height}`);
+  }
+  
+  // 5 Check sticky bar
+  const stickyBar = document.evaluate("//div[contains(@style,'sticky')]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+  if (stickyBar) {
+    const sr = stickyBar.getBoundingClientRect();
+    const srs = getComputedStyle(stickyBar);
+    log(`[sticky-bar] position=${srs.position} top=${srs.top} zIndex=${srs.zIndex} rectTop=${sr.top} height=${sr.height}`);
+  }
+  
+  // 6 Check for elements overlapping navbar area with high z-index
+  log('\n=== ELEMENTS IN TOP 120px ZONE ===');
+  const allEls = document.querySelectorAll('*');
+  allEls.forEach(el => {
+    const r = el.getBoundingClientRect();
+    if (r.top >= -5 && r.top <= 120 && r.width > 100 && r.height > 10) {
+      const s = getComputedStyle(el);
+      const tag = el.tagName.toLowerCase();
+      const cls = (el.className?.toString() || '').substring(0, 50);
+      if ((s.position === 'fixed' || s.position === 'absolute' || s.position === 'sticky') && !cls.includes('nav-')) {
+        log(`  OVERLAP?: <${tag}.${cls}> pos=${s.position} z=${s.zIndex} t=${r.top.toFixed(0)} h=${r.height.toFixed(0)} pe=${s.pointerEvents}`);
+      }
+    }
+  });
+  
+  log('\n✅ Done.');
+}
+</script>
+</body></html>

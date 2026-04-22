@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <rect width="400" height="300" fill="#FFF7ED" rx="16"/>
+  
+  <!-- X banner stand -->
+  <!-- banner fabric -->
+  <polygon points="120,55 280,55 310,230 90,230" fill="#FDBA74"/>
+  <!-- X frame -->
+  <line x1="90" y1="240" x2="310" y2="60" stroke="#EA580C" stroke-width="5"/>
+  <line x1="90" y1="60" x2="310" y2="240" stroke="#EA580C" stroke-width="5"/>
+  <!-- feet -->
+  <circle cx="90" cy="240" r="10" fill="#C2410C"/>
+  <circle cx="310" cy="240" r="10" fill="#C2410C"/>
+  <circle cx="90" cy="60" r="8" fill="#C2410C"/>
+  <circle cx="310" cy="60" r="8" fill="#C2410C"/>
+  <!-- pole clips -->
+  <circle cx="200" cy="150" r="12" fill="#EA580C" stroke="white" stroke-width="2"/>
+
+</svg>

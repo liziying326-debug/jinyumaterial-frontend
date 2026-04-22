@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="pageTitle">News | Jin Yu Advertising Material</title>
+  <meta name="description" id="pageDesc" content="Advertising material industry insights, material guides and printing technology from Jin Yu – professional manufacturer in Foshan, China." />
+  <link rel="stylesheet" href="/styles.css" />
+  <script src="/i18n.js?v=14"></script>
+  <script src="/api.js"></script>
+  <style>
+    /* Page Banner */
+    .page-banner {
+      background: linear-gradient(135deg, #1e3a8a 0%, #1a4a7a 100%);
+      padding: 48px 0 40px;
+      margin-bottom: 0;
+    }
+
+    /* News Detail Layout */
+    .news-detail {
+      padding: 48px 0 80px;
+    }
+    .news-detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 48px;
+      align-items: start;
+    }
+    @media (max-width: 1024px) {
+      .news-detail-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Main Content Card */
+    .news-detail-main {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+      overflow: hidden;
+    }
+
+    /* Cover Image */
+    .news-cover {
+      position: relative;
+      background: #1e293b;
+      border-radius: 16px 16px 0 0;
+      overflow: hidden;
+    }
+    .news-cover img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      display: block;
+      cursor: pointer;
+    }
+    .news-cover-empty {
+      width: 100%;
+      height: 160px;
+      background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+    }
+
+    /* News Content */
+    .news-content {
+      padding: 32px;
+    }
+    .news-title {
+      font-family: Montserrat, sans-serif;
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 16px;
+      line-height: 1.3;
+    }
+    .news-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+    .news-meta-chip {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 12px;
+      color: var(--gray-600);
+      background: var(--gray-100);
+      padding: 6px 12px;
+      border-radius: 20px;
+    }
+    .news-meta-chip strong { color: var(--primary); font-weight: 600; }
+
+    /* Article Body */
+    .news-body {
+      font-size: 15px;
+      color: var(--gray-700);
+      line-height: 1.8;
+      margin-bottom: 32px;
+    }
+    .news-body h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--primary);
+      margin: 24px 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #e2e8f0;
+    }
+    .news-body h2:first-child { margin-top: 0; }
+    .news-body p { margin-bottom: 16px; }
+    .news-body ul, .news-body ol {
+      margin: 16px 0;
+      padding-left: 24px;
+    }
+    .news-body li { margin-bottom: 8px; }
+    .news-body strong { color: var(--primary); font-weight: 600; }
+    .news-body blockquote {
+      border-left: 4px solid var(--accent-orange);
+      background: #fff7ed;
+      margin: 28px 0;
+      padding: 18px 22px;
+      border-radius: 0 10px 10px 0;
+      color: #92400e;
+      font-style: italic;
+    }
+    .news-body table { width: 100%; border-collapse: collapse; margin: 28px 0; font-size: 14px; }
+    .news-body th { background: var(--primary); color: #fff; padding: 11px 14px; text-align: left; font-weight: 600; }
+    .news-body td { padding: 10px 14px; border-bottom: 1px solid #e9eef5; }
+    .news-body tr:nth-child(even) td { background: #f8fafc; }
+    .news-body img { max-width: 100%; border-radius: 8px; margin: 20px 0; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+
+    /* Tags Section */
+    .news-tags-section {
+      background: #f8fafc;
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin-bottom: 24px;
+    }
+    .news-tags-label {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--gray-500);
+      text-transform: uppercase;
+      letter-spacing: .8px;
+      margin-bottom: 12px;
+    }
+    .news-tags-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .news-tag {
+      font-size: 13px;
+      background: #eff6ff;
+      color: #1d4ed8;
+      border: 1px solid #bfdbfe;
+      padding: 5px 14px;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+
+    /* Outcomes / Key Takeaways */
+    .news-takeaways {
+      background: linear-gradient(135deg, var(--primary) 0%, #1a4a7a 100%);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+    .news-takeaways-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.6);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+    .news-takeaway-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14px;
+      color: rgba(255,255,255,0.95);
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
+    .news-takeaway-item:last-child { margin-bottom: 0; }
+    .news-takeaway-item::before {
+      content: '✓';
+      color: #60a5fa;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* CTA Section */
+    .news-cta {
+      background: linear-gradient(135deg, #0f2a5e, #1d4ed8);
+      border-radius: 12px;
+      padding: 32px;
+      color: #fff;
+      text-align: center;
+    }
+    .news-cta h3 {
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+    .news-cta p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.82);
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+    .news-cta-btns {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .news-cta-btn-primary {
+      background: var(--accent-orange);
+      color: #fff;
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 14px;
+      text-decoration: none;
+      display: inline-block;
+      transition: opacity .2s;
+    }
+    .news-cta-btn-primary:hover { opacity: .88; }
+    .news-cta-btn-outline {
+      background: transparent;
+      color: #fff;
+      border: 2px solid rgba(255,255,255,0.5);
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 14px;
+      text-decoration: none;
+      display: inline-block;
+      transition: border-color .2s;
+    }
+    .news-cta-btn-outline:hover { border-color: #fff; }
+
+    /* Sidebar */
+    .news-detail-sidebar {
+      position: sticky;
+      top: 100px;
+    }
+
+    /* Related Articles */
+    .related-articles {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+      padding: 24px;
+    }
+    .related-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid #e2e8f0;
+    }
+    .related-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .related-item {
+      display: flex;
+      gap: 12px;
+      padding: 12px;
+      border-radius: 10px;
+      transition: background 0.2s;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+    }
+    .related-item:hover { background: #f1f5f9; }
+    .related-thumb {
+      width: 80px;
+      height: 60px;
+      border-radius: 8px;
+      overflow: hidden;
+      flex-shrink: 0;
+      background: #e2e8f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+    }
+    .related-thumb img { width: 100%; height: 100%; object-fit: cover; }
+    .related-info {
+      flex: 1;
+      min-width: 0;
+    }
+    .related-item-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 4px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .related-item-date {
+      font-size: 12px;
+      color: var(--gray-500);
+    }
+
+    /* Contact Card */
+    .contact-card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+      padding: 24px;
+      margin-top: 24px;
+    }
+    .contact-card h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 16px;
+    }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--gray-700);
+      margin-bottom: 12px;
+    }
+    .contact-item:last-child { margin-bottom: 0; }
+    .contact-icon {
+      width: 36px;
+      height: 36px;
+      background: #eff6ff;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+    }
+
+    /* Back Button */
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--gray-600);
+      font-size: 14px;
+      margin-bottom: 24px;
+      transition: color 0.2s;
+      text-decoration: none;
+    }
+    .back-btn:hover { color: var(--primary); }
+
+    /* Loading */
+    .loading-spinner {
+      width: 40px;
+      height: 40px;
+      border: 3px solid #e2e8f0;
+      border-top-color: var(--primary);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 80px auto;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* Lightbox */
+    .lightbox-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.92);
+      z-index: 10000;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 20px;
+    }
+    .lightbox-overlay.show { display: flex; }
+    .lightbox-content {
+      max-width: 90%;
+      max-height: 85vh;
+      position: relative;
+    }
+    .lightbox-content img {
+      max-width: 100%;
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: -50px;
+      right: 0;
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.15);
+      border: none;
+      border-radius: 50%;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+    .lightbox-close:hover { background: rgba(255,255,255,0.3); }
+    .lightbox-caption {
+      color: rgba(255,255,255,0.8);
+      font-size: 14px;
+      margin-top: 16px;
+      text-align: center;
+    }
+
+    /* FAQ in Article */
+    .news-faq {
+      background: #f8fafc;
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+    .news-faq-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 16px;
+    }
+    .news-faq-item {
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      overflow: hidden;
+      background: #fff;
+    }
+    .news-faq-q {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 18px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+      color: #1f2937;
+      transition: background .2s;
+    }
+    .news-faq-q:hover { background: #eff6ff; color: var(--primary); }
+    .news-faq-q svg { flex-shrink: 0; transition: transform .25s; }
+    .news-faq-item.open .news-faq-q svg { transform: rotate(180deg); }
+    .news-faq-item.open .news-faq-q { background: #eff6ff; color: var(--primary); }
+    .news-faq-a {
+      display: none;
+      padding: 14px 18px;
+      font-size: 14px;
+      color: #4b5563;
+      line-height: 1.75;
+      border-top: 1px solid #e2e8f0;
+    }
+    .news-faq-item.open .news-faq-a { display: block; }
+  </style>
+</head>
+<body id="top">
+
+<nav class="navbar" id="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <div class="logo-icon">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 28V12L20 8L32 12V28L20 32L8 28Z" stroke="#E8751A" stroke-width="2.5" fill="none"/>
+            <path d="M8 12L20 16L32 12" stroke="#E8751A" stroke-width="2.5"/>
+            <path d="M20 16V32" stroke="#E8751A" stroke-width="2.5"/>
+            <circle cx="20" cy="24" r="3" fill="#E8751A"/>
+            <text x="20" y="23" text-anchor="middle" fill="white" font-size="10" font-weight="800" font-family="Montserrat">JY</text>
+          </svg>
+        </div>
+        <div class="logo-text"><div class="logo-name">Jin Yu</div><div class="logo-sub">Advertising Material</div></div>
+      </a>
+      <ul class="nav-menu" id="navMenu">
+        <li class="nav-item"><a href="/" class="nav-link" data-i18n="nav.home">Home</a></li>
+        <li class="nav-item"><a href="/products" class="nav-link" data-i18n="nav.products">Products</a></li>
+        <li class="nav-item"><a href="/applications" class="nav-link" data-i18n="nav.applications">Applications</a></li>
+        <li class="nav-item"><a href="/case-studies" class="nav-link" data-i18n="nav.caseStudies">Case Studies</a></li>
+        <li class="nav-item"><a href="/news" class="nav-link active" data-i18n="nav.news">News</a></li>
+        <li class="nav-item"><a href="/about" class="nav-link" data-i18n="nav.aboutUs">About Us</a></li>
+        <li class="nav-item"><a href="/contact" class="nav-link" data-i18n="nav.contactUs">Contact Us</a></li>
+      </ul>
+      <div class="nav-right">
+        <!-- Social Icons (动态加载) -->
+        <div class="nav-social" id="nav-social-icons"></div><div class="nav-divider"></div>
+        <div class="nav-lang" id="language-switcher">
+          <div class="lang-display">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+            <span class="lang-code">EN</span>
+          </div>
+        </div>
+        <div class="nav-divider"></div>
+        <a href="/contact" class="btn btn-primary btn-sm nav-cta" data-i18n="nav.getQuote">Get a Quote</a>
+      </div>
+      <div class="nav-hamburger" id="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</nav>
+
+<div class="page-banner">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="/" data-i18n="nav.home">Home</a>
+      <span class="sep">›</span>
+      <a href="/news" data-i18n="nav.news">News</a>
+      <span class="sep">›</span>
+      <span class="current" id="breadcrumbTitle">Loading...</span>
+    </div>
+    <h1 id="pageTitle" data-i18n="blog_page.detail.pageTitle">News Detail</h1>
+  </div>
+</div>
+
+<div class="news-detail">
+  <div class="container">
+    <a href="/news" class="back-btn" data-i18n="blog_page.detail.backBtn">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Back to News
+    </a>
+
+    <div id="loadingContainer">
+      <div class="loading-spinner"></div>
+    </div>
+
+    <div class="news-detail-grid" id="newsDetailContent" style="display:none;">
+      <!-- Main Content Card -->
+      <div class="news-detail-main">
+        <!-- Cover Image -->
+        <div class="news-cover" id="newsCover" onclick="openLightbox()">
+          <img id="coverImg" src="" alt="" style="display:none;" />
+          <div class="news-cover-empty" id="coverEmpty">📰</div>
+        </div>
+
+        <!-- Article Content -->
+        <div class="news-content">
+          <h1 class="news-title" id="newsTitle"></h1>
+          <div class="news-meta" id="newsMeta"></div>
+
+          <!-- Article Body -->
+          <div class="news-body" id="newsBody"></div>
+
+          <!-- Tags -->
+          <div class="news-tags-section" id="tagsSection" style="display:none;">
+            <div class="news-tags-label" data-i18n="blog_page.detail.tagsLabel">Tags</div>
+            <div class="news-tags-list" id="tagsList"></div>
+          </div>
+
+          <!-- Key Takeaways -->
+          <div class="news-takeaways" id="takeawaysSection" style="display:none;">
+            <div class="news-takeaways-label" data-i18n="blog_page.detail.keyTakeaways">Key Takeaways</div>
+            <div id="takeawaysList"></div>
+          </div>
+
+          <!-- FAQ -->
+          <div class="news-faq" id="faqSection" style="display:none;">
+            <div class="news-faq-title" data-i18n="blog_page.detail.faqTitle">Frequently Asked Questions</div>
+            <div id="faqItems"></div>
+          </div>
+
+          <!-- CTA -->
+          <div class="news-cta">
+            <h3 data-i18n="blog_page.detail.ctaTitle">Need Material Samples or Technical Support?</h3>
+            <p data-i18n="blog_page.detail.ctaDesc">Our technical team can help you choose the right materials for your project. Get factory-direct pricing and free samples.</p>
+            <div class="news-cta-btns">
+              <a href="/contact" class="news-cta-btn-primary" data-i18n="blog_page.detail.ctaBtn1">Request Samples</a>
+              <a href="/products" class="news-cta-btn-outline" data-i18n="blog_page.detail.ctaBtn2">View Products</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <div class="news-detail-sidebar">
+        <!-- Related Articles -->
+        <div class="related-articles">
+          <div class="related-title" data-i18n="blog_page.detail.relatedArticles">Related Articles</div>
+          <div class="related-list" id="relatedList"></div>
+        </div>
+
+        <!-- Contact Card -->
+        <div class="contact-card">
+          <h3 data-i18n="blog_page.detail.contactTitle">Get a Quote for Your Project</h3>
+          <div class="contact-item">
+            <div class="contact-icon">📧</div>
+            <div>
+              <div style="font-size:12px;color:var(--gray-500);" data-i18n="blog_page.detail.email">Email</div>
+              <a href="mailto:vivian@materials-ad.com">vivian@materials-ad.com</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">💬</div>
+            <div>
+              <div style="font-size:12px;color:var(--gray-500);">WhatsApp</div>
+              <a href="https://wa.me/8613808828019" target="_blank">+86 138 0882 8019</a>
+            </div>
+          </div>
+          <a href="/contact" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:16px;" data-i18n="blog_page.detail.contactBtn">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Lightbox -->
+<div class="lightbox-overlay" id="lightboxOverlay" onclick="if(event.target===this)closeLightbox()">
+  <div class="lightbox-content">
+    <button class="lightbox-close" onclick="closeLightbox()" title="Close (Esc)">×</button>
+    <img id="lightboxImg" src="" alt="" />
+  </div>
+  <div class="lightbox-caption" id="lightboxCaption"></div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo-name" data-i18n="footer.companyName">Foshan Jin Yu Advertising Material Co., Ltd</div>
+        <div class="footer-logo-sub" data-i18n="footer.companySub">Professional Advertising Materials Manufacturer Since 2009</div>
+        <p data-i18n="footer.companyDesc">Integrated design, R&D, production and sales of advertising materials. ISO 9001 certified. Exporting to Europe, Americas, Southeast Asia, Middle East and beyond.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px;">
+          <span class="cert-badge" data-i18n="footer.isoBadge">🏅 ISO 9001</span>
+          <span class="cert-badge" data-i18n="footer.exportBadge">🌍 Global Export</span>
+        </div>
+        <div id="footer-social-icons" style="display:flex;gap:12px;margin-top:16px;align-items:center;"></div>
+        <div style="margin-top:20px;">
+          <div class="footer-contact-item"><span class="fi">📍</span><span data-i18n="footer.address">D3168, U+Zhigu Industrial Park, LiShui Town, Nanhai District, Foshan City, Guangdong Province, China</span></div>
+          <div class="footer-contact-item"><span class="fi">📞</span><span><a href="tel:+8613570441363" style="color:rgba(255,255,255,0.7)">+86-13570441363</a></span></div>
+          <div class="footer-contact-item"><span class="fi">💬</span><span><a href="https://wa.me/8613808828019" target="_blank" style="color:rgba(255,255,255,0.7)" data-i18n="footer.whatsapp">WhatsApp: +86 138 0882 8019</a></span></div>
+          <div class="footer-contact-item"><span class="fi">✉️</span><span><a href="mailto:vivian@materials-ad.com" style="color:rgba(255,255,255,0.7)">vivian@materials-ad.com</a></span></div>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer.productsTitle">Products</h4>
+        <a href="/products#self-adhesive-vinyl" data-i18n="footer.prod.sav">Self Adhesive Vinyl</a>
+        <a href="/products#flex-banner" data-i18n="footer.prod.flexBanner">PVC Flex Banner</a>
+        <a href="/products#one-way-vision" data-i18n="footer.prod.oneWay">One Way Vision</a>
+        <a href="/products#cutting-vinyl" data-i18n="footer.prod.cutting">Cutting Vinyl</a>
+        <a href="/products#pvc-foam-board" data-i18n="footer.prod.pvcFoam">PVC Foam Board</a>
+        <a href="/products#acrylic-sheet" data-i18n="footer.prod.acrylic">Acrylic Sheet</a>
+        <a href="/products#aluminum-composite-panel" data-i18n="footer.prod.acp">Aluminum Composite Panel</a>
+        <a href="/products#reflective-sheet" data-i18n="footer.prod.reflective">Reflective Sheet</a>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer.applicationsTitle">Applications</h4>
+        <a href="/applications#sign-board" data-i18n="footer.app.signBoard">Sign Board</a>
+        <a href="/applications#light-box" data-i18n="footer.app.lightBox">Light Box</a>
+        <a href="/applications#digital-printing" data-i18n="footer.app.digital">Digital Printing</a>
+        <a href="/applications#outdoor-advertising" data-i18n="footer.app.outdoor">Outdoor Advertising</a>
+        <a href="/applications#exhibition-display" data-i18n="footer.app.exhibition">Exhibition Display</a>
+        <h4 style="margin-top:20px;" data-i18n="footer.companyTitle">Company</h4>
+        <a href="/about#company-profile" data-i18n="footer.company.profile">Company Profile</a>
+        <a href="/about#factory" data-i18n="footer.company.factory">Factory</a>
+        <a href="/about#certificates" data-i18n="footer.company.certificates">Certificates</a>
+        <a href="/case-studies" data-i18n="footer.company.cases">Case Studies</a>
+        <a href="/news" data-i18n="footer.company.news">News</a>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer.quickContactTitle">Quick Contact</h4>
+        <p style="font-size:13px;color:rgba(255,255,255,0.55);margin-bottom:16px;" data-i18n="footer.quickContactDesc">Get pricing and product details within 24 hours.</p>
+        <a href="/contact" class="btn btn-primary" style="width:100%;justify-content:center;margin-bottom:12px;color:#ffffff;" data-i18n="footer.getQuote">Get a Quote</a>
+        <a href="https://wa.me/8613808828019" target="_blank" class="btn btn-outline" style="width:100%;justify-content:center;color:#ffffff;" data-i18n="footer.whatsappNow">💬 WhatsApp Now</a>
+        <div style="margin-top:20px;padding:16px;background:rgba(255,255,255,0.05);border-radius:var(--radius);border:1px solid rgba(255,255,255,0.08);">
+          <div style="font-size:11px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;" data-i18n="footer.businessHours">Business Hours</div>
+          <div style="font-size:13px;color:rgba(255,255,255,0.75);" data-i18n="footer.weekday">Mon – Fri: 09:00 – 18:00 (GMT+8)</div>
+          <div style="font-size:13px;color:rgba(255,255,255,0.75);" data-i18n="footer.saturday">Sat: 09:00 – 13:00</div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p data-i18n="footer.copyright">© 2024 Foshan Jin Yu Advertising Material Co., Ltd. All Rights Reserved.</p>
+      <p data-i18n="footer.certified">ISO 9001 Certified · Foshan, Guangdong, China</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function() {
+  'use strict';
+
+  // Translation helpers
+  var _TR_CACHE = {};
+  var _TR_PENDING = {};
+
+  function apiTranslate(text, from, to) {
+    return new Promise(function(resolve) {
+      if (!text || !String(text).trim()) return resolve('');
+      var t = String(text).trim();
+      if (from === to) return resolve(t);
+
+      var cacheKey = to + '_' + from + '_' + t.slice(0, 100);
+      try { if (sessionStorage.getItem(cacheKey)) return resolve(sessionStorage.getItem(cacheKey)); } catch(e) {}
+
+      if (_TR_PENDING[cacheKey]) { _TR_PENDING[cacheKey].push(resolve); return; }
+      _TR_PENDING[cacheKey] = [resolve];
+
+      function done(r) {
+        if (r && r !== t) try { sessionStorage.setItem(cacheKey, r); } catch(e) {}
+        var cbs = _TR_PENDING[cacheKey] || [];
+        delete _TR_PENDING[cacheKey];
+        cbs.forEach(function(cb) { cb(r || t); });
+      }
+
+      fetch('/api/translate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ text: t, from: from || 'zh', to: to })
+      })
+        .then(function(r) { return r.json(); })
+        .then(function(j) { done(j && j.translatedText ? j.translatedText : t); })
+        .catch(function() { done(t); });
+    });
+  }
+
+  // normalizePost — convert langData to flat fields
+  function normalizePost(p) {
+    if (p.title_zh || p.title_en || p.excerpt) return p;
+    var out = Object.assign({}, p);
+    var ld = p.langData;
+    if (ld) {
+      if (ld.en) {
+        if (ld.en.title) out.title_en = out.title = ld.en.title;
+        if (ld.en.content) out.content_en = out.content = ld.en.content;
+        if (ld.en.seoTitle) out.seoTitle_en = ld.en.seoTitle;
+        if (ld.en.alt) out.alt_en = ld.en.alt;
+      }
+      if (ld.zh) {
+        if (ld.zh.title) out.title_zh = ld.zh.title;
+        if (ld.zh.content) out.content_zh = ld.zh.content;
+      }
+      if (ld.vi) {
+        if (ld.vi.title) out.title_vi = ld.vi.title;
+        if (ld.vi.content) out.content_vi = ld.vi.content;
+      }
+      if (ld.ph || ld.tl) {
+        var ph = ld.ph || ld.tl || {};
+        if (ph.title) out.title_tl = ph.title;
+        if (ph.content) out.content_tl = ph.content;
+      }
+    }
+    if (!out.slug && out.id) out.slug = 'news-' + out.id;
+    // 从 images 数组提取封面图（仅当 cover_image 不存在时）
+    if (!out.cover_image && Array.isArray(p.images) && p.images.length) {
+      out.cover_image = p.images[0];
+    }
+    return out;
+  }
+
+  // Helpers
+  function getLang() {
+    try { return localStorage.getItem('jinyu_lang') || 'en'; } catch(e) { return 'en'; }
+  }
+
+  function escHtml(s) {
+    return String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  function fmtDate(str, full) {
+    if (!str) return '';
+    var d = new Date(str);
+    if (isNaN(d)) return str;
+    var lang = (window.i18n && window.i18n.currentLang) ? window.i18n.currentLang : 'en';
+    if (lang === 'zh') {
+      return full
+        ? d.getFullYear() + '年' + (d.getMonth() + 1) + '月' + d.getDate() + '日'
+        : d.getFullYear() + '年' + (d.getMonth() + 1) + '月';
+    }
+    return full
+      ? d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
+      : d.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+  }
+
+  function readingTime(text) {
+    var words = text.replace(/<[^>]+>/g, '').trim().split(/\s+/).length;
+    var mins = Math.max(1, Math.round(words / 200));
+    var lang = (window.i18n && window.i18n.currentLang) ? window.i18n.currentLang : 'en';
+    return lang === 'zh' ? mins + ' 分钟阅读' : mins + ' min read';
+  }
+
+  function imgSrc(src) {
+    if (!src) return '';
+    if (/^data:image\//.test(src)) return src;
+    return /^https?:\/\//.test(src) ? src : 'http://localhost:3011/' + src;
+  }
+
+  // Lightbox
+  var _lightboxSrc = '';
+  window.openLightbox = function(src) {
+    var src = src || _lightboxSrc;
+    if (!src) return;
+    document.getElementById('lightboxImg').src = src;
+    document.getElementById('lightboxOverlay').classList.add('show');
+    document.body.style.overflow = 'hidden';
+  };
+  window.closeLightbox = function() {
+    document.getElementById('lightboxOverlay').classList.remove('show');
+    document.body.style.overflow = '';
+  };
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeLightbox();
+  });
+
+  // FAQ bind
+  function bindFaq() {
+    document.querySelectorAll('.news-faq-item').forEach(function(item) {
+      item.querySelector('.news-faq-q').addEventListener('click', function() {
+        var isOpen = item.classList.contains('open');
+        document.querySelectorAll('.news-faq-item.open').forEach(function(o) { o.classList.remove('open'); });
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+  }
+
+  // Markdown to HTML
+  function mdToHtml(text) {
+    if (!text) return '';
+    text = text.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+    text = text.replace(/^## (.+)$/gm, '<h2>$1</h2>');
+    text = text.replace(/^# (.+)$/gm, '<h2>$1</h2>');
+    text = text.replace(/^- (.+)$/gm, '<li>$1</li>');
+    text = text.replace(/(<li>.*<\/li>\n?)+/g, '<ul>$&</ul>');
+    text = text.split('\n\n').map(function(p) {
+      if (p.match(/^<(h2|ul|ol)/)) return p;
+      return '<p>' + p.replace(/\n/g, '<br>') + '</p>';
+    }).join('');
+    return text;
+  }
+
+  // getField — sync
+  function getField(item, baseKey, lang) {
+    var map = { zh: '_zh', vi: '_vi', tl: '_tl' };
+    var suffix = map[lang] !== undefined ? map[lang] : '';
+    var key = suffix ? baseKey + suffix : baseKey;
+    var v = item[key] || '';
+    if (!v || v === '<p><br></p>') v = item[baseKey] || '';
+    if (!v || v === '<p><br></p>') v = item[baseKey + '_zh'] || '';
+    return v || '';
+  }
+
+  // pickField — 与产品页 pickField 完全一致的翻译逻辑
+  async function pickField(obj, base, lang) {
+    if (!obj || !base || !lang) return '';
+    // 先直接读对应语言字段
+    var directVal = '';
+    if (lang === 'tl') {
+      var tlSuffixes = ['_tl', '_fil', '_ph'];
+      for (var s = 0; s < tlSuffixes.length; s++) {
+        if (obj[base + tlSuffixes[s]] && obj[base + tlSuffixes[s]].trim()) {
+          directVal = obj[base + tlSuffixes[s]]; break;
+        }
+      }
+    } else {
+      var v = obj[base + '_' + lang];
+      if (v && (typeof v === 'string' ? v.trim() : (Array.isArray(v) ? v.length > 0 : true))) {
+        directVal = v;
+      }
+    }
+    if (directVal) return directVal;
+
+    // 字段为空时：en 直接回退到 zh/通用字段；zh/vi/tl 尝试翻译
+    if (lang === 'en') {
+      return obj[base + '_zh'] || obj[base] || '';
+    }
+
+    // zh/vi/tl：字段为空，找英文源文本自动翻译
+    // normalizePost 把英文 content 放在 obj.content（非 content_en），所以 base 先查
+    if (window.autoTranslate) {
+      var srcText = obj[base] || obj[base + '_en'] || obj[base + '_zh'] || '';
+      if (typeof srcText === 'string' && srcText.trim()) {
+        // 如果有 unsuffixed content 则源语言为 en，否则为 zh
+        var fromLang = obj[base] ? 'en' : 'zh';
+        try {
+          return await window.autoTranslate.translate(srcText.trim(), fromLang, lang);
+        } catch(e) {}
+      }
+    }
+    // 最终 fallback
+    return obj[base + '_en'] || obj[base + '_zh'] || obj[base] || '';
+  }
+
+  // 兼容别名
+  // 智能获取字段：先查本地翻译字段，再用 pickLang（translations.json 缓存）兜底
+  // 所有语言都走 pickLang，这样翻译结果自动缓存到 translations.json
+  async function getFieldAuto(item, baseKey, lang) {
+    if (window.pickLang) {
+      try {
+        var r = await window.pickLang(item, baseKey, lang);
+        if (r && r.trim()) return r;
+      } catch(e) {}
+    }
+    return await pickField(item, baseKey, lang);
+  }
+
+  // ── Render Article ──────────────────────────────────────────
+  async function renderArticle(post, allPosts, lang) {
+    var title = await getFieldAuto(post, 'title', lang);
+    var content = await getFieldAuto(post, 'content', lang);
+
+    // Update title
+    document.getElementById('newsTitle').textContent = title;
+    document.getElementById('breadcrumbTitle').textContent = title;
+    document.title = title + ' – Jin Yu Advertising Materials';
+
+    // Cover image
+    var cover = imgSrc(post.cover_image);
+    var coverImg = document.getElementById('coverImg');
+    var coverEmpty = document.getElementById('coverEmpty');
+    if (cover) {
+      coverImg.src = cover;
+      coverImg.alt = title;
+      coverImg.style.display = 'block';
+      coverEmpty.style.display = 'none';
+      _lightboxSrc = cover;
+    } else {
+      coverImg.style.display = 'none';
+      coverEmpty.style.display = 'flex';
+    }
+
+    // Meta info
+    var rawCat = post.category || '';
+    var date = post.published_at || post.created_at || '';
+    var rawAuthor = post.author || 'JinYu Team';
+
+    // Translate category
+    var CAT_I18N_MAP = {
+      'Industry Knowledge':  'blog_page.industryKnowledge',
+      'Material Guide':      'blog_page.materialGuide',
+      'Printing Technology': 'blog_page.printingTechnology'
+    };
+    var catKey = CAT_I18N_MAP[rawCat];
+    var dispCat = (catKey && window.i18n && window.i18n.t) ? window.i18n.t(catKey) : rawCat;
+    if (dispCat === rawCat && lang !== 'en') {
+      dispCat = await apiTranslate(rawCat, 'en', lang);
+    }
+
+    var metaHtml = '';
+    if (dispCat) metaHtml += '<span class="news-meta-chip">🏷 <strong>' + escHtml(dispCat) + '</strong></span>';
+    if (date) metaHtml += '<span class="news-meta-chip">📅 <strong>' + escHtml(fmtDate(date, true)) + '</strong></span>';
+    if (rawAuthor) metaHtml += '<span class="news-meta-chip">👤 <strong>' + escHtml(rawAuthor) + '</strong></span>';
+    metaHtml += '<span class="news-meta-chip">⏱ <strong>' + readingTime(content) + '</strong></span>';
+    document.getElementById('newsMeta').innerHTML = metaHtml;
+
+    // Body
+    document.getElementById('newsBody').innerHTML = mdToHtml(content);
+
+    // Tags
+    var tagsSection = document.getElementById('tagsSection');
+    var tagsList = document.getElementById('tagsList');
+    if (Array.isArray(post.tags) && post.tags.length) {
+      tagsSection.style.display = 'block';
+      var translatedTags = post.tags;
+      if (lang !== 'en') {
+        translatedTags = await Promise.all(post.tags.map(function(t) {
+          return apiTranslate(t, 'en', lang).catch(function() { return t; });
+        }));
+      }
+      tagsList.innerHTML = translatedTags.map(function(t) {
+        return '<span class="news-tag">' + escHtml(t) + '</span>';
+      }).join('');
+    } else {
+      tagsSection.style.display = 'none';
+    }
+
+    // Key Takeaways (from summary/extract field)
+    var takeawaysSection = document.getElementById('takeawaysSection');
+    var takeawaysList = document.getElementById('takeawaysList');
+    var excerpt = getField(post, 'excerpt', lang);
+    if (excerpt) {
+      var lines = excerpt.split(/[.。]/).filter(function(l) { return l.trim().length > 10; }).slice(0, 4);
+      if (lines.length) {
+        takeawaysSection.style.display = 'block';
+        var translatedLines = lines;
+        if (lang !== 'en') {
+          translatedLines = await Promise.all(lines.map(function(l) {
+            return apiTranslate(l.trim(), 'en', lang).catch(function() { return l; });
+          }));
+        }
+        takeawaysList.innerHTML = translatedLines.map(function(l) {
+          return '<div class="news-takeaway-item">' + escHtml(l.replace(/^[-•]\s*/, '').trim()) + '</div>';
+        }).join('');
+      } else {
+        takeawaysSection.style.display = 'none';
+      }
+    } else {
+      takeawaysSection.style.display = 'none';
+    }
+
+    // FAQ
+    var faqSection = document.getElementById('faqSection');
+    if (Array.isArray(post.faq) && post.faq.length) {
+      faqSection.style.display = 'block';
+      var faqHtml = post.faq.map(function(item, i) {
+        var qMap = { zh: item.q_zh, en: item.q_en, vi: item.q_vi, tl: item.q_tl };
+        var aMap = { zh: item.a_zh, en: item.a_en, vi: item.a_vi, tl: item.a_tl };
+        var q = qMap[lang] || item.q_en || item.q_zh || item.q || '';
+        var a = aMap[lang] || item.a_en || item.a_zh || item.a || '';
+        return '<div class="news-faq-item' + (i === 0 ? ' open' : '') + '">'
+          + '<div class="news-faq-q">'
+          + '<span>' + escHtml(q) + '</span>'
+          + '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>'
+          + '</div>'
+          + '<div class="news-faq-a">' + a + '</div>'
+          + '</div>';
+      }).join('');
+      document.getElementById('faqItems').innerHTML = faqHtml;
+      bindFaq();
+    } else {
+      faqSection.style.display = 'none';
+    }
+
+    // Related Articles
+    var related = (allPosts || []).filter(function(p) {
+      return (p.slug || p.id) !== (post.slug || post.id);
+    }).slice(0, 4);
+
+    if (related.length) {
+      var relatedHtml = await Promise.all(related.map(async function(p) {
+        var rTitle = await getFieldAuto(p, 'title', lang);
+        var rDate = p.published_at || p.created_at || '';
+        var rImg = imgSrc(p.cover_image);
+        var thumb = rImg
+          ? '<div class="related-thumb"><img src="' + escHtml(rImg) + '" alt="" onerror="this.style.opacity=0" /></div>'
+          : '<div class="related-thumb">📰</div>';
+        return '<a class="related-item" href="/news?slug=' + encodeURIComponent(p.slug || p.id) + '">'
+          + thumb
+          + '<div class="related-info">'
+          + '<div class="related-item-title">' + escHtml(rTitle) + '</div>'
+          + '<div class="related-item-date">' + escHtml(fmtDate(rDate)) + '</div>'
+          + '</div></a>';
+      }));
+      document.getElementById('relatedList').innerHTML = relatedHtml.join('');
+    } else {
+      document.getElementById('relatedList').innerHTML = '<p style="color:var(--gray-500);font-size:13px;">No related articles found.</p>';
+    }
+
+    // Show content
+    document.getElementById('loadingContainer').style.display = 'none';
+    document.getElementById('newsDetailContent').style.display = 'grid';
+
+    // i18n
+    if (window.i18n && window.i18n.applyTranslations) {
+      window.i18n.applyTranslations();
+    }
+  }
+
+  // ── Language switch ─────────────────────────────────────────
+  var _cachedPosts = null;
+  var _currentPost = null;
+
+  function installLangInterceptor() {
+    if (!window.i18n || !window.i18n.changeLanguage || window._newsDetailInterceptorInstalled) return;
+    window._newsDetailInterceptorInstalled = true;
+
+    var original = window.i18n.changeLanguage.bind(window.i18n);
+    window.i18n.changeLanguage = async function(lang) {
+      await original(lang);
+      if (_currentPost && _cachedPosts) {
+        renderArticle(_currentPost, _cachedPosts, lang);
+      }
+    };
+  }
+
+  // ── Init ────────────────────────────────────────────────────
+  document.addEventListener('DOMContentLoaded', async function() {
+    var slug = new URLSearchParams(window.location.search).get('slug')
+            || new URLSearchParams(window.location.search).get('id');
+    if (!slug) {
+      document.getElementById('loadingContainer').innerHTML =
+        '<p style="text-align:center;color:var(--gray-500);padding:40px;">Invalid article. <a href="/news">Back to News</a></p>';
+      return;
+    }
+
+    installLangInterceptor();
+
+    try {
+      var lang = getLang();
+
+      // Fetch all posts for related articles
+      var rAll = await fetch('/api/blog');
+      var jsonAll = await rAll.json();
+      _cachedPosts = (jsonAll.data || []).map(normalizePost).filter(function(p) {
+        return p.status === '已发布' || p.status === 'published';
+      });
+
+      // Fetch single post
+      var r = await fetch('/api/blog/' + encodeURIComponent(slug));
+      var json = await r.json();
+      if (!json.success || !json.data) {
+        document.getElementById('loadingContainer').innerHTML =
+          '<p style="text-align:center;color:var(--gray-500);padding:40px;">Article not found. <a href="/news">Back to News</a></p>';
+        return;
+      }
+
+      _currentPost = normalizePost(json.data);
+      await renderArticle(_currentPost, _cachedPosts, lang);
+    } catch(e) {
+      console.error('[news-detail] Failed:', e);
+      document.getElementById('loadingContainer').innerHTML =
+        '<p style="text-align:center;color:var(--gray-500);padding:40px;">Failed to load article. <a href="/news">Back to News</a></p>';
+    }
+  });
+
+  document.addEventListener('langChange', function() {
+    installLangInterceptor();
+    if (_currentPost && _cachedPosts) {
+      var lang = getLang();
+      renderArticle(_currentPost, _cachedPosts, lang);
+    }
+  });
+
+})();
+</script>
+
+<script>
+window.addEventListener('scroll', function() {
+  var nb = document.getElementById('navbar');
+  if (nb) nb.classList.toggle('scrolled', window.scrollY > 60);
+});
+function toggleMenu() { document.getElementById('navMenu').classList.toggle('open'); }
+
+// Social Icons (动态加载)
+if (typeof loadSocialIcons === 'function') {
+  loadSocialIcons('#nav-social-icons', { maxCount: 3 });
+  loadSocialIcons('#footer-social-icons', { brandColor: true });
+}
+</script>
+
+</body>
+</html>

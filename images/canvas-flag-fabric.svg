@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <rect width="400" height="300" fill="#FFF7ED" rx="16"/>
+  
+  <!-- canvas texture flag -->
+  <rect x="85" y="55" width="8" height="200" rx="4" fill="#92400E"/>
+  <!-- flag waves -->
+  <path d="M93 65 Q140 55 185 70 Q230 85 275 70 Q320 55 320 55 L320 165 Q275 165 230 150 Q185 135 140 150 Q93 165 93 165 Z" fill="#FDBA74"/>
+  <!-- canvas texture lines -->
+  <line x1="110" y1="65" x2="110" y2="163" stroke="#F97316" stroke-width="1" opacity="0.4"/>
+  <line x1="140" y1="60" x2="140" y2="162" stroke="#F97316" stroke-width="1" opacity="0.4"/>
+  <line x1="170" y1="65" x2="170" y2="157" stroke="#F97316" stroke-width="1" opacity="0.4"/>
+  <line x1="200" y1="60" x2="200" y2="155" stroke="#F97316" stroke-width="1" opacity="0.4"/>
+  <line x1="230" y1="63" x2="230" y2="152" stroke="#F97316" stroke-width="1" opacity="0.4"/>
+  <line x1="260" y1="60" x2="260" y2="156" stroke="#F97316" stroke-width="1" opacity="0.4"/>
+  <line x1="290" y1="55" x2="290" y2="155" stroke="#F97316" stroke-width="1" opacity="0.4"/>
+
+</svg>

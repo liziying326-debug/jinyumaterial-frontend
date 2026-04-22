@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <rect width="400" height="300" fill="#EFF6FF" rx="16"/>
+  
+  <!-- flagpole -->
+  <rect x="193" y="35" width="14" height="240" rx="7" fill="#94A3B8"/>
+  <!-- flag -->
+  <polygon points="207,40 300,65 207,100" fill="#3B82F6"/>
+  <!-- rope -->
+  <line x1="207" y1="40" x2="207" y2="270" stroke="#F59E0B" stroke-width="2" stroke-dasharray="5,4"/>
+  <!-- base ground mount -->
+  <rect x="160" y="265" width="80" height="15" rx="7" fill="#64748B"/>
+  <rect x="170" y="255" width="60" height="12" rx="4" fill="#94A3B8"/>
+  <!-- pulley at top -->
+  <circle cx="200" cy="40" r="10" fill="#CBD5E1" stroke="#64748B" stroke-width="2"/>
+
+</svg>

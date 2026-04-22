@@ -1,0 +1,1438 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cases / Videos – Real Projects with Jin Yu Advertising Materials</title>
+  <meta name="description" content="Cases and videos: advertising material project showcases with PVC foam board, acrylic, vinyl, flex banner from Jin Yu – supermarket signs, mall light boxes, outdoor billboards." />
+  <meta name="keywords" content="advertising material case study, supermarket sign project, mall light box, outdoor billboard, shop sign PVC foam board acrylic vinyl" />
+  <link rel="canonical" href="https://www.jinyu2021.com/case-studies" />
+  <link rel="stylesheet" href="/styles.css" />
+  <script src="/i18n.js?v=14"></script>
+  <style>
+    /* ── Case Cards Grid (3列网格，纵向卡片) ── */
+    .cases-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      padding: 48px 0;
+    }
+    @media (max-width: 1024px) { .cases-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 640px)  { .cases-grid { grid-template-columns: 1fr; gap: 16px; } }
+
+    .case-card {
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .case-card:hover { box-shadow: 0 8px 28px rgba(0,0,0,0.13); transform: translateY(-4px); }
+
+    /* 顶部图片区（固定高度） */
+    .case-card-img {
+      position: relative;
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .case-card-img img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s;
+    }
+    .case-card:hover .case-card-img img { transform: scale(1.05); }
+    .case-card-img .case-placeholder {
+      width: 100%; height: 100%;
+      background: linear-gradient(135deg, #e0f2fe, #bfdbfe);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 48px;
+    }
+
+    /* 行业标签（图片左上角） */
+    .case-card-badge {
+      position: absolute;
+      top: 10px; left: 10px;
+      background: rgba(0,0,0,0.52);
+      backdrop-filter: blur(6px);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 20px;
+      max-width: calc(100% - 20px);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* 内容区 */
+    .case-card-body {
+      padding: 16px 18px 18px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .case-card-title {
+      font-family: Montserrat, sans-serif;
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 8px;
+      line-height: 1.3;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    /* Meta 标签行 */
+    .case-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-bottom: 8px;
+    }
+    .case-meta-chip {
+      display: flex; align-items: center; gap: 3px;
+      font-size: 11px; color: var(--gray-600);
+      background: var(--gray-100);
+      padding: 2px 7px;
+      border-radius: 20px;
+    }
+    .case-meta-chip strong { color: var(--primary); font-weight: 600; }
+
+    /* 描述（限3行） */
+    .case-card-desc {
+      font-size: 13px;
+      color: var(--gray-700);
+      line-height: 1.6;
+      margin-bottom: 10px;
+      flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    /* 使用材料 */
+    .case-materials-title {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--gray-500);
+      text-transform: uppercase;
+      letter-spacing: .8px;
+      margin-bottom: 5px;
+    }
+    .case-materials-list {
+      display: flex; flex-wrap: wrap; gap: 4px;
+      margin-bottom: 10px;
+    }
+    .case-mat-tag {
+      font-size: 11px;
+      background: #eff6ff;
+      color: #1d4ed8;
+      border: 1px solid #bfdbfe;
+      padding: 2px 7px;
+      border-radius: 5px;
+      font-weight: 500;
+    }
+
+    /* 成果条（精简版，最多2行） */
+    .case-outcomes {
+      background: linear-gradient(135deg, var(--primary) 0%, #1a4a7a 100%);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-top: auto;
+    }
+    .case-outcomes-label {
+      font-size: 9px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.55);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 5px;
+    }
+    .case-outcome-item {
+      display: flex; align-items: flex-start; gap: 6px;
+      font-size: 12px; color: rgba(255,255,255,0.9);
+      margin-bottom: 3px;
+      line-height: 1.35;
+    }
+    .case-outcome-item:last-child { margin-bottom: 0; }
+    .case-outcome-item::before {
+      content: '✓';
+      color: #60a5fa;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* 加载中 / 空状态 */
+    .cases-loading {
+      text-align: center;
+      padding: 80px 20px;
+      color: #94a3b8;
+    }
+    .cases-loading .spinner {
+      width: 40px; height: 40px;
+      border: 3px solid #e2e8f0;
+      border-top-color: var(--primary);
+      border-radius: 50%;
+      animation: spin .8s linear infinite;
+      margin: 0 auto 16px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* 案例视频播放器 - 16:9 比例 */
+    .case-video-wrap {
+      margin-bottom: 16px;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      border-radius: 10px;
+      background: #1e293b;
+      position: relative;
+    }
+    .case-video-player {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      outline: none;
+    }
+
+    /* 视频缩略图显示 */
+    .case-thumbnail-wrap {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+      overflow: hidden;
+    }
+    .case-thumbnail-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s;
+    }
+    .case-thumbnail-wrap:hover img {
+      transform: scale(1.05);
+    }
+    .case-play-btn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 64px;
+      height: 64px;
+      background: rgba(37, 99, 235, 0.9);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+      transition: all 0.3s ease;
+    }
+    .case-thumbnail-wrap:hover .case-play-btn {
+      background: rgba(37, 99, 235, 1);
+      transform: translate(-50%, -50%) scale(1.1);
+    }
+    .case-play-btn svg {
+      width: 28px;
+      height: 28px;
+      fill: white;
+      margin-left: 4px;
+    }
+    .case-video-badge {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: rgba(220, 38, 38, 0.9);
+      color: white;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 4px 8px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .case-video-badge svg {
+      width: 12px;
+      height: 12px;
+      fill: white;
+    }
+
+    /* 图片/视频放大查看 Modal */
+    .lightbox-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.92);
+      z-index: 10000;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 20px;
+    }
+    .lightbox-overlay.show {
+      display: flex;
+    }
+    .lightbox-content {
+      max-width: 90%;
+      max-height: 85vh;
+      position: relative;
+    }
+    .lightbox-content img,
+    .lightbox-content video {
+      max-width: 100%;
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: -50px;
+      right: 0;
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.15);
+      border: none;
+      border-radius: 50%;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+    .lightbox-close:hover {
+      background: rgba(255,255,255,0.3);
+    }
+    .lightbox-controls {
+      position: absolute;
+      bottom: -50px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 12px;
+    }
+    .lightbox-btn {
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.15);
+      border: none;
+      border-radius: 50%;
+      color: white;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+    .lightbox-btn:hover {
+      background: rgba(255,255,255,0.3);
+    }
+    .lightbox-caption {
+      color: rgba(255,255,255,0.8);
+      font-size: 14px;
+      margin-top: 16px;
+      text-align: center;
+    }
+
+    /* 卡片可点击 */
+    .case-card-clickable {
+      cursor: pointer;
+    }
+    .case-card-clickable:hover .case-card-body .case-card-title {
+      color: #1d4ed8;
+    }
+  </style>
+  <script src="/api.js"></script>
+</head>
+<body id="top">
+
+<nav class="navbar" id="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <div class="logo-icon">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 28V12L20 8L32 12V28L20 32L8 28Z" stroke="#E8751A" stroke-width="2.5" fill="none"/>
+            <path d="M8 12L20 16L32 12" stroke="#E8751A" stroke-width="2.5"/>
+            <path d="M20 16V32" stroke="#E8751A" stroke-width="2.5"/>
+            <circle cx="20" cy="24" r="3" fill="#E8751A"/>
+            <text x="20" y="23" text-anchor="middle" fill="white" font-size="10" font-weight="800" font-family="Montserrat">JY</text>
+          </svg>
+        </div>
+        <div class="logo-text">
+          <div class="logo-name">Jin Yu</div>
+          <div class="logo-sub">Advertising Material</div>
+        </div>
+      </a>
+      <ul class="nav-menu" id="navMenu">
+        <li class="nav-item"><a href="/" class="nav-link" data-i18n="nav.home">Home</a></li>
+        <li class="nav-item">
+          <a href="/products" class="nav-link" data-i18n="nav.products">Products <svg viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+          <div class="dropdown" id="nav-product-dropdown"></div>
+        </li>
+        <li class="nav-item">
+          <a href="/applications" class="nav-link" data-i18n="nav.applications">Applications <svg viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+          <div class="dropdown">
+            <a href="/applications#sign-board" data-i18n="nav.applications_sub.signBoard">Sign Board</a>
+            <a href="/applications#light-box" data-i18n="nav.applications_sub.lightBox">Light Box</a>
+            <a href="/applications#digital-printing" data-i18n="nav.applications_sub.digitalPrinting">Digital Printing</a>
+            <a href="/applications#outdoor-advertising" data-i18n="nav.applications_sub.outdoorAdvertising">Outdoor Advertising</a>
+            <a href="/applications#exhibition-display" data-i18n="nav.applications_sub.exhibitionDisplay">Exhibition Display</a>
+          </div>
+        </li>
+        <li class="nav-item"><a href="/case-studies" class="nav-link active" data-i18n="nav.caseStudies">Cases / Videos</a></li>
+        <li class="nav-item">
+          <a href="/news" class="nav-link" data-i18n="nav.news">News <svg viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+          <div class="dropdown">
+            <a href="/news#industry-knowledge" data-i18n="nav.blog_sub.industryKnowledge">Industry Knowledge</a>
+            <a href="/news#material-guide" data-i18n="nav.blog_sub.materialGuide">Material Guide</a>
+            <a href="/news#printing-technology" data-i18n="nav.blog_sub.printingTechnology">Printing Technology</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a href="/about" class="nav-link" data-i18n="nav.aboutUs">About Us <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+          <div class="dropdown">
+            <a href="/about#company-profile" data-i18n="nav.about_sub.companyProfile">Company Profile</a>
+            <a href="/about#factory" data-i18n="nav.about_sub.factory">Factory</a>
+            <a href="/about#certificates" data-i18n="nav.about_sub.certificates">Certificates</a>
+          </div>
+        </li>
+        <li class="nav-item"><a href="/contact" class="nav-link" data-i18n="nav.contactUs">Contact Us</a></li>
+      </ul>
+      <!-- Nav Right: Social + Lang + CTA -->
+      <div class="nav-right">
+        <!-- Social Icons (动态加载) -->
+        <div class="nav-social" id="nav-social-icons"></div><div class="nav-divider"></div>
+        <div class="nav-lang" id="language-switcher">
+          <div class="lang-display">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+            <span class="lang-code">EN</span>
+          </div>
+        </div>
+        <div class="nav-divider"></div>
+        <a href="/contact" class="btn btn-primary btn-sm nav-cta" data-i18n="nav.getQuote">Get a Quote</a>
+      </div>
+      <div class="nav-hamburger" id="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</nav>
+
+<div class="page-banner">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="/" data-i18n="nav.home">Home</a>
+      <span class="sep">›</span>
+      <span class="current" data-i18n="case_page.breadcrumb">Cases / Videos</span>
+    </div>
+    <h1 data-i18n="case_page.pageTitle">Cases / Videos</h1>
+    <p data-i18n="case_page.pageSubtitle">Real-world advertising material projects with video showcases delivered by Foshan Jin Yu – from single shop signs to large-scale commercial deployments.</p>
+  </div>
+</div>
+
+
+<!-- ═══ API-driven case sections ═══ -->
+<div class="container">
+  <div id="caseSectionsContainer">
+    <div class="cases-grid">
+      <div class="cases-loading">
+        <div class="spinner"></div>
+        <p data-i18n="case_page.loading">Loading...</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ Lightbox 放大查看 ═══ -->
+<div class="lightbox-overlay" id="lightboxOverlay" onclick="if(event.target===this)closeLightbox()">
+  <div class="lightbox-content" id="lightboxContent">
+    <button class="lightbox-close" onclick="closeLightbox()" title="Close (Esc)">×</button>
+  </div>
+  <div class="lightbox-controls">
+    <button class="lightbox-btn" onclick="prevLightbox()" title="Previous (←)">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="white"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+    </button>
+    <button class="lightbox-btn" onclick="nextLightbox()" title="Next (→)">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="white"><path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/></svg>
+    </button>
+  </div>
+  <div class="lightbox-caption" id="lightboxCaption"></div>
+</div>
+
+<!-- ═══ FALLBACK: static content (same card style) ═══ -->
+<div id="caseStaticFallback" style="display:none">
+<div class="container">
+<div class="cases-grid">
+
+  <!-- CASE 1 -->
+  <div class="case-card" id="supermarket">
+    <div class="case-card-img">
+      <div class="case-placeholder">🏪</div>
+      <span class="case-card-badge">Retail · Southeast Asia</span>
+    </div>
+    <div class="case-card-body">
+      <div class="case-card-title" data-i18n="case_page.case1">Supermarket Sign Project</div>
+      <div class="case-meta">
+        <span class="case-meta-chip">📍 <strong>Southeast Asia</strong></span>
+        <span class="case-meta-chip">📐 <strong>12 branches</strong></span>
+        <span class="case-meta-chip">📦 <strong>8,000+ units</strong></span>
+      </div>
+      <p class="case-card-desc">A regional supermarket chain required complete interior and exterior signage solutions for 12 new branch openings across three countries—aisle signs, price boards, promotional displays, entrance signs, and ceiling hangings.</p>
+      <div class="case-materials-title">Materials Supplied</div>
+      <div class="case-materials-list">
+        <span class="case-mat-tag">PVC Foam Board 5mm/8mm</span>
+        <span class="case-mat-tag">Self Adhesive Vinyl 100g</span>
+        <span class="case-mat-tag">Aluminum Composite Panel 4mm</span>
+        <span class="case-mat-tag">PP Hollow Sheet 4mm</span>
+      </div>
+      <div class="case-outcomes">
+        <div class="case-outcomes-label" data-i18n="case_page.case1Outcomes">Project Outcomes</div>
+        <div class="case-outcome-item">On-time delivery across 4 shipments within 6-week timeline</div>
+        <div class="case-outcome-item">All 12 branches opened with complete sign systems</div>
+        <div class="case-outcome-item">Materials passed local safety and compliance testing</div>
+        <div class="case-outcome-item">Client re-ordered for additional branch rollouts in 2024</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CASE 2 -->
+  <div class="case-card" id="mall-lightbox">
+    <div class="case-card-img">
+      <div class="case-placeholder">🏬</div>
+      <span class="case-card-badge">Commercial · Middle East</span>
+    </div>
+    <div class="case-card-body">
+      <div class="case-card-title">Mall Light Box Project</div>
+      <div class="case-meta">
+        <span class="case-meta-chip">📍 <strong>Middle East</strong></span>
+        <span class="case-meta-chip">📐 <strong>180,000 sqm</strong></span>
+        <span class="case-meta-chip">📦 <strong>2,400+ panels</strong></span>
+      </div>
+      <p class="case-card-desc">A large shopping mall development required high-quality light box panels for internal tenant signage, directional wayfinding, and promotional display boards throughout all levels.</p>
+      <div class="case-materials-title">Materials Supplied</div>
+      <div class="case-materials-list">
+        <span class="case-mat-tag">Opal Acrylic Sheet 4mm/6mm</span>
+        <span class="case-mat-tag">Back-lit PVC Flex Banner 440g</span>
+        <span class="case-mat-tag">LED Modules 12V IP65</span>
+        <span class="case-mat-tag">Power Supply Units 200W</span>
+      </div>
+      <div class="case-outcomes">
+        <div class="case-outcomes-label" data-i18n="case_page.case2Outcomes">Project Outcomes</div>
+        <div class="case-outcome-item">Consistent even light diffusion across all 2,400+ panels</div>
+        <div class="case-outcome-item">All materials passed CE / RoHS compliance</div>
+        <div class="case-outcome-item">4 phased deliveries completed over 8 months</div>
+        <div class="case-outcome-item">Zero warranty claims in first 12 months</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CASE 3 -->
+  <div class="case-card" id="outdoor-billboard">
+    <div class="case-card-img">
+      <div class="case-placeholder">🪧</div>
+      <span class="case-card-badge">Outdoor · Europe</span>
+    </div>
+    <div class="case-card-body">
+      <div class="case-card-title">Outdoor Billboard Project</div>
+      <div class="case-meta">
+        <span class="case-meta-chip">📍 <strong>Eastern Europe</strong></span>
+        <span class="case-meta-chip">📐 <strong>350+ structures</strong></span>
+        <span class="case-meta-chip">📦 <strong>180,000 sqm</strong></span>
+      </div>
+      <p class="case-card-desc">An outdoor advertising company required consistent large-format flex banner supply for their billboard network renovation. Key requirements: high UV resistance, consistent print performance, EU environmental compliance.</p>
+      <div class="case-materials-title">Materials Supplied</div>
+      <div class="case-materials-list">
+        <span class="case-mat-tag">Front-lit Flex Banner 510g</span>
+        <span class="case-mat-tag">Aluminum Composite Panel 4mm PVDF</span>
+        <span class="case-mat-tag">Eyelets & Reinforcement Tape</span>
+      </div>
+      <div class="case-outcomes">
+        <div class="case-outcomes-label" data-i18n="case_page.case3Outcomes">Project Outcomes</div>
+        <div class="case-outcome-item">Full REACH / RoHS compliance documentation provided</div>
+        <div class="case-outcome-item">Consistent color batch quality across 180,000 sqm</div>
+        <div class="case-outcome-item">On-time sea freight delivery to 3 European ports</div>
+        <div class="case-outcome-item">Ongoing annual supply contract established</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CASE 4 -->
+  <div class="case-card" id="shop-sign">
+    <div class="case-card-img">
+      <div class="case-placeholder">🏪</div>
+      <span class="case-card-badge">Retail · Americas</span>
+    </div>
+    <div class="case-card-body">
+      <div class="case-card-title">Shop Sign Project</div>
+      <div class="case-meta">
+        <span class="case-meta-chip">📍 <strong>Latin America</strong></span>
+        <span class="case-meta-chip">📐 <strong>200+ outlets</strong></span>
+        <span class="case-meta-chip">📦 <strong>Mixed kit supply</strong></span>
+      </div>
+      <p class="case-card-desc">A sign-making distributor needed standardized shop sign kits to service their retail client network, requiring consistent quality, competitive pricing, and flexible minimum order quantities.</p>
+      <div class="case-materials-title">Materials Supplied</div>
+      <div class="case-materials-list">
+        <span class="case-mat-tag">PVC Foam Board 5mm</span>
+        <span class="case-mat-tag">Self Adhesive Vinyl 120g</span>
+        <span class="case-mat-tag">Cold Lamination Film</span>
+        <span class="case-mat-tag">Aluminum Trim Strips + Bolts</span>
+      </div>
+      <div class="case-outcomes">
+        <div class="case-outcomes-label" data-i18n="case_page.case4Outcomes">Project Outcomes</div>
+        <div class="case-outcome-item">Standardized kits simplified distributor inventory</div>
+        <div class="case-outcome-item">Regular monthly shipments for 200+ outlets</div>
+        <div class="case-outcome-item">Custom carton labelling for customs clearance</div>
+        <div class="case-outcome-item">3rd year of continuous supply partnership</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /.cases-grid -->
+</div><!-- /.container -->
+</div><!-- #caseStaticFallback -->
+
+<script>
+// ══════════════════════════════════════════════════
+// 案例页 — 动态渲染 + 多语言切换（卡片式布局）
+// ══════════════════════════════════════════════════
+(function() {
+
+  var _renderVersion = 0;
+  function getLang() { try { return localStorage.getItem('jinyu_lang') || 'en'; } catch(e) { return 'en'; } }
+
+  function getField(item, baseKey, lang) {
+    // tl 兼容多个后缀
+    if (lang === 'tl') {
+      var tlSuf = ['_tl', '_fil', '_ph'];
+      for (var si = 0; si < tlSuf.length; si++) {
+        var tv = item[baseKey + tlSuf[si]];
+        if (tv && String(tv).trim()) return String(tv).trim();
+      }
+    } else {
+      var map = { zh: '_zh', en: '_en', vi: '_vi' };
+      var val = item[baseKey + (map[lang] || '_en')];
+      if (val && String(val).trim()) return String(val).trim();
+    }
+    return '';
+  }
+
+  // 异步翻译文本 —— 所有语言（含 zh）字段为空时均翻译
+  async function translateAuto(text, fromLang, toLang) {
+    if (!text || !text.trim()) return text;
+    if (toLang === fromLang) return text;
+    if (window.autoTranslate && window.autoTranslate.translate) {
+      try { return await window.autoTranslate.translate(text.trim(), fromLang, toLang); } catch(e) {}
+    }
+    return text;
+  }
+
+  // 从案例对象取字段，缺失时自动翻译（与 product-detail pickField 逻辑一致）
+  async function pickCaseField(item, baseKey, lang) {
+    var direct = getField(item, baseKey, lang);
+    if (direct) return direct;
+    // 找英文/中文源文本
+    var srcEn = item[baseKey + '_en'] || '';
+    var srcZh = item[baseKey + '_zh'] || '';
+    var src = srcEn || srcZh || item[baseKey] || '';
+    if (!src.trim()) return '';
+    var from = srcEn ? 'en' : 'zh';
+    if (lang === 'en') return srcZh || item[baseKey] || '';
+    // TL 走 autoTranslate（含 translations.json 缓存 + API 兜底）
+    if (lang === 'tl') return await translateAuto(src, from, lang);
+    // zh/vi 翻译英文源
+    return await translateAuto(src, from, lang);
+  }
+
+  // 翻译标签文本（region/industry/材料等），所有非源语言均翻译
+  async function translateLabel(text, lang) {
+    if (!text || !text.trim()) return text;
+    if (lang === 'en') return text;
+    return await translateAuto(text, 'en', lang);
+  }
+
+  // 翻译中文标签文本（sources 是中文时）
+  async function translateLabelZh(text, lang) {
+    if (!text || !text.trim()) return text;
+    if (lang === 'zh') return text;
+    return await translateAuto(text, 'zh', lang);
+  }
+
+  function escHtml(s) {
+    return String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  // ── 构建单张卡片（async，标签字段全部走 autoTranslate） ──
+  async function buildCaseCard(c, idx, lang) {
+    var slug = c.slug || ('case-' + c.id || idx);
+    var caseId = c.id || idx;
+    var imgSrc = c.cover_image || (Array.isArray(c.images) && c.images[0]) || '';
+    var videoSrc = c.video || c.video_url || '';
+
+    // 视频缩略图：有视频用视频第一帧（用 poster），无视频用图片
+    var mediaHtml;
+    var badgeText = '';
+
+    if (videoSrc) {
+      var videoPoster = c.video_poster || '';
+      mediaHtml = '<div class="case-thumbnail-wrap" onclick="openLightbox(\'' + escHtml(videoSrc) + '\', \'video\', ' + caseId + ')">'
+        + '<img src="' + escHtml(videoPoster || imgSrc) + '" alt="" loading="lazy" onerror="this.src=\'data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 9%22><rect fill=%22%231e293b%22 width=%2216%22 height=%229%22/><text x=%228%22 y=%225.5%22 text-anchor=%22middle%22 fill=%22white%22 font-size=%222%22>Video</text></svg>\'">'
+        + '<div class="case-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>'
+        + '<div class="case-video-badge"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Video</div>'
+        + '</div>';
+      badgeText = '<span class="case-card-badge">📹 Video</span>';
+    } else if (imgSrc) {
+      mediaHtml = '<div class="case-thumbnail-wrap" onclick="openLightbox(\'' + escHtml(imgSrc) + '\', \'image\', ' + caseId + ')">'
+        + '<img src="' + escHtml(imgSrc) + '" alt="" loading="lazy" onerror="this.parentElement.innerHTML=\'<div class=case-placeholder>🏆</div>\'">'
+        + '</div>';
+      badgeText = '<span class="case-card-badge">📷 Image</span>';
+    } else {
+      mediaHtml = '<div class="case-placeholder">🏆</div>';
+    }
+
+    // 翻译 location / industry
+    var [locTxt, indTxt] = await Promise.all([
+      c.location ? translateLabel(c.location, lang) : Promise.resolve(''),
+      c.industry ? translateLabel(c.industry, lang) : Promise.resolve('')
+    ]);
+
+    var metaHtml = [
+      locTxt ? '<span class="case-meta-chip">📍 <strong>' + escHtml(locTxt) + '</strong></span>' : '',
+      indTxt ? '<span class="case-meta-chip">🏭 <strong>' + escHtml(indTxt) + '</strong></span>' : ''
+    ].filter(Boolean).join('');
+
+    // badge 显示 industry · location
+    if (indTxt || locTxt) {
+      var badgeParts = [indTxt, locTxt].filter(Boolean);
+      badgeText = '<span class="case-card-badge">' + escHtml(badgeParts.join(' · ')) + '</span>';
+    }
+
+    // 标题 / 描述：先读多语言字段，缺失则自动翻译
+    var titleText = await pickCaseField(c, 'title', lang);
+    var descText  = await pickCaseField(c, 'description', lang);
+
+    var matLabel = { zh:'使用材料', en:'Materials Supplied', vi:'Vật liệu', tl:'Mga Materyales' };
+    var matsHtml = '';
+    if (c.products_used) {
+      var matItems = c.products_used.split(',').map(function(s){ return s.trim(); }).filter(Boolean);
+      if (matItems.length) {
+        // 材料标签翻译（中文时用 translateLabelZh）
+        var translatedMats = await Promise.all(matItems.map(function(it){
+          // 判断是否是中文字符
+          var isChinese = /[\u4e00-\u9fa5]/.test(it);
+          return isChinese ? translateLabelZh(it, lang) : translateLabel(it, lang);
+        }));
+        matsHtml = '<div class="case-materials-title">' + (matLabel[lang] || matLabel.en) + '</div>'
+          + '<div class="case-materials-list">'
+          + translatedMats.map(function(it){ return '<span class="case-mat-tag">' + escHtml(it) + '</span>'; }).join('')
+          + '</div>';
+      }
+    }
+
+    var outLabel = { zh:'项目成果', en:'Project Outcomes', vi:'Kết quả', tl:'Mga Resulta' };
+    var outcomesHtml = '';
+    if (c.results) {
+      var results = c.results.split('\n').map(function(s){ return s.replace(/^[-•✓]\s*/, '').trim(); }).filter(Boolean);
+      // 卡片上最多展示2条成果
+      var displayResults = results.slice(0, 2);
+      if (displayResults.length) {
+        var isChinese2 = /[\u4e00-\u9fa5]/.test(displayResults[0]);
+        var translatedResults = await Promise.all(displayResults.map(function(r){
+          return isChinese2 ? translateLabelZh(r, lang) : translateLabel(r, lang);
+        }));
+        outcomesHtml = '<div class="case-outcomes">'
+          + '<div class="case-outcomes-label">' + (outLabel[lang] || outLabel.en) + '</div>'
+          + translatedResults.map(function(r){ return '<div class="case-outcome-item">' + escHtml(r) + '</div>'; }).join('')
+          + '</div>';
+      }
+    }
+
+    var detailLabel = { zh:'查看详情', en:'View Details', vi:'Xem Chi Tiết', tl:'Tingnan' };
+
+    return '<div class="case-card case-card-clickable" id="' + slug + '" data-case-idx="' + idx + '" data-case-id="' + caseId + '" onclick="window.location.href=\'/case-studies/' + slug + '\'">'
+      + '<div class="case-card-img">'
+      + mediaHtml
+      + (badgeText ? badgeText : '')
+      + '</div>'
+      + '<div class="case-card-body">'
+      + '<div class="case-card-title">' + escHtml(titleText) + '</div>'
+      + (metaHtml ? '<div class="case-meta">' + metaHtml + '</div>' : '')
+      + (descText ? '<p class="case-card-desc">' + escHtml(descText) + '</p>' : '')
+      + matsHtml
+      + outcomesHtml
+      + '<div style="margin-top:12px;"><a href="/case-studies/' + slug + '" class="btn btn-outline btn-sm" onclick="event.stopPropagation()">' + (detailLabel[lang] || detailLabel.en) + ' →</a></div>'
+      + '</div>'
+      + '</div>';
+  }
+
+  // ── 翻译缓存（避免重复翻译导致刷新） ──
+  var _transCache = {};
+  function getCachedTrans(key, lang) {
+    var k = key + '___' + lang;
+    if (_transCache[k] !== undefined) return _transCache[k];
+    // 从 sessionStorage 读取
+    try {
+      var cached = sessionStorage.getItem('jinyu_trans_cache');
+      if (cached) {
+        var cache = JSON.parse(cached);
+        if (cache[k] !== undefined) {
+          _transCache[k] = cache[k];
+          return cache[k];
+        }
+      }
+    } catch(e) {}
+    return null;
+  }
+  function setCachedTrans(key, lang, value) {
+    var k = key + '___' + lang;
+    _transCache[k] = value;
+    try {
+      var cached = sessionStorage.getItem('jinyu_trans_cache');
+      var cache = cached ? JSON.parse(cached) : {};
+      cache[k] = value;
+      sessionStorage.setItem('jinyu_trans_cache', JSON.stringify(cache));
+    } catch(e) {}
+  }
+
+  // ── 渲染所有案例（async，使用翻译缓存） ──
+  var _renderedCards = {}; // 缓存已渲染的卡片（按 caseId___lang 为key）
+
+  async function renderCases(items) {
+    var lang = getLang();
+    var myVersion = ++_renderVersion;
+    var container = document.getElementById('caseSectionsContainer');
+    var fallback  = document.getElementById('caseStaticFallback');
+    if (fallback) fallback.style.display = 'none';
+
+    if (!items || items.length === 0) {
+      var noData = { zh:'暂无已发布案例，敬请期待。', en:'No published cases yet. Coming soon.', vi:'Chưa có dự án nào.', tl:'Wala pang mga kaso.' };
+      container.innerHTML = '<div class="cases-grid"><div class="cases-loading">'
+        + '<div style="font-size:48px;margin-bottom:16px;">📂</div>'
+        + '<p style="color:var(--gray-500);font-weight:600;">' + (noData[lang] || noData.en) + '</p>'
+        + '</div></div>';
+      return;
+    }
+
+    // 构建所有卡片（逐个 await，完成后立即写入 DOM，避免版本冲突导致丢卡片）
+    // 先占位显示骨架
+    var placeholders = items.map(function(c, i) {
+      return '<div class="case-card" id="case-placeholder-' + i + '" style="min-height:360px;background:#f1f5f9;border-radius:14px;"></div>';
+    });
+    container.innerHTML = '<div class="cases-grid">' + placeholders.join('') + '</div>';
+
+    // 并发构建所有卡片
+    var cardPromises = items.map(function(c, i) {
+      var cacheKey = (c.id !== undefined ? c.id : i) + '___' + lang;
+      if (_renderedCards[cacheKey]) {
+        return Promise.resolve({ idx: i, html: _renderedCards[cacheKey], key: cacheKey });
+      }
+      return buildCaseCard(c, i, lang).then(function(html) {
+        return { idx: i, html: html, key: cacheKey };
+      });
+    });
+
+    // 逐步更新 DOM（每张卡片完成即替换占位）
+    for (var i = 0; i < cardPromises.length; i++) {
+      var result = await cardPromises[i];
+      // 版本变更时不中断，继续渲染（避免内容变少）
+      _renderedCards[result.key] = result.html;
+      var placeholder = document.getElementById('case-placeholder-' + result.idx);
+      if (placeholder) {
+        var temp = document.createElement('div');
+        temp.innerHTML = result.html;
+        var card = temp.firstChild;
+        if (card) placeholder.parentNode.replaceChild(card, placeholder);
+      }
+    }
+  }
+
+  var _cachedItems = null;
+  var _dataFetched = false;
+
+  // 将后台 langData 嵌套结构转为前台扁平字段
+  function normalizeCase(c) {
+    if (c.title_zh || c.title_en || c.description_zh) return c; // 已经是扁平格式
+    var out = Object.assign({}, c);
+    var langMap = { en: '_en', zh: '_zh', vi: '_vi', ph: '_tl', tl: '_tl' };
+    if (c.langData && typeof c.langData === 'object') {
+      Object.keys(langMap).forEach(function(lang) {
+        var ld = c.langData[lang];
+        if (!ld) return;
+        var suffix = langMap[lang];
+        if (ld.title) out['title' + suffix] = ld.title;
+        if (ld.content) out['description' + suffix] = ld.content;
+        if (ld.slug && !out.slug) out.slug = ld.slug;
+        if (ld.alt && !out.alt) out.alt = ld.alt;
+      });
+      // 默认标题和描述
+      if (!out.title) out.title = (c.langData.en && c.langData.en.title) || (c.langData.zh && c.langData.zh.title) || '';
+      if (!out.description) out.description = (c.langData.en && c.langData.en.content) || (c.langData.zh && c.langData.zh.content) || c.desc || '';
+    }
+    if (!out.status) out.status = 'published'; // 后台案例默认已发布
+    return out;
+  }
+
+  async function loadCases() {
+    // 如果已加载且有缓存，直接渲染（不重新获取数据）
+    if (_cachedItems !== null && _dataFetched) {
+      // 只重新渲染（可能语言已切换）
+      renderCases(_cachedItems);
+      return;
+    }
+
+    var container = document.getElementById('caseSectionsContainer');
+    container.innerHTML = '<div class="cases-grid"><div class="cases-loading"><div class="spinner"></div><p>Loading…</p></div></div>';
+    try {
+      var resp = await fetch('/api/case-studies');
+      if (!resp.ok) throw new Error('HTTP ' + resp.status);
+      var json = await resp.json();
+      var raw = json.success ? json.data : [];
+      _cachedItems = raw.map(normalizeCase).filter(function(c){ return c.status === 'published'; });
+      _dataFetched = true;
+      // 清除旧的翻译缓存
+      _transCache = {};
+      _renderedCards = {};
+      renderCases(_cachedItems);
+    } catch(e) {
+      console.warn('[case-studies] API 不可用，显示静态内容', e);
+      container.style.display = 'none';
+      var fallback = document.getElementById('caseStaticFallback');
+      if (fallback) fallback.style.display = '';
+    }
+  }
+
+  // ── 语言切换拦截 ──
+  if (window.i18n) {
+    var _origCL = window.i18n.changeLanguage.bind(window.i18n);
+    window.i18n.changeLanguage = async function(lang) {
+      await _origCL(lang);
+      _renderedCards = {};
+      if (_cachedItems !== null) renderCases(_cachedItems);
+    };
+  }
+
+  // 保留 langChange 事件监听器作为备用
+  document.addEventListener('langChange', function() {
+    _renderedCards = {};
+    if (_cachedItems !== null) renderCases(_cachedItems);
+  });
+
+  document.addEventListener('DOMContentLoaded', loadCases);
+})();
+
+// ── Lightbox 放大查看功能（放在 IIFE 外部供 onclick 调用） ──
+var _lightboxItems = [];
+var _lightboxIdx = 0;
+
+function openLightbox(src, type, caseId) {
+  var overlay = document.getElementById('lightboxOverlay');
+  var content = document.getElementById('lightboxContent');
+  var caption = document.getElementById('lightboxCaption');
+
+  if (!overlay || !content) return;
+
+  // 找到当前案例的媒体列表
+  var cards = document.querySelectorAll('.case-card');
+  _lightboxItems = [];
+  cards.forEach(function(card) {
+    var cardCaseId = parseInt(card.getAttribute('data-case-id'));
+    if (cardCaseId === caseId) {
+      var img = card.querySelector('.case-thumbnail-wrap img');
+      if (img) {
+        _lightboxItems.push({ src: img.src, type: 'image' });
+      }
+    }
+  });
+  _lightboxIdx = 0;
+
+  if (type === 'video') {
+    content.innerHTML = '<video id="lightboxVideo" src="' + src + '" controls autoplay style="max-width:90%;max-height:85vh;border-radius:8px;"></video>';
+    caption.textContent = 'Video Playback';
+  } else {
+    content.innerHTML = '<img id="lightboxImg" src="' + src + '" alt="" style="max-width:90%;max-height:85vh;border-radius:8px;">';
+    caption.textContent = '';
+  }
+
+  overlay.classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  var overlay = document.getElementById('lightboxOverlay');
+  if (overlay) {
+    overlay.classList.remove('show');
+    document.body.style.overflow = '';
+    // 停止视频
+    var video = document.getElementById('lightboxVideo');
+    if (video) video.pause();
+  }
+}
+
+function prevLightbox() {
+  if (_lightboxItems.length < 2) return;
+  _lightboxIdx = (_lightboxIdx - 1 + _lightboxItems.length) % _lightboxItems.length;
+  var content = document.getElementById('lightboxContent');
+  var img = document.getElementById('lightboxImg');
+  if (img && content) {
+    img.src = _lightboxItems[_lightboxIdx].src;
+  }
+}
+
+function nextLightbox() {
+  if (_lightboxItems.length < 2) return;
+  _lightboxIdx = (_lightboxIdx + 1) % _lightboxItems.length;
+  var content = document.getElementById('lightboxContent');
+  var img = document.getElementById('lightboxImg');
+  if (img && content) {
+    img.src = _lightboxItems[_lightboxIdx].src;
+  }
+}
+
+document.addEventListener('keydown', function(e) {
+  if (!document.getElementById('lightboxOverlay')?.classList.contains('show')) return;
+  if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'ArrowLeft') prevLightbox();
+  if (e.key === 'ArrowRight') nextLightbox();
+});
+</script>
+
+<section class="section cta-banner" style="margin-top:0;">
+  <div class="container">
+    <div class="cta-content">
+      <div class="cta-text">
+        <h2 data-i18n="case_page.ctaTitle">Have a Similar Project? Let's Talk.</h2>
+        <p data-i18n="case_page.ctaDesc">Share your project requirements and our team will provide material recommendations, specifications, and competitive pricing within 24 hours.</p>
+      </div>
+      <div class="cta-actions">
+        <a href="/contact" class="btn btn-primary btn-lg" data-i18n="case_page.ctaBtn1">Discuss Your Project</a>
+        <a href="https://wa.me/8613808828019" target="_blank" class="btn btn-outline btn-lg" data-i18n="case_page.ctaBtn2">💬 WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== QUOTE & FAQ ========== -->
+<section class="section bg-light" id="quote-faq">
+  <div class="container">
+    <div class="grid-2">
+      <!-- Left: Quote Form -->
+      <div class="quote-form-box">
+        <h2 class="quote-title" data-i18n="quoteForm.title">Send Us Your Project Details</h2>
+        <p class="quote-subtitle" data-i18n="quoteForm.subtitle">Get a Quote Within 24 Hours</p>
+        <form class="quote-form">
+          <div class="form-group">
+            <label for="quote-name" data-i18n="quoteForm.name">Name *</label>
+            <input type="text" id="quote-name" class="form-input" data-i18n-placeholder="quoteForm.namePlaceholder" placeholder="Your Name" required>
+          </div>
+          <div class="form-group">
+            <label for="quote-email" data-i18n="quoteForm.email">Email *</label>
+            <input type="email" id="quote-email" class="form-input" data-i18n-placeholder="quoteForm.emailPlaceholder" placeholder="your@email.com" required>
+          </div>
+          <div class="form-group">
+            <label for="quote-phone" data-i18n="quoteForm.phone">Phone *</label>
+            <input type="tel" id="quote-phone" class="form-input" data-i18n-placeholder="quoteForm.phonePlaceholder" placeholder="+86 xxx xxxx xxxx" required>
+          </div>
+          <div class="form-group">
+            <label for="quote-message" data-i18n="quoteForm.message">Message *</label>
+            <textarea id="quote-message" class="form-textarea" data-i18n-placeholder="quoteForm.messagePlaceholder" placeholder="Tell us about your project..." rows="4" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg" style="width: 100%; justify-content: center;" data-i18n="quoteForm.submit">Submit</button>
+        </form>
+      </div>
+
+      <!-- Right: FAQ -->
+      <div class="faq-box">
+        <div class="faq-header">
+          <span class="faq-icon">❓</span>
+          <h2 class="faq-title" data-i18n="faq.title">We're Here to Answer All Your Questions</h2>
+        </div>
+        <div class="faq-tabs">
+          <button class="faq-tab active" data-tab="products" data-i18n="faq.tab_products">Products</button>
+          <button class="faq-tab" data-tab="ordering" data-i18n="faq.tab_ordering">Ordering & Payment</button>
+          <button class="faq-tab" data-tab="shipping" data-i18n="faq.tab_shipping">Shipping & Delivery</button>
+          <button class="faq-tab" data-tab="quality" data-i18n="faq.tab_quality">Quality & Certification</button>
+        </div>
+        <div class="faq-content show" id="products-faq">
+          <!-- FAQ 1: Expanded -->
+          <div class="faq-item expanded">
+            <div class="faq-question">
+              <span data-i18n="faq.q1_1">What are your main products?</span>
+              
+              <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 9l-7 7-7-7"/>
+              </svg>
+            </div>
+            <div class="faq-answer show" data-i18n="faq.a1_1">
+              We specialize in Self Adhesive Vinyl, PVC Flex Banner, Cutting Plotter Film, Acrylic Sheet, PVC Foam Board, and Display Equipment. We also offer custom specifications according to your requirements.
+            </div>
+          </div>
+          <!-- FAQ 2: Collapsed -->
+          <div class="faq-item">
+            <div class="faq-question">
+              <span data-i18n="faq.q1_2">Do you offer custom sizes and specifications?</span>
+              
+              <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 9l-7 7-7-7"/>
+              </svg>
+            </div>
+            <div class="faq-answer" data-i18n="faq.a1_2">
+              Yes, we offer custom sizes, thickness, and specifications. Please provide your detailed requirements, and our team will provide a solution tailored to your needs.
+            </div>
+          </div>
+          <!-- FAQ 3: Collapsed -->
+          <div class="faq-item">
+            <div class="faq-question">
+              <span data-i18n="faq.q1_3">What is your minimum order quantity (MOQ)?</span>
+              
+              <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 9l-7 7-7-7"/>
+              </svg>
+            </div>
+            <div class="faq-answer" data-i18n="faq.a1_3">
+              Our MOQ varies by product type. Generally, it's 100 pieces for standard products. For custom orders, please contact us directly for specific requirements.
+            </div>
+          </div>
+        </div>
+        <div class="faq-content" id="ordering-faq">
+          <!-- FAQ 1: Collapsed -->
+          <div class="faq-item">
+            <div class="faq-question">
+              <span data-i18n="faq.q2_1">What payment methods do you accept?</span>
+              
+              <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 9l-7 7-7-7"/>
+              </svg>
+            </div>
+            <div class="faq-answer" data-i18n="faq.a2_1">
+              We accept T/T (Wire Transfer), PayPal, and Western Union. For new customers, we may require a 30% deposit with the balance paid before shipment.
+            </div>
+          </div>
+          <!-- FAQ 2: Collapsed -->
+          <div class="faq-item">
+            <div class="faq-question">
+              <span data-i18n="faq.q2_2">How long does it take to process my order?</span>
+              
+              <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 9l-7 7-7-7"/>
+              </svg>
+            </div>
+            <div class="faq-answer" data-i18n="faq.a2_2">
+              Production time varies by product. Standard products ship within 3-7 days. Custom orders may take 10-15 days. We'll provide an estimated delivery date upon order confirmation.
+            </div>
+          </div>
+          <!-- FAQ 3: Collapsed -->
+          <div class="faq-item">
+            <div class="faq-question">
+              <span data-i18n="faq.q2_3">Can I request samples before placing a bulk order?</span>
+              
+              <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 9l-7 7-7-7"/>
+              </svg>
+            </div>
+            <div class="faq-answer" data-i18n="faq.a2_3">
+              Yes, we offer free samples for standard products. Customers only need to cover the shipping cost. For custom samples, please contact us for pricing.
+            </div>
+          </div>
+        </div>
+        <div class="faq-content" id="shipping-faq">
+          <!-- FAQ 1: Collapsed -->
+          <div class="faq-item">
+            <div class="faq-question">
+              <span data-i18n="faq.q3_1">Do you ship internationally?</span>
+              
+              <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 9l-7 7-7-7"/>
+              </svg>
+            </div>
+            <div class="faq-answer" data-i18n="faq.a3_1">
+              Yes, we ship to over 50 countries worldwide. We work with major shipping carriers like DHL, FedEx, UPS, and sea freight for larger orders.
+            </div>
+          </div>
+          <!-- FAQ 2: Collapsed -->
+          <div class="faq-item">
+            <div class="faq-question">
+              <span data-i18n="faq.q3_2">What are the shipping costs?</span>
+              
+              <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 9l-7 7-7-7"/>
+              </svg>
+            </div>
+            <div class="faq-answer" data-i18n="faq.a3_2">
+              Shipping costs depend on destination, weight, and shipping method. We provide competitive rates and will quote you the exact shipping cost when you place your order.
+            </div>
+          </div>
+          <!-- FAQ 3: Collapsed -->
+          <div class="faq-item">
+            <div class="faq-question">
+              <span data-i18n="faq.q3_3">How long does delivery take?</span>
+              
+              <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 9l-7 7-7-7"/>
+              </svg>
+            </div>
+            <div class="faq-answer" data-i18n="faq.a3_3">
+              Express shipping (DHL/FedEx/UPS) takes 5-7 business days. Sea freight takes 25-35 days depending on the destination country and port.
+            </div>
+          </div>
+        </div>
+        <div class="faq-content" id="quality-faq">
+          <!-- FAQ 1: Collapsed -->
+          <div class="faq-item">
+            <div class="faq-question">
+              <span data-i18n="faq.q4_1">Are your products certified?</span>
+              
+              <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 9l-7 7-7-7"/>
+              </svg>
+            </div>
+            <div class="faq-answer" data-i18n="faq.a4_1">
+              Yes, we are ISO 9001:2015 certified. Our products meet international quality standards and are exported to Europe, Americas, Southeast Asia, and Middle East markets.
+            </div>
+          </div>
+          <!-- FAQ 2: Collapsed -->
+          <div class="faq-item">
+            <div class="faq-question">
+              <span data-i18n="faq.q4_2">Do you offer quality guarantees?</span>
+              
+              <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 9l-7 7-7-7"/>
+              </svg>
+            </div>
+            <div class="faq-answer" data-i18n="faq.a4_2">
+              Absolutely! We offer a 100% quality guarantee. If you receive defective products, we will replace them free of charge or provide a full refund.
+            </div>
+          </div>
+          <!-- FAQ 3: Collapsed -->
+          <div class="faq-item">
+            <div class="faq-question">
+              <span data-i18n="faq.q4_3">Can you provide test reports or samples?</span>
+              
+              <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 9l-7 7-7-7"/>
+              </svg>
+            </div>
+            <div class="faq-answer" data-i18n="faq.a4_3">
+              Yes, we can provide test reports, certificates, and samples upon request. Our quality control team conducts thorough inspections before shipment.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo-name" data-i18n="footer.companyName">Foshan Jin Yu Advertising Material Co., Ltd</div>
+        <div class="footer-logo-sub" data-i18n="footer.companySub">Professional Advertising Materials Manufacturer Since 2009</div>
+        <p data-i18n="footer.companyDesc">Integrated design, R&D, production and sales of advertising materials. ISO 9001 certified. Exporting to Europe, Americas, Southeast Asia, Middle East and beyond.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px;">
+          <span class="cert-badge" data-i18n="footer.isoBadge">🏅 ISO 9001</span>
+          <span class="cert-badge" data-i18n="footer.exportBadge">🌍 Global Export</span>
+        </div>
+        <div id="footer-social-icons" style="display:flex;gap:12px;margin-top:16px;align-items:center;"></div>
+        <div style="margin-top:20px;">
+          <div class="footer-contact-item"><span class="fi">📍</span><span data-i18n="footer.address">D3168, U+Zhigu Industrial Park, LiShui Town, Nanhai District, Foshan City, Guangdong Province, China</span></div>
+          <div class="footer-contact-item"><span class="fi">📞</span><span><a href="tel:+8613570441363" style="color:rgba(255,255,255,0.7)">+86-13570441363</a></span></div>
+          <div class="footer-contact-item"><span class="fi">💬</span><span><a href="https://wa.me/8613808828019" target="_blank" style="color:rgba(255,255,255,0.7)" data-i18n="footer.whatsapp">WhatsApp: +86 138 0882 8019</a></span></div>
+          <div class="footer-contact-item"><span class="fi">✉️</span><span><a href="mailto:vivian@materials-ad.com" style="color:rgba(255,255,255,0.7)">vivian@materials-ad.com</a></span></div>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer.productsTitle">Products</h4>
+        <a href="/products#self-adhesive-vinyl" data-i18n="footer.prod.sav">Self Adhesive Vinyl</a>
+        <a href="/products#flex-banner" data-i18n="footer.prod.flexBanner">PVC Flex Banner</a>
+        <a href="/products#one-way-vision" data-i18n="footer.prod.oneWay">One Way Vision</a>
+        <a href="/products#cutting-vinyl" data-i18n="footer.prod.cutting">Cutting Vinyl</a>
+        <a href="/products#pvc-foam-board" data-i18n="footer.prod.pvcFoam">PVC Foam Board</a>
+        <a href="/products#acrylic-sheet" data-i18n="footer.prod.acrylic">Acrylic Sheet</a>
+        <a href="/products#aluminum-composite-panel" data-i18n="footer.prod.acp">Aluminum Composite Panel</a>
+        <a href="/products#reflective-sheet" data-i18n="footer.prod.reflective">Reflective Sheet</a>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer.applicationsTitle">Applications</h4>
+        <a href="/applications#sign-board" data-i18n="footer.app.signBoard">Sign Board</a>
+        <a href="/applications#light-box" data-i18n="footer.app.lightBox">Light Box</a>
+        <a href="/applications#digital-printing" data-i18n="footer.app.digital">Digital Printing</a>
+        <a href="/applications#outdoor-advertising" data-i18n="footer.app.outdoor">Outdoor Advertising</a>
+        <a href="/applications#exhibition-display" data-i18n="footer.app.exhibition">Exhibition Display</a>
+        <h4 style="margin-top:20px;" data-i18n="footer.companyTitle">Company</h4>
+        <a href="/about#company-profile" data-i18n="footer.company.profile">Company Profile</a>
+        <a href="/about#factory" data-i18n="footer.company.factory">Factory</a>
+        <a href="/about#certificates" data-i18n="footer.company.certificates">Certificates</a>
+        <a href="/case-studies" data-i18n="footer.company.cases">Case Studies</a>
+        <a href="/news" data-i18n="footer.company.news">News</a>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer.quickContactTitle">Quick Contact</h4>
+        <p style="font-size:13px;color:rgba(255,255,255,0.55);margin-bottom:16px;" data-i18n="footer.quickContactDesc">Get pricing and product details within 24 hours.</p>
+        <a href="/contact" class="btn btn-primary" style="width:100%;justify-content:center;margin-bottom:12px;color:#ffffff;" data-i18n="footer.getQuote">Get a Quote</a>
+        <a href="https://wa.me/8613808828019" target="_blank" class="btn btn-outline" style="width:100%;justify-content:center;color:#ffffff;" data-i18n="footer.whatsappNow">💬 WhatsApp Now</a>
+        <div style="margin-top:20px;padding:16px;background:rgba(255,255,255,0.05);border-radius:var(--radius);border:1px solid rgba(255,255,255,0.08);">
+          <div style="font-size:11px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;" data-i18n="footer.businessHours">Business Hours</div>
+          <div style="font-size:13px;color:rgba(255,255,255,0.75);" data-i18n="footer.weekday">Mon – Fri: 09:00 – 18:00 (GMT+8)</div>
+          <div style="font-size:13px;color:rgba(255,255,255,0.75);" data-i18n="footer.saturday">Sat: 09:00 – 13:00</div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p data-i18n="footer.copyright">© 2024 Foshan Jin Yu Advertising Material Co., Ltd. All Rights Reserved.</p>
+      <p data-i18n="footer.certified">ISO 9001 Certified · Foshan, Guangdong, China</p>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOAT ACTION BUTTONS -->
+<div class="fab-container">
+  <button class="fab-btn fab-top" id="fabTop" title="Back to Top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+  </button>
+  <a href="#quote-faq" class="fab-btn fab-faq" title="Go to FAQ">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12l7 7 7-7"/></svg>
+  </a>
+  <a href="https://wa.me/8613808828019" target="_blank" class="fab-btn fab-wa" title="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+</div>
+
+<script>
+window.addEventListener('scroll', () => {
+  const nb = document.getElementById('navbar');
+  if (window.scrollY > 60) nb.classList.add('scrolled'); else nb.classList.remove('scrolled');
+  const fab = document.getElementById('fabTop');
+  if (fab) { if (window.scrollY > 300) fab.classList.add('visible'); else fab.classList.remove('visible'); }
+});
+function toggleMenu() { document.getElementById('navMenu').classList.toggle('open'); }
+
+// FAQ Tab Switching
+document.querySelectorAll('.faq-tab').forEach(tab => {
+  tab.addEventListener('click', function() {
+    // Remove active class from all tabs
+    document.querySelectorAll('.faq-tab').forEach(t => t.classList.remove('active'));
+    // Add active class to clicked tab
+    this.classList.add('active');
+
+    // Hide all FAQ content
+    document.querySelectorAll('.faq-content').forEach(content => {
+      content.classList.remove('show');
+    });
+
+    // Show selected FAQ content
+    const tabName = this.getAttribute('data-tab');
+    document.getElementById(tabName + '-faq').classList.add('show');
+  });
+});
+
+// FAQ Accordion Toggle
+document.querySelectorAll('.faq-question').forEach(question => {
+  question.addEventListener('click', function() {
+    const faqItem = this.parentElement;
+    const answer = faqItem.querySelector('.faq-answer');
+
+    // Toggle expanded state
+    faqItem.classList.toggle('expanded');
+    answer.classList.toggle('show');
+  });
+});
+
+// Quote Form Submission - 真实提交到后台
+document.querySelector('.quote-form').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const name = document.getElementById('quote-name').value.trim();
+  const email = document.getElementById('quote-email').value.trim();
+  const phone = document.getElementById('quote-phone').value.trim();
+  const message = document.getElementById('quote-message').value.trim();
+
+  if (!name || !email || !message) {
+    alert('Please fill in all required fields (*)');
+    return;
+  }
+
+  const btn = this.querySelector('button[type="submit"]');
+  const origText = btn ? btn.innerHTML : '';
+  if (btn) { btn.disabled = true; btn.innerHTML = '⏳ Sending...'; }
+
+  try {
+    const res = await fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, email, phone, message, source: 'case-studies-quote-form' }),
+    });
+    const data = await res.json();
+    if (data.success) {
+      showSuccessModal();
+      this.reset();
+    } else {
+      alert('Submit failed: ' + (data.message || 'Unknown error'));
+    }
+  } catch (err) {
+    showSuccessModal();
+    this.reset();
+  } finally {
+    if (btn) { btn.disabled = false; btn.innerHTML = origText; }
+  }
+});
+</script>
+
+<!-- ===== SUCCESS MODAL ===== -->
+<div class="success-modal-overlay" id="successModal" onclick="closeSuccessModal(event)">
+  <div class="success-modal">
+    <div class="success-modal-icon">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <polyline points="20 6 9 17 4 12"></polyline>
+      </svg>
+    </div>
+    <h3 data-i18n="successModal.title">Inquiry Received!</h3>
+    <p data-i18n="successModal.message">Thanks for Your Inquiry, We will Get back to You within 8 Working Hours!</p>
+    <button class="success-close-btn" onclick="closeSuccessModal()" data-i18n="successModal.close">Got It</button>
+  </div>
+</div>
+
+
+<script>
+// ── Success Modal ──────────────────────────────────────────────────────────────
+function showSuccessModal() {
+  var overlay = document.getElementById('successModal');
+  if (overlay) {
+    overlay.classList.add('show');
+    document.body.style.overflow = 'hidden';
+  }
+}
+function closeSuccessModal(e) {
+  if (e && e.target !== document.getElementById('successModal') && !e.target.classList.contains('success-close-btn')) return;
+  var overlay = document.getElementById('successModal');
+  if (overlay) {
+    overlay.classList.remove('show');
+    document.body.style.overflow = '';
+  }
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeSuccessModal({target: document.getElementById('successModal')});
+});
+initSEO({ pageTitle: 'Case Studies' });
+
+// Social Icons (动态加载)
+if (typeof loadSocialIcons === 'function') {
+  loadSocialIcons('#nav-social-icons', { maxCount: 3 });
+  loadSocialIcons('#footer-social-icons', { brandColor: true });
+}
+</script>
+
+</body>
+</html>

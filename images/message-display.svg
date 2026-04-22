@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <rect width="400" height="300" fill="#F0F9FF" rx="16"/>
+  
+  <!-- message/info display stand -->
+  <!-- pole -->
+  <rect x="194" y="180" width="12" height="80" rx="6" fill="#475569"/>
+  <!-- base -->
+  <rect x="155" y="255" width="90" height="14" rx="7" fill="#334155"/>
+  <!-- display unit -->
+  <rect x="100" y="60" width="200" height="125" rx="10" fill="#0F172A"/>
+  <rect x="108" y="68" width="184" height="109" rx="6" fill="#0EA5E9" opacity="0.3"/>
+  <!-- scrolling text lines -->
+  <rect x="120" y="82" width="160" height="12" rx="3" fill="#38BDF8" opacity="0.8"/>
+  <rect x="120" y="104" width="130" height="10" rx="3" fill="#7DD3FC" opacity="0.7"/>
+  <rect x="120" y="122" width="150" height="10" rx="3" fill="#7DD3FC" opacity="0.7"/>
+  <rect x="120" y="140" width="110" height="10" rx="3" fill="#7DD3FC" opacity="0.5"/>
+  <!-- power LED -->
+  <circle cx="288" cy="160" r="5" fill="#22C55E"/>
+
+</svg>
