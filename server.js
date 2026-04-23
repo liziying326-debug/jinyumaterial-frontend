@@ -250,6 +250,7 @@ function proxyToAdmin(req, res) {
     headers: {
       ...req.headers,
       host: `${ADMIN_HOST}:${ADMIN_PORT}`,
+      'X-From-Frontend': '1',
     },
   };
 
@@ -271,7 +272,8 @@ function proxyToAdmin(req, res) {
 function handleProductDetail(req, res, productId) {
   const urlStr = `http://${ADMIN_HOST}:${ADMIN_PORT}/api/products`;
 
-  http.get(urlStr, (apiRes) => {
+  const transport2 = ADMIN_PROTO === 'https' ? https : http;
+  const req2 = transport2.get(urlStr, { headers: { 'X-From-Frontend': '1' } }, (apiRes) => {
     let body = '';
     apiRes.on('data', d => { body += d; });
     apiRes.on('end', () => {
@@ -342,6 +344,7 @@ function handleTranslate(req, res) {
     hostname: 'fanyi.youdao.com',
     path: youdaoPath,
     method: 'GET',
+    timeout: 5000,
     headers: { 'User-Agent': 'Mozilla/5.0', 'Referer': 'https://fanyi.youdao.com/' }
   };
 
@@ -354,6 +357,7 @@ function handleTranslate(req, res) {
       hostname: 'api.mymemory.translated.net',
       path: mmPath,
       method: 'GET',
+      timeout: 5000,
       headers: { 'User-Agent': 'Mozilla/5.0' }
     };
     let body = '';
