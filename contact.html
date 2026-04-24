@@ -61,6 +61,7 @@
     .faq-item.open .faq-question .arrow { transform: rotate(180deg); }
   </style>
   <script src="/api.js"></script>
+  <script src="/mobile-menu.js"></script>
 </head>
 <body id="top">
 
@@ -127,10 +128,16 @@
         <div class="nav-divider"></div>
         <a href="/contact" class="btn btn-primary btn-sm nav-cta" data-i18n="nav.getQuote">Get a Quote</a>
       </div>
-      <div class="nav-hamburger" id="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
     </div>
   </div>
 </nav>
+<div class="nav-hamburger" id="hamburger" onclick="toggleMobileMenu()"><span></span><span></span><span></span></div>
+<!-- Mobile menu overlay -->
+<div class="mobile-backdrop" id="mobileBackdrop"></div>
+<div id="mobile-nav-overlay" class="mobile-nav-overlay">
+  <div class="mobile-lang-switcher" id="mobileLangSwitcher"></div>
+  <ul class="mobile-nav-list" id="mobileNavList"></ul>
+</div>
 
 <div class="page-banner">
   <div class="container">
@@ -666,7 +673,6 @@ window.addEventListener('scroll', () => {
   const nb = document.getElementById('navbar');
   if (window.scrollY > 60) nb.classList.add('scrolled'); else nb.classList.remove('scrolled');
 });
-function toggleMenu() { document.getElementById('navMenu').classList.toggle('open'); }
 
 // ── 动态加载产品下拉列表（按分类分组，跟随语言切换） ──
 var _cachedProducts = [], _cachedCategories = [];

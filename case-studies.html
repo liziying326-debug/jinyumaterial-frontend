@@ -359,6 +359,7 @@
     }
   </style>
   <script src="/api.js"></script>
+  <script src="/mobile-menu.js"></script>
 </head>
 <body id="top">
 
@@ -428,10 +429,16 @@
         <div class="nav-divider"></div>
         <a href="/contact" class="btn btn-primary btn-sm nav-cta" data-i18n="nav.getQuote">Get a Quote</a>
       </div>
-      <div class="nav-hamburger" id="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
     </div>
   </div>
 </nav>
+<div class="nav-hamburger" id="hamburger" onclick="toggleMobileMenu()"><span></span><span></span><span></span></div>
+<!-- Mobile menu overlay -->
+<div class="mobile-backdrop" id="mobileBackdrop"></div>
+<div id="mobile-nav-overlay" class="mobile-nav-overlay">
+  <div class="mobile-lang-switcher" id="mobileLangSwitcher"></div>
+  <ul class="mobile-nav-list" id="mobileNavList"></ul>
+</div>
 
 <div class="page-banner">
   <div class="container">
@@ -1235,68 +1242,130 @@ document.addEventListener('keydown', function(e) {
   </div>
 </section>
 
-<footer class="footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <div class="footer-logo-name" data-i18n="footer.companyName">Foshan Jin Yu Advertising Material Co., Ltd</div>
-        <div class="footer-logo-sub" data-i18n="footer.companySub">Professional Advertising Materials Manufacturer Since 2009</div>
-        <p data-i18n="footer.companyDesc">Integrated design, R&D, production and sales of advertising materials. ISO 9001 certified. Exporting to Europe, Americas, Southeast Asia, Middle East and beyond.</p>
-        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px;">
-          <span class="cert-badge" data-i18n="footer.isoBadge">🏅 ISO 9001</span>
-          <span class="cert-badge" data-i18n="footer.exportBadge">🌍 Global Export</span>
-        </div>
-        <div id="footer-social-icons" style="display:flex;gap:12px;margin-top:16px;align-items:center;"></div>
-        <div style="margin-top:20px;">
-          <div class="footer-contact-item"><span class="fi">📍</span><span data-i18n="footer.address">D3168, U+Zhigu Industrial Park, LiShui Town, Nanhai District, Foshan City, Guangdong Province, China</span></div>
-          <div class="footer-contact-item"><span class="fi">📞</span><span><a href="tel:+8613570441363" style="color:rgba(255,255,255,0.7)">+86-13570441363</a></span></div>
-          <div class="footer-contact-item"><span class="fi">💬</span><span><a href="https://wa.me/8613808828019" target="_blank" style="color:rgba(255,255,255,0.7)" data-i18n="footer.whatsapp">WhatsApp: +86 138 0882 8019</a></span></div>
-          <div class="footer-contact-item"><span class="fi">✉️</span><span><a href="mailto:vivian@materials-ad.com" style="color:rgba(255,255,255,0.7)">vivian@materials-ad.com</a></span></div>
-        </div>
-      </div>
-      <div class="footer-col">
-        <h4 data-i18n="footer.productsTitle">Products</h4>
-        <a href="/products#self-adhesive-vinyl" data-i18n="footer.prod.sav">Self Adhesive Vinyl</a>
-        <a href="/products#flex-banner" data-i18n="footer.prod.flexBanner">PVC Flex Banner</a>
-        <a href="/products#one-way-vision" data-i18n="footer.prod.oneWay">One Way Vision</a>
-        <a href="/products#cutting-vinyl" data-i18n="footer.prod.cutting">Cutting Vinyl</a>
-        <a href="/products#pvc-foam-board" data-i18n="footer.prod.pvcFoam">PVC Foam Board</a>
-        <a href="/products#acrylic-sheet" data-i18n="footer.prod.acrylic">Acrylic Sheet</a>
-        <a href="/products#aluminum-composite-panel" data-i18n="footer.prod.acp">Aluminum Composite Panel</a>
-        <a href="/products#reflective-sheet" data-i18n="footer.prod.reflective">Reflective Sheet</a>
-      </div>
-      <div class="footer-col">
-        <h4 data-i18n="footer.applicationsTitle">Applications</h4>
-        <a href="/applications#sign-board" data-i18n="footer.app.signBoard">Sign Board</a>
-        <a href="/applications#light-box" data-i18n="footer.app.lightBox">Light Box</a>
-        <a href="/applications#digital-printing" data-i18n="footer.app.digital">Digital Printing</a>
-        <a href="/applications#outdoor-advertising" data-i18n="footer.app.outdoor">Outdoor Advertising</a>
-        <a href="/applications#exhibition-display" data-i18n="footer.app.exhibition">Exhibition Display</a>
-        <h4 style="margin-top:20px;" data-i18n="footer.companyTitle">Company</h4>
-        <a href="/about#company-profile" data-i18n="footer.company.profile">Company Profile</a>
-        <a href="/about#factory" data-i18n="footer.company.factory">Factory</a>
-        <a href="/about#certificates" data-i18n="footer.company.certificates">Certificates</a>
-        <a href="/case-studies" data-i18n="footer.company.cases">Case Studies</a>
-        <a href="/news" data-i18n="footer.company.news">News</a>
-      </div>
-      <div class="footer-col">
-        <h4 data-i18n="footer.quickContactTitle">Quick Contact</h4>
-        <p style="font-size:13px;color:rgba(255,255,255,0.55);margin-bottom:16px;" data-i18n="footer.quickContactDesc">Get pricing and product details within 24 hours.</p>
-        <a href="/contact" class="btn btn-primary" style="width:100%;justify-content:center;margin-bottom:12px;color:#ffffff;" data-i18n="footer.getQuote">Get a Quote</a>
-        <a href="https://wa.me/8613808828019" target="_blank" class="btn btn-outline" style="width:100%;justify-content:center;color:#ffffff;" data-i18n="footer.whatsappNow">💬 WhatsApp Now</a>
-        <div style="margin-top:20px;padding:16px;background:rgba(255,255,255,0.05);border-radius:var(--radius);border:1px solid rgba(255,255,255,0.08);">
-          <div style="font-size:11px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;" data-i18n="footer.businessHours">Business Hours</div>
-          <div style="font-size:13px;color:rgba(255,255,255,0.75);" data-i18n="footer.weekday">Mon – Fri: 09:00 – 18:00 (GMT+8)</div>
-          <div style="font-size:13px;color:rgba(255,255,255,0.75);" data-i18n="footer.saturday">Sat: 09:00 – 13:00</div>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p data-i18n="footer.copyright">© 2024 Foshan Jin Yu Advertising Material Co., Ltd. All Rights Reserved.</p>
-      <p data-i18n="footer.certified">ISO 9001 Certified · Foshan, Guangdong, China</p>
-    </div>
-  </div>
-</footer>
+<footer class="footer">
+
+  <div class="container">
+
+    <div class="footer-grid">
+
+      <div class="footer-brand">
+
+        <div class="footer-logo-name" data-i18n="footer.companyName">Foshan Jin Yu Advertising Material Co., Ltd</div>
+
+        <div class="footer-logo-sub" data-i18n="footer.companySub">Professional Advertising Materials Manufacturer Since 2009</div>
+
+        <p data-i18n="footer.companyDesc">Integrated design, R&D, production and sales of advertising materials. ISO 9001 certified. Exporting to Europe, Americas, Southeast Asia, Middle East and beyond.</p>
+
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px;">
+
+          <span class="cert-badge" data-i18n="footer.isoBadge">🏅 ISO 9001</span>
+
+          <span class="cert-badge" data-i18n="footer.exportBadge">🌍 Global Export</span>
+
+        </div>
+
+        <div id="footer-social-icons" style="display:flex;gap:12px;margin-top:16px;align-items:center;"></div>
+
+        <div style="margin-top:20px;">
+
+          <div class="footer-contact-item"><span class="fi">📍</span><span data-i18n="footer.address">D3168, U+Zhigu Industrial Park, LiShui Town, Nanhai District, Foshan City, Guangdong Province, China</span></div>
+
+          <div class="footer-contact-item"><span class="fi">📞</span><span><a href="tel:+8613570441363" style="color:rgba(255,255,255,0.7)">+86-13570441363</a></span></div>
+
+          <div class="footer-contact-item"><span class="fi">💬</span><span><a href="https://wa.me/8613808828019" target="_blank" style="color:rgba(255,255,255,0.7)" data-i18n="footer.whatsapp">WhatsApp: +86 138 0882 8019</a></span></div>
+
+          <div class="footer-contact-item"><span class="fi">✉️</span><span><a href="mailto:vivian@materials-ad.com" style="color:rgba(255,255,255,0.7)">vivian@materials-ad.com</a></span></div>
+
+        </div>
+
+      </div>
+
+      <div class="footer-col">
+
+        <h4 data-i18n="footer.productsTitle">Products</h4>
+
+        <a href="/products#self-adhesive-vinyl" data-i18n="footer.prod.sav">Self Adhesive Vinyl</a>
+
+        <a href="/products#flex-banner" data-i18n="footer.prod.flexBanner">PVC Flex Banner</a>
+
+        <a href="/products#one-way-vision" data-i18n="footer.prod.oneWay">One Way Vision</a>
+
+        <a href="/products#cutting-vinyl" data-i18n="footer.prod.cutting">Cutting Vinyl</a>
+
+        <a href="/products#pvc-foam-board" data-i18n="footer.prod.pvcFoam">PVC Foam Board</a>
+
+        <a href="/products#acrylic-sheet" data-i18n="footer.prod.acrylic">Acrylic Sheet</a>
+
+        <a href="/products#aluminum-composite-panel" data-i18n="footer.prod.acp">Aluminum Composite Panel</a>
+
+        <a href="/products#reflective-sheet" data-i18n="footer.prod.reflective">Reflective Sheet</a>
+
+      </div>
+
+      <div class="footer-col">
+
+        <h4 data-i18n="footer.applicationsTitle">Applications</h4>
+
+        <a href="/applications#sign-board" data-i18n="footer.app.signBoard">Sign Board</a>
+
+        <a href="/applications#light-box" data-i18n="footer.app.lightBox">Light Box</a>
+
+        <a href="/applications#digital-printing" data-i18n="footer.app.digital">Digital Printing</a>
+
+        <a href="/applications#outdoor-advertising" data-i18n="footer.app.outdoor">Outdoor Advertising</a>
+
+        <a href="/applications#exhibition-display" data-i18n="footer.app.exhibition">Exhibition Display</a>
+
+        <h4 style="margin-top:20px;" data-i18n="footer.companyTitle">Company</h4>
+
+        <a href="/about#company-profile" data-i18n="footer.company.profile">Company Profile</a>
+
+        <a href="/about#factory" data-i18n="footer.company.factory">Factory</a>
+
+        <a href="/about#certificates" data-i18n="footer.company.certificates">Certificates</a>
+
+        <a href="/case-studies" data-i18n="footer.company.cases">Case Studies</a>
+
+        <a href="/news" data-i18n="footer.company.news">News</a>
+
+      </div>
+
+      <div class="footer-col">
+
+        <h4 data-i18n="footer.quickContactTitle">Quick Contact</h4>
+
+        <p style="font-size:13px;color:rgba(255,255,255,0.55);margin-bottom:16px;" data-i18n="footer.quickContactDesc">Get pricing and product details within 24 hours.</p>
+
+        <a href="/contact" class="btn btn-primary" style="width:100%;justify-content:center;margin-bottom:12px;color:#ffffff;" data-i18n="footer.getQuote">Get a Quote</a>
+
+        <a href="https://wa.me/8613808828019" target="_blank" class="btn btn-outline" style="width:100%;justify-content:center;color:#ffffff;" data-i18n="footer.whatsappNow">💬 WhatsApp Now</a>
+
+        <div style="margin-top:20px;padding:16px;background:rgba(255,255,255,0.05);border-radius:var(--radius);border:1px solid rgba(255,255,255,0.08);">
+
+          <div style="font-size:11px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;" data-i18n="footer.businessHours">Business Hours</div>
+
+          <div style="font-size:13px;color:rgba(255,255,255,0.75);" data-i18n="footer.weekday">Mon – Fri: 09:00 – 18:00 (GMT+8)</div>
+
+          <div style="font-size:13px;color:rgba(255,255,255,0.75);" data-i18n="footer.saturday">Sat: 09:00 – 13:00</div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+
+      <p data-i18n="footer.copyright">© 2024 Foshan Jin Yu Advertising Material Co., Ltd. All Rights Reserved.</p>
+
+      <p data-i18n="footer.certified">ISO 9001 Certified · Foshan, Guangdong, China</p>
+
+    </div>
+
+  </div>
+
+</footer>
+
 
 <!-- FLOAT ACTION BUTTONS -->
 <div class="fab-container">
@@ -1318,7 +1387,6 @@ window.addEventListener('scroll', () => {
   const fab = document.getElementById('fabTop');
   if (fab) { if (window.scrollY > 300) fab.classList.add('visible'); else fab.classList.remove('visible'); }
 });
-function toggleMenu() { document.getElementById('navMenu').classList.toggle('open'); }
 
 // FAQ Tab Switching
 document.querySelectorAll('.faq-tab').forEach(tab => {

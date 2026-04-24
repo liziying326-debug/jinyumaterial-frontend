@@ -15,6 +15,7 @@
   <meta property="og:url" content="https://www.jinyu2021.com/" />
   <script src="/i18n.js"></script>
   <script src="/api.js"></script>
+  <script src="/mobile-menu.js"></script>
 </head>
 <body>
 
@@ -89,12 +90,19 @@
         <!-- Get a Quote -->
         <a href="/contact" class="btn btn-primary btn-sm nav-cta" data-i18n="nav.getQuote">Get a Quote</a>
       </div>
-      <div class="nav-hamburger" id="hamburger" onclick="toggleMenu()">
-        <span></span><span></span><span></span>
-      </div>
     </div>
   </div>
 </nav>
+<!-- Hamburger button - OUTSIDE navbar so z-index works independently -->
+<div class="nav-hamburger" id="hamburger" onclick="toggleMobileMenu()">
+  <span></span><span></span><span></span>
+</div>
+<!-- Mobile menu overlay - OUTSIDE navbar, independent stacking context -->
+<div class="mobile-backdrop" id="mobileBackdrop"></div>
+<div id="mobile-nav-overlay" class="mobile-nav-overlay">
+  <div class="mobile-lang-switcher" id="mobileLangSwitcher"></div>
+  <ul class="mobile-nav-list" id="mobileNavList"></ul>
+</div>
 
 <!-- ========== HERO ========== -->
 <section class="hero">
@@ -444,7 +452,9 @@
         <div class="faq-content" id="ordering-faq"></div>
         <div class="faq-content" id="shipping-faq"></div>
         <div class="faq-content" id="quality-faq"></div>
-
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- ========== FOOTER ========== -->
@@ -518,23 +528,7 @@ window.addEventListener('scroll', () => {
   if (window.scrollY > 60) nb.classList.add('scrolled');
   else nb.classList.remove('scrolled');
 });
-// Mobile menu toggle
-function toggleMenu() {
-  const menu = document.getElementById('navMenu');
-  const hb = document.getElementById('hamburger');
-  menu.classList.toggle('open');
-  hb.classList.toggle('active');
-}
-// Mobile dropdown toggle
-document.querySelectorAll('.nav-menu.open .nav-link').forEach(link => {
-  link.addEventListener('click', function(e) {
-    const dropdown = this.parentElement.querySelector('.dropdown');
-    if (dropdown) {
-      e.preventDefault();
-      dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
-    }
-  });
-});
+// Mobile menu handled by /mobile-menu.js — hamburger has onclick="toggleMobileMenu()"
 
 // FAQ Tab Switching
 

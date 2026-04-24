@@ -103,7 +103,12 @@
     "faq_shipping_5_answer": "我们提供多种运输解决方案，快速、可靠地运送到越南、菲律宾和其他东南亚国家：\n快递（DHL、联邦快递、UPS）：小额订单/样品3-7天\n空运：中型订单7-15天\n海运：大宗订单20-35天（最具成本效益）",
     "prod_about_team_3_name": "雨果",
     "prod_about_team_3_role": "创始人兼总经理",
-    "prod_about_team_3_desc": "他在广告材料行业拥有数十年的经验，领导公司的整体战略、产品开发和质量管理。他专注于稳定的产品性能和全球市场扩张，致力于为东南亚合作伙伴提供经济高效且可靠的广告材料解决方案。"
+    "prod_about_team_3_desc": "他在广告材料行业拥有数十年的经验，领导公司的整体战略、产品开发和质量管理。他专注于稳定的产品性能和全球市场扩张，致力于为东南亚合作伙伴提供经济高效且可靠的广告材料解决方案。",
+    "prod_self-adhesive-vinyl_desc": "用于广告和展示应用的高品质自粘乙烯基（ SAV ）。",
+    "prod_pet-photo-paper_desc": "高品质PET相纸/PP横幅，用于广告和展示应用。",
+    "prod_1776013547870_name": "图像设置",
+    "prod_1776013547870_description": "将产品卡片图像设置为1: 1宽高比（正方形）。使用object-fit: cover确保完全显示图像而不会拉伸或扭曲。将图像居中，并在其周围保持一致的填充。",
+    "prod_reflective-sheeting_desc": "高品质的反光片，适用于广告和展示应用。"
   },
   "tl": {
     "prod_1_title": "Proyekto ng Pag-signage ng Supermarket",
@@ -207,7 +212,7 @@
     "prod_1776683186225_description": "Ang backlit film ay espesyal na idinisenyo para sa advertising ng light box. Kahit na paghahatid ng ilaw, pare-parehong pagganap ng kulay at mataas na saturation. Luha-lumalaban at anti-aging, akma para sa pangmatagalang backlight display. Malawakang ginagamit sa mga shopping mall, transportasyon at komersyal na mga kahon ng ilaw.",
     "prod_led-power-supply_description": "Mataas na kalidad na LED Power Supply para sa advertising at display application.",
     "faq_shipping_5_question": "Maaari ba akong makakuha ng mga libreng sample bago maglagay ng isang bulk order?",
-    "faq_shipping_5_answer": "Nagbibigay kami ng maramihang mga solusyon sa pagpapadala para sa mabilis, maaasahang paghahatid sa Vietnam, Pilipinas, at iba pang mga bansa sa Timog-silangang Asya:\nExpress na pagpapadala (DHL, FedEx, UPS): 3-7 araw para sa maliliit na order / sample\nAir Freight: 7-15 araw para sa mga katamtamang laki ng mga order\nKargamento sa dagat: 20-35 araw para sa malalaking bulk order (pinaka-cost-effective)",
+    "faq_shipping_5_answer": "Nagbibigay kami ng maramihang mga solusyon sa pagpapadala para sa mabilis, maaasahang paghahatid sa Vietnam, Pilipinas, at iba pang mga bansa sa Timog-silangang Asya: \nExpress na pagpapadala (DHL, FedEx, UPS): 3-7 araw para sa maliliit na order / sample\nAir Freight: 7-15 araw para sa mga katamtamang laki ng mga order\nKargamento sa dagat: 20-35 araw para sa malalaking bulk order (pinaka-cost-effective)",
     "prod_about_team_3_role": "Tagapagtatag at Pangkalahatang Tagapamahala",
     "prod_about_team_3_desc": "Sa mga dekada ng karanasan sa industriya ng mga materyales sa advertising, pinamumunuan niya ang pangkalahatang diskarte ng kumpanya, pag-unlad ng produkto at pamamahala ng kalidad. Nakatuon siya sa matatag na pagganap ng produkto at pagpapalawak ng pandaigdigang merkado, na nakatuon sa pag-aalok ng cost-effective at maaasahang mga solusyon sa materyal na advertising para sa mga kasosyo sa Timog-silangang Asya."
   },

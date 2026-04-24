@@ -75,6 +75,7 @@
 .pd-notfound h2 { font-size: 24px; color: #333; margin-bottom: 12px; }
 .pd-notfound p { color: #888; margin-bottom: 28px; }
 </style>
+  <script src="/mobile-menu.js"></script>
 </head>
 <body>
 
@@ -145,10 +146,16 @@
         <div class="nav-divider"></div>
         <a href="/contact" class="btn btn-primary btn-sm nav-cta" data-i18n="nav.getQuote">Get a Quote</a>
       </div>
-      <div class="nav-hamburger" id="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
     </div>
   </div>
 </nav>
+<div class="nav-hamburger" id="hamburger" onclick="toggleMobileMenu()"><span></span><span></span><span></span></div>
+<!-- Mobile menu overlay -->
+<div class="mobile-backdrop" id="mobileBackdrop"></div>
+<div id="mobile-nav-overlay" class="mobile-nav-overlay">
+  <div class="mobile-lang-switcher" id="mobileLangSwitcher"></div>
+  <ul class="mobile-nav-list" id="mobileNavList"></ul>
+</div>
 
 <!-- BREADCRUMB -->
 <div class="pd-breadcrumb-bar">
@@ -2013,9 +2020,6 @@ window.addEventListener('scroll', () => {
   if (nav) nav.classList.toggle('scrolled', window.scrollY > 50);
 });
 
-function toggleMenu() {
-  document.getElementById('navMenu').classList.toggle('open');
-}
 </script>
 
 <!-- FLOAT ACTION BUTTONS -->
