@@ -744,7 +744,8 @@ const server = http.createServer((req, res) => {
    || pathname.startsWith('/admin-images/')
    || pathname.startsWith('/about-uploads/')
    || pathname.startsWith('/homepage-uploads/')
-   || pathname.startsWith('/case-uploads/')) {
+   || pathname.startsWith('/case-uploads/')
+   || pathname.startsWith('/product-images/')) {
     return proxyToAdmin(req, res);
   }
 
