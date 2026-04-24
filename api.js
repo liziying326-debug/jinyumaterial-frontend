@@ -3,6 +3,48 @@
 
 const API_BASE = window.location.origin;
 
+// 共享图片URL配置 - About页面相关图片
+// 首页About Us图片 和 about页Our Journey图片共享同一个URL
+const DEFAULT_ABOUT_IMAGES = {
+  ourJourney: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80',
+  aboutMain: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80'  // 默认同步使用Our Journey图片
+};
+
+// 从后台 /api/about 加载About页面图片配置
+async function loadAboutImages() {
+  try {
+    const res = await fetch(`${API_BASE}/api/about`);
+    if (res.ok) {
+      const json = await res.json();
+      const about = json.data || {};
+      // timeline_image 就是发展历程配图
+      if (about.timeline_image) {
+        const imgUrl = about.timeline_image;
+        DEFAULT_ABOUT_IMAGES.ourJourney = imgUrl;
+        DEFAULT_ABOUT_IMAGES.aboutMain = imgUrl; // 首页About Us同步使用
+      }
+    }
+  } catch {}
+  return DEFAULT_ABOUT_IMAGES;
+}
+
+// 应用About页面图片到指定元素
+async function applyAboutImages() {
+  const images = await loadAboutImages();
+  
+  // 首页 About Us 图片 - 使用Our Journey的图片
+  const aboutMainImg = document.getElementById('aboutMainImage');
+  if (aboutMainImg) {
+    aboutMainImg.src = images.aboutMain;
+  }
+  
+  // About页 Our Journey 图片
+  const journeyImg = document.getElementById('abt-timeline-img');
+  if (journeyImg) {
+    journeyImg.src = images.ourJourney;
+  }
+}
+
 // 加载产品数据
 async function fetchProducts() {
   try {
