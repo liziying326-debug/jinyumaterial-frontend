@@ -14,7 +14,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.jinyu2021.com/" />
   <script src="/i18n.js"></script>
-  <script src="/api.js"></script>
+  <script src="/api.js?v=20260425"></script>
   <script src="/mobile-menu.js"></script>
 </head>
 <body>
@@ -45,14 +45,7 @@
           <div class="dropdown" id="nav-product-dropdown"></div>
         </li>
         <li class="nav-item">
-          <a href="/applications" class="nav-link" data-i18n="nav.applications">Applications <svg viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
-          <div class="dropdown">
-            <a href="/applications#sign-board" data-i18n="nav.applications_sub.signBoard">Sign Board</a>
-            <a href="/applications#light-box" data-i18n="nav.applications_sub.lightBox">Light Box</a>
-            <a href="/applications#digital-printing" data-i18n="nav.applications_sub.digitalPrinting">Digital Printing</a>
-            <a href="/applications#outdoor-advertising" data-i18n="nav.applications_sub.outdoorAdvertising">Outdoor Advertising</a>
-            <a href="/applications#exhibition-display" data-i18n="nav.applications_sub.exhibitionDisplay">Exhibition Display</a>
-          </div>
+          <a href="/applications" class="nav-link" data-i18n="nav.applications">Applications</a>
         </li>
         <li class="nav-item"><a href="/case-studies" class="nav-link" data-i18n="nav.caseStudies">Cases / Videos</a></li>
         <li class="nav-item">
@@ -248,7 +241,9 @@
       <h2 data-i18n="home.apps.title" data-i18n-vi="Vật liệu của chúng tôi hoạt động ở đâu">Where Our Materials Perform</h2>
       <p data-i18n="home.apps.subtitle" data-i18n-vi="Vật liệu quảng cáo của chúng tôi được tin tưởng trong nhiều ứng dụng làm biển hiệu thương mại và công nghiệp trên toàn thế giới.">Our advertising materials are trusted across a wide range of commercial and industrial sign-making applications globally.</p>
     </div>
-    <div class="grid-3" style="gap:20px;">
+    <!-- 动态加载区域 -->
+    <div id="homeAppsGrid" class="grid-3" style="gap:20px;">
+      <!-- 静态兜底，API加载后会替换 -->
       <div class="app-card" onclick="location.href='/applications#sign-board'">
         <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=700&q=75" alt="Sign Board" loading="lazy" />
         <div class="app-card-overlay">
@@ -319,10 +314,11 @@
       <h2 data-i18n="home.cases.title" data-i18n-vi="Dự án thực tế. Kết quả thực tế.">Real Projects. Real Results.</h2>
       <p data-i18n="home.cases.subtitle" data-i18n-vi="Xem vật liệu quảng cáo của chúng tôi đã được triển khai trong các dự án thương mại trên nhiều thị trường toàn cầu như thế nào.">See how our advertising materials have been deployed in commercial projects across multiple markets worldwide.</p>
     </div>
-    <div class="grid-3">
+    <!-- 动态加载区域，API 失败时保留静态兜底 -->
+    <div id="homeCasesGrid" class="grid-3">
       <div class="card" onclick="location.href='/case-studies#supermarket'" style="cursor:pointer;">
         <div class="card-img">
-          <img src="https://images.unsplash.com/photo-1601598851547-4302969d0614?w=600&q=75" alt="Supermarket Sign Project" loading="lazy" />
+          <div style="width:100%;height:200px;background:linear-gradient(135deg,#e0f2fe,#bfdbfe);display:flex;align-items:center;justify-content:center;font-size:40px;">🏪</div>
         </div>
         <div class="card-body">
           <div class="card-tag" data-i18n="home.cases.case1.tag" data-i18n-vi="Bán lẻ">Retail</div>
@@ -332,7 +328,7 @@
       </div>
       <div class="card" onclick="location.href='/case-studies#mall-lightbox'" style="cursor:pointer;">
         <div class="card-img">
-          <img src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=600&q=75" alt="Mall Light Box Project" loading="lazy" />
+          <div style="width:100%;height:200px;background:linear-gradient(135deg,#fef3c7,#fde68a);display:flex;align-items:center;justify-content:center;font-size:40px;">🏬</div>
         </div>
         <div class="card-body">
           <div class="card-tag" data-i18n="home.cases.case2.tag" data-i18n-vi="Thương mại">Commercial</div>
@@ -342,7 +338,7 @@
       </div>
       <div class="card" onclick="location.href='/case-studies#outdoor-billboard'" style="cursor:pointer;">
         <div class="card-img">
-          <img src="https://images.unsplash.com/photo-1519501025264-65ba15a82390?w=600&q=75" alt="Outdoor Billboard Project" loading="lazy" />
+          <div style="width:100%;height:200px;background:linear-gradient(135deg,#d1fae5,#a7f3d0);display:flex;align-items:center;justify-content:center;font-size:40px;">🏗️</div>
         </div>
         <div class="card-body">
           <div class="card-tag" data-i18n="home.cases.case3.tag" data-i18n-vi="Ngoài trờ">Outdoor</div>
@@ -1102,10 +1098,219 @@ if (typeof loadSocialIcons === 'function') {
   loadSocialIcons('#footer-social-icons', { brandColor: true });                 // Footer 图标（品牌色）
 }
 
-// ── About页面图片（Our Journey图片同步到首页About Us） ──
-if (typeof applyAboutImages === 'function') {
-  applyAboutImages();
-}
+// ── About区块图片：从后台 timeline_image 联动，有则替换，无则保持默认 ──
+(function() {
+  async function loadAboutFromAPI() {
+    try {
+      var resp = await fetch('/api/about?_=' + Date.now());
+      if (!resp.ok) return;
+      var json = await resp.json();
+      var imgUrl = (json.data || {}).timeline_image;
+      if (imgUrl) {
+        var img = document.getElementById('aboutMainImage');
+        if (img) img.src = imgUrl;
+      }
+    } catch(e) { console.error('[AboutImg]', e); }
+  }
+  loadAboutFromAPI();
+})();
+
+// ── 首页 Applications 区块：联动后台场景数据 ──
+(function() {
+  var _appsCache = null;
+
+  function getLang() {
+    return (window.i18n && window.i18n.currentLang) ||
+           localStorage.getItem('jinyu_lang') || localStorage.getItem('lang') || 'en';
+  }
+
+  function pickName(item, lang) {
+    if (lang === 'zh') return item.name_zh || item.name_en || '';
+    if (lang === 'vi') return item.name_vi || item.name_en || '';
+    if (lang === 'tl') return item.name_tl || item.name_en || '';
+    return item.name_en || '';
+  }
+
+  function pickDesc(item, lang) {
+    if (lang === 'zh') return item.description_zh || item.description_en || '';
+    if (lang === 'vi') return item.description_vi || item.description_en || '';
+    if (lang === 'tl') return item.description_tl || item.description_en || '';
+    return item.description_en || '';
+  }
+
+  function renderHomeApps(items, lang) {
+    var grid = document.getElementById('homeAppsGrid');
+    if (!grid || !items || items.length === 0) return;
+    var cards = items.map(function(item) {
+      var name = pickName(item, lang);
+      var desc = pickDesc(item, lang);
+      // description 取第一句（截断到100字）作为简短摘要
+      var shortDesc = desc ? (desc.length > 100 ? desc.substring(0, 97) + '…' : desc) : '';
+      var slug = item.slug || ('app-' + item.id);
+      var imgSrc = item.image || (Array.isArray(item.images) && item.images[0]) || '';
+      var imgTag = imgSrc
+        ? '<img src="' + imgSrc + '" alt="' + name + '" loading="lazy" onerror="this.src=\'\'"/>'
+        : '<div style="width:100%;height:100%;background:linear-gradient(135deg,#e0f2fe,#bfdbfe);display:flex;align-items:center;justify-content:center;font-size:40px;">📌</div>';
+      return '<div class="app-card" onclick="location.href=\'/applications#' + slug + '\'">' +
+               imgTag +
+               '<div class="app-card-overlay">' +
+                 '<h3>' + name + '</h3>' +
+                 (shortDesc ? '<p>' + shortDesc + '</p>' : '') +
+               '</div>' +
+             '</div>';
+    });
+    grid.innerHTML = cards.join('');
+  }
+
+  async function loadHomeApps() {
+    try {
+      if (!_appsCache) {
+        var resp = await fetch('/api/applications');
+        var json = await resp.json();
+        _appsCache = json.success ? json.data : (Array.isArray(json) ? json : null);
+      }
+      if (_appsCache && _appsCache.length > 0) {
+        renderHomeApps(_appsCache, getLang());
+      }
+    } catch(e) {
+      // 静默失败，保留静态兜底
+    }
+  }
+
+  // 初始加载
+  loadHomeApps();
+
+  // 响应语言切换
+  document.addEventListener('langChange', function() {
+    if (_appsCache) renderHomeApps(_appsCache, getLang());
+  });
+  if (window.i18n) {
+    var _orig = window.i18n.changeLanguage && window.i18n.changeLanguage.bind(window.i18n);
+    if (_orig) {
+      window.i18n.changeLanguage = async function(lang) {
+        await _orig(lang);
+        if (_appsCache) renderHomeApps(_appsCache, getLang());
+      };
+    }
+  }
+})();
+
+// ── 首页 Case Studies 区块：联动后台案例数据，随机展示3条 ──
+(function() {
+  function getLangForCases() {
+    return (window.i18n && window.i18n.currentLang) ||
+           localStorage.getItem('jinyu_lang') || localStorage.getItem('lang') || 'en';
+  }
+
+  // 与 case-studies 页保持一致的数据规范化
+  function normalizeCase(c) {
+    if (c.title_zh || c.title_en || c.description_zh) return c;
+    var out = Object.assign({}, c);
+    var langMap = { en: '_en', zh: '_zh', vi: '_vi', ph: '_tl', tl: '_tl' };
+    if (c.langData && typeof c.langData === 'object') {
+      Object.keys(langMap).forEach(function(lang) {
+        var ld = c.langData[lang];
+        if (!ld) return;
+        var suffix = langMap[lang];
+        if (ld.title) out['title' + suffix] = ld.title;
+        if (ld.content) out['description' + suffix] = ld.content;
+        if (ld.slug && !out.slug) out.slug = ld.slug;
+        if (ld.alt && !out.alt) out.alt = ld.alt;
+      });
+      if (!out.title) out.title = (c.langData.en && c.langData.en.title) || (c.langData.zh && c.langData.zh.title) || '';
+      if (!out.description) out.description = (c.langData.en && c.langData.en.content) || (c.langData.zh && c.langData.zh.content) || c.desc || '';
+    }
+    if (!out.status) out.status = 'published';
+    return out;
+  }
+
+  function pickCaseField(item, field, lang) {
+    var langMap = { zh: 'zh', vi: 'vi', tl: 'tl', ph: 'tl' };
+    var langKey = langMap[lang] || 'en';
+    var langData = item.langData || {};
+    if (langData[langKey] && langData[langKey][field]) return langData[langKey][field];
+    if (langData.en && langData.en[field]) return langData.en[field];
+    if (item[field]) return item[field];
+    return '';
+  }
+
+  function pickRandom(arr, n) {
+    var copy = arr.slice();
+    var result = [];
+    while (result.length < n && copy.length > 0) {
+      var idx = Math.floor(Math.random() * copy.length);
+      result.push(copy.splice(idx, 1)[0]);
+    }
+    return result;
+  }
+
+  function renderHomeCases(items, lang) {
+    var grid = document.getElementById('homeCasesGrid');
+    if (!grid || !items || items.length === 0) return;
+    var picked = pickRandom(items, Math.min(3, items.length));
+    var cards = picked.map(function(item) {
+      var title = pickCaseField(item, 'title', lang);
+      var content = pickCaseField(item, 'content', lang);
+      var shortDesc = content
+        ? (content.replace(/<[^>]+>/g, '').replace(/\n+/g, ' ').substring(0, 100) + (content.length > 100 ? '…' : ''))
+        : (item.description || item.desc || '');
+      var category = item.category || '';
+      var slug = pickCaseField(item, 'slug', lang) || item.slug || ('case-' + item.id);
+      var images = Array.isArray(item.images) ? item.images : [];
+      var imgSrc = images[0] || '';
+      var imgTag = imgSrc
+        ? '<img src="' + imgSrc + '" alt="' + title + '" loading="lazy" onerror="this.style.display=\'none\'">'
+        : '<div style="width:100%;height:200px;background:linear-gradient(135deg,#e0f2fe,#bfdbfe);display:flex;align-items:center;justify-content:center;font-size:40px;">📋</div>';
+      return '<div class="card" onclick="location.href=\'/case-studies#' + slug + '\'" style="cursor:pointer;">' +
+               '<div class="card-img">' + imgTag + '</div>' +
+               '<div class="card-body">' +
+                 (category ? '<div class="card-tag">' + category.toUpperCase() + '</div>' : '') +
+                 '<h3>' + title + '</h3>' +
+                 (shortDesc ? '<p>' + shortDesc + '</p>' : '') +
+               '</div>' +
+             '</div>';
+    });
+    grid.innerHTML = cards.join('');
+  }
+
+  var _cachedItems = null;
+
+  async function loadHomeCases() {
+    try {
+      var resp = await fetch('/api/case-studies?_=' + Date.now());
+      if (!resp.ok) throw new Error('HTTP ' + resp.status);
+      var json = await resp.json();
+      var raw = json.success ? json.data : (Array.isArray(json) ? json : []);
+      // 和 case-studies 页一致：normalize + 只显示 published
+      var items = raw.map(normalizeCase).filter(function(c){ return c.status === 'published'; });
+      if (items.length > 0) {
+        _cachedItems = items;
+        renderHomeCases(items, getLangForCases());
+      }
+    } catch(e) {
+      // API 失败时保留静态兜底，不动 homeCasesGrid
+      console.warn('[HomeCases] API 不可用，保留静态内容', e);
+    }
+  }
+
+  // 语言切换时重新渲染
+  if (window.i18n) {
+    var _origCL = window.i18n.changeLanguage.bind(window.i18n);
+    window.i18n.changeLanguage = async function(lang) {
+      await _origCL(lang);
+      if (_cachedItems) renderHomeCases(_cachedItems, getLangForCases());
+    };
+  }
+  document.addEventListener('langChange', function() {
+    if (_cachedItems) renderHomeCases(_cachedItems, getLangForCases());
+  });
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', loadHomeCases);
+  } else {
+    loadHomeCases();
+  }
+})();
 </script>
 
 </body>
